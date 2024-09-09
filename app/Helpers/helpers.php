@@ -130,7 +130,6 @@ if (!function_exists('basicControl')) {
         } catch (\Exception $e) {
             die("Unable to establish a connection to the database. Please check your connection settings and try again later");
         }
-
     }
 }
 
