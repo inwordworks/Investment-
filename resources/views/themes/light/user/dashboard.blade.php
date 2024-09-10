@@ -425,13 +425,13 @@
           InvestHistory()
 
         async  function InvestHistory(){
-            await axios.get('{{route('user.invest.history')}}')
+            await axios.get('<?= route('user.invest.history') ?>')
                   .then(function (response){
                       var newSeries = [{
-                          name: '{{trans('Plan Invest')}}',
+                          name: '<?= trans('Plan Invest') ?>',
                           data: response.data.plan_invest
                       }, {
-                          name: '{{trans('Project Invest')}}',
+                          name: '<?= trans('Project Invest') ?>',
                           data: response.data.project_invest
                       }];
                       chart.updateSeries(newSeries);
@@ -495,7 +495,7 @@
           depositPayoutHistory()
 
          async function depositPayoutHistory(){
-              await axios.get('{{route('user.depositPayout.history')}}')
+              await axios.get('<?= route('user.depositPayout.history') ?>')
                   .then(function (response){
                       let newSeries = [{
                           name: 'Deposit',

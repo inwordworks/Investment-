@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Storage;
 if (!function_exists('template')) {
     function template($asset = false)
     {
-        $activeTheme = basicControl()->theme??'light';
+        $activeTheme = basicControl()->theme ?? 'light';
         if ($asset) return 'assets/themes/' . $activeTheme . '/';
         return 'themes.' . $activeTheme . '.';
     }
@@ -117,7 +117,6 @@ if (!function_exists('basicControl')) {
         if (session()->get('themeMode') == null) {
             session()->put('themeMode', 'auto');
         }
-
         try {
             DB::connection()->getPdo();
             $configure = Cache::get('ConfigureSetting');
@@ -127,8 +126,14 @@ if (!function_exists('basicControl')) {
             }
 
             return $configure;
+        } catch (Throwable $th) {
+            // throw $th->getMessage();
+            die($th->getMessage());
+            // die("Unable to establish a connection to the database. Please check your connection settings and try again later ...");
+        }
+
+        try {
         } catch (\Exception $e) {
-            die("Unable to establish a connection to the database. Please check your connection settings and try again later");
         }
     }
 }
@@ -155,10 +160,10 @@ if (!function_exists('controlPanelRoutes')) {
         $listRoutes->push(config('generalsettings.push-notification'));
         $listRoutes->push(config('generalsettings.email'));
         $listRoutes->push(config('generalsettings.sms'));
-       $list=  $listRoutes->collapse()->map(function ($item) {
-           return $item['route'];
-       })->values()->push('admin.settings')->unique();
-       return $list;
+        $list =  $listRoutes->collapse()->map(function ($item) {
+            return $item['route'];
+        })->values()->push('admin.settings')->unique();
+        return $list;
     }
 }
 
@@ -352,7 +357,7 @@ if (!function_exists('loopIndex')) {
 if (!function_exists('dateTime')) {
     function dateTime($date, $format = null)
     {
-        if($format == null){
+        if ($format == null) {
             $format = basicControl()->date_time_format;
         }
         return date($format, strtotime($date));
@@ -404,33 +409,31 @@ function updateWallet($user_id, $currency_id, $amount, $action = 0)
     return $balance;
 }
 
-function updateBalance($user_id, $amount, $action = 0,$balance_type = null)
+function updateBalance($user_id, $amount, $action = 0, $balance_type = null)
 {
     $user = User::where('id', $user_id)->firstOr(function () {
         throw new \Exception('User not found!');
     });
 
     if ($action == 1) { //add money
-        if ($balance_type){
+        if ($balance_type) {
             $balance = $user->{$balance_type} + $amount;
             $user->{$balance_type} = $balance;
-        }else{
+        } else {
             $balance = $user->balance + $amount;
             $user->balance = $balance;
         }
-
     } elseif ($action == 0) {
         if ($amount > $user->balance) {
             return back()->with('error', 'Insufficient Balance to deducted.');
         }
-        if ($balance_type){
+        if ($balance_type) {
             $balance = $user->{$balance_type} - $amount;
             $user->{$balance_type} = $balance;
-        }else{
+        } else {
             $balance = $user->balance - $amount;
             $user->balance = $balance;
         }
-
     }
     $user->save();
 }
@@ -454,12 +457,9 @@ if (!function_exists('currencyPosition')) {
     {
         $basic = basicControl();
         $amount = fractionNumber($amount);
-        return $basic->is_currency_position == 'left' && $basic->has_space_between_currency_and_amount ? " {$basic->currency_symbol}  {$amount}" :
-            ($basic->is_currency_position == 'left' && !$basic->has_space_between_currency_and_amount ? " {$basic->currency_symbol}  {$amount}" :
-                ($basic->is_currency_position == 'right' && $basic->has_space_between_currency_and_amount ? " {$amount}  {$basic->base_currency} " :
-                    "{$amount}  {$basic->base_currency}"));
+        return $basic->is_currency_position == 'left' && $basic->has_space_between_currency_and_amount ? " {$basic->currency_symbol}  {$amount}" : ($basic->is_currency_position == 'left' && !$basic->has_space_between_currency_and_amount ? " {$basic->currency_symbol}  {$amount}" : ($basic->is_currency_position == 'right' && $basic->has_space_between_currency_and_amount ? " {$amount}  {$basic->base_currency} " :
+            "{$amount}  {$basic->base_currency}"));
     }
-
 }
 
 
@@ -478,14 +478,16 @@ if (!function_exists('fractionNumber')) {
 function hextorgb($hexstring)
 {
     $integar = hexdec($hexstring);
-    return array("red" => 0xFF & ($integar >> 0x10),
+    return array(
+        "red" => 0xFF & ($integar >> 0x10),
         "green" => 0xFF & ($integar >> 0x8),
-        "blue" => 0xFF & $integar);
+        "blue" => 0xFF & $integar
+    );
 }
 
 function renderCaptCha($rand)
 {
-//    session_start();
+    //    session_start();
     $captcha_code = '';
     $captcha_image_height = 50;
     $captcha_image_width = 130;
@@ -505,7 +507,8 @@ function renderCaptCha($rand)
         $captcha_code .= substr(
             $possible_captcha_letters,
             mt_rand(0, strlen($possible_captcha_letters) - 1),
-            1);
+            1
+        );
         $count++;
     }
 
@@ -592,7 +595,7 @@ function renderCaptCha($rand)
 
 function getIpInfo()
 {
-//	$ip = '210.1.246.42';
+    //	$ip = '210.1.246.42';
     $ip = null;
     $deep_detect = TRUE;
 
@@ -713,9 +716,9 @@ function browserIcon($string)
         'Maxthon' => 'maxthon',
         'Konqueror' => 'unknown',
         'UC Browser' => 'ucBrowser',
-        'Safari Browser' => 'safari'];
+        'Safari Browser' => 'safari'
+    ];
     return $list[$string] ?? 'unknown';
-
 }
 
 function browserColor($string)
@@ -732,9 +735,9 @@ function browserColor($string)
         'Maxthon' => '#002558',
         'Konqueror' => '#003399',
         'UC Browser' => '#3E74A0',
-        'Safari Browser' => '#5EAA51'];
+        'Safari Browser' => '#5EAA51'
+    ];
     return $list[$string] ?? '#999999';
-
 }
 
 function deviceIcon($string)
@@ -742,9 +745,9 @@ function deviceIcon($string)
     $list = [
         'Tablet' => 'bi-laptop',
         'Mobile' => 'bi-phone',
-        'Computer' => 'bi-display'];
+        'Computer' => 'bi-display'
+    ];
     return $list[$string] ?? '';
-
 }
 
 if (!function_exists('timeAgo')) {
@@ -757,7 +760,6 @@ if (!function_exists('timeAgo')) {
         $timemsg = '';
         if ($diff->y > 0) {
             $timemsg = $diff->y . ' year' . ($diff->y > 1 ? "s" : '');
-
         } else if ($diff->m > 0) {
             $timemsg = $diff->m . ' month' . ($diff->m > 1 ? "s" : '');
         } else if ($diff->d > 0) {
@@ -823,7 +825,7 @@ if (!function_exists('getHeaderMenuData')) {
                 $pageDetails = getPageDetails($key);
                 $child = getHeaderChildMenu($menuItem);
                 $menuIDetails = [
-                    'name' => $pageDetails->page_name ?? $pageDetails->name,
+                    'name' => $pageDetails->page_name ?? ($pageDetails->name ?? ''),
                     'route' => isset($pageDetails->slug) ? route('page', $pageDetails->slug) : ($pageDetails->custom_link ?? staticPagesAndRoutes($key)),
                     'child' => $child
                 ];
@@ -898,29 +900,27 @@ if (!function_exists('getPageDetails')) {
                         ->limit(1)
                 ])
                 ->first();
-
         } catch (\Exception $e) {
-
         }
     }
 }
 
 if (!function_exists('renderHeaderMenu')) {
-    function renderHeaderMenu($menuItems,$isChild = null)
+    function renderHeaderMenu($menuItems, $isChild = null)
     {
 
         foreach ($menuItems as $key => $menuItem) {
             if (isset($menuItem['child'])) {
                 echo '<li class="dropdown">';
-                echo '<a href="javascript:void(0)" class="'.isMenuActive($menuItem['route']).'">' . $menuItem['name'] . '</a>';
+                echo '<a href="javascript:void(0)" class="' . isMenuActive($menuItem['route']) . '">' . $menuItem['name'] . '</a>';
                 echo '<ul class="">';
-                renderHeaderMenu($menuItem['child'],'child');
+                renderHeaderMenu($menuItem['child'], 'child');
                 echo '</ul>';
             } else {
-                if ($isChild == 'child'){
+                if ($isChild == 'child') {
                     echo '<li >';
                     echo '<a  href="' . $menuItem['route'] . '">' . $menuItem['name'] . '</a>';
-                }else{
+                } else {
                     echo '<li class="">';
                     echo '<a class="" href="' . $menuItem['route'] . '">' . $menuItem['name'] . '</a>';
                 }
@@ -969,7 +969,6 @@ function getPageName($name)
             ->first();
         return $pageDetails->name ?? $pageDetails->page->name ?? $name;
     } catch (\Exception $e) {
-
     }
 }
 
@@ -1013,44 +1012,43 @@ function filterCustomLinkRecursiveUpdate($collection, $lookingKey = '', $newValu
 
 
 
-function styleSentence($sentence,$position)
+function styleSentence($sentence, $position)
 {
 
-    if ($sentence){
+    if ($sentence) {
         $themeTrue = 'assets/themes/light/';
         $words = explode(' ', $sentence);
         try {
-            $words[$position] = '<span>'.$words[$position].'<img src="'.asset($themeTrue.'images/shape/title-bottom-shape.svg').'" alt="shape"></span>';
-            $modifiedSen = implode(' ',$words);
-
-        }catch (\Exception $e){
-            $words[count($words)-1] = '<span>'.$words[$position].'</span>';
-            $modifiedSen = implode(' ',$words);
+            $words[$position] = '<span>' . $words[$position] . '<img src="' . asset($themeTrue . 'images/shape/title-bottom-shape.svg') . '" alt="shape"></span>';
+            $modifiedSen = implode(' ', $words);
+        } catch (\Exception $e) {
+            $words[count($words) - 1] = '<span>' . $words[$position] . '</span>';
+            $modifiedSen = implode(' ', $words);
         }
         return $modifiedSen;
     }
     return  '';
 }
 
-function styleSentence2($sentence,$position)
+function styleSentence2($sentence, $position)
 {
-    if ($sentence){
+    if ($sentence) {
         $themeTrue = 'assets/themes/light/';
         $words = explode(' ', $sentence);
         try {
-            $words[$position] = '<span>'.$words[$position].'</span>';
-            $modifiedSen = implode(' ',$words);
-
-        }catch (\Exception $e){
-            $words[count($words)-1] = '<span>'.$words[count($words)-1].'</span>';
-            $modifiedSen = implode(' ',$words);
+            $words[$position] = '<span>' . $words[$position] . '</span>';
+            $modifiedSen = implode(' ', $words);
+        } catch (\Exception $e) {
+            $words[count($words) - 1] = '<span>' . $words[count($words) - 1] . '</span>';
+            $modifiedSen = implode(' ', $words);
         }
         return $modifiedSen;
     }
     return  '';
 }
 
-function convertToReadableFormat($number) {
+function convertToReadableFormat($number)
+{
     $amount = $number;
     if ($number >= 1000000000) {
         $amount = number_format($number / 1000000000, 1) . ' B';
@@ -1060,10 +1058,8 @@ function convertToReadableFormat($number) {
         $amount = number_format($number / 1000, 1) . ' K';
     }
     $basic = basicControl();
-    return $basic->is_currency_position == 'left' && $basic->has_space_between_currency_and_amount ? " {$basic->currency_symbol}  {$amount}" :
-        ($basic->is_currency_position == 'left' && !$basic->has_space_between_currency_and_amount ? " {$basic->currency_symbol}  {$amount}" :
-            ($basic->is_currency_position == 'right' && $basic->has_space_between_currency_and_amount ? " {$amount}  {$basic->base_currency} " :
-                "{$amount}  {$basic->base_currency}"));
+    return $basic->is_currency_position == 'left' && $basic->has_space_between_currency_and_amount ? " {$basic->currency_symbol}  {$amount}" : ($basic->is_currency_position == 'left' && !$basic->has_space_between_currency_and_amount ? " {$basic->currency_symbol}  {$amount}" : ($basic->is_currency_position == 'right' && $basic->has_space_between_currency_and_amount ? " {$amount}  {$basic->base_currency} " :
+        "{$amount}  {$basic->base_currency}"));
 }
 
 function loader()
@@ -1072,7 +1068,7 @@ function loader()
 
     $array = str_split($string);
 
-    $array = array_filter($array, function($char) {
+    $array = array_filter($array, function ($char) {
         return $char !== ' ';
     });
     return $array;
@@ -1095,13 +1091,13 @@ if (!function_exists('removeValue')) {
 
 function checkUserKyc($id)
 {
-    $userKycs =  UserKyc::where('user_id',Auth::user()->id)->get();
+    $userKycs =  UserKyc::where('user_id', Auth::user()->id)->get();
 
-    foreach ($userKycs as $item){
-        if ($item->kyc_id == $id){
-            if ($item->status == 0){
+    foreach ($userKycs as $item) {
+        if ($item->kyc_id == $id) {
+            if ($item->status == 0) {
                 return 'pending';
-            }elseif($item->status == 1){
+            } elseif ($item->status == 1) {
                 return 'verified';
             }
         }
@@ -1113,33 +1109,32 @@ function checkKycForm($validateForm)
 {
     $is_pending = [];
     $rejected = [];
-    foreach ($validateForm as $userKyc){
-        if ($userKyc->status == 1){
+    foreach ($validateForm as $userKyc) {
+        if ($userKyc->status == 1) {
             $is_pending = null;
             $rejected = null;
             break;
-        }elseif($userKyc->status == 0){
-            $is_pending =['is_pending' => $userKyc->kyc_type];
-        }elseif ($userKyc->status == 2){
+        } elseif ($userKyc->status == 0) {
+            $is_pending = ['is_pending' => $userKyc->kyc_type];
+        } elseif ($userKyc->status == 2) {
             $rejected = ['rejected' => $userKyc->kyc_type];
         }
     }
     $returnForm =  null;
-    if ( $is_pending){
+    if ($is_pending) {
         $returnForm =  $is_pending;
-    }elseif ($rejected){
+    } elseif ($rejected) {
         $returnForm =  $rejected;
     }
-    return $returnForm ;
+    return $returnForm;
 }
 
-if ( ! function_exists('put_permanent_env'))
-{
+if (! function_exists('put_permanent_env')) {
     function put_permanent_env($key, $value)
     {
         $path = app()->environmentFilePath();
 
-        $escaped = preg_quote('='.env($key), '/');
+        $escaped = preg_quote('=' . env($key), '/');
 
         file_put_contents($path, preg_replace(
             "/^{$key}{$escaped}/m",
@@ -1161,8 +1156,7 @@ function getDirectReferralUsers($userId)
     return $directReferralUsers;
 }
 
-function parseDate($data){
+function parseDate($data)
+{
     return \Illuminate\Support\Carbon::parse($data);
 }
-
-

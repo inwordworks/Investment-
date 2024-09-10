@@ -34,22 +34,22 @@ class BasicService
 
 
         try {
-            if ($deposit->depositable_type == Deposit::class){
+            if ($deposit->depositable_type == Deposit::class) {
 
                 if ($deposit->status == 0 || $deposit->status == 2) {
 
                     $deposit->status = 1;
                     $deposit->save();
 
-                    if ($deposit->user){
+                    if ($deposit->user) {
                         $user = $deposit->user;
                         $user->balance += $deposit->payable_amount_in_base_currency;
                         $user->save();
 
                         $amount = getAmount($deposit->base_currency_charge);
-                        $transaction =  $this->makeTransaction($user,$deposit->payable_amount_in_base_currency,$amount,'+',$deposit->trx_id ,'Deposit Via ' . optional($deposit->gateway)->name,$deposit->depositable_type,'wallet');
+                        $transaction =  $this->makeTransaction($user, $deposit->payable_amount_in_base_currency, $amount, '+', $deposit->trx_id, 'Deposit Via ' . optional($deposit->gateway)->name, $deposit->depositable_type, 'wallet');
                         $deposit->transactional()->save($transaction);
-                        if (basicControl()->deposit_commission && $user->referral_id){
+                        if (basicControl()->deposit_commission && $user->referral_id) {
                             DistributeBonus::dispatch($user, $deposit->payable_amount_in_base_currency, 'deposit', $deposit);
                         }
 
@@ -88,122 +88,116 @@ class BasicService
 
                     return true;
                 }
+            } elseif ($deposit->depositable_type == InvestmentPlan::class) {
+                $deposit->status = 1;
+                $deposit->save();
 
+                $plan = InvestmentPlan::findOrFail($deposit->depositable_id);
 
-            }elseif ($deposit->depositable_type == InvestmentPlan::class){
+                if ($deposit->gateway) {
+                    $remarks = 'Investment Via ' .  optional($deposit->gateway)->name;
+                } else {
+                    $remarks = 'Investment from Wallet';
+                }
+
+                $amount = $deposit->payable_amount_in_base_currency;
+
+                $user = $deposit->user;
+                $user->total_invest += $amount;
+                $user->plan_invest += $amount;
+                $user->save();
+
+                $profit = $plan->Profit($amount);
+                $trx_type = '-';
+                $trx_id = $deposit->trx_id;
+
+                $charge = getAmount($deposit->base_currency_charge);
+                $transactional_type = $deposit->depositable_type;
+
+                $transaction = $this->makeTransaction($user, $amount, $charge, $trx_type, $trx_id, $remarks, $transactional_type, null);
+
+                $plan->transactional()->save($transaction);
+
+                $this->makeInvest($user, $plan, $profit, $trx_id, $amount);
+
+                if (basicControl()->investment_commission && $user->referral_id) {
+                    DistributeBonus::dispatch($user, $amount, 'invest', $plan);
+                }
+                return true;
+            } elseif ($deposit->depositable_type == Project::class) {
+
+                $invest = ProjectInvestment::with('project.details')->findOrFail($deposit->depositable_id);
+
+                if ($invest && $deposit->user) {
+
+                    $project = $invest->project;
+                    $project->available_units -= $invest->unit;
+                    $project->save();
+
+                    $deposit->depositable_id = $project->id;
                     $deposit->status = 1;
                     $deposit->save();
 
-                    $plan = InvestmentPlan::findOrFail($deposit->depositable_id);
+                    $invest->payment_status = 1;
+                    $invest->trx =  $deposit->trx_id;
+                    $invest->save();
 
-                    if ($deposit->gateway){
+                    if ($deposit->gateway) {
                         $remarks = 'Investment Via ' .  optional($deposit->gateway)->name;
-                    }else{
+                    } else {
                         $remarks = 'Investment from Wallet';
                     }
 
                     $amount = $deposit->payable_amount_in_base_currency;
-
                     $user = $deposit->user;
                     $user->total_invest += $amount;
-                    $user->plan_invest += $amount;
+                    $user->project_invest += $amount;
                     $user->save();
 
-                    $profit = $plan->Profit($amount);
                     $trx_type = '-';
                     $trx_id = $deposit->trx_id;
-
                     $charge = getAmount($deposit->base_currency_charge);
                     $transactional_type = $deposit->depositable_type;
+                    $transaction = $this->makeTransaction($user, $amount, $charge, $trx_type, $trx_id, $remarks, $transactional_type, null);
+                    $project->transactional()->save($transaction);
 
-                    $transaction = $this->makeTransaction($user,$amount,$charge,$trx_type,$trx_id,$remarks,$transactional_type,null);
-
-                    $plan->transactional()->save($transaction);
-
-                    $this->makeInvest($user,$plan,$profit,$trx_id,$amount);
-
-                    if (basicControl()->investment_commission && $user->referral_id){
-                        DistributeBonus::dispatch($user, $amount, 'invest', $plan);
+                    if (basicControl()->investment_commission && $user->referral_id) {
+                        DistributeBonus::dispatch($user, $amount, 'invest', $project);
                     }
-                    return true;
 
-            }elseif ($deposit->depositable_type == Project::class){
+                    $totalUnit =  $invest->unit;
+                    $perUnitPrice = $invest->per_unit_price;
+                    $this->ProjectInvestNotify($user, $project, $totalUnit, $perUnitPrice);
 
-                    $invest = ProjectInvestment::with('project.details')->findOrFail($deposit->depositable_id);
-
-                    if ($invest && $deposit->user){
-
-                        $project = $invest->project;
-                        $project->available_units -= $invest->unit;
-                        $project->save();
-
-                        $deposit->depositable_id = $project->id;
-                        $deposit->status = 1;
-                        $deposit->save();
-
-                        $invest->payment_status = 1;
-                        $invest->trx =  $deposit->trx_id;
-                        $invest->save();
-
-                        if ($deposit->gateway){
-                            $remarks = 'Investment Via ' .  optional($deposit->gateway)->name;
-                        }else{
-                            $remarks = 'Investment from Wallet';
-                        }
-
-                        $amount = $deposit->payable_amount_in_base_currency;
-                        $user = $deposit->user;
-                        $user->total_invest += $amount;
-                        $user->project_invest += $amount;
-                        $user->save();
-
-                        $trx_type = '-';
-                        $trx_id = $deposit->trx_id;
-                        $charge = getAmount($deposit->base_currency_charge);
-                        $transactional_type = $deposit->depositable_type;
-                        $transaction = $this->makeTransaction($user,$amount,$charge,$trx_type,$trx_id,$remarks,$transactional_type , null);
-                        $project->transactional()->save($transaction);
-
-                        if (basicControl()->investment_commission && $user->referral_id){
-                            DistributeBonus::dispatch($user, $amount, 'invest', $project);
-                        }
-
-                        $totalUnit =  $invest->unit;
-                        $perUnitPrice = $invest->per_unit_price;
-                        $this->ProjectInvestNotify($user,$project,$totalUnit,$perUnitPrice);
-
-                        return  true;
-                    }
+                    return  true;
+                }
             }
-
         } catch (\Exception $e) {
             return false;
         }
-
-
     }
 
 
-    public function makeProjectInvest($user,$project,$amount,$unit)
+    public function makeProjectInvest($user, $project, $amount, $unit)
     {
         $invest = new ProjectInvestment();
         $invest->user_id = $user->id;
         $invest->project_id = $project->id;
         $invest->per_unit_price = $amount;
         $invest->unit = $unit;
-        $invest->return = $project->getProfit($unit,$amount);
-        if ($project->number_of_return_has_unlimited){
+        $invest->return = $project->getProfit($unit, $amount);
+        if ($project->number_of_return_has_unlimited) {
             $invest->is_life_time = true;
-        }else{
+        } else {
             $invest->number_of_return = $project->number_of_return;
         }
-       $invest->return_period = $project->return_period;
+        $invest->return_period = $project->return_period;
         $invest->return_period_type =  $project->return_period_type;
         $invest->next_return = $project->maturity();
         $invest->capital_back = $project->capital_back;
-        $invest->project_expiry_date = $project->projectExpiry()??null;
+        $invest->project_expiry_date = $project->projectExpiry() ?? null;
         $invest->status = 1;
-        if(!$project->projectExpiry()){
+        if (!$project->projectExpiry()) {
             $invest->project_period_is_lifetime = true;
         }
         $invest->payment_status = 0;
@@ -212,23 +206,23 @@ class BasicService
         return $invest;
     }
 
-    public  function makeTransaction($user, $amount, $charge, $trx_type = null, $trx_id = null, $remarks = null,$transactional_type = null, $walletType = null)
+    public  function makeTransaction($user, $amount, $charge, $trx_type = null, $trx_id = null, $remarks = null, $transactional_type = null, $walletType = null)
     {
         $walletType = strtolower($walletType);
         $transaction = new Transaction();
-        $transaction->user_id =$user->id;
+        $transaction->user_id = $user->id;
         $transaction->amount = $amount;
-        $transaction->charge =$charge;
-        $transaction->trx_type =$trx_type;
-        if($trx_id != null){
-            $transaction->trx_id =$trx_id;
+        $transaction->charge = $charge;
+        $transaction->trx_type = $trx_type;
+        if ($trx_id != null) {
+            $transaction->trx_id = $trx_id;
         }
         $transaction->remarks = $remarks;
         $transaction->transactional_type = $transactional_type;
         $transaction->wallet_type = $walletType;
-        if ($walletType && $walletType === 'profit'){
+        if ($walletType && $walletType === 'profit') {
             $transaction->balance =  $user->profit_balance;
-        }else{
+        } else {
             $transaction->balance =  $user->balance;
         }
         $transaction->save();
@@ -237,14 +231,14 @@ class BasicService
     }
 
 
-    public function ProjectInvestNotify($user , $project ,$totalUnit ,$perUnitPrice)
+    public function ProjectInvestNotify($user, $project, $totalUnit, $perUnitPrice)
     {
         $params = [
             'username' => $user->username,
-            'project_name' =>optional($project->details)->title,
+            'project_name' => optional($project->details)->title,
             'total_unit' => $totalUnit,
-            'unit_price' =>currencyPosition(getAmount($perUnitPrice)) ,
-            'amount' => currencyPosition(getAmount($totalUnit*$perUnitPrice))
+            'unit_price' => currencyPosition(getAmount($perUnitPrice)),
+            'amount' => currencyPosition(getAmount($totalUnit * $perUnitPrice))
         ];
 
         $action = [
@@ -253,9 +247,9 @@ class BasicService
             "link" => route('admin.project.investment'),
             "icon" => "fas fa-ticket-alt text-white"
         ];
-        $this->adminPushNotification('PROJECT_INVEST',$params,$action);
-        $this->adminFirebasePushNotification('PROJECT_INVEST',$params,$action);
-        $this->adminMail('PROJECT_INVEST',$params);
+        $this->adminPushNotification('PROJECT_INVEST', $params, $action);
+        $this->adminFirebasePushNotification('PROJECT_INVEST', $params, $action);
+        $this->adminMail('PROJECT_INVEST', $params);
 
         $action2 = [
             "link" => route('user.project.investment'),
@@ -268,7 +262,7 @@ class BasicService
         return true;
     }
 
-    public  function makeInvest($user,$plan,$profit,$trx = null,$amount)
+    public  function makeInvest($user, $plan, $profit, $amount, $trx = null,)
     {
 
         try {
@@ -277,9 +271,9 @@ class BasicService
             $invest->plan_id = $plan->id;
             $invest->invest_amount = $amount;
             $invest->profit = $profit;
-            if ($plan->number_of_profit_return){
+            if ($plan->number_of_profit_return) {
                 $invest->number_of_return = $plan->number_of_profit_return;
-            }else{
+            } else {
                 $invest->is_life_time = true;
             }
             $invest->status = 1;
@@ -288,8 +282,8 @@ class BasicService
             $invest->next_return = $plan->maturity();
             $invest->capital_back = $plan->capital_back;
             $invest->plan_expiry_date = $plan->plan_expiry_date;
-            $invest->plan_expiry_date = $plan->planExpiry()??null;
-            if (!$plan->planExpiry()){
+            $invest->plan_expiry_date = $plan->planExpiry() ?? null;
+            if (!$plan->planExpiry()) {
                 $invest->plan_period_is_lifetime = true;
             }
             $invest->trx = $trx;
@@ -307,9 +301,9 @@ class BasicService
                 "link" => route('admin.invest.history'),
                 "icon" => "fas fa-ticket-alt text-white"
             ];
-            $this->adminPushNotification('PLAN_INVEST',$params,$action);
-            $this->adminFirebasePushNotification('PLAN_INVEST',$params,$action);
-            $this->adminMail('PLAN_INVEST',$params);
+            $this->adminPushNotification('PLAN_INVEST', $params, $action);
+            $this->adminFirebasePushNotification('PLAN_INVEST', $params, $action);
+            $this->adminMail('PLAN_INVEST', $params);
             $action2 = [
                 "link" => route('user.plan.investment'),
                 "icon" => "fa-regular fa-circle-check text-success"
@@ -321,10 +315,9 @@ class BasicService
 
 
             return $invest;
-        }catch (\Exception $exception){
-           return  false;
+        } catch (\Exception $exception) {
+            return  false;
         }
-
     }
     public function cryptoQR($wallet, $amount, $crypto = null)
     {

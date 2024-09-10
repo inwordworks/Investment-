@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController as UserLoginController;
-use App\Http\Controllers\Auth\RegisterController;
+// use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SocialiteController;
@@ -24,13 +24,23 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\User\VerificationController;
 use App\Http\Controllers\Frontend\BlogController;
-
-
-
-
+use App\Http\Controllers\Pages\PagesController;
+use App\Livewire\Aboutpage;
+use App\Livewire\BusinessPlanPage;
+use App\Livewire\ContactPage;
+use App\Livewire\Homepage;
+use App\Livewire\LegalDisclaimerPage;
+use App\Livewire\LoginPage;
+use App\Livewire\PrivacyPolicyPage;
+use App\Livewire\RefundPolicyPage;
+use App\Livewire\RegisterPage;
+use App\Livewire\ServicesPage;
+use App\Livewire\ShippingPolicyPage;
+use App\Livewire\TermsPage;
 
 $basicControl = basicControl();
-Route::get('language/{locale}', [FrontendController::class,'language'])->name('language');
+
+Route::get('language/{locale}', [FrontendController::class, 'language'])->name('language');
 
 Route::get('maintenance-mode', function () {
 
@@ -98,28 +108,28 @@ Route::group(['middleware' => ['maintenanceMode']], function () use ($basicContr
                 });
 
                 /* Purchase Plan */
-                Route::post('invest/plan',[HomeController::class,'investPlan'])->name('investPlan');
+                Route::post('invest/plan', [HomeController::class, 'investPlan'])->name('investPlan');
                 Route::get('payment', [PaymentController::class, 'index'])->name('payment');
-                Route::post('plan/purchase/request',[PurchasePlanController::class,'paymentRequest'])->name('plan.purchase.request');
-                Route::get('/plan/investment',[HomeController::class,'investment'])->name('plan.investment');
+                Route::post('plan/purchase/request', [PurchasePlanController::class, 'paymentRequest'])->name('plan.purchase.request');
+                Route::get('/plan/investment', [HomeController::class, 'investment'])->name('plan.investment');
 
                 /* Project Invest */
-                Route::post('project/invest',[ProjectInvestController::class,'invest'])->name('projectInvest');
-                Route::get('project/invest/payment',[ProjectInvestController::class,'payment'])->name('project.payment');
-                Route::post('invest/request',[ProjectInvestController::class,'investRequest'])->name('invest.request');
-                Route::get('project/investment',[HomeController::class,'projectInvestment'])->name('project.investment');
+                Route::post('project/invest', [ProjectInvestController::class, 'invest'])->name('projectInvest');
+                Route::get('project/invest/payment', [ProjectInvestController::class, 'payment'])->name('project.payment');
+                Route::post('invest/request', [ProjectInvestController::class, 'investRequest'])->name('invest.request');
+                Route::get('project/investment', [HomeController::class, 'projectInvestment'])->name('project.investment');
             });
 
 
-            Route::get('projects',[FrontendController::class,'projects'])->name('projects');
-            Route::get('investment-plan',[FrontendController::class,'plans'])->name('plans');
+            Route::get('projects', [FrontendController::class, 'projects'])->name('projects');
+            Route::get('investment-plan', [FrontendController::class, 'plans'])->name('plans');
 
             /* ===== Referral ===== */
 
-            Route::get('/referral',[HomeController::class,'referral'])->name('referral');
-            Route::get('/referral/bonus',[HomeController::class,'referralBonus'])->name('referral.bonus');
-            Route::get('referral/bonus/history',[HomeController::class,'getReferralsBonus'])->name('referral.bonus.history');
-            Route::post('get-referral-user',[HomeController::class,'getReferralUser'])->name('myGetDirectReferralUser');
+            Route::get('/referral', [HomeController::class, 'referral'])->name('referral');
+            Route::get('/referral/bonus', [HomeController::class, 'referralBonus'])->name('referral.bonus');
+            Route::get('referral/bonus/history', [HomeController::class, 'getReferralsBonus'])->name('referral.bonus.history');
+            Route::post('get-referral-user', [HomeController::class, 'getReferralUser'])->name('myGetDirectReferralUser');
 
             /* ===== Push Notification ===== */
             Route::get('push-notification-show', [InAppNotificationController::class, 'show'])->name('push.notification.show');
@@ -128,9 +138,9 @@ Route::group(['middleware' => ['maintenanceMode']], function () use ($basicContr
 
             /* Get Chart Data */
 
-            Route::get('/invest/history',[HomeController::class,'investHistory'])->name('invest.history');
-            Route::get('/deposit-payout/history',[HomeController::class,'depositPayout'])->name('depositPayout.history');
-            Route::get('transaction/history',[HomeController::class,'transactionHistory'])->name('transaction.history');
+            Route::get('/invest/history', [HomeController::class, 'investHistory'])->name('invest.history');
+            Route::get('/deposit-payout/history', [HomeController::class, 'depositPayout'])->name('depositPayout.history');
+            Route::get('transaction/history', [HomeController::class, 'transactionHistory'])->name('transaction.history');
 
             /* user notification permission */
 
@@ -150,29 +160,44 @@ Route::group(['middleware' => ['maintenanceMode']], function () use ($basicContr
             Route::post('profile-update/image', [HomeController::class, 'profileUpdateImage'])->name('profile.update.image');
             Route::post('update/password', [HomeController::class, 'updatePassword'])->name('updatePassword');
             Route::post('kyc/submit', [HomeController::class, 'kycVerificationSubmit'])->name('kyc.verification.submit');
-            Route::get('verification/center',[HomeController::class,'getUserKyc'])->name('show.user.kyc');
-
+            Route::get('verification/center', [HomeController::class, 'getUserKyc'])->name('show.user.kyc');
         });
     });
 
+    // website pages
+    Route::get('/', Homepage::class)->name('website.homepage');
+    Route::get('about-us', Aboutpage::class)->name('website.about');
+    Route::get('services', ServicesPage::class)->name('website.services');
+    Route::get('business-plan', BusinessPlanPage::class)->name('website.business');
+    Route::get('contact-us', ContactPage::class)->name('website.contact');
+
+    Route::get('privacy-policy', PrivacyPolicyPage::class)->name('website.policy.privacy');
+    Route::get('terms-and-conditions', TermsPage::class)->name('website.policy.terms');
+    Route::get('shipping-policy', ShippingPolicyPage::class)->name('website.policy.shipping');
+    Route::get('refund-policy', RefundPolicyPage::class)->name('website.policy.refund');
+    Route::get('legal', LegalDisclaimerPage::class)->name('website.policy.legal');
+
+    // Route::get('login', LoginPage::class)->name('login');
+    // Route::get('register', RegisterPage::class)->name('register');
+
     /* Subscribe */
-    Route::post('subscribe',[SubscriberController::class,'subscribe'])->name('subscribe');
+    Route::post('subscribe', [SubscriberController::class, 'subscribe'])->name('subscribe');
 
     /*===== Contact ======*/
 
-    Route::post('send/contact/info',[FrontendController::class,'sentContactInfo'])->name('sent.contact.info');
+    Route::post('send/contact/info', [FrontendController::class, 'sentContactInfo'])->name('sent.contact.info');
 
     /* Manual Recaptcha */
     Route::get('/captcha', [ManualRecaptchaController::class, 'reCaptCha'])->name('captcha');
 
     /* Manage Project Route */
-    Route::get('/project/details/{slug}',[ProjectController::class,'details'])->name('project.details');
+    Route::get('/project/details/{slug}', [ProjectController::class, 'details'])->name('project.details');
 
     /* Manage Blog */
-    Route::get('/blogs',[BlogController::class,'index'])->name('blog');
-    Route::get('/blog/details/{slug}',[BlogController::class,'details'])->name('blog.details');
-    Route::get('/category/blog/{id}',[BlogController::class,'categoryBlogs'])->name('category.blogs');
-    Route::get('/search/blogs',[BlogController::class,'search'])->name('search');
+    Route::get('/blogs', [BlogController::class, 'index'])->name('blog');
+    Route::get('/blog/details/{slug}', [BlogController::class, 'details'])->name('blog.details');
+    Route::get('/category/blog/{id}', [BlogController::class, 'categoryBlogs'])->name('category.blogs');
+    Route::get('/search/blogs', [BlogController::class, 'search'])->name('search');
 
     /* Manage User Deposit */
 
@@ -198,4 +223,3 @@ Route::group(['middleware' => ['maintenanceMode']], function () use ($basicContr
 
     Route::get("/{slug?}", [FrontendController::class, 'page'])->name('page');
 });
-

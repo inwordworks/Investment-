@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'failover'),
+    'default' => env('MAIL_MAILER', 'resend'),
 
     /*
     |--------------------------------------------------------------------------
@@ -44,6 +44,14 @@ return [
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN'),
+        ],
+        'resend' => [
+            'transport' => 'smtp',
+            'host' => env('RESEND_HOST', 'smtp.mailgun.org'),
+            'port' => env('RESEND_PORT', 587),
+            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+            'username' => env('RESEND_USERNAME'),
+            'password' => env('RESEND_PASSWORD'),
         ],
 
         'ses' => [
@@ -95,6 +103,7 @@ return [
             'transport' => 'failover',
             'mailers' => [
                 'smtp',
+                'resend',
                 'ses',
                 'postmark',
                 'mailgun',

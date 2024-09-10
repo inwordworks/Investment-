@@ -36,14 +36,13 @@ class SupportTicketController extends Controller
             abort(404);
         }
         $tickets = SupportTicket::where('user_id', $user->id)->latest()->paginate(config('basic.paginate'));
-        return view($this->theme. 'user.support_ticket.index', compact('tickets'));
-
+        return view($this->theme . 'user.support_ticket.index', compact('tickets'));
     }
 
     public function create()
     {
         $user = $this->user;
-        return view($this->theme.'user.support_ticket.create', compact( 'user'));
+        return view($this->theme . 'user.support_ticket.create', compact('user'));
     }
 
     public function store(Request $request)
@@ -59,7 +58,7 @@ class SupportTicketController extends Controller
             for ($i = 0; $i < $numberOfAttachments; $i++) {
                 if ($request->hasFile('images.' . $i)) {
                     $file = $request->file('images.' . $i);
-                    $supportFile = $this->fileUpload($file, config('filelocation.ticket.path'), null,null, 'webp',60);
+                    $supportFile = $this->fileUpload($file, config('filelocation.ticket.path'), null, null, 'webp', 60);
                     if (empty($supportFile['path'])) {
                         throw new \Exception('File could not be uploaded.');
                     }
@@ -75,7 +74,7 @@ class SupportTicketController extends Controller
         $action = [
             "name" => optional($ticket->user)->firstname . ' ' . optional($ticket->user)->lastname,
             "image" => getFile(optional($ticket->user)->image_driver, optional($ticket->user)->image),
-            "link" => route('admin.ticket.view',$ticket->id),
+            "link" => route('admin.ticket.view', $ticket->id),
             "icon" => "fas fa-ticket-alt text-white"
         ];
         $this->adminPushNotification('SUPPORT_TICKET_CREATE', $msg, $action);
@@ -89,7 +88,7 @@ class SupportTicketController extends Controller
         $ticket = SupportTicket::where('ticket', $ticketId)->latest()->with('messages')->firstOrFail();
         $user = Auth::user();
         $admin = Admin::first();
-        return view($this->theme.'user.support_ticket.view', compact('ticket',  'user','admin'));
+        return view($this->theme . 'user.support_ticket.view', compact('ticket',  'user', 'admin'));
     }
 
     public function reply(Request $request, $id)
@@ -109,14 +108,14 @@ class SupportTicketController extends Controller
                             foreach ($images as $img) {
                                 $ext = strtolower($img->getClientOriginalExtension());
                                 if (($img->getSize() / 1000000) > 2) {
-                                    throw ValidationException::withMessages(['attachments'=>"Images MAX  2MB ALLOW!"]);
+                                    throw ValidationException::withMessages(['attachments' => "Images MAX  2MB ALLOW!"]);
                                 }
                                 if (!in_array($ext, $allowedExtensions)) {
-                                    throw ValidationException::withMessages(['attachments'=>"Only png, jpg, jpeg, pdf images are allowed"]);
+                                    throw ValidationException::withMessages(['attachments' => "Only png, jpg, jpeg, pdf images are allowed"]);
                                 }
                             }
                             if (count($images) > 5) {
-                                throw ValidationException::withMessages(['attachments'=>"Maximum 5 images can be uploaded"]);
+                                throw ValidationException::withMessages(['attachments' => "Maximum 5 images can be uploaded"]);
                             }
                         },
                     ],
@@ -136,7 +135,7 @@ class SupportTicketController extends Controller
                     for ($i = 0; $i < $numberOfAttachments; $i++) {
                         if ($request->hasFile('attachments.' . $i)) {
                             $file = $request->file('attachments.' . $i);
-                            $supportFile = $this->fileUpload($file, config('filelocation.ticket.path'), null,null,'webp',60);
+                            $supportFile = $this->fileUpload($file, config('filelocation.ticket.path'), null, null, 'webp', 60);
                             if (empty($supportFile['path'])) {
                                 throw new \Exception('File could not be uploaded.');
                             }
@@ -152,7 +151,7 @@ class SupportTicketController extends Controller
                 $action = [
                     "name" => optional($ticket->user)->firstname . ' ' . optional($ticket->user)->lastname,
                     "image" => getFile(optional($ticket->user)->image_driver, optional($ticket->user)->image),
-                    "link" => route('admin.ticket.view',$ticket->id),
+                    "link" => route('admin.ticket.view', $ticket->id),
                     "icon" => "fas fa-ticket-alt text-white"
                 ];
                 $this->adminPushNotification('SUPPORT_TICKET_CREATE', $msg, $action);
@@ -165,22 +164,37 @@ class SupportTicketController extends Controller
 
                 return back()->with('success', 'Ticket has been closed');
             }
-        }catch (\Exception $exception){
+        } catch (\Exception $exception) {
             return back()->with('error', $exception->getMessage());
         }
-
     }
 
 
     public function download($ticket_id)
     {
-        $attachment = SupportTicketAttachment::with('supportMessage', 'supportMessage.ticket')->findOrFail(decrypt($ticket_id));
-        $file = $attachment->file;
-        $full_path = getFile($attachment->driver, $file);
-        $title = slug($attachment->supportMessage->ticket->subject) . '-' . $file;
-        header('Content-Disposition: attachment; filename="' . $title);
-        header("Content-Type: " . $full_path);
-        return readfile($full_path);
+        // $attachment = SupportTicketAttachment::with('supportMessage', 'supportMessage.ticket')->findOrFail(decrypt($ticket_id));
+        try {
+            $attachment = SupportTicketAttachment::with('supportMessage', 'supportMessage.ticket')->findOrFail(decrypt($ticket_id));
+            if ($attachment) {
+                $file = $attachment->file;
+                $full_path = getFile($attachment->driver, $file);
+                $filePath = 'assets/upload/' . $file;
+                $title = str_replace('/', '-', (slug($attachment->supportMessage->ticket->subject) . '-' . $file));
+                // return print_r([
+                //     'file' => $file,
+                //     'title' => $title,
+                //     'full_path' => $full_path,
+                // ]);
+                return response()->download($filePath, $title);
+                // header('Content-Disposition: attachment; filename="' . $title);
+                // header("Content-Type: " . $full_path);
+                // return readfile($full_path);
+            }
+        } catch (\Throwable $th) {
+            // echo $th->getMessage();
+            // return;
+            throw $th;
+        }
     }
 
 
@@ -189,9 +203,9 @@ class SupportTicketController extends Controller
 
     public function close(SupportTicket $ticket)
     {
-       $ticket->status = 3;
-       $ticket->save();
-       return back()->with('success', 'Ticket has been closed');
+        $ticket->status = 3;
+        $ticket->save();
+        return back()->with('success', 'Ticket has been closed');
     }
 
     public function newTicketValidation(Request $request): void
@@ -206,14 +220,14 @@ class SupportTicketController extends Controller
                     foreach ($images as $img) {
                         $ext = strtolower($img->getClientOriginalExtension());
                         if (($img->getSize() / 1000000) > 2) {
-                            throw ValidationException::withMessages(['attachments'=>"Images MAX  2MB ALLOW!"]);
+                            throw ValidationException::withMessages(['attachments' => "Images MAX  2MB ALLOW!"]);
                         }
                         if (!in_array($ext, $allowedExtension)) {
-                            throw ValidationException::withMessages(['attachments'=>"Only png, jpg, jpeg, pdf images are allowed"]);
+                            throw ValidationException::withMessages(['attachments' => "Only png, jpg, jpeg, pdf images are allowed"]);
                         }
                     }
                     if (count($images) > 5) {
-                        throw ValidationException::withMessages(['attachments'=>"Maximum 5 images can be uploaded"]);
+                        throw ValidationException::withMessages(['attachments' => "Maximum 5 images can be uploaded"]);
                     }
                 },
             ],
@@ -259,12 +273,8 @@ class SupportTicketController extends Controller
             'driver' => $driver ?? 'local',
         ]);
 
-        if (!$attachment){
+        if (!$attachment) {
             throw new \Exception('Something went wrong');
         }
     }
-
-
-
-
 }

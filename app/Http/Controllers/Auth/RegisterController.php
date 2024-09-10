@@ -48,8 +48,8 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->theme = template();
-        $this->middleware('guest');
+        // $this->theme = template();
+        // $this->middleware('guest');
     }
 
     /**
@@ -63,14 +63,14 @@ class RegisterController extends Controller
        if ($request->ref){
            $referUser =  User::where('id', $request->ref)->first();
        }
-        $pageSeo = Page::where('slug', 'register')->first();
-        $pageSeo->meta_keywords =  implode(",", $pageSeo->meta_keywords);
-        $pageSeo->image = getFile($pageSeo->meta_image_driver, $pageSeo->meta_image);
-        $basic = basicControl();
-        if ($basic->registration == 0) {
-            return redirect('/')->with('warning', 'Registration Has Been Disabled.');
-        }
-        return view(template() . 'auth.register',compact('pageSeo','referUser'));
+        // $pageSeo = Page::where('slug', 'register')->first();
+        // $pageSeo->meta_keywords =  implode(",", $pageSeo->meta_keywords);
+        // $pageSeo->image = getFile($pageSeo->meta_image_driver, $pageSeo->meta_image);
+        // $basic = basicControl();
+        // if ($basic->registration == 0) {
+        //     return redirect('/')->with('warning', 'Registration Has Been Disabled.');
+        // }
+        return view(template() . 'auth.register',compact('referUser'));
     }
 
     /**
@@ -96,30 +96,31 @@ class RegisterController extends Controller
         }
 
 
-        if ($basicControl->google_recaptcha &&basicControl()->google_user_registration_recaptcha_status) {
-            $rules['g-recaptcha-response'] = ['sometimes', 'required'];
-        }
-        if ($basicControl->manual_recaptcha && basicControl()->reCaptcha_status_registration){
-            $rules['captcha'] = ['required',function($attribute, $value, $fail){
-                if ($value !== session()->get('captcha')){
-                    $fail('The captcha does not match');
-                }
-            }];
-        }
+        // if ($basicControl->google_recaptcha &&basicControl()->google_user_registration_recaptcha_status) {
+        //     $rules['g-recaptcha-response'] = ['sometimes', 'required'];
+        // }
+        // if ($basicControl->manual_recaptcha && basicControl()->reCaptcha_status_registration){
+        //     $rules['captcha'] = ['required',function($attribute, $value, $fail){
+        //         if ($value !== session()->get('captcha')){
+        //             $fail('The captcha does not match');
+        //         }
+        //     }];
+        // }
 
         $rules['first_name'] = ['required', 'string', 'max:91'];
         $rules['last_name'] = ['required', 'string', 'max:91'];
         $rules['username'] = ['required', 'alpha_dash', 'min:5', 'unique:users,username'];
         $rules['email'] = ['required', 'string', 'email', 'max:255',  'unique:users,email'];
-        $rules['phone'] = ['required', 'string', 'unique:users,phone', new PhoneLength($phoneCode)];
-        $rules['phone_code'] = ['required', 'max:15'];
-        $rules['country'] = ['required', 'string', 'max:80'];
-        $rules['country_code'] = ['required', 'string', 'max:80'];
+        // $rules['phone'] = ['required', 'string', 'unique:users,phone', new PhoneLength($phoneCode)];
+        $rules['phone'] = ['required', 'string', 'unique:users,phone', 'max:10,min:10'];
+        // $rules['phone_code'] = ['required', 'max:15'];
+        // $rules['country'] = ['required', 'string', 'max:80'];
+        // $rules['country_code'] = ['required', 'string', 'max:80'];
 
         return Validator::make($data, $rules, [
             'first_name.required' => 'First Name Field is required',
             'last_name.required' => 'Last Name Field is required',
-            'g-recaptcha-response.required' => 'The reCAPTCHA field is required.',
+            // 'g-recaptcha-response.required' => 'The reCAPTCHA field is required.',
         ]);
     }
 

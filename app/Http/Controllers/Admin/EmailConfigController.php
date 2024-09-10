@@ -14,6 +14,7 @@ class EmailConfigController extends Controller
 {
     public function emailControls()
     {
+        // config(['mail.default' => 'resend']);
         $data['mailMethod'] = config('mailconfig');
         $data['mailMethodDefault'] = config('mail.default');
         return view('admin.email_controls.index', $data);
@@ -26,7 +27,6 @@ class EmailConfigController extends Controller
             $mailMethod = config('mailconfig');
             $mailParameters = $mailMethod[$method] ?? null;
             return view('admin.email_controls.email_config', $data, compact('mailParameters', 'method'));
-
         } catch (\Exception $exception) {
             return back()->with('alert', $exception->getMessage());
         }
@@ -81,14 +81,12 @@ class EmailConfigController extends Controller
                 "sender_email" => $request->sender_email,
             ]);
 
-            NotificationTemplate::get()->map(function ($item) use ($request){
+            NotificationTemplate::get()->map(function ($item) use ($request) {
                 $item->email_from = $request->sender_email;
                 $item->save();
-
             });
 
             return back()->with('success', 'Email Configuration has been updated successfully.');
-
         } catch (Exception $exception) {
             return back()->with('error', $exception->getMessage());
         }
@@ -101,8 +99,9 @@ class EmailConfigController extends Controller
                 'MAIL_MAILER' => $method
             ];
             BasicService::setEnv($env);
+            config(['mail.default' => $method]);
 
-            return back()->with('success', 'Mail method set as default successfully.');
+            return back()->with('success', 'Mail method ' . $method . ' set as default successfully.');
         } catch (Exception $exception) {
             return back()->with('error', $exception->getMessage());
         }
@@ -126,5 +125,4 @@ class EmailConfigController extends Controller
 
         return back()->with('success', 'Email has been sent successfully.');
     }
-
 }

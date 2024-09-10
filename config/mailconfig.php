@@ -30,5 +30,11 @@ return [
         'mail_port' => ['value' => env('MAIL_PORT'), 'is_protected' => false],
         'mail_username' => ['value' => env('MAIL_USERNAME'), 'is_protected' => false],
         'mail_password' => ['value' => env('MAIL_PASSWORD'), 'is_protected' => true]
+    ],
+    'resend' => [
+        'mail_host' => ['value' => env('RESEND_HOST'), 'is_protected' => false],
+        'mail_port' => ['value' => env('RESEND_PORT'), 'is_protected' => false],
+        'mail_username' => ['value' => env('RESEND_USERNAME'), 'is_protected' => false],
+        'mail_password' => ['value' => env('RESEND_PASSWORD'), 'is_protected' => true]
     ]
 ];

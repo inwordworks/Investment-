@@ -90,7 +90,7 @@
                                         <div class="chat-box opposite-side">
                                             <div class="img">
                                                 <img class="img-fluid"
-                                                     src="{{ auth()->user()->profilePicture() }}"
+                                                     src="{{ getFile(optional($ticket->user)->image_driver, auth()->user()->profilePicture()) }}"
                                                      alt="Admin Image"/>
                                             </div>
                                             <div class="text-wrapper">

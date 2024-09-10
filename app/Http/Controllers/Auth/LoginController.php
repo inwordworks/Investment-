@@ -54,7 +54,7 @@ class LoginController extends Controller
         $pageSeo = Page::where('slug', 'login')->first();
         $pageSeo->meta_keywords =  implode(",", $pageSeo->meta_keywords);
         $pageSeo->image = getFile($pageSeo->meta_image_driver, $pageSeo->meta_image);
-        return view($this->theme . 'auth/login',compact('pageSeo'));
+        return view($this->theme . 'auth/login', compact('pageSeo'));
     }
 
 
@@ -69,39 +69,45 @@ class LoginController extends Controller
     public function login(Request $request)
     {
         $basicControl = basicControl();
-
+        $fieldType = 'username';
+        $login = $request->input('username');
+        if (filter_var($login, FILTER_VALIDATE_EMAIL)) {
+            $fieldType = 'email';
+        } else {
+            $fieldType = 'username';
+        }
         $validator = Validator::make($request->all(), [
-            $this->username() => ['required', 'string'],
+            $fieldType => ['string'],
             'password' => ['required', 'string', 'max:100'],
-            'captcha' => [
-                Rule::requiredIf(function () use ($basicControl) {
-                    return $basicControl->manual_recaptcha == 1 && $basicControl->reCaptcha_status_login == 1;
-                }),
-                function ($attribute, $value, $fail) use ($basicControl) {
-                    if ($basicControl->manual_recaptcha == 1 && $basicControl->reCaptcha_status_login == 1) {
-                        if (!$value) {
-                            $fail('The captcha field is required.');
-                        } else {
-                            if (session()->get('captcha') !== $value) {
-                                $fail('The captcha does not match.');
-                            }
-                        }
-                    }
-                },
-            ],
-            'g-recaptcha-response' => [
-                Rule::requiredIf(function () use ($basicControl) {
-                    return $basicControl->google_user_login_recaptcha_status && $basicControl->google_recaptcha == 1;
-                }),
-                function ($attribute, $value, $fail) use ($basicControl) {
-                    if ($basicControl->google_user_login_recaptcha_status && $basicControl->google_recaptcha == 1) {
-                        if (!$value) {
-                            $fail('The reCAPTCHA field is required.');
-                        }
-                        // Optionally, you can add the code to verify Google's reCAPTCHA response here
-                    }
-                },
-            ],
+            // 'captcha' => [
+            //     Rule::requiredIf(function () use ($basicControl) {
+            //         return $basicControl->manual_recaptcha == 1 && $basicControl->reCaptcha_status_login == 1;
+            //     }),
+            //     function ($attribute, $value, $fail) use ($basicControl) {
+            //         if ($basicControl->manual_recaptcha == 1 && $basicControl->reCaptcha_status_login == 1) {
+            //             if (!$value) {
+            //                 $fail('The captcha field is required.');
+            //             } else {
+            //                 if (session()->get('captcha') !== $value) {
+            //                     $fail('The captcha does not match.');
+            //                 }
+            //             }
+            //         }
+            //     },
+            // ],
+            // 'g-recaptcha-response' => [
+            //     Rule::requiredIf(function () use ($basicControl) {
+            //         return $basicControl->google_user_login_recaptcha_status && $basicControl->google_recaptcha == 1;
+            //     }),
+            //     function ($attribute, $value, $fail) use ($basicControl) {
+            //         if ($basicControl->google_user_login_recaptcha_status && $basicControl->google_recaptcha == 1) {
+            //             if (!$value) {
+            //                 $fail('The reCAPTCHA field is required.');
+            //             }
+            //             // Optionally, you can add the code to verify Google's reCAPTCHA response here
+            //         }
+            //     },
+            // ],
         ]);
 
         if ($validator->fails()) {
@@ -109,14 +115,15 @@ class LoginController extends Controller
         }
 
 
-
-        if (method_exists($this, 'hasTooManyLoginAttempts') &&
-            $this->hasTooManyLoginAttempts($request)) {
+        if (
+            method_exists($this, 'hasTooManyLoginAttempts') &&
+            $this->hasTooManyLoginAttempts($request)
+        ) {
             $this->fireLockoutEvent($request);
             return $this->sendLockoutResponse($request);
         }
         if ($this->guard()->validate($this->credentials($request))) {
-            if (Auth::attempt([$this->username() => $request->username, 'password' => $request->password])) {
+            if (Auth::attempt([$fieldType => $request->username, 'password' => $request->password])) {
                 return $this->sendLoginResponse($request);
             } else {
                 return back()->with('error', 'You are banned from this application. Please contact with system Administrator.');
@@ -171,11 +178,5 @@ class LoginController extends Controller
         $ul['get_device'] = UserSystemInfo::get_device();
 
         UserLogin::create($ul);
-
-
-
-
     }
-
-
 }
