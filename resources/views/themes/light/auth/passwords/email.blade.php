@@ -15,12 +15,18 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-12 mb-3">
+
                                     <h2>@lang('Recover Password')!</h2>
                                     <p class="mb-3">@lang('Regain access with your seamless and secure account retrieval process in just a few clicks')!</p>
                                     <div class="mb-2">
                                         <input type="email" name="email" value="{{old('email')}}" class="sign-in-input form-control cmn-input @error('email') is-invalid @enderror" placeholder="@lang('Email address')" required>
                                         @error('email')
                                         <span class="invalid-feedback d-block" role="alert">{{ $message }}<strong></strong></span>
+                                        @enderror
+                                        @if(session()->has('status'))
+                                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                            {{ session('status') }}
+                                        </div>
                                         @enderror
                                     </div>
                                 </div>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Traits\Notify;
+use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -12,7 +13,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 
-class User extends Authenticatable
+class User extends Authenticatable implements CanResetPassword
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes, Notify;
 
@@ -170,9 +171,13 @@ class User extends Authenticatable
 
     public function sendPasswordResetNotification($token)
     {
-        $this->mail($this, 'PASSWORD_RESET', $params = [
+        $this->verifyToMail($this, 'PASSWORD_RESET', $params = [
             'message' => '<a href="' . url('password/reset', $token) . '?email=' . $this->email . '" target="_blank">Click To Reset Password</a>'
         ]);
+
+        // $this->verifyToMail($user, 'PASSWORD_RESET', [
+        //     'code' => $user->verify_code
+        // ]);
     }
 
     public function plans()

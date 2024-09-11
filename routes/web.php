@@ -37,6 +37,9 @@ use App\Livewire\RegisterPage;
 use App\Livewire\ServicesPage;
 use App\Livewire\ShippingPolicyPage;
 use App\Livewire\TermsPage;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Password;
 
 $basicControl = basicControl();
 
@@ -49,7 +52,20 @@ Route::get('maintenance-mode', function () {
 })->name('maintenance');
 
 Route::get('password/reset', [ForgotPasswordController::class, 'showLinkRequestForm'])->name('password.request');
-Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPassword'])->name('passwords.email');
+// Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPassword'])->name('passwords.email');
+Route::post('/forgot-password', function (Request $request) {
+    $request->validate(['email' => 'required|email']);
+
+    $status = Password::sendResetLink(
+        $request->only('email')
+    );
+
+    Log::debug('sendResetLinkEmail', ['RESET_LINK_SENT' => Password::RESET_LINK_SENT, 'context' => json_encode($status)]);
+
+    return $status === Password::RESET_LINK_SENT
+                ? back()->with(['status' => __($status)])
+                : back()->withErrors(['email' => __($status)]);
+})->middleware('guest')->name('password.email');
 Route::get('password/reset/{token}', [ResetPasswordController::class, 'showResetForm'])->name('password.reset')->middleware('guest');
 Route::post('password/reset', [ResetPasswordController::class, 'reset'])->name('password.reset.update');
 

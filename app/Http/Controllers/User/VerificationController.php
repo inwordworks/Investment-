@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use App\Helpers\GoogleAuthenticator;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
+use App\Models\User;
 use App\Traits\Notify;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -13,7 +14,6 @@ use Illuminate\Validation\ValidationException;
 
 class VerificationController extends Controller
 {
-
     use Notify;
 
     public function __construct()
@@ -154,7 +154,8 @@ class VerificationController extends Controller
             'code.required' => 'SMS verification code is required',
         ];
         $validate = $this->validate($request, $rules, $msg);
-        $user = Auth::user();
+
+        $user = User::find(Auth::user()->id);
 
         if ($this->checkValidCode($user, $request->code)) {
             $user->sms_verification = 1;
@@ -175,7 +176,9 @@ class VerificationController extends Controller
             'code.required' => '2FA verification code is required',
         ]);
         $ga = new GoogleAuthenticator();
-        $user = Auth::user();
+
+        $user = User::find(Auth::user()->id);
+
         $getCode = $ga->getCode($user->two_fa_code);
         if ($getCode == trim($request->code)) {
             $user->two_fa_verify = 1;

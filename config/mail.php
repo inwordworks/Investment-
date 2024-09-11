@@ -47,11 +47,11 @@ return [
         ],
         'resend' => [
             'transport' => 'smtp',
-            'host' => env('RESEND_HOST', 'smtp.mailgun.org'),
+            'host' => env('RESEND_HOST', 'smtp.resend.com'),
             'port' => env('RESEND_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username' => env('RESEND_USERNAME'),
-            'password' => env('RESEND_PASSWORD'),
+            'username' => env('RESEND_USERNAME', 'resend'),
+            'password' => env('RESEND_PASSWORD', 're_PXykYV8h_HBdnUhqDEezECqnkcURJhqGY'),
         ],
 
         'ses' => [
