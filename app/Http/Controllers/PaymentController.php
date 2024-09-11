@@ -30,8 +30,8 @@ class PaymentController extends Controller
             $amount = session()->get('amount');
             $data['amount'] = decrypt($amount);
             $data['gateways'] = Gateway::where('status', 1)->orderBy('sort_by', 'ASC')->get();
-            return view(template().'pages.payment',$data);
-        }catch (Exception $e){
+            return view(template() . 'pages.payment', $data);
+        } catch (Exception $e) {
             return back()->with('error', $e->getMessage());
         }
     }
@@ -55,8 +55,6 @@ class PaymentController extends Controller
             $gatewayObj = 'App\\Services\\Gateway\\' . $gateway->code . '\\Payment';
             $data = $gatewayObj::prepareData($deposit, $gateway);
             $data = json_decode($data);
-
-
         } catch (Exception $exception) {
             session()->flash('warning', 'Something went wrong. Please try again.');
             return back()->with('error', $exception->getMessage());
@@ -73,7 +71,6 @@ class PaymentController extends Controller
 
         $page_title = 'Payment Confirm';
         return view($this->theme . $data->view, compact('data', 'page_title', 'deposit'));
-
     }
 
     public function gatewayIpn(Request $request, $code, $trx = null, $type = null)
@@ -116,7 +113,6 @@ class PaymentController extends Controller
 
             $gatewayObj = 'App\\Services\\Gateway\\' . $code . '\\Payment';
             $data = $gatewayObj::ipn($request, $gateway, $deposit ?? null, $trx ?? null, $type ?? null);
-
         } catch (\Exception $exception) {
             return back()->with('error', $exception->getMessage());
         }
@@ -169,7 +165,7 @@ class PaymentController extends Controller
                     if ($k == $inKey) {
                         if ($inVal->type == 'file' && $request->hasFile($inKey)) {
                             try {
-                                $file = $this->fileUpload($request[$inKey], config('filelocation.deposit.path'), null,null,'webp',60);
+                                $file = $this->fileUpload($request[$inKey], config('filelocation.deposit.path'), null, null, 'webp', 60);
                                 $reqField[$inKey] = [
                                     'field_name' => $inVal->field_name,
                                     'field_value' => $file['path'],
@@ -202,7 +198,7 @@ class PaymentController extends Controller
 
         $msg = [
             'username' => optional($data->user)->username,
-            'amount' =>getAmount($data->amount) .' '. $data->payment_method_currency,
+            'amount' => getAmount($data->amount) . ' ' . $data->payment_method_currency,
             'gateway' => optional($data->gateway)->name
         ];
         $action = [
@@ -218,12 +214,15 @@ class PaymentController extends Controller
 
         session()->flash('success', 'You request has been taken.');
         return redirect()->route('user.dashboard');
-
     }
 
-    public function success()
+    public function success(Request $request)
     {
-        return view('success');
+        $returnUrl = null;
+        if ($request->input('project')) {
+            $returnUrl = route('user.project.investment');
+        }
+        return view('success', ['returnUrl' => $returnUrl]);
     }
 
     public function failed()
@@ -329,5 +328,4 @@ class PaymentController extends Controller
 
         return $data;
     }
-
 }

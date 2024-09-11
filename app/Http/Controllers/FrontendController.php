@@ -7,6 +7,7 @@ use App\Models\Language;
 use App\Models\Page;
 use App\Models\PageDetail;
 use App\Models\Project;
+use App\Models\ProjectDetails;
 use App\Traits\Frontend;
 use App\Traits\Notify;
 use Illuminate\Http\Request;
@@ -102,6 +103,19 @@ class FrontendController extends Controller
             ->paginate(15);
 
         return view(template() . 'user.projects.index', compact('projects'));
+    }
+    public function details($slug)
+    {
+        $pageSeo = Page::where('slug', 'project_details')->first();
+        $pageSeo->meta_keywords =  implode(",", $pageSeo->meta_keywords);
+        $pageSeo->image = getFile($pageSeo->meta_image_driver, $pageSeo->meta_image);
+        $projectDetails = ProjectDetails::with('project')->where('slug',$slug)->first();
+        if (!$projectDetails){
+            abort(404);
+        }
+        $project = $projectDetails->project;
+        // return print_r($projectDetails->toArray());
+        return view(template().'user.projects.project_details',compact('project','pageSeo'));
     }
 
     public function plans()

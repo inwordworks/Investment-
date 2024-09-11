@@ -20,7 +20,7 @@
 
                 </a>
 
-                <a href="/" class="navbar-brand logo">
+                <a href="<?= route('website.homepage') ?>" class="navbar-brand logo">
 
                     <img src="/web_assets/brand/logo.png" class="img-fluid" alt="Logo">
 
@@ -32,7 +32,7 @@
 
                 <div class="menu-header">
 
-                    <a href="/" class="menu-logo">
+                    <a href="<?= route('website.homepage') ?>" class="menu-logo">
 
                         <img src="/web_assets/brand/logo.png" class="img-fluid" alt="Logo">
 
@@ -91,14 +91,14 @@
 
                     <li class="login-link <?= isset($_SERVER['PATH_INFO']) && route('register') == url($_SERVER['PATH_INFO']) ? 'active' : '' ?>"><a href="<?= route('register') ?>">ERegister</a></li>
 
-                    <li class="register-btn <?= isset($_SERVER['PATH_INFO']) && route('register') == url($_SERVER['PATH_INFO']) ? 'active' : '' ?>">
+                    <li class="register-btn">
 
                         <a href="<?= route('login') ?>" class="btn btn-primary log-btn"><i class="feather-lock"></i>Log
                             In</a>
 
                     </li>
 
-                    <li class="register-btn <?= isset($_SERVER['PATH_INFO']) && route('login') == url($_SERVER['PATH_INFO']) ? 'active' : '' ?>">
+                    <li class="register-btn">
 
                         <a href="<?= route('register') ?>" class="btn reg-btn"><i class="feather-user"></i>Register</a>
 

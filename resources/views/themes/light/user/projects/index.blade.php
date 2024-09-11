@@ -41,7 +41,7 @@
                             <td data-label="@lang('Action')">
 
                                 <!-- <a href="{{route('project.details',[slug(optional($project->details)->title)??'project-details',$project->id])}}" class="btn-1"><i class="fal fa-eye"></i> @lang('View') <span></span></a> -->
-                                <a target="_blank" href="<?= route('project.details', [slug(optional($project->details)->slug ?? 'project-title')]) ?>" class="btn-1"><i class="fal fa-eye"></i> @lang('View') <span></span></a>
+                                <a href="<?= route('user.project.details', [slug(optional($project->details)->slug ?? 'project-title')]) ?>" class="btn-1"><i class="fal fa-eye"></i> @lang('View') <span></span></a>
                             </td>
                         </tr>
                         @endforeach

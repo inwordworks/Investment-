@@ -8,21 +8,9 @@
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link collapsed {{isMenuActive(['user.plans'])}}" href="{{route('user.plans')}}">
-                <i class="fa-brands fa-codepen"></i>
-                <span>@lang('Investment Plan')</span>
-            </a>
-        </li>
-        <li class="nav-item">
             <a class="nav-link collapsed {{isMenuActive(['user.projects'])}}" href="{{route('user.projects')}}">
                 <i class="fa-brands fa-slack"></i>
                 <span>@lang('Projects')</span>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link collapsed {{isMenuActive(['user.plan.investment'])}}" href="{{route('user.plan.investment')}}">
-                <i class="fal fa-cube"></i>
-                <span>@lang('Plan invest history')</span>
             </a>
         </li>
         <li class="nav-item">
@@ -31,6 +19,20 @@
                 <span>@lang('Project Invest history')</span>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed {{isMenuActive(['user.plans'])}}" href="{{route('user.plans')}}">
+                <i class="fa-brands fa-codepen"></i>
+                <span>@lang('Investment Plan')</span>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed {{isMenuActive(['user.plan.investment'])}}" href="{{route('user.plan.investment')}}">
+                <i class="fal fa-cube"></i>
+                <span>@lang('Plan invest history')</span>
+            </a>
+        </li>
+
         <li class="nav-item">
             <a class="nav-link collapsed {{ isMenuActive('user.add.fund') }}"
                href="{{route('user.add.fund')}}">

@@ -14,34 +14,34 @@ const previewImage = (id) => {
     document.getElementById(id).src = URL.createObjectURL(event.target.files[0]);
 };
 
-$(function() {
+$(function () {
     $('.btn-1, .btn-2')
-        .on('mouseenter', function(e) {
+        .on('mouseenter', function (e) {
             var parentOffset = $(this).offset(),
                 relX = e.pageX - parentOffset.left,
                 relY = e.pageY - parentOffset.top;
-            $(this).find('span').css({top:relY, left:relX})
+            $(this).find('span').css({ top: relY, left: relX })
         })
-        .on('mouseout', function(e) {
+        .on('mouseout', function (e) {
             var parentOffset = $(this).offset(),
                 relX = e.pageX - parentOffset.left,
                 relY = e.pageY - parentOffset.top;
-            $(this).find('span').css({top:relY, left:relX})
+            $(this).find('span').css({ top: relY, left: relX })
         });
 });
-$(function() {
+$(function () {
     $('.btn-2')
-        .on('mouseenter', function(e) {
+        .on('mouseenter', function (e) {
             var parentOffset = $(this).offset(),
                 relX = e.pageX - parentOffset.left,
                 relY = e.pageY - parentOffset.top;
-            $(this).find('span').css({top:relY, left:relX})
+            $(this).find('span').css({ top: relY, left: relX })
         })
-        .on('mouseout', function(e) {
+        .on('mouseout', function (e) {
             var parentOffset = $(this).offset(),
                 relX = e.pageX - parentOffset.left,
                 relY = e.pageY - parentOffset.top;
-            $(this).find('span').css({top:relY, left:relX})
+            $(this).find('span').css({ top: relY, left: relX })
         });
 });
 
@@ -54,11 +54,10 @@ const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstra
 $(document).ready(function () {
     $('.cmn-select2').select2();
 });
-
 // cmn select2 end
 
 document.addEventListener('DOMContentLoaded', function () {
-// cmn-select2-modal
+    // cmn-select2-modal
     $(".modal-select").select2({
         dropdownParent: $("#formModal"),
     });
@@ -110,6 +109,27 @@ $(document).ready(function () {
 
 });
 
+// INCREMENT DECREMENT COUNT START
+$(document).ready(function () {
+    var count = 0;
+
+    function updateCount() {
+        $('.number').text(count);
+    }
+
+    $('.increment').click(function () {
+        count++;
+        updateCount();
+    });
+
+    $('.decrement').click(function () {
+        if (count > 0) {
+            count--;
+            updateCount();
+        }
+    });
+});
+// INCREMENT DECREMENT COUNT END
 document.addEventListener('DOMContentLoaded', function () {
     const dropdownItems = document.querySelectorAll('#sidebar-bottom .dropdown-item');
     dropdownItems.forEach((item) => {
@@ -211,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
-$(document).on('click', '.skltbs-tab', function() {
+$(document).on('click', '.skltbs-tab', function () {
     let targetId = $(this).data('target');
 
     // Hide all panels

@@ -122,6 +122,7 @@ Route::group(['middleware' => ['maintenanceMode']], function () use ($basicContr
 
 
             Route::get('projects', [FrontendController::class, 'projects'])->name('projects');
+            Route::get('project/details/{slug}', [FrontendController::class, 'details'])->name('project.details');
             Route::get('investment-plan', [FrontendController::class, 'plans'])->name('plans');
 
             /* ===== Referral ===== */
