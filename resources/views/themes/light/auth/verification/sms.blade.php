@@ -39,11 +39,3 @@
 
 
 @endsection
-
-@push('style')
-    <style>
-        .main-footer-padding{
-            padding-top: 60px;
-        }
-    </style>
-@endpush

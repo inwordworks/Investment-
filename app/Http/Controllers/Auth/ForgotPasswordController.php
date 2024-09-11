@@ -90,7 +90,7 @@ class ForgotPasswordController extends Controller
                 $this->credentials($request)
             );
 
-            Log::debug('sendResetLinkEmail', ['RESET_LINK_SENT' => Password::RESET_LINK_SENT, 'context' => json_encode($response)]);
+            // Log::debug('sendResetLinkEmail', ['RESET_LINK_SENT' => Password::RESET_LINK_SENT, 'context' => json_encode($response)]);
             return $response == Password::RESET_LINK_SENT
                 ? $this->sendResetLinkResponse($request, $response)
                 : $this->sendResetLinkFailedResponse($request, $response);
