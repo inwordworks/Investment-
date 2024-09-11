@@ -119,15 +119,14 @@ if (!function_exists('basicControl')) {
         }
         try {
             DB::connection()->getPdo();
-            $configure = BasicControl::firstOrCreate();
             // $email_description = $configure->email_description;
             // $email_description = str_replace("[[current_year]]", date('Y'), $email_description);
             // $configure->email_description = $email_description;
-            // $configure = Cache::get('ConfigureSetting');
-            // if (!$configure) {
-            //     $configure = BasicControl::firstOrCreate();
-            //     Cache::put('ConfigureSetting', $configure);
-            // }
+            $configure = Cache::get('ConfigureSetting');
+            if (!$configure) {
+                $configure = BasicControl::firstOrCreate();
+                Cache::put('ConfigureSetting', $configure);
+            }
 
             return $configure;
         } catch (Throwable $th) {
