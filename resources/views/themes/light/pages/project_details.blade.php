@@ -164,7 +164,7 @@
         <div class="star-shape">
             <img src="{{asset($themeTrue.'images/shape/star.png')}}" alt="shape">
         </div>
-        <div class="layer-bg" style="background: url({{isset($counter_section_2['single']['media']->background_image)?getFile($counter_section_2['single']['media']->background_image->driver,$counter_section_2['single']['media']->background_image->path):getFile('local','image')}});" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"></div>
+        <div class="layer-bg" style="background: url(<?= isset($counter_section_2['single']['media']->background_image)?getFile($counter_section_2['single']['media']->background_image->driver,$counter_section_2['single']['media']->background_image->path):getFile('local','image') ?>);" data-jarallax data-speed="0.2" data-imgPosition="50% 0%"></div>
         <div class="container">
             <div class="common-title-container">
                 <div class="common-title">
@@ -236,7 +236,7 @@
     <!-- subscribe -->
     <section class="subscribe">
         <div class="container">
-            <div class="subscribe-container" style=" background: url({{isset($subscribe_section['single']['media']->image)?getFile($subscribe_section['single']['media']->image->driver,$subscribe_section['single']['media']->image->path):getFile('local','image')}}) no-repeat;">
+            <div class="subscribe-container" style=" background: url(<?= isset($subscribe_section['single']['media']->image)?getFile($subscribe_section['single']['media']->image->driver,$subscribe_section['single']['media']->image->path):getFile('local','image') ?>) no-repeat;">
                 <div class="subscribe-content">
                     <h3>{!! styleSentence($subscribe_section['single']['heading']??'',5) !!}</h3>
                     <div class="subscribe-btn">

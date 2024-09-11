@@ -52,7 +52,7 @@
         @if (isset($pageSeo) && $pageSeo->breadcrumb_status == 1)
             <!-- common banner -->
             <section class="common-banner">
-                <div class="bg-layer" style="background: url({{$pageSeo->breadcrumb_image?getFile($pageSeo->breadcrumb_image_driver,$pageSeo->breadcrumb_image):''}});"></div>
+                <div class="bg-layer" style="background: url(<?=$pageSeo->breadcrumb_image?getFile($pageSeo->breadcrumb_image_driver,$pageSeo->breadcrumb_image):''?>);"></div>
                 <div class="container">
                     <div class="common-banner-container">
                         <div class="common-banner-title">

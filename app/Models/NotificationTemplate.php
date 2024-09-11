@@ -31,4 +31,11 @@ class NotificationTemplate extends Model
         'status' => 'array',
     ];
 
+    // protected static function booted()
+    // {
+    //     static::retrieved(function ($user) {
+    //         // Modify the data here
+    //         $user->name = strtoupper($user->name);
+    //     });
+    // }
 }

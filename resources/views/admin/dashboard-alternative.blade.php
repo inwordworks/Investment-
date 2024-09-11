@@ -495,13 +495,13 @@
             } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging.js";
 
             const firebaseConfig = {
-                apiKey: "{{$firebaseNotify['apiKey']}}",
-                authDomain: "{{$firebaseNotify['authDomain']}}",
-                projectId: "{{$firebaseNotify['projectId']}}",
-                storageBucket: "{{$firebaseNotify['storageBucket']}}",
-                messagingSenderId: "{{$firebaseNotify['messagingSenderId']}}",
-                appId: "{{$firebaseNotify['appId']}}",
-                measurementId: "{{$firebaseNotify['measurementId']}}"
+                apiKey: "AIzaSyBXUeCnuLIf1TC6eo7LhVUdMhdaC1J7HDk",
+                authDomain: "ahtesham-1988.firebaseapp.com",
+                projectId: "ahtesham-1988",
+                storageBucket: "ahtesham-1988.appspot.com",
+                messagingSenderId: "1000552216526",
+                appId: "1:1000552216526:web:8a407675d743c03dad9d9f",
+                measurementId: "G-9TSGJKRLXD"
             };
 
             const app = initializeApp(firebaseConfig);
@@ -529,6 +529,7 @@
             function requestPermissionAndGenerateToken(registration) {
                 document.addEventListener("click", function (event) {
                     if (event.target.id == 'allow-notification') {
+                        console.log('notification allowed clicked. on admin');
                         Notification.requestPermission().then((permission) => {
                             if (permission === 'granted') {
                                 getToken(messaging, {

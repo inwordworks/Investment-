@@ -11,10 +11,10 @@ class PusherConfigController extends Controller
     public function pusherConfig()
     {
         $basicControl = basicControl();
-        $data['pusherAppId'] = env('pusher_app_id');
-        $data['pusherAppKey'] = env('pusher_app_key');
-        $data['pusherAppSecret'] = env('pusher_app_secret');
-        $data['pusherAppCluster'] = env('pusher_app_cluster');
+        $data['pusherAppId'] = env('PUSHER_APP_ID');
+        $data['pusherAppKey'] = env('PUSHER_APP_KEY');
+        $data['pusherAppSecret'] = env('PUSHER_APP_SECRET');
+        $data['pusherAppCluster'] = env('PUSHER_APP_CLUSTER');
         return view('admin.control_panel.pusher_config', $data, compact('basicControl'));
     }
 

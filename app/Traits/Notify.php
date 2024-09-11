@@ -163,7 +163,7 @@ trait Notify
             return false;
         }
 
-        $email_body = $basic->email_description;
+        $email_body = str_replace("[[current_year]]", date('Y'), $basic->email_description);
         $templateObj = NotificationTemplate::where('template_key', $templateKey)->where('language_id', $user->language_id)->first();
         if (!$templateObj) {
             $templateObj = NotificationTemplate::where('template_key', $templateKey)->first();

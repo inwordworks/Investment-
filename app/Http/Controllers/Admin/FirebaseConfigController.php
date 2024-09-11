@@ -17,7 +17,6 @@ class FirebaseConfigController extends Controller
 
     public function firebaseConfigUpdate(Request $request)
     {
-
         $request->validate([
             'server_key' => 'required|string',
             'vapid_key' => 'required|string',
@@ -53,6 +52,17 @@ class FirebaseConfigController extends Controller
             ];
 
             BasicService::setEnv($env);
+            config([
+                'firebase.serverKey' => $request->server_key,
+                'firebase.vapidKey' => $request->vapid_key,
+                'firebase.apiKey' => $request->api_key,
+                'firebase.authDomain' => $request->auth_domain,
+                'firebase.projectId' => $request->project_id,
+                'firebase.storageBucket' => $request->storage_bucket,
+                'firebase.messagingSenderId' => $request->messaging_sender_id,
+                'firebase.appId' => $request->app_id,
+                'firebase.measurementId' => $request->measurement_id
+            ]);
 
             $basicControl = basicControl();
             $basicControl->update([
@@ -64,5 +74,4 @@ class FirebaseConfigController extends Controller
 
         return back()->with('success', 'Firebase Configure Successfully.');
     }
-
 }

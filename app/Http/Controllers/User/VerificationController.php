@@ -139,6 +139,7 @@ class VerificationController extends Controller
             $user->verify_code = null;
             $user->sent_at = null;
             $user->save();
+            session()->flash('success', 'Your email has been verified');
             return redirect()->intended(route('user.dashboard'));
         }
         throw ValidationException::withMessages(['code' => 'Verification code didn\'t match!']);

@@ -294,7 +294,7 @@
         $(document).ready(function (){
             $('#formFile').on('change', function(event) {
                 let imageFile = event.target.files[0];
-                let url = '{{route('user.profile.update.image')}}';
+                let url = '<?= route('user.profile.update.image') ?>';
                 $('#profile').attr('src', URL.createObjectURL(event.target.files[0]));
                 let formData = new FormData();
                 formData.append('image', imageFile);
@@ -317,7 +317,7 @@
             });
         })
         $(document).on('click','.reset',function (){
-            $('#profile').attr('src', '{{asset('assets/admin/img/default.png')}}');
+            $('#profile').attr('src', '<?= asset('assets/admin/img/default.png') ?>');
         })
 
 

@@ -236,28 +236,118 @@
     <!-- Footer section end -->
 
     <!-- bootstrap -->
-    <script src="{{asset($themeTrue.'js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset($themeTrue.'js/flatpickr-min.js')}}"></script>
+    <script src="{{ asset($themeTrue.'js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset($themeTrue.'js/flatpickr-min.js') }}"></script>
     <!-- jquery cdn -->
     <script src="{{ asset('assets/global/js/jquery.min.js') }}"></script>
-    <script src="{{asset($themeTrue.'js/apexcharts.min.js')}}"></script>
+    <script src="{{ asset($themeTrue.'js/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/global/js/Chart.min.js') }}"></script>
-    <script src="{{asset($themeTrue.'js/user-script.js')}}"></script>
-    <script src="{{asset($themeTrue.'js/swiper.min.js')}}"></script>
+    <script src="{{ asset($themeTrue.'js/user-script.js') }}"></script>
+    <script src="{{ asset($themeTrue.'js/swiper.min.js') }}"></script>
     <script src="{{ asset($themeTrue . 'js/select2.min.js') }}"></script>
-    <script src="{{asset($themeTrue.'js/owl.carousel.min.js')}}"></script>
-    <script src="{{asset($themeTrue.'js/waypoints.min.js')}}"></script>
+    <script src="{{ asset($themeTrue.'js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset($themeTrue.'js/waypoints.min.js') }}"></script>
     <script src="{{ asset('assets/global/js/notiflix-aio-3.2.6.min.js') }}"></script>
     <script src="{{ asset('assets/global/js/pusher.min.js') }}"></script>
     <script src="{{ asset('assets/global/js/vue.min.js') }}"></script>
     <script src="{{ asset('assets/global/js/axios.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/jquery.uploadPreview.min.js') }}"></script>
-    <script src="{{asset($themeTrue.'js/custom_share.js')}}"></script>
+    <script src="{{ asset($themeTrue.'js/custom_share.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.7.3/build/js/intlTelInput.min.js"></script>
 
+    <script type="module">
 
+        import {initializeApp} from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+        import {
+            getMessaging,
+            getToken,
+            onMessage
+        } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging.js";
 
+        const firebaseConfig = {
+            apiKey: "AIzaSyBXUeCnuLIf1TC6eo7LhVUdMhdaC1J7HDk",
+            authDomain: "ahtesham-1988.firebaseapp.com",
+            projectId: "ahtesham-1988",
+            storageBucket: "ahtesham-1988.appspot.com",
+            messagingSenderId: "1000552216526",
+            appId: "1:1000552216526:web:8a407675d743c03dad9d9f",
+            measurementId: "G-9TSGJKRLXD"
+        };
 
+        const app = initializeApp(firebaseConfig);
+        const messaging = getMessaging(app);
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('{{ getProjectDirectory() }}' + `/firebase-messaging-sw.js`, {scope: './'}).then(function (registration) {
+                    requestPermissionAndGenerateToken(registration);
+                }
+            ).catch(function (error) {
+            });
+        } else {
+        }
+
+        onMessage(messaging, (payload) => {
+            if (payload.data.foreground || parseInt(payload.data.foreground) == 1) {
+                const title = payload.notification.title;
+                const options = {
+                    body: payload.notification.body,
+                    icon: payload.notification.icon,
+                };
+                new Notification(title, options);
+            }
+        });
+
+        function requestPermissionAndGenerateToken(registration) {
+            document.addEventListener("click", function (event) {
+                if (event.target.id == 'allow-notification') {
+                    console.log('notification allowed clicked. on user');
+                    Notification.requestPermission().then((permission) => {
+                        if (permission === 'granted') {
+                            getToken(messaging, {
+                                serviceWorkerRegistration: registration,
+                                vapidKey: "{{$firebaseNotify['vapidKey']}}"
+                            })
+                                .then((token) => {
+                                    $.ajax({
+                                        url: "{{ route('user.save.token') }}",
+                                        method: "post",
+                                        data: {
+                                            token: token,
+                                        },
+                                        success: function (res) {
+                                        }
+                                    });
+                                    window.newApp.notificationPermission = 'granted';
+                                });
+                        } else {
+                            window.newApp.notificationPermission = 'denied';
+                        }
+                    });
+                }
+            });
+        }
+    </script>
+    <script>
+        window.newApp = new Vue({
+            el: "#firebase-app",
+            data: {
+                user_foreground: '',
+                user_background: '',
+                notificationPermission: Notification.permission,
+                is_notification_skipped: sessionStorage.getItem('is_notification_skipped') == '1'
+            },
+            mounted() {
+                sessionStorage.clear();
+                this.user_foreground = "{{$firebaseNotify['user_foreground']}}";
+                this.user_background = "{{$firebaseNotify['user_background']}}";
+            },
+            methods: {
+                skipNotification() {
+                    sessionStorage.setItem('is_notification_skipped', '1')
+                    this.is_notification_skipped = true;
+                }
+            }
+        });
+    </script>
     @stack('js-lib')
     @include('plugins')
     @stack('script')
@@ -279,12 +369,6 @@
             }
         }
     </script>
-
-
-
-
-
-
 
     <script>
         'use strict';
