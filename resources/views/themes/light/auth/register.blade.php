@@ -24,7 +24,7 @@
                                             <div class="form-group-flex">
                                                 <label class="fw-semibold">@lang('Refered By')</label>
                                             </div>
-                                            <input type="text" name="email" class="form-control" value="{{$referUser->username}}" readonly>
+                                            <input type="text" name="referral_username" class="form-control" value="{{$referUser->username}}" readonly>
                                         </div>
                                     </div>
                                     @endif

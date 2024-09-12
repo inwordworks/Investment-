@@ -1,6 +1,6 @@
-<!-- Remove preloader -->
-<!-- Make the background black -->
-Change agruculture images (Not look like agriculture investment, it will be startup investment)
+www.mystartup.info
+64.225.26.181
+phplaravel-1329210-4863031.cloudwaysapps.com
 
 On projects:-
     Remove above testimonials
@@ -8,3 +8,11 @@ On projects:-
 
 
 PHP Deprecated: Optional parameter $trx declared before required parameter $amount is implicitly treated as a required parameter in app/Services/BasicService.php on line 271.
+
+// cloudlays
+// path: cd applications/tydvbhbqcv/public_html
+php artisan optimize:clear; php artisan clear-compiled; php artisan cache:clear; php artisan config:clear; php artisan route:cache; php artisan config:cache; php artisan optimize; php artisan storage:link
+php artisan cache:clear
+php artisan config:cache
+php artisan route:cache
+php artisan optimize

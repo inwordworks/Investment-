@@ -60,17 +60,17 @@ class RegisterController extends Controller
     public function showRegistrationForm(Request $request)
     {
         $referUser = null;
-       if ($request->ref){
-           $referUser =  User::where('id', $request->ref)->first();
-       }
+        if ($request->ref) {
+            $referUser =  User::where('id', $request->ref)->first();
+        }
         // $pageSeo = Page::where('slug', 'register')->first();
         // $pageSeo->meta_keywords =  implode(",", $pageSeo->meta_keywords);
         // $pageSeo->image = getFile($pageSeo->meta_image_driver, $pageSeo->meta_image);
-        // $basic = basicControl();
-        // if ($basic->registration == 0) {
-        //     return redirect('/')->with('warning', 'Registration Has Been Disabled.');
-        // }
-        return view(template() . 'auth.register',compact('referUser'));
+        $basic = basicControl();
+        if ($basic->registration == 0) {
+            return redirect('/')->with('warning', 'Registration Has Been Disabled.');
+        }
+        return view(template() . 'auth.register', compact('referUser'));
     }
 
     /**
@@ -87,12 +87,15 @@ class RegisterController extends Controller
         if ($basicControl->strong_password == 0) {
             $rules['password'] = ['required', 'min:6', 'confirmed'];
         } else {
-            $rules['password'] = ["required", 'confirmed',
+            $rules['password'] = [
+                "required",
+                'confirmed',
                 Password::min(6)->mixedCase()
                     ->letters()
                     ->numbers()
                     ->symbols()
-                    ->uncompromised()];
+                    ->uncompromised()
+            ];
         }
 
 
@@ -133,7 +136,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $referUser = session()->get('referral');
+        // $referUser = session()->get('ref');
+        $referUser = isset($data['referral_username']) && !empty(trim($data['referral_username'])) ? (User::select('id')->where('username', $data['referral_username'])->first())?->id : null;
         $basic = basicControl();
         return User::create([
             'firstname' => $data['first_name'],
@@ -143,7 +147,7 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'email_verification' => ($basic->email_verification) ? 0 : 1,
             'sms_verification' => ($basic->sms_verification) ? 0 : 1,
-            'referral_id' => $referUser??null,
+            'referral_id' => $referUser ?? null,
             'phone' => $data['phone'],
             'phone_code' => $data['phone_code'],
             'country_code' => strtoupper($data['country_code']),
@@ -159,8 +163,7 @@ class RegisterController extends Controller
 
         $user = $this->create($request->all());
 
-        session()->forget('referral');
-
+        session()->forget('ref');
 
         $this->guard()->login($user);
 
@@ -199,12 +202,10 @@ class RegisterController extends Controller
         $ul['get_device'] = UserSystemInfo::get_device();
 
         UserLogin::create($ul);
-
     }
 
     protected function guard()
     {
         return Auth::guard();
     }
-
 }

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController as UserLoginController;
-// use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SocialiteController;
@@ -24,22 +24,16 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\User\VerificationController;
 use App\Http\Controllers\Frontend\BlogController;
-use App\Http\Controllers\Pages\PagesController;
 use App\Livewire\Aboutpage;
 use App\Livewire\BusinessPlanPage;
 use App\Livewire\ContactPage;
 use App\Livewire\Homepage;
 use App\Livewire\LegalDisclaimerPage;
-use App\Livewire\LoginPage;
 use App\Livewire\PrivacyPolicyPage;
 use App\Livewire\RefundPolicyPage;
-use App\Livewire\RegisterPage;
 use App\Livewire\ServicesPage;
 use App\Livewire\ShippingPolicyPage;
 use App\Livewire\TermsPage;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Password;
 
 $basicControl = basicControl();
 
@@ -193,9 +187,6 @@ Route::group(['middleware' => ['maintenanceMode']], function () use ($basicContr
     Route::get('shipping-policy', ShippingPolicyPage::class)->name('website.policy.shipping');
     Route::get('refund-policy', RefundPolicyPage::class)->name('website.policy.refund');
     Route::get('legal', LegalDisclaimerPage::class)->name('website.policy.legal');
-
-    // Route::get('login', LoginPage::class)->name('login');
-    // Route::get('register', RegisterPage::class)->name('register');
 
     /* Subscribe */
     Route::post('subscribe', [SubscriberController::class, 'subscribe'])->name('subscribe');
