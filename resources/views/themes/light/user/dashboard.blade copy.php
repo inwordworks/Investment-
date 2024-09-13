@@ -586,12 +586,16 @@
 
 @if($firebaseNotify)
 @push('script')
+<script type="module">
+    import {
+        initializeApp
+    } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+    import {
+        getMessaging,
+        getToken,
+        onMessage
+    } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging.js";
 
-
-<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging-compat.js"></script>
-
-<script>
     const firebaseConfig = {
         apiKey: "{{$firebaseNotify['apiKey']}}",
         authDomain: "{{$firebaseNotify['authDomain']}}",
@@ -602,83 +606,56 @@
         measurementId: "{{$firebaseNotify['measurementId']}}",
     };
 
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-    const messaging = firebase.messaging();
-
-    // Register service worker and request permission
+    const app = initializeApp(<?= $firebaseNotify ?>);
+    const messaging = getMessaging(app);
     if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/firebase-messaging-sw.js')
-        .then(function(registration) {
-            console.log('Service Worker registered:', registration);
-
-            // Function to handle permission and token retrieval
+        navigator.serviceWorker.register('{{ getProjectDirectory() }}' + `/firebase-messaging-sw.js`, {
+            scope: './'
+        }).then(function(registration) {
             requestPermissionAndGenerateToken(registration);
-        }).catch(function(error) {
-            console.error('Service Worker registration failed:', error);
-        });
-    }
+        }).catch(function(error) {});
+    } else {}
 
-    // Function to request notification permission and get token
+    onMessage(messaging, (payload) => {
+        if (payload.data.foreground || parseInt(payload.data.foreground) == 1) {
+            const title = payload.notification.title;
+            const options = {
+                body: payload.notification.body,
+                icon: payload.notification.icon,
+            };
+            new Notification(title, options);
+        }
+    });
+
     function requestPermissionAndGenerateToken(registration) {
         document.addEventListener("click", function(event) {
-            if (event.target.id === 'allow-notification') {
-                console.log('Notification allowed clicked by user');
-
-                // Request notification permission
+            if (event.target.id == 'allow-notification') {
+                console.log('notification allowed clicked. on user');
                 Notification.requestPermission().then((permission) => {
                     if (permission === 'granted') {
-                        // Permission granted, get the FCM token
-                        messaging.getToken({
-                            serviceWorkerRegistration: registration,
-                            vapidKey: "{{$firebaseNotify['vapidKey']}}" // Use your VAPID key here
-                        }).then((token) => {
-                            console.log('FCM Token:', token);
-
-                            // Send the token to the server via AJAX
-                            $.ajax({
-                                url: "{{ route('user.save.token') }}",
-                                method: "POST",
-                                data: { token: token },
-                                success: function(res) {
-                                    console.log('FCM Token saved successfully');
-                                },
-                                error: function(err) {
-                                    console.error('Error saving FCM Token:', err);
-                                }
+                        getToken(messaging, {
+                                serviceWorkerRegistration: registration,
+                                vapidKey: "{{$firebaseNotify['vapidKey']}}"
+                            })
+                            .then((token) => {
+                                $.ajax({
+                                    url: "{{ route('user.save.token') }}",
+                                    method: "post",
+                                    data: {
+                                        token: token,
+                                    },
+                                    success: function(res) {}
+                                });
+                                window.newApp.notificationPermission = 'granted';
                             });
-
-                            // Update Vue data to reflect granted permission
-                            window.newApp.notificationPermission = 'granted';
-                        }).catch((error) => {
-                            console.error('Error getting token:', error);
-                        });
                     } else {
-                        // Permission denied
                         window.newApp.notificationPermission = 'denied';
                     }
-                }).catch((error) => {
-                    console.error('Error during permission request:', error);
                 });
             }
         });
     }
-
-    // Listen for messages when the app is in the foreground
-    messaging.onMessage((payload) => {
-        console.log('Message received. ', payload);
-        const notificationTitle = payload.notification.title;
-        const notificationOptions = {
-            body: payload.notification.body,
-            icon: payload.notification.icon,
-        };
-        new Notification(notificationTitle, notificationOptions);
-    });
 </script>
-
-
-
-<!-- Vue.js Component -->
 <script>
     window.newApp = new Vue({
         el: "#firebase-app",
@@ -686,7 +663,7 @@
             user_foreground: '',
             user_background: '',
             notificationPermission: Notification.permission,
-            is_notification_skipped: sessionStorage.getItem('is_notification_skipped') === '1'
+            is_notification_skipped: sessionStorage.getItem('is_notification_skipped') == '1'
         },
         mounted() {
             sessionStorage.clear();
@@ -695,7 +672,7 @@
         },
         methods: {
             skipNotification() {
-                sessionStorage.setItem('is_notification_skipped', '1');
+                sessionStorage.setItem('is_notification_skipped', '1')
                 this.is_notification_skipped = true;
             }
         }

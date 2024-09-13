@@ -775,7 +775,6 @@ INSERT INTO `favourite_templates` (`id`, `user_id`, `template_code`, `template_t
 
 CREATE TABLE `firebase_notifies` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `server_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `vapid_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `api_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `auth_domain` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,

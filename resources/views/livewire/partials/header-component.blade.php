@@ -73,7 +73,7 @@
 
                             <li><a href="<?= route('website.services') ?>">Integrated Fashions</a></li>
 
-                            <li><a href="<?= route('website.services') ?>">Fortuelife Foundation (CFS)</a></li>
+                            <li><a href="<?= route('website.services') ?>">MyStartUp Foundation (CFS)</a></li>
 
                             <li><a href="<?= route('website.services') ?>">Fortune Life Technologies</a></li>
 

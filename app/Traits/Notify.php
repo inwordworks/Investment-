@@ -26,11 +26,11 @@ trait Notify
 
     public function mail($user, $templateKey = null, $params = [], $subject = null, $requestMessage = null)
     {
-        $notificationPermission = NotificationPermission::where('notifyable_id',$user->id)->first();
+        $notificationPermission = NotificationPermission::where('notifyable_id', $user->id)->first();
 
         try {
 
-            if ($notificationPermission && $notificationPermission->template_email_key){
+            if ($notificationPermission && $notificationPermission->template_email_key) {
                 if (!in_array($templateKey, $notificationPermission->template_email_key)) {
                     return false;
                 }
@@ -80,7 +80,7 @@ trait Notify
         }
 
 
-        $notificationPermission = NotificationPermission::where('notifyable_id',$user->id)->first();
+        $notificationPermission = NotificationPermission::where('notifyable_id', $user->id)->first();
         if ($notificationPermission && !in_array($templateKey, $notificationPermission->template_sms_key)) {
             return false;
         }
@@ -270,7 +270,7 @@ trait Notify
             $basic = basicControl();
             $notify = config('firebase');
 
-            $notificationPermission = NotificationPermission::where('notifyable_id',$user->id)->first();
+            $notificationPermission = NotificationPermission::where('notifyable_id', $user->id)->first();
             if ($notificationPermission && !in_array($templateKey, $notificationPermission->template_push_key)) {
                 return false;
             }
@@ -324,13 +324,12 @@ trait Notify
                 ];
 
                 $response = Http::withHeaders([
-                    'Authorization' => 'key=' . $notify['serverKey']
+                    // 'Authorization' => 'key=' . $notify['serverKey']
+                    'Authorization' => 'Bearer ' . $user->token
                 ])
                     ->acceptJson()
                     ->post('https://fcm.googleapis.com/fcm/send', $data);
             }
-
-
         } catch (\Exception $e) {
             return 0;
         }
@@ -348,7 +347,7 @@ trait Notify
             }
 
 
-            $notificationPermission = NotificationPermission::where('notifyable_id',$user->id)->first();
+            $notificationPermission = NotificationPermission::where('notifyable_id', $user->id)->first();
 
 
             if ($notificationPermission && !in_array($templateKey, $notificationPermission->template_in_app_key)) {
@@ -379,12 +378,10 @@ trait Notify
             $inAppNotification->description = $action;
             $user->inAppNotification()->save($inAppNotification);
             event(new UserNotification($inAppNotification, $user->id));
-
         } catch (\Exception $e) {
             dd($e->getMessage());
             return 0;
         }
-
     }
 
     public function adminFirebasePushNotification($templateKey, $params = [], $action = null)
@@ -436,7 +433,8 @@ trait Notify
                 ];
 
                 $response = Http::withHeaders([
-                    'Authorization' => 'key=' . $notify['serverKey']
+                    // 'Authorization' => 'key=' . $notify['serverKey']
+                    'Authorization' => 'Bearer ' . $admin->token
                 ])
                     ->acceptJson()
                     ->post('https://fcm.googleapis.com/fcm/send', $data);

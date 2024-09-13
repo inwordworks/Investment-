@@ -51,16 +51,16 @@
                 <div class="col-lg-6 col-md-12">
                     <div class="section-inner-header about-inner-header">
                         <h6>Welcome To</h6>
-                        <h2>Fortuelife Opportunity World</h2>
+                        <h2>MyStartUp Opportunity World</h2>
                     </div>
                     <div class="about-content">
                         <div class="about-content-details">
-                            <p>An organization steeped in professional competence, Fortuelife Group is a name
+                            <p>An organization steeped in professional competence, MyStartUp Group is a name
                                 synonymous with
                                 Growth. We are your gateway to a harmonious and holistic lifestyle aiding you to
                                 have a balanced
                                 and peaceful existence.</p>
-                            <p>During the onset of the Industrial Revolution, Fortuelife was established in India
+                            <p>During the onset of the Industrial Revolution, MyStartUp was established in India
                                 with a focus on
                                 the strength of people and products. Through integrated wellness, custom-integrated
                                 vacation
@@ -75,7 +75,7 @@
                                 you along
                                 the way.
                             </p>
-                            <p>The guiding principles of Fortuelife emphasize global development, providing
+                            <p>The guiding principles of MyStartUp emphasize global development, providing
                                 opportunities that
                                 uplift a society, recognizing individual contributions, and giving back to the
                                 community. By

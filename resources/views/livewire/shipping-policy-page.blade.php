@@ -26,7 +26,7 @@
 									<font color="#000000" size="5"><b>Shipping Policy:</b></font>
 								</p>
 								<p class="MsoNormal">
-									<font color="#000000" size="5">Thank you for choosing FORTUELIFE! We strive to
+									<font color="#000000" size="5">Thank you for choosing MyStartUp! We strive to
 										provide you with a seamless shopping experience, including reliable and
 										efficient shipping services. Please review the following shipping policy
 										applicable to our valuable customers:</font>

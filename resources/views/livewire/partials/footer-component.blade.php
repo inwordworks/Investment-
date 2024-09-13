@@ -20,7 +20,7 @@
 
                         <div class="footer-about-content">
 
-                            <p>FORTUELIFE as Brand Started with passion and purpose to provide a better
+                            <p>MyStartUp as Brand Started with passion and purpose to provide a better
                                 opportunities for empowering life in all aspects, and enhance the value of life.
                             </p>
 
@@ -78,7 +78,7 @@
 
                                     <li><a href="#">Agriculture Eco Farm Lands</a></li>
 
-                                    <li><a href="#">Fortuelife Foundation (CFS)</a></li>
+                                    <li><a href="#">MyStartUp Foundation (CFS)</a></li>
 
                                 </ul>
 
@@ -128,7 +128,7 @@
                                     <div class="footer-address mb-0">
 
                                         <p><i class="feather-mail"></i> <a
-                                                href="mailto:support@myfortuelife.com">support@myfortuelife.com</a>
+                                                href="mailto:support@mystartup.info">support@mystartup.info</a>
                                         </p>
 
                                     </div>

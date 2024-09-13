@@ -74,6 +74,39 @@
 
                 </div>
 
+                <div class="swiper-slide">
+
+                    <div class="slider"
+                        style="background: url('/web_assets/assets/img/slider-03.jpg') no-repeat; background-size: cover;">
+
+                        <div class="container">
+
+                            <div class="row align-items-center">
+
+                                <div class="col-lg-6">
+
+                                    <div class="banner-content">
+
+                                        <h1>Agriculture Eco Farm Lands</h1>
+
+                                        <p>Agriculture farm land is Vital for producing food, supporting rural
+                                            economics, And Preserving cultural heritage. It plays a crucial role in
+                                            ensuring food security, sustaining livelihoods, and promoting
+                                            sustainable development,</p>
+
+                                        <a href="#" class="btn">Read More</a>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
 
                 <div class="swiper-slide">
 

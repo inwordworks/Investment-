@@ -1,8 +1,7 @@
 <?php
 
 return [
-    'serverKey' => env('FIREBASE_SERVER_KEY', ''),
-    'vapidKey' => env('FIREBASE_VAPID_KEY', 'BHvxHfvJPNZrt_f6z2EOZHkCatpUy7k5Met4iFSD78dLG1lk'),
+    'vapidKey' => env('FIREBASE_VAPID_KEY', 'BBnkntZ2cJe-xgiS_IHUFumiu0z1q4WK98k_MTvMLMlf-kaitYvQE8oEnxSq1IZn9NMKKcCars3LFhof3b8M1wc'),
     'apiKey' => env('FIREBASE_API_KEY', 'AIzaSyBXUeCnuLIf1TC6eo7LhVUdMhdaC1J7HDk'),
     'authDomain' => env('FIREBASE_AUTH_DOMAIN', 'ahtesham-1988.firebaseapp.com'),
     'projectId' => env('FIREBASE_PROJECT_ID', 'ahtesham-1988'),

@@ -11,13 +11,11 @@ class Payment
 {
     public static function prepareData($deposit, $gateway)
     {
-        // Config::$serverKey = $gateway->parameters->server_key ?? '';
         // Config::$isProduction = $gateway->environment == 'live';
         // Config::$isSanitized = true;
         // Config::$is3ds = true;
         // Config::$overrideNotifUrl = route('ipn', 'midtrans');
 
-        \Midtrans\Config::$serverKey = $gateway->parameters->server_key ?? '';
         \Midtrans\Config::$isProduction = false;
         \Midtrans\Config::$isSanitized = true;
         \Midtrans\Config::$is3ds = true;
@@ -59,7 +57,6 @@ class Payment
         } else {
             $url = "https://api.sandbox.midtrans.com/v2/{$deposit->trx_id}/status";
         }
-        $serverKey = $gateway->parameters->server_key ?? '';
         $headers = [
             'Content-Type:application/json',
             'Authorization:Basic ' . base64_encode("{$serverKey}:")

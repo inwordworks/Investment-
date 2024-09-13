@@ -37,33 +37,6 @@
                                 <div class="row mb-3">
 
                                     <div class="col-sm-6">
-                                        <label for="serverKeyLabel" class="form-label">@lang('Server Key')</label>
-                                        <div class="input-group input-group-merge" data-hs-validation-validate-class>
-                                            <input
-                                                type="password"
-                                                class="js-toggle-password form-control @error('server_key') is-invalid @enderror"
-                                                name="server_key"
-                                                id="serverKeyLabel"
-                                                autocomplete="off"
-                                                placeholder="@lang("Server Key")"
-                                                aria-label="@lang("Server Key")"
-                                                value="{{ old('server_key', $firebaseNotify['serverKey']) }}"
-                                                data-hs-toggle-password-options='{
-                                                    "target": "#server_key",
-                                                    "defaultClass": "bi-eye-slash",
-                                                    "showClass": "bi-eye",
-                                                    "classChangeTarget": "#serverKeyIcon"
-                                                    }'/>
-                                            <button type="button" id="server_key" class="input-group-append input-group-text">
-                                                <i id="serverKeyIcon" class="bi-eye"></i>
-                                            </button>
-                                        </div>
-                                        @error('server_key')
-                                        <span class="invalid-feedback">{{ $message }}</span>
-                                        @enderror
-                                    </div>
-
-                                    <div class="col-sm-6">
                                         <label for="vapidKeyLabel" class="form-label">@lang('Vapid Key')</label>
                                         <div class="input-group input-group-merge" data-hs-validation-validate-class>
                                             <input
@@ -72,8 +45,8 @@
                                                 name="vapid_key"
                                                 id="vapidKeyLabel"
                                                 autocomplete="off"
-                                                placeholder="@lang("Vapid Key")"
-                                                aria-label="@lang("Vapid Key")"
+                                                placeholder="@lang('Vapid Key')"
+                                                aria-label="@lang('Vapid Key')"
                                                 value="{{ old('vapid_key', $firebaseNotify['vapidKey']) }}"
                                                 data-hs-toggle-password-options='{
                                                     "target": "#vapid_key",
@@ -219,9 +192,6 @@
                                         @enderror
                                     </div>
                                 </div>
-
-
-
 
                                 <div class="row mb-2">
                                     <div class="col-sm-12">

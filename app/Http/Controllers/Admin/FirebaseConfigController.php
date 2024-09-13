@@ -18,7 +18,6 @@ class FirebaseConfigController extends Controller
     public function firebaseConfigUpdate(Request $request)
     {
         $request->validate([
-            'server_key' => 'required|string',
             'vapid_key' => 'required|string',
             'api_key' => 'required|string',
             'auth_domain' => 'required|string',
@@ -36,7 +35,6 @@ class FirebaseConfigController extends Controller
 
         try {
             $env = [
-                'FIREBASE_SERVER_KEY' => $request->server_key,
                 'FIREBASE_VAPID_KEY' => $request->vapid_key,
                 'FIREBASE_API_KEY' => $request->api_key,
                 'FIREBASE_AUTH_DOMAIN' => $request->auth_domain,
@@ -53,7 +51,6 @@ class FirebaseConfigController extends Controller
 
             BasicService::setEnv($env);
             config([
-                'firebase.serverKey' => $request->server_key,
                 'firebase.vapidKey' => $request->vapid_key,
                 'firebase.apiKey' => $request->api_key,
                 'firebase.authDomain' => $request->auth_domain,

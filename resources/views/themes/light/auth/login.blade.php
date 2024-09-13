@@ -10,7 +10,7 @@
             <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
                 <h1 class="my-5 display-5 fw-bold ls-tight" style="color: hsl(218, 81%, 95%)">
                     Welcome
-                    <span style="color: hsl(218, 81%, 75%)">Back</span> Fortuelife's Family Member!
+                    <span style="color: hsl(218, 81%, 75%)">Back</span> MyStartUp's Family Member!
                 </h1>
                 <p class="mb-4 opacity-70" style="color: hsl(218, 81%, 85%)">
                     "Life is more vibrant with you here. Your return brings a burst of energy and positivity,
@@ -27,7 +27,7 @@
                             <div class="row">
                                 <div class="col-md-12 mb-3">
                                     <h2>Login</h2>
-                                    <!-- <p class="pb-4">Login to continue to My Fortuelife Group .</p> -->
+                                    <!-- <p class="pb-4">Login to continue to MyStartUp .</p> -->
                                     <div class="mb-2 mt-3">
                                         <div class="form-group-flex">
                                             <label class="mb-2">@lang('Username or Email')</label>

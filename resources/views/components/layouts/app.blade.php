@@ -8,33 +8,33 @@
     <!-- <link rel="shortcut icon" href="/web_assets/assets/img/favicon.png" type="image/x-icon"> -->
     <link rel="shortcut icon" href="{{ getFile(basicControl()->favicon_driver, basicControl()->favicon) }}" type="image/x-icon">
 
-    <meta name="description" content="Myfortuelifegroup">
+    <meta name="description" content="MyStartUp">
 
-    <meta name="keywords" content="Myfortuelifegroup">
+    <meta name="keywords" content="MyStartUp">
 
-    <meta name="author" content="Myfortuelifegroup">
+    <meta name="author" content="MyStartUp">
 
     <title><?= isset($title) && !empty(trim($title)) ?  $title . ' | ' . basicControl()->site_title : basicControl()->site_title ?></title>
 
-    <meta property="og:url" content="myfortuelifegroup.com">
+    <meta property="og:url" content="MyStartUp.com">
 
     <meta property="og:type" content="website">
 
-    <meta property="og:title" content="My fortuelife group">
+    <meta property="og:title" content="MyStartUp">
 
-    <meta property="og:description" content="Myfortuelifegroup">
+    <meta property="og:description" content="MyStartUp">
 
     <meta property="og:image" content="/web_assets/assets/img/logo-thumbnail.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
 
-    <meta property="twitter:domain" content="Myfortuelifegroup">
+    <meta property="twitter:domain" content="MyStartUp">
 
-    <meta property="twitter:url" content="myfortuelifegroup.com">
+    <meta property="twitter:url" content="MyStartUp.info">
 
-    <meta name="twitter:title" content="My fortuelife group">
+    <meta name="twitter:title" content="MyStartUp">
 
-    <meta name="twitter:description" content="Myfortuelifegroup">
+    <meta name="twitter:description" content="MyStartUp">
 
     <meta name="twitter:image" content="/web_assets/assets/img/logo-thumbnail.jpg">
 
@@ -219,7 +219,17 @@
 
 
     <script src="{{ asset('assets/global/js/notiflix-aio-3.2.6.min.js') }}"></script>
-
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/firebase-messaging-sw.js')
+                .then(function(registration) {
+                    console.log('Service Worker registered successfully:', registration);
+                })
+                .catch(function(err) {
+                    console.log('Service Worker registration failed:', err);
+                });
+        }
+    </script>
     <script>
         $(document).ready(function() {
             if ($('.swiper-container').length) {

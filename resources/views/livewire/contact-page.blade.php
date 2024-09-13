@@ -105,7 +105,7 @@
 
 									<h4>Email Address</h4>
 
-									<p><a href="#" class="">info@myfortuelifegroup.com</a></p>
+									<p><a href="#" class="">info@MyStartUp.info</a></p>
 
 								</div>
 

@@ -25,84 +25,84 @@
                     </div>
                     <div class="about-content">
                         <div class="about-content-details">
-                            <p>My Fortuelife Group Integrated Business Plan is a comprehensive document that
+                            <p>MyStartUp Integrated Business Plan is a comprehensive document that
                                 combines various elements of a business strategy into a cohesive framework. It
                                 typically includes components such as:</p>
                             <p>
 
                                 1. <b>Executive Summary:</b></p>
                             <p>
-                                My Fortuelife brief overview of the business, its mission, and key objectives.</p>
+                                My MyStartUp brief overview of the business, its mission, and key objectives.</p>
                             <p>
 
                                 2. <b>Business Description:</b></p>
                             <p>
-                                My Fortuelife Group detailed explanation of the business concept, its products or
+                                MyStartUp detailed explanation of the business concept, its products or
                                 services, and the industry it operates in.</p>
                             <p>
 
                                 3. <b>Market Analysis:</b></p>
                             <p>
-                                My Fortuelife Group examination of the target market, industry trends, competition
+                                MyStartUp examination of the target market, industry trends, competition
                                 analysis, and identification of opportunities and threats.</p>
                             <p>
 
                                 4. <b>SWOT Analysis:</b></p>
                             <p>
-                                My Fortuelife Group evaluation of the business's Strengths, Weaknesses,
+                                MyStartUp evaluation of the business's Strengths, Weaknesses,
                                 Opportunities, and Threats to inform strategic decision-making.</p>
                             <p>
 
                                 5. <b>Business Model:</b></p>
                             <p>
-                                Fortuelife Describes of how the business creates, delivers, and captures value,
+                                MyStartUp Describes of how the business creates, delivers, and captures value,
                                 including revenue streams and cost structure by phases model.</p>
                             <p>
 
                                 6. <b>Marketing and Sales Strategy:</b></p>
                             <p>
-                                My Fortuelife Group Plans for promoting and selling products or services, including
+                                MyStartUp Plans for promoting and selling products or services, including
                                 pricing, distribution, and promotional strategies.</p>
                             <p>
 
                                 7. <b>Operations Plan:</b></p>
                             <p>
-                                Fortuelife Details on how the business will operate, including production processes,
+                                MyStartUp Details on how the business will operate, including production processes,
                                 supply chain management, and any required facilities.</p>
                             <p>
 
                                 8. <b>Management and Team:</b></p>
                             <p>
-                                Fortuelife’s Overview of the organizational structure, key management personnel, and
+                                MyStartUp’s Overview of the organizational structure, key management personnel, and
                                 their roles and responsibilities.</p>
                             <p>
 
                                 9. <b>Financial Plan:</b></p>
                             <p>
-                                My Fortuelife Group Projections for revenue, expenses, and profits over a specified
+                                MyStartUp Projections for revenue, expenses, and profits over a specified
                                 period, including cash flow statements and balance sheets.</p>
                             <p>
 
                                 10. <b>Risk Management:</b></p>
                             <p>
-                                My Fortuelife Group Identification and assessment of potential risks to the
+                                MyStartUp Identification and assessment of potential risks to the
                                 business, along with strategies for mitigating or managing these risks.</p>
                             <p>
 
                                 11. <b>Implementation Timeline:</b></p>
                             <p>
-                                My Fortuelife Group schedule outlining key milestones and deadlines for implementing
+                                MyStartUp schedule outlining key milestones and deadlines for implementing
                                 various aspects of the business plan.</p>
                             <p>
 
                                 12. <b>Monitoring and Evaluation:</b></p>
                             <p>
-                                Fortuelife’s criteria and methods for tracking the business's performance and
+                                MyStartUp’s criteria and methods for tracking the business's performance and
                                 effectiveness of implemented strategies.</p>
                             <p>
 
-                                My Fortuelife’s Integrated Business Plan is a dynamic document that evolves as the
-                                business environment changes. It serves as a roadmap for the My Fortuelife Group,
+                                My MyStartUp’s Integrated Business Plan is a dynamic document that evolves as the
+                                business environment changes. It serves as a roadmap for the MyStartUp,
                                 aligning its various components to achieve overall success and sustainability.</p>
                         </div>
                     </div>

@@ -58,33 +58,32 @@ class VerificationController extends Controller
             // $pageSeo->image = getFile($pageSeo->meta_image_driver, $pageSeo->meta_image);
 
             return view(template() . 'auth.verification.email', compact('user'));
+        }         elseif (!$user->sms_verification) {
+            if (!$this->checkValidCode($user, $user->verify_code)) {
+                $user->verify_code = code(6);
+                $user->sent_at = Carbon::now();
+                $user->save();
+
+                $this->verifyToSms($user, 'VERIFICATION_CODE', [
+                    'code' => $user->verify_code
+                ]);
+                session()->flash('success', 'SMS verification code has been sent');
+            }
+            $page_title = 'SMS Verification';
+
+            $pageSeo = Page::where('slug', 'sms_verification')->first();
+            $pageSeo->meta_keywords =  implode(",", $pageSeo->meta_keywords);
+            $pageSeo->image = getFile($pageSeo->meta_image_driver, $pageSeo->meta_image);
+
+            return view(template() . 'auth.verification.sms', compact('user', 'page_title','pageSeo'));
+        } elseif (!$user->two_fa_verify) {
+            $page_title = '2FA Code';
+            $pageSeo = Page::where('slug', '2fa')->first();
+            $pageSeo->meta_keywords =  implode(",", $pageSeo->meta_keywords);
+            $pageSeo->image = getFile($pageSeo->meta_image_driver, $pageSeo->meta_image);
+            return view(template() . 'auth.verification.2stepSecurity', compact('user', 'page_title','pageSeo'));
+
         }
-        //  elseif (!$user->sms_verification) {
-        //     if (!$this->checkValidCode($user, $user->verify_code)) {
-        //         $user->verify_code = code(6);
-        //         $user->sent_at = Carbon::now();
-        //         $user->save();
-
-        //         $this->verifyToSms($user, 'VERIFICATION_CODE', [
-        //             'code' => $user->verify_code
-        //         ]);
-        //         session()->flash('success', 'SMS verification code has been sent');
-        //     }
-        //     $page_title = 'SMS Verification';
-
-        //     $pageSeo = Page::where('slug', 'sms_verification')->first();
-        //     $pageSeo->meta_keywords =  implode(",", $pageSeo->meta_keywords);
-        //     $pageSeo->image = getFile($pageSeo->meta_image_driver, $pageSeo->meta_image);
-
-        //     return view(template() . 'auth.verification.sms', compact('user', 'page_title','pageSeo'));
-        // } elseif (!$user->two_fa_verify) {
-        //     $page_title = '2FA Code';
-        //     $pageSeo = Page::where('slug', '2fa')->first();
-        //     $pageSeo->meta_keywords =  implode(",", $pageSeo->meta_keywords);
-        //     $pageSeo->image = getFile($pageSeo->meta_image_driver, $pageSeo->meta_image);
-        //     return view(template() . 'auth.verification.2stepSecurity', compact('user', 'page_title','pageSeo'));
-
-        // }
         return redirect()->route('user.dashboard');
     }
 

@@ -1,24 +1,6 @@
-
-self.onnotificationclick = (event) => {
-    console.log('self.onnotificationclick');
-    if (event.notification.data.FCM_MSG.data.click_action) {
-        console.log('event.notification.data.FCM_MSG.data.click_action');
-        event.notification.close();
-        event.waitUntil(clients.matchAll({
-            type: 'window'
-        }).then((clientList) => {
-            console.log('clientList');
-            for (const client of clientList) {
-                if (client.url === '/' && 'focus' in client)
-                    return client.focus();
-            }
-            if (clients.openWindow)
-                return clients.openWindow(event.notification.data.FCM_MSG.data.click_action);
-        }));
-    }
-};
-importScripts('https://www.gstatic.com/firebasejs/8.3.2/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/8.3.2/firebase-messaging.js');
+// Inside firebase-messaging-sw.js
+importScripts('https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js');
+importScripts('https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging-compat.js');
 
 const firebaseConfig = {
     apiKey: "AIzaSyBXUeCnuLIf1TC6eo7LhVUdMhdaC1J7HDk",
@@ -30,20 +12,17 @@ const firebaseConfig = {
     measurementId: "G-9TSGJKRLXD"
 };
 
-const app = firebase.initializeApp(firebaseConfig);
+// Initialize Firebase in the service worker
+firebase.initializeApp(firebaseConfig);
+
 const messaging = firebase.messaging();
 
-messaging.setBackgroundMessageHandler(function (payload) {
-    console.log('messaging.setBackgroundMessageHandler');
-    if (payload.notification.background && payload.notification.background == 1) {
-        const title = payload.notification.title;
-        const options = {
-            body: payload.notification.body,
-            icon: payload.notification.icon,
-        };
-        return self.registration.showNotification(
-            title,
-            options,
-        );
-    }
+// Handle background messages
+messaging.onBackgroundMessage((payload) => {
+    const title = payload.notification.title;
+    const options = {
+        body: payload.notification.body,
+        icon: payload.notification.icon,
+    };
+    self.registration.showNotification(title, options);
 });

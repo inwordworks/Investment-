@@ -23,17 +23,17 @@
 							<div class="terms-text">
 								<h4>Section 1 – Introduction</h4>
 								<h5>The Rules of Conduct (“Rules” or “ROC”) define and establish:</h5>
-								<p>Certain principles to be followed in the development and maintenance of My Fortuelife
+								<p>Certain principles to be followed in the development and maintenance of My MyStartUp
 									Group
 									Business.
 									We The rights, duties, and responsibilities of each Distributor/Independent Business
 									Owner.
 									The terms and conditions of this relationship are set forth in:</p>
 
-								<p>The My Fortuelife Group Distributor Contract.
+								<p>The MyStartUp Distributor Contract.
 									The Business Manual, which include these Rules of Conduct.
-									Other official Fortuelife literature, publication, notification or communications.
-									While the Rules primarily define relationships between Fortuelife and Distributors,
+									Other official MyStartUp literature, publication, notification or communications.
+									While the Rules primarily define relationships between MyStartUp and Distributors,
 									they also
 									concern relationships among Distributors </p>
 
@@ -43,20 +43,20 @@
 									<li>To ensure an equal opportunity for Distributors through ethical and responsible
 										business conduct.</li>
 									<li>To protect and build a conducive environment for a long-term and profitable My
-										Fortuelife Business.</li>
+										MyStartUp Business.</li>
 									<li>To promote unity and harmony among Distributors.</li>
-									<li>To preserve the benefits of the Fortuelife Sales & Marketing Plan equitably for
+									<li>To preserve the benefits of the MyStartUp Sales & Marketing Plan equitably for
 										all Distributors.
-										From time to time, the contents of these documents are changed. Fortuelife will
+										From time to time, the contents of these documents are changed. MyStartUp will
 										notify the
-										Distributor leadership of such changes. Upon final notification by Fortuelife
+										Distributor leadership of such changes. Upon final notification by MyStartUp
 										with respect to those
 										changes presented to the Distributor leadership, such changes will be
 										communicated to
-										Distributors in a timely manner in Fortuelife communication</li>
-									<li>In order to preserve the goals and purposes of the Fortuelife Sales and
+										Distributors in a timely manner in MyStartUp communication</li>
+									<li>In order to preserve the goals and purposes of the MyStartUp Sales and
 										Marketing Plan,
-										Fortuelife reserves to itself the sole right to adopt, amend, modify,
+										MyStartUp reserves to itself the sole right to adopt, amend, modify,
 										supplement, or rescind any or
 										all of these Rules, as necessary</li>
 								</ul>
@@ -64,35 +64,35 @@
 
 							<ul class="terms-text terms-list">
 								<h4>Section 2 – Definitions</h4>
-								<h5>My Fortuelife Group : Fortuelife shall mean Fortuelife.</h5>
-								<li><strong>My Fortuelife Business: </strong>A business, as identified by Fortuelife
+								<h5>MyStartUp : MyStartUp shall mean MyStartUp.</h5>
+								<li><strong>My MyStartUp Business: </strong>A business, as identified by MyStartUp
 									Distributor Authorization
-									number and the Fortuelife Application for Appointment as an Authorized Distributor
-									of Fortuelife
+									number and the MyStartUp Application for Appointment as an Authorized Distributor
+									of MyStartUp
 									Products Form/s.
 								</li>
-								<li><strong>My Fortuelife Group Business Kit: </strong>The collection of literature,
+								<li><strong>MyStartUp Business Kit: </strong>The collection of literature,
 									sales aid and other materials
 									that Distributors are required to possess in connection with acceptance by
-									Fortuelife of their
+									MyStartUp of their
 									application and the Distributor Contract
 								</li>
-								<li><strong>Fortuelife Group Business Policies:</strong>Rules and policies set forth in
-									official Fortuelife literature,
+								<li><strong>MyStartUp Group Business Policies:</strong>Rules and policies set forth in
+									official MyStartUp literature,
 									including the Rules of Conduct and various other policies and bulletins that may be
 									maintained
-									by Fortuelife from time to time which are incorporated by reference into:</li>
-								<p>The Fortuelife Distributor Contract,
+									by MyStartUp from time to time which are incorporated by reference into:</li>
+								<p>The MyStartUp Distributor Contract,
 									The Business Manual, and
-									Other official Fortuelife literature or communications.
-									Fortuelife Business Opportunity: The products, marketing, support and compensation
+									Other official MyStartUp literature or communications.
+									MyStartUp Business Opportunity: The products, marketing, support and compensation
 									system
-									offered by My Fortuelife Group</p>
-								<li><strong>My Fortuelife Group Products:</strong>All goods and services, including
+									offered by MyStartUp</p>
+								<li><strong>MyStartUp Products:</strong>All goods and services, including
 									literature and other support
-									or auxiliary materials, made available by 'Fortuelife' to its Distributors</li>
-								<li><strong>Bonus: </strong>The monetary rewards that Fortuelife pays to Distributors in
-									accordance with Fortuelife
+									or auxiliary materials, made available by 'MyStartUp' to its Distributors</li>
+								<li><strong>Bonus: </strong>The monetary rewards that MyStartUp pays to Distributors in
+									accordance with MyStartUp
 									Compensation Plan.</li>
 								<li><strong>Business Literature (BL): </strong>The definition for BL is intended to be
 									interpreted broadly and
@@ -100,43 +100,43 @@
 									multimedia
 									productions, internet-based products and services, meetings and other events, and
 									other
-									materials or equipment used to provide information or support the sale of Fortuelife
+									materials or equipment used to provide information or support the sale of MyStartUp
 									products
 									and services, as well as coupons, vouchers, tickets or standing order/subscriptions
 									programs
 									relating to any of the previously mentioned.</li>
-								<li><strong>Distributor:</strong> An independent contractor who has had his Fortuelife
-									Application Form accepted by Fortuelife.</li>
+								<li><strong>Distributor:</strong> An independent contractor who has had his MyStartUp
+									Application Form accepted by MyStartUp.</li>
 								<li><strong>Distributor Contract:</strong>Refers to the Distributor Application along
 									with the incorporated
 									documents that form the terms of the contractual agreement between Distributor and
-									Fortuelife.</li>
+									MyStartUp.</li>
 								<li><strong>Distributor in Good Standing:</strong>For the purposes of interpreting and
 									enforcing the Rules of
 									Conduct only, the term “good standing” shall refer to a Distributor who is currently
 									authorized by
-									Fortuelife to hold himself out as a Distributor and whose conduct complies with the
+									MyStartUp to hold himself out as a Distributor and whose conduct complies with the
 									letter and
-									spirit of the Rules of Conduct and Fortuelife Business Policies for each market in
+									spirit of the Rules of Conduct and MyStartUp Business Policies for each market in
 									which a
 									Distributor has a presence; is not engaged in conduct that negatively affects the
 									reputation of
-									Fortuelife, Fortuelife’s affiliates, and its Distributor; is not engaged in conduct
+									MyStartUp, MyStartUp’s affiliates, and its Distributor; is not engaged in conduct
 									that supports or
 									defends the activity of other Distributor which jeopardizes the ongoing nature of an
-									Fortuelife
+									MyStartUp
 									affiliate or otherwise is inconsistent with the other criteria set forth herein; is
 									not engaged in
 									conduct that does not comply with all applicable laws and regulations in each
 									country and
 									whose conduct does not demonstrate cultural sensitivity given market conditions</li>
 								<li><strong>Distributorship: </strong>A distributorship is another way to describe
-									Fortuelife business, which is identified by a unique Distributor number.</li>
+									MyStartUp business, which is identified by a unique Distributor number.</li>
 								<li><strong>Leg: </strong>A Distributor and all downline Distributors from that
 									individual</li>
 								<li><strong>Line of Leader (LOL): </strong>The structural organization of Distributors
 									established by the contractual
-									relationship that each Distributor has with Fortuelife.</li>
+									relationship that each Distributor has with MyStartUp.</li>
 								<li><strong>LOL Information: </strong>includes all information that discloses or relates
 									to all or part of the structural
 									arrangement of Distributors within the Line of Leadership, including but not limited
@@ -148,48 +148,48 @@
 									derived there from, in its present or future forms.</li>
 								<li><strong>Brand Owner Level:</strong>A Distributor who has achieved a certain level of
 									business activity as
-									specified by the Fortuelife Sales and Marketing Plan.</li>
+									specified by the MyStartUp Sales and Marketing Plan.</li>
 								<li><strong>Prospect:</strong>A potential Distributor or customer</li>
 								<p>Rules of Conduct (Rules or ROC): Define and establish: (1) certain principles to be
 									followed in
-									the development and maintenance of an Fortuelife Business; and (2) the rights,
+									the development and maintenance of an MyStartUp Business; and (2) the rights,
 									duties, and
 									responsibilities of each Distributor.</p>
 								<li><strong>Sponsor:</strong>There can be one of three relationships.</li>
 								<li><strong>Personal Sponsor:</strong>A Distributor who introduces and sponsors a
-									Prospect into Fortuelife Business Opportunity.</li>
+									Prospect into MyStartUp Business Opportunity.</li>
 							</ul>
 							<ul class="terms-text terms-list">
 								<h5>Section 3 - Becoming a Distributor</h5>
 								<li>3.1 Distributor Form and Business Introduction Kit: To become a duly authorized
 									Distributor
-									capable of selling Fortuelife’s products and services and sponsoring other
+									capable of selling MyStartUp’s products and services and sponsoring other
 									Distributors, an
-									applicant must apply for authorization from Fortuelife by completing and signing the
+									applicant must apply for authorization from MyStartUp by completing and signing the
 									Distributor
-									Form and possess the Fortuelife Business Kit (Free of cost). The completed
+									Form and possess the MyStartUp Business Kit (Free of cost). The completed
 									Distributor
-									Application must be sent to Fortuelife, and accepted by Fortuelife as authorized in
+									Application must be sent to MyStartUp, and accepted by MyStartUp as authorized in
 									accordance
-									with the provisions of Rule 3.3. No Distributor shall present the Fortuelife
+									with the provisions of Rule 3.3. No Distributor shall present the MyStartUp
 									Business Opportunity
 									as anything other than a business opportunity available to Indian citizens.</li>
 
 								<li>3.2 Husband and Wife Distributor: Individuals who are husband and wife shall, upon
 									acceptance
-									by Fortuelife, be authorized as one Distributorship. A Person whose spouse is an
+									by MyStartUp, be authorized as one Distributorship. A Person whose spouse is an
 									authorized
-									Fortuelife Distributor shall not be eligible to apply as an authorized Distributor
+									MyStartUp Distributor shall not be eligible to apply as an authorized Distributor
 									of another
 									Distributorship.</li>
 
-								<li>3.2.1 Fortuelife may at its sole discretion terminate the Distributorship if
-									Fortuelife is of the
+								<li>3.2.1 MyStartUp may at its sole discretion terminate the Distributorship if
+									MyStartUp is of the
 									opinion (which opinion shall be final) that any act of the Distributor and/or
 									his/her spouse
 									(whether or not the spouse is a registered partner) is found to be in contravention
 									of any of the
-									Rules of Conduct of Fortuelife.</li>
+									Rules of Conduct of MyStartUp.</li>
 
 								<li>3.2.2 If two Distributors, each of whom owns and operates a Distributorship in
 									different or same
@@ -201,19 +201,19 @@
 									which will,
 									however, be operated in its original Line of Leadership. A Distributor getting
 									married like this
-									must notify Fortuelife as soon as possible.</li>
+									must notify MyStartUp as soon as possible.</li>
 
-								<li>3.2.3 In a husband and wife Distributorship, if a spouse resigns from Fortuelife for
+								<li>3.2.3 In a husband and wife Distributorship, if a spouse resigns from MyStartUp for
 									any reason
-									pursuant to the Rules of Conduct herein, Fortuelife shall be entitled to terminate
+									pursuant to the Rules of Conduct herein, MyStartUp shall be entitled to terminate
 									the
-									Distributorship of the remaining spouse without assigning any reasons. Fortuelife
+									Distributorship of the remaining spouse without assigning any reasons. MyStartUp
 									may however
 									allow the remaining spouse to continue operating the Distributorship in which event
 									the
 									remaining spouse and resigning spouse shall be subject to these Rules of Conduct and
 									to such
-									other terms and conditions which Fortuelife may deem fit to impose.</li>
+									other terms and conditions which MyStartUp may deem fit to impose.</li>
 
 								<li>3.2.4 Husbands with more than one legal wife can elect only one wife for the husband
 									and wife
@@ -221,19 +221,19 @@
 									to be
 									Distributors must be sponsored under this husband/wife partnership.</li>
 
-								<li>3.3 Requirements: Without limiting Fortuelife’s rights, the following are
+								<li>3.3 Requirements: Without limiting MyStartUp’s rights, the following are
 									requirements for
 									becoming a Distributor or renewing a Distributorship.</li>
 
 								<li>3.3.1 A Distributor must be at least 18 years of age.</li>
 
-								<li>3.3.2 Must not be the spouse of a currently authorized Fortuelife Distributor unless
+								<li>3.3.2 Must not be the spouse of a currently authorized MyStartUp Distributor unless
 									he or she
 									qualifies under 3.2.2.</li>
 
 								<li>3.3.3 Must not have been terminated for breach of contract under a previous
 									Distributorship or
-									Distributorship with another Fortuelife affiliate; and</li>
+									Distributorship with another MyStartUp affiliate; and</li>
 
 								<li>3.3.4 Must comply with Section 6.4 of these Rules of Conduct if the applicant
 									previously
@@ -258,9 +258,9 @@
 									appropriation of assets,
 									abuse of trust to appropriate assets (or) unlawful possession of assets.</li>
 
-								<li>3.4 Acceptance of Distributor Application or Renewal: Fortuelife reserves the right
+								<li>3.4 Acceptance of Distributor Application or Renewal: MyStartUp reserves the right
 									to accept or
-									reject any Distributor Application. Likewise, Fortuelife reserves the right to
+									reject any Distributor Application. Likewise, MyStartUp reserves the right to
 									refuse any Renewal
 									request and can revoke the Distributorship if a Distributor’s activities have not
 									been in
@@ -268,9 +268,9 @@
 									or has not
 									complied with the requirements of Rule 3.3.</li>
 
-								<li>3.5 Rejection of a Distributor: Fortuelife reserves the right to accept or reject
+								<li>3.5 Rejection of a Distributor: MyStartUp reserves the right to accept or reject
 									any Distributor
-									Application. Likewise, Fortuelife reserves the right to refuse any Renewal request
+									Application. Likewise, MyStartUp reserves the right to refuse any Renewal request
 									and can
 									revoke the Distributorship if a Distributor’s activities have not been in accordance
 									with the Rules
@@ -278,9 +278,9 @@
 									the
 									requirements of Rule 3.3.</li>
 
-								<li>3.6 Date of Authorization: The date of authorization as Fortuelife Distributor is
+								<li>3.6 Date of Authorization: The date of authorization as MyStartUp Distributor is
 									when the
-									Distributor Form has been processed by Fortuelife</li>
+									Distributor Form has been processed by MyStartUp</li>
 
 								<li>3.7 Prohibited Sponsoring Practices: A sponsor shall not impose on a Prospect, nor
 									any
@@ -292,7 +292,7 @@
 
 								<li>3.7.2 Maintain a specified minimum inventory.</li>
 
-								<li>3.7.3 Purchase any non-Fortuelife produced “starter,” “decision,” or other “pack” or
+								<li>3.7.3 Purchase any non-MyStartUp produced “starter,” “decision,” or other “pack” or
 									“kit”.</li>
 
 								<li>3.8 Dormancy Rule: 6 months of inactivity after the completion of the product life
@@ -303,58 +303,58 @@
 
 								<li>3.9 Termination: A Distributor may terminate the Distributorship at any time by
 									providing
-									Fortuelife with written notice of termination at Fortuelife’ address. Fortuelife may
+									MyStartUp with written notice of termination at MyStartUp’ address. MyStartUp may
 									terminate the
 									Distributorship at any time by providing the Distributor with written notice of
 									termination at
-									his/her specific address if he/she fails to comply with the Fortuelife Business
+									his/her specific address if he/she fails to comply with the MyStartUp Business
 									Policies, including
-									the Fortuelife Rules of Conduct, the Fortuelife Sales & Marketing Plan and other
+									the MyStartUp Rules of Conduct, the MyStartUp Sales & Marketing Plan and other
 									policies
-									maintained by Fortuelife and which have been incorporated into the Distributor
+									maintained by MyStartUp and which have been incorporated into the Distributor
 									Contract.</li>
 
 								<li>3.10 Conspiracy: Inducement to Breach: A Distributor shall not conspire with any
 									other person
-									to breach or induce a breach of any Rules of Conduct or the Fortuelife Business
+									to breach or induce a breach of any Rules of Conduct or the MyStartUp Business
 									Policies or to
 									induce or attempt to induce another Distributor to breach any of the Rules of
 									Conduct or the
-									Fortuelife Business Policies. Any such activity shall constitute a breach of the
+									MyStartUp Business Policies. Any such activity shall constitute a breach of the
 									Rules of Conduct
-									or the Fortuelife Business Policies.</li>
+									or the MyStartUp Business Policies.</li>
 
 								<li>3.11 Exceeding Scope of Authorization: A Distributor shall not exceed the scope of
 									authorizations granted pursuant to the Distributor Contract. Any such activity shall
 									constitute a
 									breach of the Distributor Contract. This may include any such thing specified by
-									Fortuelife</li>
+									MyStartUp</li>
 
 								<li>3.12 Representations and Warranties: A Distributor shall not make any false
 									representation or
-									statement to Fortuelife, nor induce Fortuelife to enter into a Distributor Contract
+									statement to MyStartUp, nor induce MyStartUp to enter into a Distributor Contract
 									under false
 									pretenses, nor breach any representation or warranties implied in this contract or
 									by law. Any
-									such activity shall constitute a breach of the Rules of Conduct or the Fortuelife
+									such activity shall constitute a breach of the Rules of Conduct or the MyStartUp
 									Business
 									Policies.</li>
 
-								<li>3.13 Multiple Breaches: It is a breach of the Rules of Conduct or the Fortuelife
+								<li>3.13 Multiple Breaches: It is a breach of the Rules of Conduct or the MyStartUp
 									Business Policies
 									for a Distributor to allow any breaches to remain uncorrected following notification
 									from
-									Fortuelife of the existence of the same, or to have multiple simultaneous, serial or
+									MyStartUp of the existence of the same, or to have multiple simultaneous, serial or
 									repeating
-									breaches of the Rules of Conduct or the Fortuelife Business Policies.</li>
+									breaches of the Rules of Conduct or the MyStartUp Business Policies.</li>
 
-								<li>3.14 Zero Tolerance Rule: It is a breach of the Rules of Conduct or the Fortuelife
+								<li>3.14 Zero Tolerance Rule: It is a breach of the Rules of Conduct or the MyStartUp
 									Business
 									Policies for a Distributor to conduct Distributor activities in markets in which he
 									or she is not
 									authorized to conduct business. It is a breach of the Rules of Conduct or the
-									Fortuelife Business
-									Policies to conduct Distributor activities in markets in which Fortuelife are not
+									MyStartUp Business
+									Policies to conduct Distributor activities in markets in which MyStartUp are not
 									doing business.
 									Such unauthorized activity may result in, without prejudice to any rights and
 									remedies otherwise
@@ -362,30 +362,30 @@
 
 								<li>3.15 Circumvention of the Rules of Conduct: In case of attempt to circumvent or
 									acting against
-									the intent and spirit of the Rules of Conduct, Fortuelife may at any time take
+									the intent and spirit of the Rules of Conduct, MyStartUp may at any time take
 									corrective action at
 									its discretion.</li>
 
 								<li>3.16 All Distributors shall be subject to the Enforcement Procedure which is set out
 									in the
-									Business Manual provided that Fortuelife expressly reserves the right to terminate,
+									Business Manual provided that MyStartUp expressly reserves the right to terminate,
 									at anytime
 									and with immediate effect, the authorization of a Distributor who shall have
 									provided false
 									information in the Application or who shall have accepted authorization as a
 									Distributor in
 									violation of these Rules or who shall have conducted himself in manner that in
-									Fortuelife’s
-									opinion brings the Fortuelife Sales and Marketing Plan into disrepute.</li>
+									MyStartUp’s
+									opinion brings the MyStartUp Sales and Marketing Plan into disrepute.</li>
 							</ul>
 							<ul class="terms-text terms-list">
 								<h5>Section 4 - Responsibilities and Obligations of all Distributorsr</h5>
-								<li>4.1 Abide by the Fortuelife Business Policies/Amendments/Duty of Good Faith: At all
+								<li>4.1 Abide by the MyStartUp Business Policies/Amendments/Duty of Good Faith: At all
 									times,
 									Distributor must adhere strictly to the guidelines, procedures and policies stated
-									in the Fortuelife
+									in the MyStartUp
 									Business Policies of which these Rules of Conduct are a part, in addition to the
-									Fortuelife Sales
+									MyStartUp Sales
 									and Marketing Plan, and, in each case, any amendments made to such from time to
 									time. All
 									Distributors are charged with the duty of good faith and fair dealing under the
@@ -394,7 +394,7 @@
 
 								<li>4.1.1 Cooperation with Investigations: Distributors shall cooperate in any
 									investigation
-									undertaken by Fortuelife into activities that are potentially in contravention of
+									undertaken by MyStartUp into activities that are potentially in contravention of
 									his or her
 									Distributorship or the Distributorship of another Distributor.</li>
 
@@ -402,32 +402,32 @@
 									cross-group buying
 									or selling/supplying. “Cross group buying and selling/supplying” occurs when a
 									Distributor sells
-									or supplies Fortuelife distributed or supplied products and/or services to another
+									or supplies MyStartUp distributed or supplied products and/or services to another
 									Distributor who
 									is not personally sponsored and down line of those sponsored, down to the next level
 								</li>
 
-								<li>4.2.1 A Distributor must only purchase Fortuelife products and services and
-									Fortuelife BSM
-									directly from his or her Sponsor, or Fortuelife.</li>
+								<li>4.2.1 A Distributor must only purchase MyStartUp products and services and
+									MyStartUp BSM
+									directly from his or her Sponsor, or MyStartUp.</li>
 
-								<li>4.2.2 A Distributor must not sell or supply Fortuelife products and services to
+								<li>4.2.2 A Distributor must not sell or supply MyStartUp products and services to
 									another Distributor
 									who is not personally sponsored and downline of those sponsored, down to the next
 									Brand
 									Owner</li>
 
-								<li>4.3 Retail Stores: No Distributor shall permit Fortuelife products or services to be
+								<li>4.3 Retail Stores: No Distributor shall permit MyStartUp products or services to be
 									sold or
 									displayed in retail establishments whose main purpose is the sale of products and
 									services to
 									the public, including, but not limited to places like schools, fairs, shops, flea
 									markets, auctions,
 									kiosks, internet web sites or military bases; nor shall he or she permit any
-									Fortuelife products or
+									MyStartUp products or
 									services to appear in such locations even if the products or services are not for
 									sale. No
-									promotional material related to Fortuelife products or services or Fortuelife
+									promotional material related to MyStartUp products or services or MyStartUp
 									literature shall be
 									displayed in retail establishments.</li>
 
@@ -435,45 +435,45 @@
 									Distributorship
 									separate and apart from the retail store. Such Distributor must secure customers for
 									his/her
-									Fortuelife business in the same manner as Distributor who have no connection with a
+									MyStartUp business in the same manner as Distributor who have no connection with a
 									retail
 									store and otherwise abide by this Rule 4.3.</li>
 
-								<li>4.3.2 A Distributor may present the marketing plan of Fortuelife only on the basis
+								<li>4.3.2 A Distributor may present the marketing plan of MyStartUp only on the basis
 									of the
 									governing guidelines issued to the company from time to time</li>
 
 								<li>4.4 Truthful and Accurate: No Distributor shall make any offer to sell any
-									Fortuelife products or
+									MyStartUp products or
 									services which are not accurate and truthful as to price, grade, quality,
 									performance, and
 									availability. Distributor shall not:</li>
 
-								<li>4.4.1 Make exaggerated product claims not authorized by Fortuelife with regards to
-									Fortuelife’s
-									products or products distributed by Fortuelife;</li>
+								<li>4.4.1 Make exaggerated product claims not authorized by MyStartUp with regards to
+									MyStartUp’s
+									products or products distributed by MyStartUp;</li>
 
-								<li>4.4.2 In any way whatsoever, represent Fortuelife incorrectly with regard to prices,
+								<li>4.4.2 In any way whatsoever, represent MyStartUp incorrectly with regard to prices,
 									quality,
 									standards, grades, contents, style or model, place of origin or availability of
-									Fortuelife’s products
-									or products distributed by Fortuelife;</li>
+									MyStartUp’s products
+									or products distributed by MyStartUp;</li>
 
-								<li>4.4.3 State that Fortuelife’s products or products distributed by Fortuelife are
+								<li>4.4.3 State that MyStartUp’s products or products distributed by MyStartUp are
 									backed, approved,
 									or present any feature as regards to yield, accessories, uses or benefits that they
 									do not have,
 									or</li>
 
-								<li>4.4.4 Act or present in any way whatsoever Fortuelife, its products or the products
-									Fortuelife
+								<li>4.4.4 Act or present in any way whatsoever MyStartUp, its products or the products
+									MyStartUp
 									distributes, in a fraudulent manner or promote products that do not belong to
-									Fortuelife as if they
+									MyStartUp as if they
 									did.</li>
 
 								<li>4.5 Repackaging: Distributor may not repackage products, change the content of
 									products or
-									otherwise change or alter any of the packaging labels of Fortuelife products or
+									otherwise change or alter any of the packaging labels of MyStartUp products or
 									services.</li>
 
 								<li>4.6 Free look Period: Whenever a customer wishes & requests to return the
@@ -484,7 +484,7 @@
 									exchange for a like
 									product; or (c) full credit toward the purchase of another product.</li>
 
-								<li>4.6.1. Distributors shall advise Fortuelife of any complaint regarding the
+								<li>4.6.1. Distributors shall advise MyStartUp of any complaint regarding the
 									Satisfaction Guarantee
 									from a customer and provide copies of all correspondence and details of all
 									conversations
@@ -492,11 +492,11 @@
 
 								<li>4.6.2. Distributors are not authorized to make any type of offer or compromise or
 									render
-									Fortuelife liable for any complaint or product return.</li>
+									MyStartUp liable for any complaint or product return.</li>
 
 								<li>4.6.3. Distributors will be held strictly liable for claims they make which exceed
 									the terms of the
-									Satisfaction Guarantee and shall indemnify and hold Fortuelife harmless for claims
+									Satisfaction Guarantee and shall indemnify and hold MyStartUp harmless for claims
 									made to that
 									effect.</li>
 
@@ -506,13 +506,13 @@
 									wherever their
 									business may be conducted. Distributors must not conduct any activity that could
 									jeopardize the
-									reputation of the Distributor and/or Fortuelife. Upon request, Distributors shall
+									reputation of the Distributor and/or MyStartUp. Upon request, Distributors shall
 									forthrightly
 									provide any information requested about a Distributor’s activities or any other
 									activities known
 									by the Distributor (even with respect to other Distributors). In all such
 									communications with
-									Fortuelife, the Distributor shall act with absolute candor and good faith</li>
+									MyStartUp, the Distributor shall act with absolute candor and good faith</li>
 
 								<li>4.8 Deceptive or Unlawful Trade Practices: No Distributor shall engage in any
 									deceptive or
@@ -527,28 +527,28 @@
 									a courteous
 									and considerate manner and shall not engage in any high-pressure tactics, but shall
 									make a fair
-									presentation of Fortuelife products or services, or the Fortuelife Sales and
+									presentation of MyStartUp products or services, or the MyStartUp Sales and
 									Marketing Plan, when
 									and where appropriate</li>
 
 								<li>4.11 Distributor Relationship: No Distributor shall represent that he or she has any
 									employment
-									relationship with Fortuelife or any of its affiliated companies and/or other
+									relationship with MyStartUp or any of its affiliated companies and/or other
 									Distributor.</li>
 
 								<li>4.11.1. Distributors shall not give a false representation as to the nature of the
 									relationship
-									between Fortuelife and its Distributors, or make any representation, except in
+									between MyStartUp and its Distributors, or make any representation, except in
 									accordance with
-									the explanation given in the Fortuelife Business Manual and Fortuelife Business
+									the explanation given in the MyStartUp Business Manual and MyStartUp Business
 									Policies or
-									other official literature of Fortuelife. A Distributor is required to indemnify
-									Fortuelife for the cost,
+									other official literature of MyStartUp. A Distributor is required to indemnify
+									MyStartUp for the cost,
 									damage or prejudice stemming from such false representation, including any legal
 									fees
-									Fortuelife may have incurred</li>
+									MyStartUp may have incurred</li>
 
-								<li>4.11.2. Distributors shall not imply that they are employees of Fortuelife, nor
+								<li>4.11.2. Distributors shall not imply that they are employees of MyStartUp, nor
 									shall they refer to
 									themselves as “agents,” “managers,” or “company representatives”, nor shall they use
 									such
@@ -557,11 +557,11 @@
 
 								<li>4.11.3. Distributors may not use their business cards to create the impression that
 									they are in an
-									employment relationship with Fortuelife.</li>
+									employment relationship with MyStartUp.</li>
 
 								<li>4.12 Franchises and Territories: No Distributor shall represent to anyone that there
 									are exclusive
-									franchises or territories available under the Fortuelife Sales & Marketing Plan</li>
+									franchises or territories available under the MyStartUp Sales & Marketing Plan</li>
 
 								<li>4.13 Other Selling Activities: Distributor may not take advantage of their knowledge
 									of or
@@ -570,24 +570,24 @@
 									of Sponsorship, in order to promote and expand other business ventures. Such conduct
 									constitutes an unwarranted and unreasonable interference with the business contract
 									of other
-									Distributors and Fortuelife.</li>
+									Distributors and MyStartUp.</li>
 
 								<li>4.13.1 Distributors shall not solicit, directly or indirectly, other Distributor in
 									order to sell, offer to
 									sell, or promote other products, services, or business opportunities not offered or
 									marketed by
-									Fortuelife. This Rule also applies to investments, securities, and loans, regardless
+									MyStartUp. This Rule also applies to investments, securities, and loans, regardless
 									of their
 									source.</li>
 
 								<li>4.13.2 Distributors shall not sell, offer to sell, or promote any other business
 									opportunities,
-									products, or services in connection with the Fortuelife Sales and Marketing Plan.
+									products, or services in connection with the MyStartUp Sales and Marketing Plan.
 								</li>
 
 								<li>4.14 Interference in another Distributor’s Distributorship Inducement: It is a
 									breach of the Rules
-									of Conduct or the Fortuelife Business Policies for a Distributor to:</li>
+									of Conduct or the MyStartUp Business Policies for a Distributor to:</li>
 
 								<li>4.14.1 Interfere or attempt to interfere with another Distributor’s Distributorship;
 								</li>
@@ -604,27 +604,27 @@
 
 								<li>4.14.4 To induce or attempt to induce another Distributor to breach any Rules of
 									Conduct or the
-									Fortuelife Business Policies.</li>
+									MyStartUp Business Policies.</li>
 
-								<li>4.15 Exporting Fortuelife’s Products: No Distributor may export or import, or sell
+								<li>4.15 Exporting MyStartUp’s Products: No Distributor may export or import, or sell
 									to others who
-									import or export, Fortuelife’s products from any other country.</li>
+									import or export, MyStartUp’s products from any other country.</li>
 
-								<li>4.16 Retail Effort Rule: Fortuelife pays bonuses under the Fortuelife Sales &
+								<li>4.16 Retail Effort Rule: MyStartUp pays bonuses under the MyStartUp Sales &
 									Marketing Plan
 									based on sales to end consumers. For a Distributor to be entitled to bonuses and/or
 									qualification
-									under the Fortuelife Sales & Marketing Plan, that Distributor’s purchases must be
+									under the MyStartUp Sales & Marketing Plan, that Distributor’s purchases must be
 									consumed or
 									sold to end consumers within a reasonable period as determined by Nebula Infraspace.
-									Fortuelife reserves the right to deny all qualifications, awards and rewards if in
-									Fortuelife’s
+									MyStartUp reserves the right to deny all qualifications, awards and rewards if in
+									MyStartUp’s
 									judgment, the Distributor’s purchases are not in compliance to this rule. This is to
 									avoid
 									hoarding of products to earn commissions and to protect the integrity of the
 									company.</li>
 
-								<li>4.16.1 Fortuelife does not require stock keeping or purchase of inventory.
+								<li>4.16.1 MyStartUp does not require stock keeping or purchase of inventory.
 									Distributors may not
 									purchase or counsel other Distributors to purchase product for any purpose other
 									than the
@@ -636,32 +636,32 @@
 									whom the Distributor does not have a pre-existing personal or business relationship.
 								</li>
 
-								<li>4.18 Fundraising: No Distributor shall use Fortuelife products in conjunction with
+								<li>4.18 Fundraising: No Distributor shall use MyStartUp products in conjunction with
 									any type of
 									fundraising activity. Fundraising includes but is not limited to the solicitation
 									for the purchase of
-									Fortuelife products or services based on the representation that all, or some, of
+									MyStartUp products or services based on the representation that all, or some, of
 									the gains,
 									proceeds, bonuses, or profits generated by such sale will benefit a particular
 									group, organization
 									or cause.</li>
 
-								<li>4.19 Fortuelife Sales and Marketing Plan Manipulation: No Distributor shall
+								<li>4.19 MyStartUp Sales and Marketing Plan Manipulation: No Distributor shall
 									manipulate the
-									Fortuelife Sales and Marketing Plan or award volume in any way which results in the
+									MyStartUp Sales and Marketing Plan or award volume in any way which results in the
 									payment of
 									Bonuses or other awards and recognition that have not been earned in accordance with
 									the
-									terms of the Fortuelife Sales and Marketing Plan and/or the Fortuelife Business
+									terms of the MyStartUp Sales and Marketing Plan and/or the MyStartUp Business
 									Manual. In this
-									regard, the strategic and artificial structuring of an Fortuelife Line of
+									regard, the strategic and artificial structuring of an MyStartUp Line of
 									Sponsorship for the purpose
 									of depth building, whether or not there are relationships between those who are
 									sponsored and
 									those who sponsor, is considered to be manipulation and an unacceptable business
 									practice.
-									Fortuelife at its sole discretion will determine what constitutes manipulation of
-									the Fortuelife
+									MyStartUp at its sole discretion will determine what constitutes manipulation of
+									the MyStartUp
 									Sales and Marketing Plan.</li>
 
 								<li>4.20 Personal/Business Information Update: All Distributors are responsible for
@@ -669,51 +669,51 @@
 									any updates or changes to their personal information (e.g., name, address, and
 									telephone
 									numbers, etc.) or business information (e.g., change of business status, etc.) to
-									Fortuelife.</li>
+									MyStartUp.</li>
 
 								<li>4.21 Proprietary Information: In addition to the provisions contained in Rule 9 of
 									the Rules of
-									Conduct, pertaining to the use of the Fortuelife trade name, trademarks and
+									Conduct, pertaining to the use of the MyStartUp trade name, trademarks and
 									copyrighted
-									materials, Fortuelife’s confidential and proprietary business information including,
+									materials, MyStartUp’s confidential and proprietary business information including,
 									by way of
 									example and not limitation, Line of Sponsorship information (i.e., information
 									compiled by
-									Fortuelife that discloses or relates to all or part of the specific arrangement of
+									MyStartUp that discloses or relates to all or part of the specific arrangement of
 									sponsorship within
-									the Fortuelife business, including, without limitation, Distributor lists,
+									the MyStartUp business, including, without limitation, Distributor lists,
 									sponsorship trees, and all
-									Distributors or Fortuelife business information generated there from, in its present
+									Distributors or MyStartUp business information generated there from, in its present
 									and future
 									forms), business information, manufacturing and product development, business plans,
 									and
 									Distributor sales, earnings and other financial information, etc., constitute
 									commercially
 									advantageous, unique, and proprietary trade secret and business secrets of
-									Fortuelife which it
+									MyStartUp which it
 									keeps proprietary and confidential and treats as a trade secret and business secret
 									and
 									constitute “Proprietary Information” subject to the Distributor Contract.</li>
 
-								<li>4.21.1 Fortuelife is the exclusive owner of all Proprietary Information, which is
+								<li>4.21.1 MyStartUp is the exclusive owner of all Proprietary Information, which is
 									derived,
-									compiled, configured, and maintained by Fortuelife. The Distributor acknowledges all
+									compiled, configured, and maintained by MyStartUp. The Distributor acknowledges all
 									proprietary
-									information is owned by Fortuelife through the considerable expenditure of time
+									information is owned by MyStartUp through the considerable expenditure of time
 									effort and
 									resources.</li>
 
 								<li>4.21.2 Distributors are granted a personal, non-exclusive, non-transferable and
 									revocable right
-									by Fortuelife to use Proprietary Information only as necessary to facilitate their
-									Fortuelife
+									by MyStartUp to use Proprietary Information only as necessary to facilitate their
+									MyStartUp
 									Business as contemplated under the Rules of Conduct including, for example, the
 									Confidentiality Policy and other terms and conditions of the Distributor Contract.
-									Fortuelife
+									MyStartUp
 									reserves the right to deny or revoke this right, upon reasonable notice to the
 									Distributor stating
 									the reason(s) for such denial or revocation, whenever, in the reasonable opinion of
-									Fortuelife,
+									MyStartUp,
 									such is necessary to protect the confidentiality or value of Proprietary
 									Information.</li>
 
@@ -725,15 +725,15 @@
 
 								<li>4.21.4 A Distributor shall not compile, organize, access, create lists of, or
 									otherwise use or
-									disclose Proprietary Information except as authorized by Fortuelife. A Distributor
+									disclose Proprietary Information except as authorized by MyStartUp. A Distributor
 									shall not
 									disclose Proprietary Information to any third party, or use Proprietary Information
 									in connection
 									with any other businesses.</li>
 
 								<li>4.21.5 Use or disclosure of Proprietary Information, other than as authorized by
-									Fortuelife, shall
-									cause significant and irreparable harm to Fortuelife, and Fortuelife may claim
+									MyStartUp, shall
+									cause significant and irreparable harm to MyStartUp, and MyStartUp may claim
 									appropriate,
 									compensation for damages as well as demand a Distributor refrain from the harmful
 									conduct as
@@ -741,18 +741,18 @@
 
 								<li>4.21.6 In case of disclosure of the Proprietary Information, voluntary or not, by a
 									Distributor to
-									any third person, the Distributor should immediately notify Fortuelife about that
+									any third person, the Distributor should immediately notify MyStartUp about that
 									fact and take the
 									necessary measures in order to (a) prevent further disclosure by such third party
 									and (b) oblige
 									such third party to sign a confidentiality and non-disclosure agreement for the
 									benefit of
-									Fortuelife and under no less stringent terms that those provided within this Rule
+									MyStartUp and under no less stringent terms that those provided within this Rule
 									4.22.</li>
 
 								<li>4.21.7 A Distributor shall promptly return any and all Proprietary Information or
 									any copy of
-									same to Fortuelife upon resignation, expiration, failure to renew, denial of
+									same to MyStartUp upon resignation, expiration, failure to renew, denial of
 									extension or
 									termination of his or her Distributorship and shall refrain from any further use.
 								</li>
@@ -766,7 +766,7 @@
 
 								<li>The content of the presentations which include or support the promotion of the
 									retailing of
-									Fortuelife™ products and services, or the Fortuelife Sales and Marketing Plan, must
+									MyStartUp™ products and services, or the MyStartUp Sales and Marketing Plan, must
 									otherwise
 									be in accordance with the following:</li>
 
@@ -774,10 +774,10 @@
 
 								<li>exaggerate income representations by relating it to or incorporating it with other
 									income and
-									suggesting that it is the result of building the Fortuelife business;
-									substitute group or non-Fortuelife organizational identity for the Fortuelife
+									suggesting that it is the result of building the MyStartUp business;
+									substitute group or non-MyStartUp organizational identity for the MyStartUp
 									business. The
-									Fortuelife business must always be clearly identified without any ambiguity to the
+									MyStartUp business must always be clearly identified without any ambiguity to the
 									participants
 									during the course of the presentation;
 									advocate, imply or give the impression that success can be achieved through
@@ -790,8 +790,8 @@
 									likely to give rise to resentment by or cause any detriment to others;
 									misrepresent whether directly or indirectly and by whatever means the relationship
 									of the
-									Distributor to Fortuelife.
-									promote any other business opportunity other than Fortuelife Business or solicit any
+									Distributor to MyStartUp.
+									promote any other business opportunity other than MyStartUp Business or solicit any
 									participants
 									to attend meetings for the purpose of presenting another business opportunity at any
 									time; or
@@ -807,11 +807,11 @@
 
 								<li>4.22.3 Discussions must only relate to ethics and positive attitudes that will
 									assist and
-									encourage the Distributor’s and Fortuelife’s products, services and business</li>
+									encourage the Distributor’s and MyStartUp’s products, services and business</li>
 
 								<li>4.22.4 Income representations, whether direct or implied, must reflect a realistic
 									income
-									potential from participation in the Fortuelife Sales & Marketing Plan</li>
+									potential from participation in the MyStartUp Sales & Marketing Plan</li>
 
 								<li>4.23 Activity Outside India is not permitted at this time.</li>
 							</ul>
@@ -821,39 +821,39 @@
 									activity or
 									who sponsors a Distributor shall:</li>
 
-								<li>5.1.1 Sell to the sponsored Distributor an unaltered Fortuelife Business Kit, and
+								<li>5.1.1 Sell to the sponsored Distributor an unaltered MyStartUp Business Kit, and
 									inform him/her
 									of the applicable time period in which to return the Kit for a refund</li>
 
 								<li>5.1.2 Be in compliance with the Distributor Contract and meet all requirements as
 									set forth in the
-									Distributor Contract including Fortuelife Business Policies.</li>
+									Distributor Contract including MyStartUp Business Policies.</li>
 
-								<li>5.1.3 Train and motivate the sponsored Distributor in accordance with Fortuelife
+								<li>5.1.3 Train and motivate the sponsored Distributor in accordance with MyStartUp
 									Business
 									Policies, or cooperate with the upline level to ensure that this training and
 									motivation occurs</li>
 
 								<li>5.1.4 Ensure that the Distributor whom they have personally sponsored and downline
 									of those
-									sponsored, to the next Brand Owner, fully comply with the Fortuelife Rules of
+									sponsored, to the next Brand Owner, fully comply with the MyStartUp Rules of
 									Conduct and the
-									terms of the Distributor Contract including the Fortuelife Business Policies, and
+									terms of the Distributor Contract including the MyStartUp Business Policies, and
 									all applicable
 									laws and regulations.</li>
 
 								<li>5.1.5 Encourage Distributors whom they have personally sponsored and downline of
 									those
-									sponsored, to the next Brand Owner, to attend official Fortuelife meetings and
+									sponsored, to the next Brand Owner, to attend official MyStartUp meetings and
 									functions.</li>
 
 								<li>5.1.6 Explain the responsibilities and obligations of a Distributor under the
 									Distributor Contract,
-									including the Fortuelife Business Policies and instruct the sponsored Distributor on
+									including the MyStartUp Business Policies and instruct the sponsored Distributor on
 									how to
-									operate a Distributorship in accordance with the Fortuelife Business Policies, in
+									operate a Distributorship in accordance with the MyStartUp Business Policies, in
 									addition to the
-									Fortuelife Business Manual and other official Fortuelife literature.</li>
+									MyStartUp Business Manual and other official MyStartUp literature.</li>
 
 								<li>5.1.7 Support and comply with the Rules of Conduct and educate and assure that other
 									Distributors whom they have personally sponsored and downline of those sponsored, to
@@ -868,19 +868,19 @@
 								<h5>Section 6 - Non-Compete/Non-Solicitation</h5>
 								<li>(a) Non-Compete: A Distributor shall not, for a period of 6 months after the
 									termination of his/her
-									contract of Distributorship with Fortuelife, engage in or carry on any business or
+									contract of Distributorship with MyStartUp, engage in or carry on any business or
 									service, either
 									directly or indirectly, which may be considered to be in competition with or similar
 									to the
-									businesses of Fortuelife, whether for his/her own account, or for the account of any
+									businesses of MyStartUp, whether for his/her own account, or for the account of any
 									other person
 									in Dubai, Malaysia and Brunei, using or exploiting any confidential information
 									belonging to
-									Fortuelife, its customers or distributors. Confidential information includes the
+									MyStartUp, its customers or distributors. Confidential information includes the
 									proprietary
-									information under Rule 4.22, but is not limited to: Fortuelife's Line of Sponsorship
+									information under Rule 4.22, but is not limited to: MyStartUp's Line of Sponsorship
 									information,
-									Fortuelife's Sales and Marketing Plan, marketing strategies, technology, know-how,
+									MyStartUp's Sales and Marketing Plan, marketing strategies, technology, know-how,
 									customer
 									lists and contacts, distributor lists and contacts, customer portfolios, costs of
 									production and
@@ -892,17 +892,17 @@
 
 								<li>(b) Non-Solicitation: A Distributor shall not, during the existence of his/her
 									contract of
-									Distributorship with Fortuelife, and for a period of 12 months after the termination
+									Distributorship with MyStartUp, and for a period of 12 months after the termination
 									of his/her
-									contract of Distributorship with Fortuelife, whether for his/her own account, or for
+									contract of Distributorship with MyStartUp, whether for his/her own account, or for
 									the account of
 									any other person in Dubai, Malaysia and Brunei, solicit, induce, attempt to solicit,
 									attempt to
-									induce, or otherwise entice away from Fortuelife, Furthermore, a Distributor shall
+									induce, or otherwise entice away from MyStartUp, Furthermore, a Distributor shall
 									not use or
-									exploit Fortuelife's confidential and proprietary information which includes but is
+									exploit MyStartUp's confidential and proprietary information which includes but is
 									not limited to
-									Fortuelife's Line of Sponsorship information, Fortuelife's sales and marketing plan,
+									MyStartUp's Line of Sponsorship information, MyStartUp's sales and marketing plan,
 									marketing
 									strategies, technology, know-how, customer lists and contacts, distributor lists and
 									contacts,
@@ -915,66 +915,66 @@
 									be confidential.</li>
 							</ul>
 							<ul class="terms-text terms-list">
-								<h5>Section 7 - Presentation of the My Fortuelife Group Sales and Marketing Plan</h5>
+								<h5>Section 7 - Presentation of the MyStartUp Sales and Marketing Plan</h5>
 								<li>7.1 Must not Give False Impression: When inviting a prospect to hear a presentation
 									of the
-									Fortuelife Sales and Marketing Plan, a Distributor shall neither directly or
+									MyStartUp Sales and Marketing Plan, a Distributor shall neither directly or
 									indirectly:</li>
 
-								<li>7.1.1 Give the impression that the Fortuelife Sales and Marketing Plan relates to an
+								<li>7.1.1 Give the impression that the MyStartUp Sales and Marketing Plan relates to an
 									employment opportunity (in accordance with Rule 4.11);</li>
 
 								<li>7.1.2 Imply that the invitation is to a social event;</li>
 								<li>7.1.3 Disguise the invitation as a “market survey;”</li>
 								<li>7.1.4 Promote the event as a “tax seminar;” as stated in Rule 8.3.3;</li>
-								<li>7.1.5 Promote the Fortuelife Business Opportunity as a business relationship with a
+								<li>7.1.5 Promote the MyStartUp Business Opportunity as a business relationship with a
 									person,
-									company, or organization other than Fortuelife as stated in Rule 4.23.1 sub point
+									company, or organization other than MyStartUp as stated in Rule 4.23.1 sub point
 									(e) above</li>
 								<li>7.1.6 Directly or indirectly indicate that such products are merely one line of
 									products distributed
 									through or as a part of a brokerage, consignment, or intermediary business operated
 									by a
-									person, company or organization other than Fortuelife;</li>
-								<li>7.1.7 Directly or indirectly indicate that the Fortuelife Business Opportunity,
+									person, company or organization other than MyStartUp;</li>
+								<li>7.1.7 Directly or indirectly indicate that the MyStartUp Business Opportunity,
 									Distributor or
-									products and services merchandised through Fortuelife are part of any business other
+									products and services merchandised through MyStartUp are part of any business other
 									than the
-									Fortuelife Business Opportunity as defined in the Rules of Conduct and other
-									official Fortuelife
+									MyStartUp Business Opportunity as defined in the Rules of Conduct and other
+									official MyStartUp
 									literature;</li>
 								<li>7.1.8 Fail to affirmatively indicate in connection with such invitation the true
 									nature of such
-									presentation and that the presentation is about the Fortuelife Sales and Marketing
+									presentation and that the presentation is about the MyStartUp Sales and Marketing
 									Plan and the
-									Fortuelife Business Opportunity; or</li>
-								<li>7.1.9 Engage in any other direct or indirect misrepresentation of the Fortuelife
+									MyStartUp Business Opportunity; or</li>
+								<li>7.1.9 Engage in any other direct or indirect misrepresentation of the MyStartUp
 									Business
-									Opportunity and the Distributor’s relationship to Fortuelife and the nature of this
-									the Fortuelife
+									Opportunity and the Distributor’s relationship to MyStartUp and the nature of this
+									the MyStartUp
 									Business, or omit any information that a person receiving such an invitation or
 									attending or
 									otherwise participating in such a presentation or event could reasonably be expected
 									to need in
-									order to properly evaluate the Fortuelife Business Opportunity, Fortuelife products
+									order to properly evaluate the MyStartUp Business Opportunity, MyStartUp products
 									and services.</li>
 								<li>7.1.10 Or in any other way violate Rule 4.23 above.</li>
 								<li>7.2 First Contact with Prospects: It is a breach of the Rules of Conduct or the
-									Fortuelife
+									MyStartUp
 									Business Policies for a Distributor to mislead or fail to inform a Prospect
 									Distributor the nature of
 									the Distributor activities and, therefore, at the first contact with Prospects, a
 									Distributor must:</li>
 								<li>7.2.1 Introduce himself/herself by name;</li>
-								<li>7.2.2 Truthfully and honestly represent the Fortuelife Sales and Marketing Plan, its
+								<li>7.2.2 Truthfully and honestly represent the MyStartUp Sales and Marketing Plan, its
 									products
 									and/or services;</li>
 								<li>7.2.3 Truthfully and honestly respond with full transparency and candor to any
 									questions that the
-									Prospect has concerning the Fortuelife Business Opportunity, Fortuelife products and
+									Prospect has concerning the MyStartUp Business Opportunity, MyStartUp products and
 									services,
-									the Distributor or Fortuelife.</li>
-								<li>7.3 Sponsorship Ethics: In seeking participation of a prospect in the Fortuelife
+									the Distributor or MyStartUp.</li>
+								<li>7.3 Sponsorship Ethics: In seeking participation of a prospect in the MyStartUp
 									Sales and
 									Marketing Plan, the sponsoring Distributor must comply with Rule 4.23 above as well
 									as the
@@ -1002,9 +1002,9 @@
 									communication networks including the Internet, or any other means by which personal
 									contact is
 									not present to secure Clients or to solicit the sale of products.</li>
-								<li>7.3.6 A Distributor must not misrepresent the relationship between Fortuelife and
+								<li>7.3.6 A Distributor must not misrepresent the relationship between MyStartUp and
 									any other
-									company affiliated with Fortuelife</li>
+									company affiliated with MyStartUp</li>
 								<li>7.4 No Exclusive Territories: No Distributor shall represent that there are
 									exclusive territories
 									available. It is a breach of the terms of Distributorship to make such a
@@ -1015,110 +1015,110 @@
 									there is a fee
 									under the form of a training course, seminar, social event or similar activity in
 									order to have the
-									right to participate, except for the Fortuelife Business Kit. It is a breach of the
+									right to participate, except for the MyStartUp Business Kit. It is a breach of the
 									terms of
 									Distributorship to make such a representation.</li>
 							</ul>
 							<ul class="terms-text terms-list">
-								<h5>Section 8 - Use of the My Fortuelife Group Trade Name, Trademarks and Copyrighted
+								<h5>Section 8 - Use of the MyStartUp Trade Name, Trademarks and Copyrighted
 									Materials</h5>
 								<p>This rule has been developed to maintain the integrity of Nebula Infraspace’s
 									intellectual
-									property and to ensure that the MY FORTUELIFE GROUP brand will be available
+									property and to ensure that the MyStartUp brand will be available
 									exclusively for
-									the Fortuelife Business. In addition, Fortuelife has implemented a corporate
+									the MyStartUp Business. In addition, MyStartUp has implemented a corporate
 									identity program
-									that requires the correct and consistent use of the Fortuelife corporate logo, no
+									that requires the correct and consistent use of the MyStartUp corporate logo, no
 									matter where it
 									appears. Therefore, no alterations to the approved logotype are allowed. Upon
 									request,
-									Fortuelife will provide an example of the approved logotype and color specifications
+									MyStartUp will provide an example of the approved logotype and color specifications
 								</p>
 
 								<li>8.1 Misuse and Misappropriation: Distributors shall not misuse or misappropriate
-									Fortuelife’s
+									MyStartUp’s
 									trademarks or other intellectual property or proprietary information. It is a breach
 									of the
 									Distributor Contract for a Distributor to use any trademarks or other intellectual
 									property or
-									proprietary information belonging to or licensed to Fortuelife except in accordance
+									proprietary information belonging to or licensed to MyStartUp except in accordance
 									with the
 									applicable terms, conditions and procedures set forth in the Distributor Contract,
 									including the
-									Fortuelife Rules and Policies.</li>
+									MyStartUp Rules and Policies.</li>
 
-								<li>8.1.1 Each Distributor acknowledges and agrees that Fortuelife is the licensee of
+								<li>8.1.1 Each Distributor acknowledges and agrees that MyStartUp is the licensee of
 									certain
 									trademarks including, e.g., logos, service marks and other intellectual property and
 									industrial
-									property, including the name MY FORTUELIFE GROUP, and various trademarks, trade
+									property, including the name MyStartUp, and various trademarks, trade
 									names
-									and service marks used in connection with Fortuelife products and services, and the
+									and service marks used in connection with MyStartUp products and services, and the
 									various
 									designs or labels.</li>
 
-								<li>8.1.2 Distributors shall not use, in connection with his/her Fortuelife Business or
+								<li>8.1.2 Distributors shall not use, in connection with his/her MyStartUp Business or
 									any other
 									business (including but not limited to, any business vehicle, office, phone
 									listings, premises, or
-									stationery) and/or on or in connection with any products, the MY FORTUELIFE GROUP
+									stationery) and/or on or in connection with any products, the MyStartUp
 									name,
 									or trademarks, service marks or other intellectual property belonging or licensed to
-									Fortuelife
-									without the prior written consent of Fortuelife and subject always to any conditions
+									MyStartUp
+									without the prior written consent of MyStartUp and subject always to any conditions
 									attached to
-									such use except as otherwise provided herein. Fortuelife reserves the right to
+									such use except as otherwise provided herein. MyStartUp reserves the right to
 									withdraw its
 									consent at its absolute discretion.</li>
 
 								<li>8.2 Imprinted banners/signs for Meetings/Events: If an Distributor is at the Brand
 									Owner level or
-									above, and desires to conduct a meeting or event in which the Fortuelife name will
+									above, and desires to conduct a meeting or event in which the MyStartUp name will
 									be displayed
-									in public, the Distributor must first obtain prior written approval from Fortuelife
+									in public, the Distributor must first obtain prior written approval from MyStartUp
 									for such use of
-									the Fortuelife name (A public meeting is one where prospects may attend). The
+									the MyStartUp name (A public meeting is one where prospects may attend). The
 									Distributor shall
-									provide a written request to Fortuelife for each meeting; such request shall include
+									provide a written request to MyStartUp for each meeting; such request shall include
 									a description
 									of the proposed banners/signs, their size, materials to be used for banner/signs and
 									location.</li>
 
 								<li>8.2.1 Distributors must not produce or obtain any printed products from any source
 									other than
-									Fortuelife which bears the Fortuelife name, trademark, logo or trade name without
+									MyStartUp which bears the MyStartUp name, trademark, logo or trade name without
 									written
 									permission. Such permissions must be renewed for each Event/Meeting.</li>
 
-								<li>8.2.2 Fortuelife reserves the right at all times to withdraw permission to display
-									the Fortuelife
-									name if standards stated are not met, of which Fortuelife shall be the sole judge.
+								<li>8.2.2 MyStartUp reserves the right at all times to withdraw permission to display
+									the MyStartUp
+									name if standards stated are not met, of which MyStartUp shall be the sole judge.
 								</li>
 
 								<li>8.3 Imprinted Checks and Business Cards: Provided that a Distributor is otherwise in
 									full
 									compliance with the Rules of Conduct and all other provisions of the Distributor
 									Contract, a
-									Distributor may use the MY FORTUELIFE GROUP name (but not the MY FORTUELIFE
+									Distributor may use the MyStartUp name (but not the MY MyStartUp
 									GROUP trademark, logo or any other trademarks, trade names, or service marks
 									belonging to
-									or licensed to Fortuelife), on his imprinted checks and business cards provided that
+									or licensed to MyStartUp), on his imprinted checks and business cards provided that
 									name is
 									used in one of the following ways with no deviation:</li>
 
-								<li>8.3.1 Authorization for use of the Fortuelife name on Distributor business
+								<li>8.3.1 Authorization for use of the MyStartUp name on Distributor business
 									cards/checks must be
-									requested in writing to Fortuelife’s Sales departments. This request will be
+									requested in writing to MyStartUp’s Sales departments. This request will be
 									reviewed by
-									Fortuelife prior to approval</li>
+									MyStartUp prior to approval</li>
 
-								<li>8.3.2 Any written approval for the use of the Fortuelife name on checks and/or
+								<li>8.3.2 Any written approval for the use of the MyStartUp name on checks and/or
 									business cards
 									must be renewed annually. No Distributor may refer to himself/herself other than as
 									a Distributor
 									on the checks/business cards.</li>
 
-								<li>8.3.3 A Distributor may not promote any other activities unrelated to the Fortuelife
+								<li>8.3.3 A Distributor may not promote any other activities unrelated to the MyStartUp
 									business on
 									their imprinted checks and business cards, including but not limited to, the
 									placement of
@@ -1129,9 +1129,9 @@
 
 								<li>8.4 Promotional Literature, Stationery, Premiums, etc.: Distributors shall not
 									produce or procure
-									from a source other than Fortuelife any item bearing the Fortuelife name or logo or
+									from a source other than MyStartUp any item bearing the MyStartUp name or logo or
 									any
-									trademarks, trade names or service marks belonging to or licensed to Fortuelife.
+									trademarks, trade names or service marks belonging to or licensed to MyStartUp.
 								</li>
 
 								<li>8.5 Use of Internet/Website:</li>
@@ -1168,7 +1168,7 @@
 									Distributor does
 									not have a pre-existing personal or business relationship</li>
 
-								<li>8.5.6 Web site content must comply with Fortuelife’s and must contain a privacy
+								<li>8.5.6 Web site content must comply with MyStartUp’s and must contain a privacy
 									statement that
 									is consistent with local laws.</li>
 
@@ -1178,13 +1178,13 @@
 									no
 									unauthorized use of intellectual property rights of others.</li>
 
-								<li>8.5.8 Distributors shall provide and register with Fortuelife their web site access
+								<li>8.5.8 Distributors shall provide and register with MyStartUp their web site access
 									pass code.
-									Fortuelife shall have right of access to Distributors web sites and any contents
+									MyStartUp shall have right of access to Distributors web sites and any contents
 									deemed
-									inappropriate by Fortuelife must be changed whether by way of editing, deletion or
+									inappropriate by MyStartUp must be changed whether by way of editing, deletion or
 									addition if
-									Fortuelife so directs.</li>
+									MyStartUp so directs.</li>
 
 								<li>8.5.9 Meta tags of any kind are not permitted</li>
 
@@ -1201,17 +1201,17 @@
 									establish a web
 									site.</li>
 
-								<li>8.5.12 Distributors shall not without the written consent of Fortuelife use
-									Fortuelife’s intellectual
+								<li>8.5.12 Distributors shall not without the written consent of MyStartUp use
+									MyStartUp’s intellectual
 									property including trade or service marks or any variations likely to cause
 									confusion with
-									Fortuelife’s trade or service marks in their web site addresses or e-mail addresses
+									MyStartUp’s trade or service marks in their web site addresses or e-mail addresses
 									including a
 									meta tag or other site locator</li>
 
 								<li>8.5.13 Distributor shall not make any representations in their web sites that
 									expressly or imply in
-									any manner to guarantee success in any aspect of the Fortuelife Business
+									any manner to guarantee success in any aspect of the MyStartUp Business
 									Opportunity.</li>
 							</ul>
 							<ul class="terms-text terms-list">
@@ -1220,7 +1220,7 @@
 									interest in the
 									Distributorship may be passed on to a relative or other designated person, subject
 									to the laws
-									on succession and Fortuelife’s acceptance of the assignment of the Distributorship
+									on succession and MyStartUp’s acceptance of the assignment of the Distributorship
 									pursuant to
 									Rule 3. Therefore, the original Distributor must make proper arrangements during
 									their lifetime
@@ -1231,7 +1231,7 @@
 									In the event that the heirs do not take steps to take over the Distributorship, the
 									Distributorship
 									may be deemed abandoned in accordance with 13.1. When a Distributorship is deemed
-									abandoned, the heirs shall have no further rights in the Distributorship. Fortuelife
+									abandoned, the heirs shall have no further rights in the Distributorship. MyStartUp
 									may then
 									move up the Line of Sponsorship to the next qualified sponsor unless such a movement
 									increases the number of 21% legs of the upline sponsor in which case the
@@ -1243,45 +1243,45 @@
 
 								<li>10.1 Procedures.</li>
 
-								<li>10.1.1 Investigation: When Fortuelife believes that a breach of the Rules of Conduct
+								<li>10.1.1 Investigation: When MyStartUp believes that a breach of the Rules of Conduct
 									or the
-									Fortuelife Business Policies has occurred, will occur, or is threatened to occur,
-									Fortuelife may
-									investigate the activity of the Distributor at issue. Fortuelife may undertake this
+									MyStartUp Business Policies has occurred, will occur, or is threatened to occur,
+									MyStartUp may
+									investigate the activity of the Distributor at issue. MyStartUp may undertake this
 									investigation on
 									its own initiative or when requested by another Distributor who has submitted a
 									written
-									complaint to Fortuelife as provided in Rule 10.1.2.</li>
+									complaint to MyStartUp as provided in Rule 10.1.2.</li>
 
 								<li>10.1.2 Complaints by Distributor: A Distributor who believes that another
 									Distributor has
-									breached the Fortuelife Business Policies and/or the Rules of Conduct, or who has
+									breached the MyStartUp Business Policies and/or the Rules of Conduct, or who has
 									personal
-									knowledge of the activities leading to such alleged breach, shall notify Fortuelife
+									knowledge of the activities leading to such alleged breach, shall notify MyStartUp
 									in writing of the
 									alleged breach and all facts connected with it. A copy of this notification shall be
 									provided either
-									by the Distributor or Fortuelife to the Distributor’s Upline Brand Owner.</li>
+									by the Distributor or MyStartUp to the Distributor’s Upline Brand Owner.</li>
 
-								<li>10.1.2.1 On receiving this notice Fortuelife will notify the appropriate Distributor
+								<li>10.1.2.1 On receiving this notice MyStartUp will notify the appropriate Distributor
 									of the complaint
 									and request an immediate response.</li>
 
 								<li>10.1.2.2 If the complaint and response do not contain sufficient facts upon which to
 									make a
-									decision, additional information may be requested from any party by Fortuelife.</li>
+									decision, additional information may be requested from any party by MyStartUp.</li>
 
-								<li>10.1.2.3 When Fortuelife believes that it has sufficient information regarding the
+								<li>10.1.2.3 When MyStartUp believes that it has sufficient information regarding the
 									facts and
-									circumstances relevant to the complaint, Fortuelife will decide whether there has
+									circumstances relevant to the complaint, MyStartUp will decide whether there has
 									been a
-									violation of the Fortuelife Business Policies or other breach of the Rules of
+									violation of the MyStartUp Business Policies or other breach of the Rules of
 									Conduct and will take
 									appropriate action in accordance with Rule 12.</li>
 
 								<li>10.1.3 Notification of Action.</li>
 
-								<li>10.1.3.1 Fortuelife will forward a decision letter to the violating Distributor, as
+								<li>10.1.3.1 MyStartUp will forward a decision letter to the violating Distributor, as
 									well as the
 									Sponsor and the first upline Star Distributor of the sanctioned Distributor. The
 									decision letter will
@@ -1293,10 +1293,10 @@
 
 								<li>10.1.3.2.1 Be mailed, e-mailed or faxed or sent by registered mail or other
 									confirmable method
-									allowable by law to the address or fax that Fortuelife has on record for the
+									allowable by law to the address or fax that MyStartUp has on record for the
 									Distributor. Claim of
 									failure of a Distributor to receive a notice shall not delay the action by
-									Fortuelife; and.</li>
+									MyStartUp; and.</li>
 
 								<li>10.1.3.2.2 If applicable, state the Section(s) of the Rules of Conduct or other
 									provisions of the
@@ -1306,11 +1306,11 @@
 
 								<li>10.1.3.2.4 If applicable, advise the Distributor of his/her opportunity to seek
 									Review of
-									Fortuelife's decision by the Review Panel.</li>
+									MyStartUp's decision by the Review Panel.</li>
 
-								<li>10.1.4 Review Panel: At Fortuelife’s discretion and if the Distributor does not
+								<li>10.1.4 Review Panel: At MyStartUp’s discretion and if the Distributor does not
 									agree with the
-									actions taken by Fortuelife, then the Distributor may request a review by the Review
+									actions taken by MyStartUp, then the Distributor may request a review by the Review
 									Panel,
 									consisting of appropriate personnel and corporate staff from the world headquarters
 									of Nebula
@@ -1321,31 +1321,31 @@
 									and may be accompanied by documents supporting this request. The request must be
 									filed
 									within the time period specified in the decision letter and is to be addressed to
-									Fortuelife 305,
+									MyStartUp 305,
 									Venture 2, KPHB, Phase-4, Kukatpally, Hyderabad 500072, Telangana the attention of
 									Administrator, India conduct . Alternatively, you may forward your appeal request to
-									Fortuelife
+									MyStartUp
 									Infraspace (Add your own email ID) . If the request is filed after the time limit,
 									the request will be
 									denied and the Distributor will be notified thast his/her request has been
 									dismissed.
-									Waiver of Claims: A Distributor waives any and all claims against Fortuelife arising
+									Waiver of Claims: A Distributor waives any and all claims against MyStartUp arising
 									out of or in
-									respect to any action that Fortuelife takes under the Distributorship and/or this
+									respect to any action that MyStartUp takes under the Distributorship and/or this
 									Rule. A
 									Distributor who is terminated, de-sponsored or has other action taken as a result of
 									a violation of
-									the Rules of Conduct or the Fortuelife Business Policies shall have no claim against
+									the Rules of Conduct or the MyStartUp Business Policies shall have no claim against
 									Nebula
 									Infraspace arising out of or with respect to the termination or de-sponsorship.</li>
 							</ul>
 							<ul class="terms-text terms-list">
 								<h5>Section 11- Breach of Contract: Sanctions</h5>
 
-								<li>11.1 Sanctions: In the event Fortuelife at it sole discretion determines that there
+								<li>11.1 Sanctions: In the event MyStartUp at it sole discretion determines that there
 									has been a
-									breach of the Rules of Conduct or the Fortuelife Business Policies by a Distributor,
-									Fortuelife
+									breach of the Rules of Conduct or the MyStartUp Business Policies by a Distributor,
+									MyStartUp
 									may take one or more of the following actions:</li>
 
 								<li>11.1.1 Terminate the Distributorship by providing the Distributor with a written
@@ -1359,14 +1359,14 @@
 								<li>11.1.3 Suspend specific authorizations under the Distributorship, such as by way of
 									example
 									and without limitation, the Distributor opportunity to Sponsor, to purchase or sell
-									Fortuelife
+									MyStartUp
 									products and services, or to conduct similar activities associated with the
-									Fortuelife Business;</li>
+									MyStartUp Business;</li>
 
 								<li>11.1.4 Remove the Distributor as a Sponsor of any downline Distributor also called
 									“de-sponsoring” and/or restrict the Distributor’s authority to Sponsor others</li>
 
-								<li>11.1.5 Require refund of Fortuelife Bonus</li>
+								<li>11.1.5 Require refund of MyStartUp Bonus</li>
 
 								<li>11.1.6 Remove any qualification and require return of any objects evidencing such
 									qualification
@@ -1378,23 +1378,23 @@
 
 								<li>11.1.8 Take any action short of termination of the Distributorship as may be
 									permissible under
-									applicable law and appropriate in Fortuelife’s sole discretion to address the
+									applicable law and appropriate in MyStartUp’s sole discretion to address the
 									specific breach(es)</li>
 
-								<li>11.2 No Waiver: The failure of Fortuelife to take any action upon learning of a
+								<li>11.2 No Waiver: The failure of MyStartUp to take any action upon learning of a
 									breach or
-									potential breach shall not constitute a waiver of Fortuelife’s rights to assert such
+									potential breach shall not constitute a waiver of MyStartUp’s rights to assert such
 									a breach in the
 									future. The failure of a Distributor to take any action upon learning of a breach
 									shall not
 									constitute a waiver of any other rights or remedies that may be available under
 									applicable law.</li>
 
-								<li>11.3 Suspension: Fortuelife reserves the right to determine the specific terms of
+								<li>11.3 Suspension: MyStartUp reserves the right to determine the specific terms of
 									each
 									Suspension on a case by case basis. In the event of any breach of contract by a
 									Distributor,
-									Fortuelife may take action to suspend some or all of the Distributor’s privileges
+									MyStartUp may take action to suspend some or all of the Distributor’s privileges
 									under the
 									Distributorship, including but not limited to:</li>
 
@@ -1411,8 +1411,8 @@
 
 								<li>11.3.4 Conduct reorientation and retraining meetings; and/o</li>
 
-								<li>11.3.5 Require that Distributor provide Fortuelife with recordings of their
-									Fortuelife Sales and
+								<li>11.3.5 Require that Distributor provide MyStartUp with recordings of their
+									MyStartUp Sales and
 									Marketing Plan presentations.</li>
 
 								<li>11.4 Actions on Termination: Upon termination for any cause whatsoever, the
@@ -1427,13 +1427,13 @@
 									Distributorship is
 									considered abandoned, and the signatory to the Distributor Contract shall have no
 									further rights
-									in the Distributorship. Fortuelife may Assign or Dissolve the Distributorship,
+									in the Distributorship. MyStartUp may Assign or Dissolve the Distributorship,
 									pursuant to Rule the
-									right to operate an Fortuelife business in the former Distributor’s position in the
+									right to operate an MyStartUp business in the former Distributor’s position in the
 									Line of
 									Sponsorship to another Distributor, or may remove such position in the Line of
 									Sponsorship, in
-									its sole discretion. In exercising its prerogative hereunder, Fortuelife may elect
+									its sole discretion. In exercising its prerogative hereunder, MyStartUp may elect
 									to employ one of
 									the following methods or any other method permissible by law, and may unilaterally
 									modify and
@@ -1441,7 +1441,7 @@
 									the Line of
 									Sponsorship as may be necessary to implement such decision:</li>
 
-								<li>12.1.1 Dissolution of Distributorship. If Fortuelife so elects, the Sponsor of the
+								<li>12.1.1 Dissolution of Distributorship. If MyStartUp so elects, the Sponsor of the
 									former Distributor
 									in the Line of Sponsorship may undertake the obligations of the former Distributor
 									and assume
@@ -1449,9 +1449,9 @@
 									former
 									Distributor.</li>
 
-								<li>12.2 No Limitation on Fortuelife: Fortuelife, however, is in no way limited to any
+								<li>12.2 No Limitation on MyStartUp: MyStartUp, however, is in no way limited to any
 									of the above
-									methods of disposition of Fortuelife business and may exercise complete discretion
+									methods of disposition of MyStartUp business and may exercise complete discretion
 									as to
 									methods and/or timing of disposition.</li>
 							</ul>
