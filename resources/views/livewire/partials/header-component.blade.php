@@ -22,7 +22,7 @@
 
                 <a href="<?= route('website.homepage') ?>" class="navbar-brand logo">
 
-                    <img src="/web_assets/brand/logo.png" class="img-fluid" alt="Logo">
+                    <img src="{{getFile(basicControl()->logo_driver,basicControl()->logo)}}" class="img-fluid" alt="Logo">
 
                 </a>
 
@@ -34,7 +34,7 @@
 
                     <a href="<?= route('website.homepage') ?>" class="menu-logo">
 
-                        <img src="/web_assets/brand/logo.png" class="img-fluid" alt="Logo">
+                        <img src="{{getFile(basicControl()->logo_driver,basicControl()->logo)}}" class="img-fluid" alt="Logo">
 
                     </a>
 

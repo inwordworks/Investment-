@@ -129,7 +129,7 @@
 
                 <li class="menu-item">
 
-                    <a href="#" class="menu-link is-active">
+                    <a href="/" class="menu-link is-active">
 
                         <i class="fal fa-home"></i>
 
@@ -141,7 +141,7 @@
 
                 <li class="menu-item">
 
-                    <a href="#" class="menu-link is-active">
+                    <a href="/about-us" class="menu-link is-active">
 
                         <i class="fal fa-user"></i>
 
@@ -153,7 +153,7 @@
 
                 <li class="menu-item">
 
-                    <a href="#" class="menu-link is-active">
+                    <a href="/contact-us" class="menu-link is-active">
 
                         <i class="fal fa-envelope"></i>
 
@@ -165,11 +165,11 @@
 
                 <li class="menu-item">
 
-                    <a href="index.html" class="menu-link is-active">
+                    <a href="/register" class="menu-link is-active">
 
                         <i class="fal fa-user"></i>
 
-                        <span class="menu-name">Join Now</span>
+                        <span class="menu-name">Register</span>
 
                     </a>
 
@@ -177,7 +177,7 @@
 
                 <li class="menu-item">
 
-                    <a href="index.html" class="menu-link is-active">
+                    <a href="/login" class="menu-link is-active">
 
                         <i class="fal fa-lock"></i>
 
