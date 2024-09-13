@@ -215,9 +215,9 @@
             HSCore.components.HSDatatables.init($('#datatable'), {
                 processing: true,
                 serverSide: true,
-                ordering: false, 
+                ordering: false,
                 ajax: {
-                    url: "{{ route("admin.transaction.search") }}",
+                    url: "{{ route('admin.transaction.search') }}",
                 },
 
                 columns: [

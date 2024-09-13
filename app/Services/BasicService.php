@@ -85,7 +85,6 @@ class BasicService
                         $this->adminFirebasePushNotification('ADD_FUND_USER_ADMIN', $params, $firebaseAction);
                     }
 
-
                     return true;
                 }
             } elseif ($deposit->depositable_type == InvestmentPlan::class) {

@@ -24,6 +24,8 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\User\VerificationController;
 use App\Http\Controllers\Frontend\BlogController;
+use App\Http\Controllers\PhonepeController;
+use App\Http\Controllers\Test\TestController;
 use App\Livewire\Aboutpage;
 use App\Livewire\BusinessPlanPage;
 use App\Livewire\ContactPage;
@@ -36,6 +38,10 @@ use App\Livewire\ShippingPolicyPage;
 use App\Livewire\TermsPage;
 
 $basicControl = basicControl();
+
+Route::get('testing-2024', [TestController::class, 'index']);
+
+Route::match(['get', 'post'], 'phonepe_status/{transactionId}', [PhonepeController::class, 'paymentStatus'])->name('phonepe.callback');
 
 Route::get('language/{locale}', [FrontendController::class, 'language'])->name('language');
 

@@ -14,6 +14,7 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         '*save-token*',
         '*sort-payment-methods*',
-        '*admin/upload/ck/image*'
+        '*admin/upload/ck/image*',
+        'phonepe_status'
     ];
 }

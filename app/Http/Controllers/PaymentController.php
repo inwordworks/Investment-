@@ -15,8 +15,9 @@ use Illuminate\Support\Facades\Validator;
 
 class PaymentController extends Controller
 {
-
     use Upload, Notify;
+
+    public $theme;
 
     public function __construct()
     {
@@ -37,7 +38,6 @@ class PaymentController extends Controller
     }
     public function depositConfirm($trx_id)
     {
-
         try {
             $deposit = Deposit::with('user', 'depositable')->where(['trx_id' => $trx_id, 'status' => 0])->first();
             if (!$deposit) {
@@ -54,6 +54,10 @@ class PaymentController extends Controller
 
             $gatewayObj = 'App\\Services\\Gateway\\' . $gateway->code . '\\Payment';
             $data = $gatewayObj::prepareData($deposit, $gateway);
+
+            // print_r($data);
+            // return;
+
             $data = json_decode($data);
         } catch (Exception $exception) {
             session()->flash('warning', 'Something went wrong. Please try again.');
@@ -64,10 +68,12 @@ class PaymentController extends Controller
             return back()->with('error', $data->message);
         }
 
-        if (isset($data->redirect)) {
+        if (isset($data->redirect) && !empty(trim($data->redirect_url))) {
+            if (isset($data->redirect_external)) {
+                return redirect()->away($data->redirect_url);
+            }
             return redirect($data->redirect_url);
         }
-
 
         $page_title = 'Payment Confirm';
         return view($this->theme . $data->view, compact('data', 'page_title', 'deposit'));
@@ -218,7 +224,7 @@ class PaymentController extends Controller
 
     public function success(Request $request)
     {
-        $returnUrl = null;
+        $returnUrl = route('user.transaction.list');
         if ($request->input('project')) {
             $returnUrl = route('user.project.investment');
         }
