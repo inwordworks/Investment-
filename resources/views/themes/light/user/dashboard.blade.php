@@ -609,22 +609,20 @@
     // Register service worker and request permission
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/firebase-messaging-sw.js')
-        .then(function(registration) {
-            console.log('Service Worker registered:', registration);
+            .then(function(registration) {
+                console.log('Service Worker registered:', registration);
 
-            // Function to handle permission and token retrieval
-            requestPermissionAndGenerateToken(registration);
-        }).catch(function(error) {
-            console.error('Service Worker registration failed:', error);
-        });
+                // Function to handle permission and token retrieval
+                requestPermissionAndGenerateToken(registration);
+            }).catch(function(error) {
+                console.error('Service Worker registration failed:', error);
+            });
     }
 
     // Function to request notification permission and get token
     function requestPermissionAndGenerateToken(registration) {
         document.addEventListener("click", function(event) {
             if (event.target.id === 'allow-notification') {
-                console.log('Notification allowed clicked by user');
-
                 // Request notification permission
                 Notification.requestPermission().then((permission) => {
                     if (permission === 'granted') {
@@ -633,13 +631,19 @@
                             serviceWorkerRegistration: registration,
                             vapidKey: "{{$firebaseNotify['vapidKey']}}" // Use your VAPID key here
                         }).then((token) => {
-                            console.log('FCM Token:', token);
+                            // console.log('FCM Token:', token);
+
+                            // setTimeout(() => {
+                            //     showLocalNotification();
+                            // }, 5000);
 
                             // Send the token to the server via AJAX
                             $.ajax({
                                 url: "{{ route('user.save.token') }}",
                                 method: "POST",
-                                data: { token: token },
+                                data: {
+                                    token: token
+                                },
                                 success: function(res) {
                                     console.log('FCM Token saved successfully');
                                 },
@@ -662,6 +666,20 @@
                 });
             }
         });
+    }
+    function showLocalNotification() {
+        const notificationTitle = 'Test Notification';
+        const notificationOptions = {
+            title: 'test notification',
+            body: 'This is a test notification generated locally.',
+            // icon: 'path/to/icon.png' // Optional: Replace with a path to your notification icon
+        };
+
+        if (Notification.permission === 'granted') {
+            new Notification(notificationTitle, notificationOptions);
+        } else {
+            console.log('Notification permission not granted.');
+        }
     }
 
     // Listen for messages when the app is in the foreground

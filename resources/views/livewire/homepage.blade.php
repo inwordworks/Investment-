@@ -21,7 +21,7 @@
 
                                         <h1>Welcome to <span>MyStartUp</span></h1>
 
-                                        <p>The Word of Fortune has its roots in India meaning Wealth, Richness,
+                                        <p>The Word of Mystartup has its roots in India meaning Wealth, Richness,
                                             Affluence comes with choice or advantage in Life. MyStartUp as Brand
                                             Started with passion and purpose to provide a better opportunities for
                                             empowering life in all aspects, and enhance the value of life.</p>
@@ -78,7 +78,7 @@
                 <div class="swiper-slide">
 
                     <div class="slider"
-                        style="background: url('/web_assets/assets/img/slider-04.jpg') no-repeat; background-size: cover;">
+                        style="background: url('/web_assets/assets/img/slider-04.jpg') no-repeat; background-size: cover;background-position: center center;">
 
                         <div class="container">
 
@@ -128,8 +128,11 @@
                 <div class="col-lg-6 col-md-12">
 
                     <div class="about-img-info">
+                        <div class="about-inner-img">
+                            <img src="/web_assets/assets/img/homepage-about-us.png" class="img-fluid" alt="about-image">
+                        </div>
 
-                        <div class="row">
+                        <div class="row d-none">
 
                             <div class="col-md-6">
 
@@ -194,32 +197,30 @@
 
                         <div class="about-content-details text-justify">
 
-                            <h4>MyStartUp Living Life Excellence brings you into the future of integrated living.
+                            <!-- <h4>MyStartUp Living Life Excellence brings you into the future of integrated living. -->
                             </h4>
-                            <p>MyStartUp brings you to the future of integrated living. Embark with us on a journey
-                                where wellness intersects with innovation through our products backed by substantial
-                                research. </p>
                             <p>
-
-                                We are here to promote your holistic wellness and create a better version of your
-                                existence. You can experience our personalized holiday services tailored to your
-                                specific needs. To boost your capital, we manage state of art properties and eco
-                                farmlands in a viable manner.</p>
-                            <p>
-
-                                Our team of experts ensures you experience the ultimate relaxation, rejuvenation,
-                                and indulgence while enjoying unparalleled access to unique destinations, impeccable
-                                properties, and the latest fashion trends. Explore our infraspace properties and
-                                immerse yourself in our cutting-edge efforts. Connect and transform with us as we
-                                work together towards a life full of abundance, prosperity, and vibrant health.
-
+                                You may step into the integrated lifestyle of the future with MyStartUp lifestyle Life Excellence.
+                                With MyStartUp, you can experience integrated living in the future. Join us on a journey where innovation and wellness collide with our goods, which are supported by extensive research.
                             </p>
+                            <p>
+                                Our goal is to help you achieve holistic wellness and improve your quality of life. You can take advantage of our holiday services that are customised to meet your unique requirements. We effectively handle cutting-edge assets and eco-farmlands to increase your money.
+                            </p>
+                            <p>
+                                Our team of professionals makes sure you get the maximum amount of rest, renewal, and pleasure together with unmatched access to distinctive locations, immaculate homes, and the newest styles in fashion. Investigate our infraspace properties and become fully engaged with our state-of-the-art endeavours.
+                            </p>
+                            <p>
+                                How many of you would like to move from the 95% to the 5% and begin a Recognise what the Rich has to say if you don't want to make compromises in life.
+                            </p>
+
 
                         </div>
 
                         <div class="about-contact">
-
-                            <div class="about-contact-icon">
+                            <a href="/contact-us" class="btn btn-primary log-btn btn-lg">
+                                <i class="feather-mail"></i>&nbsp;Contact Us
+                            </a>
+                            <!-- <div class="about-contact-icon">
 
                                 <span><img src="/web_assets/assets/img/icons/phone-icon.svg"
                                         alt="phone-image"></span>
@@ -232,7 +233,7 @@
 
                                 <h4>+91 96 76 14 11 99</h4>
 
-                            </div>
+                            </div> -->
 
                         </div>
 
@@ -250,7 +251,7 @@
 
         <div class="container">
 
-            <div class="book-appointment-ten text-center">
+            <div class="book-appointment-ten text-center gradientBg">
 
                 <div class="book-section-bg">
 
@@ -262,16 +263,16 @@
 
                 </div>
 
-                <h2>Four Ways Of Earning</h2>
+                <h2>Best Ways Of Earning</h2>
 
                 <p>How many of you wish to come to the 5% from 95% and START a If you don’t to compromise in life
                     understand what the Rich has to say</p>
 
                 <div class="appointment-btn-group">
 
-                    <a href="join-now.html" class="appointment-blue-btn">Enroll Now</a>
+                    <a href="{{ route('register') }}" class="appointment-blue-btn">Enroll Now</a>
 
-                    <a href="about-us.html">Know More</a>
+                    <!-- <a href="about-us.html">Know More</a> -->
 
                 </div>
 
@@ -281,7 +282,7 @@
 
     </section>
 
-    <section class="why-choose-section" data-aos="fade-up">
+    <section class="why-choose-section d-none" data-aos="fade-up">
 
         <div class="container">
 
@@ -345,7 +346,7 @@
                                     a memorable and
                                     transformative experience. By constantly evolving and staying ahead of industry
                                     trends, we aim to
-                                    set new standards of excellence, making FortuneLife your reliable partner for a
+                                    set new standards of excellence, making Mystartup your reliable partner for a
                                     balanced and
                                     fulfilling life.
                                 </p>
@@ -378,7 +379,7 @@
                                     methods to assist our people in achieving their health and wealth objectives. We
                                     firmly believe that absolute wellness encompasses all-around development. By
                                     promoting sustainable living practices and safeguarding the environment, we
-                                    believe in giving back to the community through our FortuneLife Foundation's
+                                    believe in giving back to the community through our Mystartup
                                     support programs.</p>
 
                             </div>
@@ -415,9 +416,9 @@
 
             <div class="row row-gap aos justify-content-center" data-aos="fade-up">
 
-                <div class="col-md-6 col-sm-12 col-lg-4">
+                <div class="col-md-6 col-sm-12 col-lg-4 mb-4">
 
-                    <div class="listing-card">
+                    <div class="listing-card h-100">
 
                         <div class="listing-img">
 
@@ -438,7 +439,7 @@
 
                                 <div class="listing-profile-details">
 
-                                    <div class="listing-user mb-3">
+                                    <div class="listing-user">
 
                                         <div class="listing-user-details">
 
@@ -452,7 +453,7 @@
 
                                     </div>
 
-                                    <div class="listing-btn">
+                                    <div class="listing-btn d-none">
 
                                         <a href="integrated-wellness.html" class="btn consult-btn">Read More</a>
 
@@ -468,9 +469,9 @@
 
                 </div>
 
-                <div class="col-md-6 col-sm-12 col-lg-4">
+                <div class="col-md-6 col-sm-12 col-lg-4 mb-4">
 
-                    <div class="listing-card">
+                    <div class="listing-card h-100">
 
                         <div class="listing-img">
 
@@ -491,18 +492,18 @@
 
                                 <div class="listing-profile-details">
 
-                                    <div class="listing-user mb-3">
+                                    <div class="listing-user">
 
                                         <div class="listing-user-details">
 
                                             <span>Travel experiences meticulously crafted just for you. From
-                                                planning to implementation, we handle everything.<br><br></span>
+                                                planning to implementation, we handle everything.</span>
 
                                         </div>
 
                                     </div>
 
-                                    <div class="listing-btn">
+                                    <div class="listing-btn d-none">
 
                                         <a href="integrated-holiday.html" class="btn consult-btn">Read More</a>
 
@@ -518,9 +519,9 @@
 
                 </div>
 
-                <div class="col-md-6 col-sm-12 col-lg-4">
+                <div class="col-md-6 col-sm-12 col-lg-4 mb-4">
 
-                    <div class="listing-card">
+                    <div class="listing-card h-100">
 
                         <div class="listing-img">
 
@@ -542,18 +543,18 @@
 
                                 <div class="listing-profile-details">
 
-                                    <div class="listing-user mb-3">
+                                    <div class="listing-user">
 
                                         <div class="listing-user-details">
 
                                             <span>We create transformational properties beyond one's imagination.
-                                                Invest in our Ecofarms and flourish in your business.<br><br></span>
+                                                Invest in our Ecofarms and flourish in your business.</span>
 
                                         </div>
 
                                     </div>
 
-                                    <div class="listing-btn">
+                                    <div class="listing-btn d-none">
 
                                         <a href="agriculture-eco-farm-lands.html" class="btn consult-btn">Read
                                             More</a>
@@ -570,9 +571,9 @@
 
                 </div>
 
-                <div class="col-md-6 col-sm-12 col-lg-4">
+                <div class="col-md-6 col-sm-12 col-lg-4 mb-4">
 
-                    <div class="listing-card">
+                    <div class="listing-card h-100">
 
                         <div class="listing-img">
 
@@ -593,7 +594,7 @@
 
                                 <div class="listing-profile-details">
 
-                                    <div class="listing-user mb-3">
+                                    <div class="listing-user">
 
                                         <div class="listing-user-details">
 
@@ -606,7 +607,7 @@
 
                                     </div>
 
-                                    <div class="listing-btn">
+                                    <div class="listing-btn d-none">
 
                                         <a href="integrated-fashion.html" class="btn consult-btn">Read More</a>
 
@@ -623,9 +624,9 @@
                 </div>
 
 
-                <div class="col-md-6 col-sm-12 col-lg-4">
+                <div class="col-md-6 col-sm-12 col-lg-4 mb-4">
 
-                    <div class="listing-card">
+                    <div class="listing-card h-100">
 
                         <div class="listing-img">
 
@@ -646,7 +647,7 @@
 
                                 <div class="listing-profile-details">
 
-                                    <div class="listing-user mb-3">
+                                    <div class="listing-user">
 
                                         <div class="listing-user-details">
 
@@ -659,7 +660,7 @@
 
                                     </div>
 
-                                    <div class="listing-btn">
+                                    <div class="listing-btn d-none">
 
                                         <a href="fortue-life-foundation.html" class="btn consult-btn">Read More</a>
 
@@ -678,9 +679,9 @@
 
 
 
-                <div class="col-md-6 col-sm-12 col-lg-4">
+                <div class="col-md-6 col-sm-12 col-lg-4 mb-4">
 
-                    <div class="listing-card">
+                    <div class="listing-card h-100">
 
                         <div class="listing-img">
 
@@ -696,13 +697,13 @@
 
                                 <div class="listing-title">
 
-                                    <h3><a href="fortue-life-technologies.html">Fortune Life Technologies</a></h3>
+                                    <h3><a href="fortue-life-technologies.html">Mystartup Technologies</a></h3>
 
                                 </div>
 
                                 <div class="listing-profile-details">
 
-                                    <div class="listing-user mb-3">
+                                    <div class="listing-user">
 
                                         <div class="listing-user-details">
 
@@ -714,7 +715,7 @@
 
                                     </div>
 
-                                    <div class="listing-btn">
+                                    <div class="listing-btn d-none">
 
                                         <a href="fortue-life-technologies.html" class="btn consult-btn">Read
                                             More</a>
@@ -884,7 +885,7 @@
                                             disciplines. We are
                                             committed to offering outstanding services that not only meet but
                                             significantly surpass your
-                                            expectations.<br><br>
+                                            expectations.
                                         </p>
 
                                     </div>
@@ -921,7 +922,7 @@
 
     </section>
 
-    <section class="counter-section">
+    <section class="counter-section d-none">
 
         <div class="ban-bg">
 

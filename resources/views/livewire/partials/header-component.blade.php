@@ -75,7 +75,7 @@
 
                             <li><a href="<?= route('website.services') ?>">MyStartUp Foundation (CFS)</a></li>
 
-                            <li><a href="<?= route('website.services') ?>">Fortune Life Technologies</a></li>
+                            <li><a href="<?= route('website.services') ?>">Mystartup Technologies</a></li>
 
 
 

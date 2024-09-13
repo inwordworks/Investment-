@@ -176,7 +176,7 @@
                                     a memorable and
                                     transformative experience. By constantly evolving and staying ahead of industry
                                     trends, we aim to
-                                    set new standards of excellence, making FortuneLife your reliable partner for a
+                                    set new standards of excellence, making Mystartup your reliable partner for a
                                     balanced and
                                     fulfilling life.
                                 </p>
@@ -199,7 +199,7 @@
                                     encompasses all-around development. By promoting sustainable living practices
                                     and safeguarding
                                     the environment, we believe in giving back to the community through our
-                                    FortuneLife Foundation's
+                                    Mystartup Foundation's
                                     support programs.
                                 </p>
                             </div>

@@ -157,7 +157,7 @@
                                                 <select class="js-example-basic-single form-control"
                                                         name="supported_currency"
                                                         id="supported_currency">
-                                                        <option value="">`+'{{trans('Select Currency')}}'+`</option>
+                                                        <option value="">`+'{{trans("Select Currency")}}'+`</option>
                                                 </select>`;
                             $('.add-select-field').append(select);
 
@@ -167,7 +167,7 @@
                             });
                         }
 
-                        let markup2 = '<option value="">'+'{{trans('Select Crypto Currency')}}'+'</option>';
+                        let markup2 = '<option value="">'+'{{trans("Select Crypto Currency")}}'+'</option>';
                         $('#supported_crypto_currency').append(markup2);
 
                         if (response.currencyType == 0){
@@ -175,7 +175,7 @@
                                         <select class="js-example-basic-single form-control"
                                                 name="supported_crypto_currency"
                                                 id="supported_crypto_currency">
-                                              <option value="">`+'{{trans('Select Crypto Currency')}}'+`</option>
+                                              <option value="">`+'{{trans("Select Crypto Currency")}}'+`</option>
                                         </select>`;
                             $('.add-select-field').append(markup2);
 

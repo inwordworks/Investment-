@@ -484,75 +484,111 @@
 
 @if($firebaseNotify)
 @push('script')
-<script type="module">
-    import {
-        initializeApp
-    } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
-    import {
-        getMessaging,
-        getToken,
-        onMessage
-    } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging.js";
+<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging-compat.js"></script>
 
+<script>
     const firebaseConfig = {
-        apiKey: "AIzaSyBXUeCnuLIf1TC6eo7LhVUdMhdaC1J7HDk",
-        authDomain: "ahtesham-1988.firebaseapp.com",
-        projectId: "ahtesham-1988",
-        storageBucket: "ahtesham-1988.appspot.com",
-        messagingSenderId: "1000552216526",
-        appId: "1:1000552216526:web:8a407675d743c03dad9d9f",
-        measurementId: "G-9TSGJKRLXD"
+        apiKey: "{{$firebaseNotify['apiKey']}}",
+        authDomain: "{{$firebaseNotify['authDomain']}}",
+        projectId: "{{$firebaseNotify['projectId']}}",
+        storageBucket: "{{$firebaseNotify['storageBucket']}}",
+        messagingSenderId: "{{$firebaseNotify['messagingSenderId']}}",
+        appId: "{{$firebaseNotify['appId']}}",
+        measurementId: "{{$firebaseNotify['measurementId']}}",
     };
 
-    const app = initializeApp(firebaseConfig);
-    const messaging = getMessaging(app);
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('{{ getProjectDirectory() }}' + `/firebase-messaging-sw.js`, {
-            scope: './'
-        }).then(function(registration) {
-            requestPermissionAndGenerateToken(registration);
-        }).catch(function(error) {
-            console.log('serviceWorker error: ', error)
-        });
-    } else {}
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const messaging = firebase.messaging();
 
-    onMessage(messaging, (payload) => {
-        if (payload.data.foreground || parseInt(payload.data.foreground) == 1) {
-            const title = payload.notification.title;
-            const options = {
-                body: payload.notification.body,
-                icon: payload.notification.icon,
-            };
-            new Notification(title, options);
-        }
-    });
+
+
+    // Register service worker and request permission
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/firebase-messaging-sw.js')
+            .then(function(registration) {
+                console.log('Service Worker registered:', registration);
+
+                // Function to handle permission and token retrieval
+                requestPermissionAndGenerateToken(registration);
+            }).catch(function(error) {
+                console.error('Service Worker registration failed:', error);
+            });
+    }
 
     function requestPermissionAndGenerateToken(registration) {
-        document.getElementById('allow-notification').addEventListener("click", function(event) {
-            console.log('notification allowed clicked. on admin');
-            Notification.requestPermission().then((permission) => {
-                if (permission === 'granted') {
-                    getToken(messaging, {
+        document.addEventListener("click", function(event) {
+            if (event.target.id === 'allow-notification') {
+                // Request notification permission
+                Notification.requestPermission().then((permission) => {
+                    if (permission === 'granted') {
+                        // Permission granted, get the FCM token
+                        messaging.getToken({
                             serviceWorkerRegistration: registration,
-                            vapidKey: "{{$firebaseNotify['vapidKey']}}"
-                        })
-                        .then((token) => {
+                            vapidKey: "{{$firebaseNotify['vapidKey']}}" // Use your VAPID key here
+                        }).then((token) => {
+                            // console.log('FCM Token:', token);
+
+                            // setTimeout(() => {
+                            //     showLocalNotification();
+                            // }, 5000);
+
                             $.ajax({
                                 url: "{{ route('admin.save.token') }}",
                                 method: "post",
                                 data: {
                                     token: token,
                                 },
-                                success: function(res) {}
+                                success: function(res) {
+                                    console.log('FCM Token saved successfully');
+                                },
+                                error: function(err) {
+                                    console.error('Error saving FCM Token:', err);
+                                }
                             });
+
+                            // Update Vue data to reflect granted permission
                             window.newApp.notificationPermission = 'granted';
+                        }).catch((error) => {
+                            console.error('Error getting token:', error);
                         });
-                } else {
-                    window.newApp.notificationPermission = 'denied';
-                }
-            });
+                    } else {
+                        // Permission denied
+                        window.newApp.notificationPermission = 'denied';
+                    }
+                }).catch((error) => {
+                    console.error('Error during permission request:', error);
+                });
+            }
         });
     }
+
+    function showLocalNotification() {
+        const notificationTitle = 'Test Notification';
+        const notificationOptions = {
+            title: 'Admin test  notification',
+            body: 'This is a test notification generated locally.',
+            // icon: 'path/to/icon.png' // Optional: Replace with a path to your notification icon
+        };
+
+        if (Notification.permission === 'granted') {
+            new Notification(notificationTitle, notificationOptions);
+        } else {
+            console.log('Notification permission not granted.');
+        }
+    }
+
+    // Listen for messages when the app is in the foreground
+    messaging.onMessage((payload) => {
+        console.log('Message received. ', payload);
+        const notificationTitle = payload.notification.title;
+        const notificationOptions = {
+            body: payload.notification.body,
+            icon: payload.notification.icon,
+        };
+        new Notification(notificationTitle, notificationOptions);
+    });
 </script>
 <script>
     window.newApp = new Vue({

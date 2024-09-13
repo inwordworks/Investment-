@@ -61,7 +61,7 @@
 
     <link rel="stylesheet" href="/web_assets/assets/css/f5.css">
 
-    <link rel="stylesheet" href="/web_assets/assets/css/custom.css">
+    <link rel="stylesheet" href="/web_assets/assets/css/custom.min.css">
 
     <link rel="stylesheet" href="/web_assets/assets/css/sweet-alert.css">
 
