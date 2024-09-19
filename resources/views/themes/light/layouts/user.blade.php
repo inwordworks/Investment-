@@ -254,20 +254,21 @@
     <script src="{{ asset('assets/admin/js/jquery.uploadPreview.min.js') }}"></script>
     <script src="{{ asset($themeTrue.'js/custom_share.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.7.3/build/js/intlTelInput.min.js"></script>
-    <script>
-    if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/firebase-messaging-sw.js')
-        .then(function(registration) {
-            console.log('Service Worker registered successfully:', registration);
-        })
-        .catch(function(err) {
-            console.log('Service Worker registration failed:', err);
-        });
-    }
-</script>
     @stack('js-lib')
     @include('plugins')
     @stack('script')
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/firebase-messaging-sw.js')
+                .then(function(registration) {
+                    console.log('Service Worker registered successfully:', registration);
+                })
+                .catch(function(err) {
+                    console.log('Service Worker registration failed:', err);
+                });
+        }
+    </script>
+    @stack('firebase')
     <script>
         function currencyPosition(amount) {
             var currencyPosition = @json(basicControl()->is_currency_position);
@@ -406,6 +407,7 @@
     </script>
     @endif
 
+    @stack('pageBottom')
 
 
 </body>

@@ -183,7 +183,7 @@
                 serverSide: true,
                 ordering: false,
                 ajax: {
-                    url: "{{ route("admin.project.list") }}",
+                    url: "<?= route("admin.project.list") ?>",
                 },
 
                 columns: [

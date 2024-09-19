@@ -483,9 +483,11 @@
 @endpush
 
 @if($firebaseNotify)
-@push('script')
+@push('firebase')
 <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-performance-compat.js"></script>
 
 <script>
     const firebaseConfig = {
@@ -500,9 +502,18 @@
 
     // Initialize Firebase
     const app = firebase.initializeApp(firebaseConfig);
+
+    // Initialize Analytics using compat
+    const analytics = firebase.analytics();
+
+    // Initialize Performance Monitoring using compat
+    const performance = firebase.performance();
+    const trace = performance.trace('{{ url(Route::currentRouteName()) }}');
+    trace.start();
+
+
+    // Initialize messaging
     const messaging = firebase.messaging();
-
-
 
     // Register service worker and request permission
     if ('serviceWorker' in navigator) {
@@ -613,4 +624,11 @@
     });
 </script>
 @endpush
+
+@push('pageBottom')
+<script>
+    trace.start();
+</script>
+@endpush
+
 @endif

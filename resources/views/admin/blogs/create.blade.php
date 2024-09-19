@@ -233,7 +233,7 @@
 @push('js-lib')
     <script src="{{ asset('assets/admin/js/summernote-bs5.min.js') }}"></script>
     <script src="{{ asset('assets/admin/js/tom-select.complete.min.js') }}"></script>
-    <script src="{{ asset("assets/admin/js/hs-file-attach.min.js") }}"></script>
+    <script src="{{ asset('assets/admin/js/hs-file-attach.min.js') }}"></script>
 @endpush
 
 @push('script')

@@ -2,13 +2,23 @@
 @section('title',trans('Dashboard'))
 @section('content')
 <div class="pagetitle">
-    <h3 class="mb-1">@lang('Dashboard')</h3>
-    <nav>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="{{route('user.dashboard')}}">@lang('Home')</a></li>
-            <li class="breadcrumb-item active">@lang('Dashboard')</li>
-        </ol>
-    </nav>
+    <div class="d-flex justify-content-between">
+        <div>
+            <h3 class="mb-1">@lang('Dashboard')</h3>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="{{route('user.dashboard')}}">@lang('Home')</a></li>
+                    <li class="breadcrumb-item active">@lang('Dashboard')</li>
+                </ol>
+            </nav>
+        </div>
+        @if($level = auth()->user()->getRewardAchievementLevel())
+        <div>
+            <p class="text-danger">Congratulations!!</p>
+            <h3 class="text-primary">Level {{ $level }} achieved</h3>
+        </div>
+        @endif
+    </div>
 </div>
 <div class="section dashboard">
     <div class="row" id="firebase-app">
@@ -248,6 +258,53 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between border-0">
+                            <h4>@lang('Rewards system')</h4>
+                            <i class="fa-sharp fa-thin fa-circle-info ms-1" data-bs-toggle="tooltip" data-bs-placement="left"
+                                aria-label="Content for, How rewards system will works."
+                                data-bs-original-title="Content for, How rewards system will works."></i>
+                        </div>
+                        <div class="card-body pt-0">
+                            <div class="cmn-table">
+                                <div class="table-responsive">
+                                    <table class="table table-striped align-middle">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col" class="text-center">@lang('Reward')</th>
+                                                <th scope="col" class="text-center">@lang('Level')</th>
+                                                <th scope="col" class="text-center">@lang('Referral')</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @forelse($reward_system as $item)
+                                            <tr>
+                                                <td class="text-center overflow-hidden" style="width:50px;height:50px;">
+                                                    <img src="{{ getFile($item->reward_image_driver, $item->reward_image) }}" alt="Level-{{ $item->level }} reward" class="object-fit-cover w-100 h-100" />
+                                                </td>
+                                                <td class="text-center">@lang('LEVEL')# {{ $item->level }}</td>
+                                                <td class="text-center">{{ intval($item->commission) }} Referrals</td>
+                                            </tr>
+                                            @empty
+
+                                            @endforelse
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                @if(count($reward_system??[]) == 0)
+                                <div class="row d-flex text-center justify-content-center">
+                                    <div class="col-4">
+                                        <img src="{{ asset('assets/admin/img/oc-error.svg') }}" class="no-data-image" alt="" srcset="">
+                                        <p>@lang('No data to show')</p>
+                                    </div>
+                                </div>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header d-flex justify-content-between border-0">
                             <h4>@lang('Recent Plan Invest')</h4>
                         </div>
                         <div class="card-body">
@@ -280,7 +337,7 @@
                                 @if(count($recent_plan??[]) == 0)
                                 <div class="row d-flex text-center justify-content-center">
                                     <div class="col-4">
-                                        <img src="{{ asset('assets/admin/img/oc-error.svg') }}" id="no-data-image" class="no-data-image" alt="" srcset="">
+                                        <img src="{{ asset('assets/admin/img/oc-error.svg') }}" class="no-data-image" alt="" srcset="">
                                         <p>@lang('No data to show')</p>
                                     </div>
                                 </div>
@@ -323,7 +380,7 @@
                                 @if(count($recent_project??[]) == 0)
                                 <div class="row d-flex text-center justify-content-center">
                                     <div class="col-4">
-                                        <img src="{{ asset('assets/admin/img/oc-error.svg') }}" id="no-data-image" class="no-data-image" alt="" srcset="">
+                                        <img src="{{ asset('assets/admin/img/oc-error.svg') }}" class="no-data-image" alt="" srcset="">
                                         <p>@lang('No data to show')</p>
                                     </div>
                                 </div>
@@ -585,11 +642,12 @@
 
 
 @if($firebaseNotify)
-@push('script')
-
+@push('firebase')
 
 <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-messaging-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-performance-compat.js"></script>
 
 <script>
     const firebaseConfig = {
@@ -604,6 +662,16 @@
 
     // Initialize Firebase
     const app = firebase.initializeApp(firebaseConfig);
+
+    // Initialize Analytics using compat
+    const analytics = firebase.analytics();
+
+    // Initialize Performance Monitoring using compat
+    const performance = firebase.performance();
+    const trace = performance.trace('{{ url(Route::currentRouteName()) }}');
+    trace.start();
+
+    // Initialize messaging
     const messaging = firebase.messaging();
 
     // Register service worker and request permission
@@ -667,6 +735,12 @@
             }
         });
     }
+
+    // setInterval(() => {
+    //     showLocalNotification();
+    //     alert('interval working')
+    // }, 2000);
+
     function showLocalNotification() {
         const notificationTitle = 'Test Notification';
         const notificationOptions = {
@@ -693,9 +767,6 @@
         new Notification(notificationTitle, notificationOptions);
     });
 </script>
-
-
-
 <!-- Vue.js Component -->
 <script>
     window.newApp = new Vue({
@@ -718,6 +789,11 @@
             }
         }
     });
+</script>
+@endpush
+@push('pageBottom')
+<script>
+    trace.start();
 </script>
 @endpush
 @endif

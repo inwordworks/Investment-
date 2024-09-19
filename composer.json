@@ -46,6 +46,7 @@
         "symfony/sendgrid-mailer": "^6.3",
         "symfony/sendinblue-mailer": "^6.3",
         "twilio/sdk": "^7.7",
+        "vanilo/framework": "^4.1",
         "vonage/client": "^4.0",
         "yajra/laravel-datatables": "10.0"
     },

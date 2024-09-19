@@ -92,6 +92,51 @@
                         </a>
                     </div>
 
+
+                    <span class="dropdown-header mt-3">@lang('eCommerce')</span>
+                    <small class="bi-three-dots nav-subtitle-replacer"></small>
+                    <div class="nav-item">
+                        <a class="nav-link dropdown-toggle {{ menuActive(['admin.ticket', 'admin.ticket.search', 'admin.ticket.view'], 3) }}"
+                            href="#navbarVerticalAttributesMenu"
+                            role="button"
+                            data-bs-toggle="collapse"
+                            data-bs-target="#navbarVerticalAttributesMenu"
+                            aria-expanded="false"
+                            aria-controls="navbarVerticalAttributesMenu">
+                            <i class="fa-light fa-list nav-icon"></i>
+                            <span class="nav-link-title">@lang("Attributes")</span>
+                        </a>
+                        <div id="navbarVerticalAttributesMenu"
+                            class="nav-collapse collapse <?= menuActive(['admin.ecommerce.attributes.*'], 2) ?>"
+                            data-bs-parent="#navbarVerticalAttributesMenu">
+                            <a class="nav-link {{ request()->is('admin/ecommerce/attributes') ? 'active' : '' }}"
+                                href="{{ route('admin.ecommerce.attributes.index') }}">@lang("All Attributes")
+                            </a>
+
+                            <?php foreach (\Vanilo\Category\Models\Taxonomy::orderBy('id', 'asc')->select('id', 'name', 'slug')->get() as $attributes) { ?>
+                                <a class="nav-link <?= request()->is('admin/ecommerce/attributes/' . $attributes->slug) ? 'active' : '' ?>" href="<?= route('admin.ecommerce.attributes.single_attribute', $attributes->slug) ?>">
+                                    <?= $attributes->name ?>
+                                </a>
+                            <?php } ?>
+
+                        </div>
+                    </div>
+
+                    <div class="nav-item">
+                        <a class="nav-link {{ menuActive(['admin.ecommerce.product.*']) }}"
+                            href="{{ route('admin.ecommerce.product.index') }}">
+                            <i class="fa-light fa-table-cells-large nav-icon"></i>
+                            <span class="nav-link-title">@lang("Products")</span>
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link {{ menuActive(['admin.ecommerce.order.*']) }}"
+                            href="{{ route('admin.ecommerce.order.index') }}">
+                            <i class="fa-light fa-rectangle-list nav-icon"></i>
+                            <span class="nav-link-title">@lang("Orders")</span>
+                        </a>
+                    </div>
+
                     <span class="dropdown-header mt-3"> @lang('Manage Commission')</span>
                     <small class="bi-three-dots nav-subtitle-replacer"></small>
                     <div class="nav-item">

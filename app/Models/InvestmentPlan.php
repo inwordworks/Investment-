@@ -161,4 +161,10 @@ class InvestmentPlan extends Model
     {
         return $this->hasMany(InvestHistory::class, 'plan_id');
     }
+
+    // Define the relationship with Product
+    public function product()
+    {
+        return $this->belongsTo(Product::class);
+    }
 }

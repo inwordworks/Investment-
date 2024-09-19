@@ -555,7 +555,7 @@
         })();
         $(document).ready(function (){
             let preloaded = [];
-            let images = @json($projectImages);
+            let images = <?= json_encode($projectImages) ?>;
             $(images).each(function(index, element) {
                 preloaded.push({id: index, src: element})
             });

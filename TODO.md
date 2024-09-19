@@ -1,11 +1,4 @@
 www.mystartup.info
-64.225.26.181
-phplaravel-1329210-4863031.cloudwaysapps.com
-
-On projects:-
-    Remove above testimonials
-    Remove testimonials
-
 
 PHP Deprecated: Optional parameter $trx declared before required parameter $amount is implicitly treated as a required parameter in app/Services/BasicService.php on line 271.
 
@@ -17,3 +10,14 @@ php artisan cache:clear
 php artisan config:cache
 php artisan route:cache
 php artisan optimize
+
+
+Reward system
+1st level -> refer atleast 6 persons -> level1 achiever -> direct referral only
+2nd level -> refer atleast 30 persons -> level2 achiever -> indirect referrals have 30 minimum
+3rf level -> refer atleast 30 persons -> level3 achiever -> indirect referrals have 30 minimum
+4th level -> refer atleast 30 persons -> level4 achiever -> indirect referrals have 30 minimum
+5th level -> refer atleast 30 persons -> level5 achiever -> indirect referrals have 30 minimum
+
+
+For withdrawing the amount, user should need to minimum invest in a project or in a plan

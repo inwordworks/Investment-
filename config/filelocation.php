@@ -107,6 +107,12 @@ return [
     'project' => [
         'path' => 'project'
     ],
+    'product' => [
+        'path' => 'product'
+    ],
+    'rewards' => [
+        'path' => 'rewards'
+    ],
     'cookie' => [
         'path' => 'cookie'
     ],

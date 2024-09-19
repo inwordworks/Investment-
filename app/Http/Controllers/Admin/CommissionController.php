@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\BasicControl;
 use App\Models\Referral;
 use App\Models\ReferralBonus;
+use App\Models\User;
+use App\Traits\Upload;
 use hisorange\BrowserDetect\Exceptions\Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -13,6 +15,7 @@ use Yajra\DataTables\DataTables;
 
 class CommissionController extends Controller
 {
+    use Upload;
 
     public function index()
     {
@@ -21,19 +24,19 @@ class CommissionController extends Controller
 
     public function getCommissionList(Request $request)
     {
-        $commissions = ReferralBonus::query()->with(['user','bonusBy'])
-            ->when(!empty($request->search['value']),function ($query) use ($request){
-                $query->whereHas('fromUser',function ($query) use ($request){
-                    $query->where('firstname', 'LIKE', '%'.$request->search['value'].'%')
-                        ->orWhere('lastname', 'LIKE', '%'.$request->search['value'].'%')
+        $commissions = ReferralBonus::query()->with(['user', 'bonusBy'])
+            ->when(!empty($request->search['value']), function ($query) use ($request) {
+                $query->whereHas('fromUser', function ($query) use ($request) {
+                    $query->where('firstname', 'LIKE', '%' . $request->search['value'] . '%')
+                        ->orWhere('lastname', 'LIKE', '%' . $request->search['value'] . '%')
                         ->orWhereRaw("CONCAT(firstname, ' ', lastname) LIKE ?", [$request->search['value']])
-                        ->orWhere('username','LIKE','%'.$request->search['value'].'%');
+                        ->orWhere('username', 'LIKE', '%' . $request->search['value'] . '%');
                 })
-                    ->orWhereHas('toUser',function ($query) use ($request){
-                        $query->where('firstname', 'LIKE', '%'.$request->search['value'].'%')
-                            ->orWhere('lastname', 'LIKE', '%'.$request->search['value'].'%')
+                    ->orWhereHas('toUser', function ($query) use ($request) {
+                        $query->where('firstname', 'LIKE', '%' . $request->search['value'] . '%')
+                            ->orWhere('lastname', 'LIKE', '%' . $request->search['value'] . '%')
                             ->orWhereRaw("CONCAT(firstname, ' ', lastname) LIKE ?", [$request->search['value']])
-                            ->orWhere('username','LIKE','%'.$request->search['value'].'%');
+                            ->orWhere('username', 'LIKE', '%' . $request->search['value'] . '%');
                     });
             })
             ->orderBy('created_at', 'desc');
@@ -51,7 +54,7 @@ class CommissionController extends Controller
                 return $commissions->getBonsuByUser();
             })
             ->addColumn('amount', function ($commission) {
-               return currencyPosition($commission->amount);
+                return currencyPosition($commission->amount);
             })
             ->addColumn('remarks', function ($commission) {
                 return $commission->remarks;
@@ -66,10 +69,18 @@ class CommissionController extends Controller
 
     public function referral()
     {
-        $data['referrals'] = Referral::get();
-        return view('admin.commission.referral',$data);
-    }
+        // $user = User::find(11);
+        // // $data = $user->referralUsers([11]);
+        // // $levelConfig = Referral::where('commission_type', 'reward_system')->orderBy('level', 'asc')->get();
+        // $data = $user->getRewardAchievement();
 
+        // return response()->json([
+        //     // 'levelConfig'=>$levelConfig,
+        //     'data'=>$data
+        // ]);
+        $data['referrals'] = Referral::get();
+        return view('admin.commission.referral', $data);
+    }
 
     public function commissionStatus(Request $request)
     {
@@ -77,24 +88,24 @@ class CommissionController extends Controller
         $basic->deposit_commission = $request->deposit_commission;
         $basic->investment_commission = $request->investment_commission;
         $basic->profit_commission = $request->profit_commission;
+        $basic->reward_system = $request->reward_system;
         $basic->save();
         return back()->with('success', 'Update Successfully.');
-
     }
 
     public function StoreCommission(Request $request)
     {
 
-       $request->validate([
-        'level.*' => 'required|integer|min:1',
-        'commission.*' => 'required|numeric',
-        'commission_type' => 'required',
-        'amount_type.*' => 'required'
-    ]);
+        $request->validate([
+            'level.*' => 'required|integer|min:1',
+            'commission.*' => 'required|numeric',
+            'commission_type' => 'required',
+            'amount_type.*' => 'required'
+        ]);
 
-       if (!isset($request->commission) || !isset($request->level) || !isset($request->amount_type)) {
-           return back()->with('error', 'Please fill all the required fields.');
-       }
+        if (!isset($request->commission) || !isset($request->level) || !isset($request->amount_type)) {
+            return back()->with('error', 'Please fill all the required fields.');
+        }
 
         try {
 
@@ -102,22 +113,29 @@ class CommissionController extends Controller
 
             for ($i = 0; $i < count($request->level); $i++) {
                 if ($request->commission[$i] && $request->amount_type[$i]) {
+
+                    if ($request->image[$i]) {
+                        $upload = $this->fileUpload($request->image[$i], config('filelocation.rewards.path'), null, null, 'webp', 60);
+                        $reward_image = $upload['path'];
+                        $reward_image_driver = $upload['driver'];
+                    }
+
                     $referral = new Referral();
                     $referral->commission_type = $request->commission_type;
                     $referral->level = $request->level[$i];
                     $referral->commission = $request->commission[$i];
                     $referral->amount_type = $request->amount_type[$i];
+                    $referral->reward_image = $reward_image ?? null;
+                    $referral->reward_image_driver = $reward_image_driver ?? null;
                     $referral->save();
-                }else{
+                } else {
                     return back()->with('error', 'Please enter commission or select amount type value');
                 }
             }
 
             return back()->with('success', 'Level Bonus Has been Updated.');
-        }catch (\Exception $exception){
-           return back()->with('error', $exception->getMessage());
+        } catch (\Exception $exception) {
+            return back()->with('error', $exception->getMessage());
         }
-
     }
-
 }

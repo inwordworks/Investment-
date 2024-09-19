@@ -16,6 +16,20 @@
 
     <title><?= isset($title) && !empty(trim($title)) ?  $title . ' | ' . basicControl()->site_title : basicControl()->site_title ?></title>
 
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/firebase-messaging-sw.js')
+                .then(function(registration) {
+                    console.log('Service Worker registered successfully:', registration);
+                })
+                .catch(function(err) {
+                    console.log('Service Worker registration failed:', err);
+                });
+        }
+    </script>
+
+    @stack('firebase')
+
     <meta property="og:url" content="MyStartUp.com">
 
     <meta property="og:type" content="website">
@@ -298,6 +312,9 @@
     @endif
 
     @livewireScripts
+
+
+    @stack('pageBottom')
 </body>
 
 </html>

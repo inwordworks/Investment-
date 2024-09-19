@@ -21,7 +21,9 @@ class BasicControl extends Model
         'currency_layer_access_key', 'currency_layer_auto_update_at', 'currency_layer_auto_update', 'coin_market_cap_app_key', 'coin_market_cap_auto_update_at',
         'coin_market_cap_auto_update', 'automatic_payout_permission', 'date_time_format','google_admin_login_recaptcha_status',
         'google_user_login_recaptcha_status', 'google_user_registration_recaptcha_status','cookie_title', 'cookie_button_name', 'cookie_button_url',
-        'cookie_short_text', 'cookie_status', 'cookie_image', 'cookie_driver','deposit_commission','investment_commission','profit_commission','register_bonus',
+        'cookie_short_text', 'cookie_status', 'cookie_image', 'cookie_driver',
+        'deposit_commission','investment_commission','profit_commission','register_bonus',
+        'reward_system',
         'deposit_commission_type','investment_commission_type','profit_commission_type','deposit','invest','profit','register','navbar_style'
     ];
 

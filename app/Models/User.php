@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Traits\Notify;
 use Illuminate\Contracts\Auth\CanResetPassword;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -11,12 +10,29 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Cache;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Konekt\User\Contracts\User as UserContract;
+use Konekt\User\Models\Profile;
 
-
-class User extends Authenticatable implements CanResetPassword
+class User extends Authenticatable implements CanResetPassword, UserContract
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes, Notify;
 
+    public function inactivate()
+    {
+        $this->is_active = false;
+        $this->save();
+    }
+
+    public function activate()
+    {
+        $this->is_active = true;
+        $this->save();
+    }
+
+    public function getProfile(): ?Profile
+    {
+        return null;
+    }
     /**
      * The attributes that are mass assignable.
      *
@@ -129,11 +145,7 @@ class User extends Authenticatable implements CanResetPassword
 
     public function getLastSeenActivityAttribute()
     {
-        if (Cache::has('user-is-online-' . $this->id) == true) {
-            return true;
-        } else {
-            return false;
-        }
+        return Cache::has('user-is-online-' . $this->id) ? true : false;
     }
 
 
@@ -151,21 +163,19 @@ class User extends Authenticatable implements CanResetPassword
     {
         $image = $this->image;
         if (!$image) {
-            $active = $this->LastSeenActivity == false ? 'warning' : 'success';
+            $active = !$this->LastSeenActivity ? 'warning' : 'success';
             $firstLetter = substr($this->firstname, 0, 1);
             return '<div class="avatar avatar-sm avatar-soft-primary avatar-circle">
                         <span class="avatar-initials">' . $firstLetter . '</span>
                         <span class="avatar-status avatar-sm-status avatar-status-' . $active . '"></span>
                      </div>';
-
         } else {
             $url = getFile($this->image_driver, $this->image);
-            $active = $this->LastSeenActivity == false ? 'warning' : 'success';
+            $active = !$this->LastSeenActivity ? 'warning' : 'success';
             return '<div class="avatar avatar-sm avatar-circle">
                         <img class="avatar-img" src="' . $url . '" alt="Image Description">
                         <span class="avatar-status avatar-sm-status avatar-status-' . $active . '"></span>
                      </div>';
-
         }
     }
 
@@ -174,15 +184,11 @@ class User extends Authenticatable implements CanResetPassword
         $this->verifyToMail($this, 'PASSWORD_RESET', $params = [
             'message' => '<a href="' . url('password/reset', $token) . '?email=' . $this->email . '" target="_blank">Click To Reset Password</a>'
         ]);
-
-        // $this->verifyToMail($user, 'PASSWORD_RESET', [
-        //     'code' => $user->verify_code
-        // ]);
     }
 
     public function plans()
     {
-        return $this->hasMany(InvestHistory::class,'user_id','id');
+        return $this->hasMany(InvestHistory::class, 'user_id', 'id');
     }
 
     public function notifypermission()
@@ -190,9 +196,9 @@ class User extends Authenticatable implements CanResetPassword
         return $this->morphOne(NotificationPermission::class, 'notifyable');
     }
 
-    public function getUser() :string
+    public function getUser(): string
     {
-        $url = route('admin.user.view.profile',$this->id??1);
+        $url = route('admin.user.view.profile', $this->id ?? 1);
         return '<a class="d-flex align-items-center me-2" href="' . $url . '">
                                 <div class="flex-shrink-0">
                                   ' . $this->profilePicture() . '
@@ -204,6 +210,37 @@ class User extends Authenticatable implements CanResetPassword
                               </a>';
     }
 
+    public function getRewardAchievement($id = null)
+    {
+        $userId = $id ? $id : $this->id;
+        $achievedLevels = 'Not achieved level 1 yet';
+        $level = $this->getRewardAchievementLevel($userId);
+        if ($level > 0) {
+            $achievedLevels = "Level {$level} achieved";
+        }
+        return $achievedLevels;
+    }
+    public function getRewardAchievementLevel($id = null)
+    {
+        $userId = $id ? $id : $this->id;
+        $referralData = $this->referralUsers([$userId]);
+        $levelConfig = Referral::where('commission_type', 'reward_system')->orderBy('level', 'asc')->get();
+        // Initialize an array to store the achieved levels
+        $thisLevel = 0;
+        foreach ($levelConfig as $config) {
+            $level = $config['level'];
+            $requiredUsers = intval($config['commission']);
+
+            // Check if referral data exists for the current level and if the number of users meets the requirement
+            if (isset($referralData[$level]) && count($referralData[$level]) >= $requiredUsers) {
+                $thisLevel = $level;
+            } else {
+                break;
+            }
+        }
+        // Output the achieved levels
+        return intval($thisLevel);
+    }
     public function referralUsers($id, $currentLevel = 1)
     {
         $users = $this->getUsers($id);
@@ -214,7 +251,14 @@ class User extends Authenticatable implements CanResetPassword
         }
         return $this->allusers;
     }
-
+    public function getAllReferrals($id)
+    {
+        return User::where('referral_id', $id)
+            ->orWhereIn('referral_id', function ($query) use ($id) {
+                $query->select('id')->from('users')->where('referral_id', $id);
+            })
+            ->get();
+    }
     public function getUsers($id)
     {
         if (isset($id)) {

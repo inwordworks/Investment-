@@ -82,7 +82,7 @@ Route::group(['prefix' => basicControl()->admin_prefix, 'as' => 'admin.'], funct
         ->name('admin.password.reset.update');
 
 
-    Route::middleware(['auth:admin','demo'])->group(function () {
+    Route::middleware(['auth:admin'])->group(function () {
 
         Route::get('profile', [AdminProfileSettingController::class, 'profile'])->name('profile');
         Route::put('profile', [AdminProfileSettingController::class, 'profileUpdate'])->name('profile.update');
@@ -334,11 +334,11 @@ Route::group(['prefix' => basicControl()->admin_prefix, 'as' => 'admin.'], funct
         Route::get('user/withdraw/{id}', [UsersController::class, 'payout'])->name('user.payout');
         Route::get('user/withdraw/search/{id}', [UsersController::class, 'userPayoutSearch'])->name('user.payout.search');
 
-        Route::get('user/plan-invest-history/{id}',[UsersController::class,'planInvestHistory'])->name('user.plan.invest.history');
-        Route::get('user/plan-invest-history/search/{id}',[UsersController::class,'planInvestHistorySearch'])->name('user.plan.invest.history.search');
+        Route::get('user/plan-invest-history/{id}', [UsersController::class, 'planInvestHistory'])->name('user.plan.invest.history');
+        Route::get('user/plan-invest-history/search/{id}', [UsersController::class, 'planInvestHistorySearch'])->name('user.plan.invest.history.search');
 
-        Route::get('user/project-invest-history/{id}',[UsersController::class,'projectInvestHistory'])->name('user.project.invest.history');
-        Route::get('user/project-invest-history/search/{id}',[UsersController::class,'projectInvestHistorySearch'])->name('user.project.invest.history.search');
+        Route::get('user/project-invest-history/{id}', [UsersController::class, 'projectInvestHistory'])->name('user.project.invest.history');
+        Route::get('user/project-invest-history/search/{id}', [UsersController::class, 'projectInvestHistorySearch'])->name('user.project.invest.history.search');
 
         Route::get('/email-send', [UsersController::class, 'emailToUsers'])->name('email-send');
         Route::post('/email-send', [UsersController::class, 'sendEmailToUsers'])->name('email-send.store');
@@ -428,8 +428,9 @@ Route::group(['prefix' => basicControl()->admin_prefix, 'as' => 'admin.'], funct
         Route::match(['get', 'post'], 'facebook-config', [AdminSocialiteController::class, 'facebookConfig'])->name('facebook.control');
         Route::match(['get', 'post'], 'github-config', [AdminSocialiteController::class, 'githubConfig'])->name('github.control');
 
+        /* ===== ADMIN ECCOMMERCE MODULE ROUTES ===== */
+        Route::prefix('ecommerce')->as('ecommerce.')->group(function () {
+            require_once base_path('routes/admin-ecommerce-routes.php');
+        });
     });
-
 });
-
-

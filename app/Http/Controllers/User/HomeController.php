@@ -33,7 +33,7 @@ use Facades\App\Services\BasicService;
 
 class HomeController extends Controller
 {
-    use Upload,Notify;
+    use Upload, Notify;
 
     public function __construct()
     {
@@ -62,25 +62,25 @@ class HomeController extends Controller
     {
         $data['user'] = Auth::user();
         $data['firebaseNotify'] = config('firebase');
-        $data['total_deposit'] =  Deposit::where('user_id', Auth::id())->where('depositable_type',Deposit::class) ->where('status', 1)->sum('payable_amount_in_base_currency');
+        $data['total_deposit'] =  Deposit::where('user_id', Auth::id())->where('depositable_type', Deposit::class)->where('status', 1)->sum('payable_amount_in_base_currency');
         $data['total_withdraw'] = Payout::where('user_id', Auth::id())->where('status', 2)->sum('amount_in_base_currency');
         $data['last_withdraw'] = Payout::where('user_id', Auth::id())->where('status', 2)->select('amount_in_base_currency')->orderBy('created_at', 'desc')->first();
-        $data['recent_plan'] = InvestHistory::with('plan')->where('user_id', Auth::id())->latest()->take(4)
+        $data['recent_plan'] = InvestHistory::with('plan')->where('user_id', Auth::id())->latest()->take(2)
             ->orderByDesc('created_at')->get();
         $tickets = SupportTicket::with('user') // Eager load related models
-        ->where('user_id', Auth::id())
+            ->where('user_id', Auth::id())
             ->get();
-        $data ['pending_ticket'] = count($tickets->where('status', 0));
-        $data ['answered_ticket'] = count($tickets->where('status', 1));
-        $data ['closed_ticket'] = count($tickets->where('status', 3));
+        $data['pending_ticket'] = count($tickets->where('status', 0));
+        $data['answered_ticket'] = count($tickets->where('status', 1));
+        $data['closed_ticket'] = count($tickets->where('status', 3));
         $data['recent_project'] =  ProjectInvestment::with('project.details')->where('user_id', Auth::id())
-            ->where('payment_status',1)
-            ->orderBy('created_at','DESC')->latest()->take(4)->get();
+            ->where('payment_status', 1)
+            ->orderBy('created_at', 'DESC')->latest()->take(2)->get();
 
         $sevenDaysAgo = Carbon::now()->subDays(7);
 
         $data['recentTickets'] = SupportTicket::with('user') // Eager load related models
-        ->where('user_id', Auth::id())->where('created_at', '>=', $sevenDaysAgo)->count('id');
+            ->where('user_id', Auth::id())->where('created_at', '>=', $sevenDaysAgo)->count('id');
         $data['recent_withdraw'] = Payout::where('user_id', Auth::id())->where('status', 2)
             ->where('created_at', '>=', $sevenDaysAgo)->sum('amount_in_base_currency');
         $data['recent_plan_invest'] = InvestHistory::with('plan')->where('user_id', Auth::id())
@@ -94,6 +94,7 @@ class HomeController extends Controller
             ->select(DB::raw('SUM(per_unit_price * unit) as total_investment'))
             ->first()->total_investment;
 
+        $data['reward_system'] = Referral::where('commission_type', 'reward_system')->get();
 
         return view(template() . 'user.dashboard', $data);
     }
@@ -125,8 +126,8 @@ class HomeController extends Controller
             $user->image_driver = $ImageDriver ?? $user->image_driver;
             $user->save();
             return response()->json('Updated Successfully.');
-        }catch (\Exception $exception){
-            return response()->json(['err' => $exception->getMessage()],200);
+        } catch (\Exception $exception) {
+            return response()->json(['err' => $exception->getMessage()], 200);
         }
     }
 
@@ -143,7 +144,7 @@ class HomeController extends Controller
             'first_name' => 'required|string|min:1',
             'last_name' => 'required|string|min:1',
             'email' => 'email:rfc,dns|unique:users,email,' . $user->id,
-            'phone' => ['required', 'string', new PhoneLength($phoneCode),Rule::unique('users', 'phone')->ignore($user->id)],
+            'phone' => ['required', 'string', new PhoneLength($phoneCode), Rule::unique('users', 'phone')->ignore($user->id)],
             'phone_code' => 'required | max:15',
             'country_code' => 'required | string | max:80',
             'country' => 'required | string | max:80',
@@ -242,7 +243,7 @@ class HomeController extends Controller
                 if ($k == $inKey) {
                     if ($inVal->type == 'file' && $request->hasFile($inKey)) {
                         try {
-                            $file = $this->fileUpload($request[$inKey], config('filelocation.kyc.path'),null,null,'webp',60);
+                            $file = $this->fileUpload($request[$inKey], config('filelocation.kyc.path'), null, null, 'webp', 60);
                             $reqField[$inKey] = [
                                 'field_name' => $inVal->field_name,
                                 'field_label' => $inVal->field_label,
@@ -295,7 +296,7 @@ class HomeController extends Controller
         $userId = Auth::id();
         $funds = Deposit::with(['depositable', 'gateway'])
             ->whereHas('gateway')
-            ->where('depositable_type',Deposit::class)
+            ->where('depositable_type', Deposit::class)
             ->where('user_id', $userId)
             ->when(!empty($request->date_range) && $endDate == null, function ($query) use ($startDate) {
                 $startDate = Carbon::parse(trim($startDate))->startOfDay();
@@ -313,7 +314,6 @@ class HomeController extends Controller
             ->orderBy('id', 'desc')
             ->latest()->paginate($basic->paginate);
         return view($this->theme . 'user.fund.index', compact('funds'));
-
     }
 
 
@@ -346,25 +346,25 @@ class HomeController extends Controller
             $amount = $request->amount;
 
             // validate invest amount , user balance & unit
-            if ($plan->amount_has_fixed && $plan->plan_price != $amount){
+            if ($plan->amount_has_fixed && $plan->plan_price != $amount) {
                 throw new \Exception("Please invest " . currencyPosition($plan->plan_price));
             }
-            if (!$plan->amount_has_fixed && $plan->min_invest > $amount){
+            if (!$plan->amount_has_fixed && $plan->min_invest > $amount) {
                 throw new \Exception("Minimum Invest Limit " . currencyPosition($plan->min_invest));
             }
-            if (!$plan->amount_has_fixed && $plan->max_invest < $amount){
+            if (!$plan->amount_has_fixed && $plan->max_invest < $amount) {
                 throw new \Exception("Maximum Invest Limit " . currencyPosition($plan->max_invest));
             }
 
             //if payment type or balance type is checkout then redirect to payment page
-            if ($balance_type == 'checkout'){
+            if ($balance_type == 'checkout') {
                 session()->put('amount', encrypt($amount));
                 session()->put('plan_id', encrypt($plan->id));
                 return  redirect()->route('user.payment');
             }
 
             // check balance type is profit balance or wallet balance
-            if ($balance_type == 'profit'){
+            if ($balance_type == 'profit') {
 
                 //throw error if user profit balance is low
                 if ($amount > $user->profit_balance) {
@@ -373,13 +373,13 @@ class HomeController extends Controller
 
                 $profit = $plan->Profit($amount);
                 //make invest
-                $invest =  BasicService::makeInvest($user,$plan,$profit,null,$amount);
+                $invest =  BasicService::makeInvest($user, $plan, $profit, null, $amount);
 
-                if ($invest){
+                if ($invest) {
                     //make transaction
-                   $transactional_type = 'App\Models\InvestmentPlan';
-                   $transaction = BasicService::makeTransaction($user,$amount,0,'-',$invest->trx,'Investment from profit balance',$transactional_type,'profit');
-                   $plan->transactional()->save($transaction);
+                    $transactional_type = 'App\Models\InvestmentPlan';
+                    $transaction = BasicService::makeTransaction($user, $amount, 0, '-', $invest->trx, 'Investment from profit balance', $transactional_type, 'profit');
+                    $plan->transactional()->save($transaction);
 
                     //update user balance
                     $user->profit_balance = getAmount($user->profit_balance - $amount);
@@ -388,12 +388,12 @@ class HomeController extends Controller
                     $user->save();
 
                     //distribute referral bonus for investment
-                    if (basicControl()->investment_commission && $user->referral_id){
-                        DistributeBonus::dispatch($user, $amount, 'invest',$plan);
+                    if (basicControl()->investment_commission && $user->referral_id) {
+                        DistributeBonus::dispatch($user, $amount, 'invest', $plan);
                     }
 
                     return redirect()->route('success')->with('success', 'Plan has been Purchased Successfully');
-                }else{
+                } else {
                     return  redirect()->route('failed')->with('error', 'Something Went Wrong');
                 }
             }
@@ -408,43 +408,43 @@ class HomeController extends Controller
             $profit = $plan->Profit($amount);
 
             // make invest
-            $invest =  BasicService::makeInvest($user,$plan,$profit,null,$amount);
+            $invest =  BasicService::makeInvest($user, $plan, $profit, null, $amount);
 
-           if ($invest){
+            if ($invest) {
 
                 //make transaction
-               $transactional_type = 'App\Models\InvestmentPlan';
-               $transaction = BasicService::makeTransaction($user,$amount,0,'-',$invest->trx,'Investment from wallet',$transactional_type,'wallet');
-               $plan->transactional()->save($transaction);
+                $transactional_type = 'App\Models\InvestmentPlan';
+                $transaction = BasicService::makeTransaction($user, $amount, 0, '-', $invest->trx, 'Investment from wallet', $transactional_type, 'wallet');
+                $plan->transactional()->save($transaction);
 
-               //update user balance
-               $user->balance = getAmount($user->balance - $amount);
-               $user->total_invest += $amount;
-               $user->plan_invest += $amount;
-               $user->save();
+                //update user balance
+                $user->balance = getAmount($user->balance - $amount);
+                $user->total_invest += $amount;
+                $user->plan_invest += $amount;
+                $user->save();
 
-               //distribute referral bonus for investment
-               if (basicControl()->investment_commission && $user->referral_id){
-                   DistributeBonus::dispatch($user, $amount, 'invest',$plan);
-               }
-               return redirect()->route('success')->with('success', 'Plan has been Purchased Successfully');
-           }else{
-               return  redirect()->route('failed')->with('error', 'Something Went Wrong');
-           }
-        }catch (\Exception $exception) {
-           return back()->with('error', $exception->getMessage());
+                //distribute referral bonus for investment
+                if (basicControl()->investment_commission && $user->referral_id) {
+                    DistributeBonus::dispatch($user, $amount, 'invest', $plan);
+                }
+                return redirect()->route('success')->with('success', 'Plan has been Purchased Successfully');
+            } else {
+                return  redirect()->route('failed')->with('error', 'Something Went Wrong');
+            }
+        } catch (\Exception $exception) {
+            return back()->with('error', $exception->getMessage());
         }
     }
 
 
     public function investHistory()
     {
-        $planInvest = InvestHistory::where('user_id',Auth::id())
+        $planInvest = InvestHistory::where('user_id', Auth::id())
             ->selectRaw('MONTH(created_at) as month, YEAR(created_at) as year, SUM(invest_amount) as total')
             ->groupBy('year', 'month')
             ->get();
-        $projectInvest = ProjectInvestment::where('user_id',Auth::id())
-            ->where('payment_status',1)
+        $projectInvest = ProjectInvestment::where('user_id', Auth::id())
+            ->where('payment_status', 1)
             ->selectRaw('MONTH(created_at) as month, YEAR(created_at) as year, SUM(per_unit_price * unit) as total')
             ->groupBy('year', 'month')
             ->get();
@@ -485,10 +485,10 @@ class HomeController extends Controller
             ->groupBy('month', 'year')
             ->get();
         $payouts = Payout::where('user_id', Auth::id())
-                        ->where('status', 2)
-                        ->selectRaw('MONTH(created_at) as month, YEAR(created_at) as year, SUM(amount_in_base_currency) as total')
-                        ->groupBy('month', 'year')
-                        ->get();
+            ->where('status', 2)
+            ->selectRaw('MONTH(created_at) as month, YEAR(created_at) as year, SUM(amount_in_base_currency) as total')
+            ->groupBy('month', 'year')
+            ->get();
         return response()->json([
             'deposits' => $this->formatChartData($deposits),
             'payouts' => $this->formatChartData($payouts),
@@ -525,8 +525,8 @@ class HomeController extends Controller
 
     public function getUserKyc()
     {
-        $userKycs = UserKyc::where('user_id',Auth::user()->id)->get();
-        return view(template().'user.kyc.show',compact('userKycs'));
+        $userKycs = UserKyc::where('user_id', Auth::user()->id)->get();
+        return view(template() . 'user.kyc.show', compact('userKycs'));
     }
 
     public function transactions(Request $request)
@@ -536,25 +536,25 @@ class HomeController extends Controller
         $dateArray = array_map('trim', explode(' ', $dateRange));
         $fromDate = false;
         $toDate = false;
-        if ($request->date_range){
+        if ($request->date_range) {
             $fromDate = $dateArray[0];
             $toDate = $dateArray[1];
         }
 
         $transactions = Transaction::where('user_id', Auth::id())
-            ->when($request->trx_id , function ($query) use ($request){
-                $query->where('trx_id',$request->trx_id);
+            ->when($request->trx_id, function ($query) use ($request) {
+                $query->where('trx_id', $request->trx_id);
             })
-            ->when($request->remark , function ($query) use ($request){
-                $query->where('remarks','LIKE','%'.$request->remark.'%');
+            ->when($request->remark, function ($query) use ($request) {
+                $query->where('remarks', 'LIKE', '%' . $request->remark . '%');
             })
-            ->when($fromDate && $toDate , function ($query) use ($fromDate ,$toDate){
+            ->when($fromDate && $toDate, function ($query) use ($fromDate, $toDate) {
                 $query->whereBetween('created_at', [$fromDate, $toDate]);
             })
             ->orderBy('created_at', 'desc')
             ->paginate(15);
 
-        return view(template().'user.transaction.index',compact('transactions'));
+        return view(template() . 'user.transaction.index', compact('transactions'));
     }
 
 
@@ -576,13 +576,13 @@ class HomeController extends Controller
                 $query->whereBetween('created_at', [$startDate, $endDate]);
             })
             ->when(!empty($name), function ($query) use ($name) {
-                return $query->whereHas('plan',function ($query)use($name){
-                    return $query->where('plan_name','LIKE','%'.$name.'%');
+                return $query->whereHas('plan', function ($query) use ($name) {
+                    return $query->where('plan_name', 'LIKE', '%' . $name . '%');
                 });
             })
-            ->orderBy('created_at','DESC')->paginate(12);
+            ->orderBy('created_at', 'DESC')->paginate(12);
 
-        return view(template().'user.investment.plan_investment',compact('planInvestment'));
+        return view(template() . 'user.investment.plan_investment', compact('planInvestment'));
     }
 
     public function projectInvestment(Request $request)
@@ -592,23 +592,23 @@ class HomeController extends Controller
         $startDate = $filterDate[0];
         $endDate = isset($filterDate[1]) ? trim($filterDate[1]) : null;
         $projectInvestment = ProjectInvestment::with('project.details')->where('user_id', Auth::id())
-                ->where('payment_status',1)
-                    ->when(!empty($request->date_range) && $endDate == null, function ($query) use ($startDate) {
-                        $startDate = Carbon::parse(trim($startDate))->startOfDay();
-                        $query->whereDate('created_at', $startDate);
-                    })
-                    ->when(!empty($request->date_range) && $endDate != null, function ($query) use ($startDate, $endDate) {
-                        $startDate = Carbon::parse(trim($startDate))->startOfDay();
-                        $endDate = Carbon::parse(trim($endDate))->endOfDay();
-                        $query->whereBetween('created_at', [$startDate, $endDate]);
-                    })
-                    ->when(!empty($name), function ($query) use ($name) {
-                        return $query->whereHas('project.details',function ($query)use($name){
-                            return $query->where('title','LIKE','%'.$name.'%');
-                        });
-                    })
-                ->orderBy('created_at','DESC')->paginate(12);
-            return view(template().'user.investment.project_investment',compact('projectInvestment'));
+            ->where('payment_status', 1)
+            ->when(!empty($request->date_range) && $endDate == null, function ($query) use ($startDate) {
+                $startDate = Carbon::parse(trim($startDate))->startOfDay();
+                $query->whereDate('created_at', $startDate);
+            })
+            ->when(!empty($request->date_range) && $endDate != null, function ($query) use ($startDate, $endDate) {
+                $startDate = Carbon::parse(trim($startDate))->startOfDay();
+                $endDate = Carbon::parse(trim($endDate))->endOfDay();
+                $query->whereBetween('created_at', [$startDate, $endDate]);
+            })
+            ->when(!empty($name), function ($query) use ($name) {
+                return $query->whereHas('project.details', function ($query) use ($name) {
+                    return $query->where('title', 'LIKE', '%' . $name . '%');
+                });
+            })
+            ->orderBy('created_at', 'DESC')->paginate(12);
+        return view(template() . 'user.investment.project_investment', compact('projectInvestment'));
     }
 
     public function transactionHistory()
@@ -627,7 +627,7 @@ class HomeController extends Controller
         $userId = Auth::id();
         $data['title'] = "My Referrals";
         $data['directReferralUsers'] = getDirectReferralUsers($userId);
-        return view(template().'user.referral.referral',$data);
+        return view(template() . 'user.referral.referral', $data);
     }
 
     public function referralBonus(Request $request)
@@ -643,7 +643,7 @@ class HomeController extends Controller
 
         $referrals = ReferralBonus::query()->with(['user:id,username,firstname,lastname,image,image_driver'])
             ->where('from_user_id', Auth::id())
-            ->orderBy('created_at','desc')
+            ->orderBy('created_at', 'desc')
             ->when(!empty($request->date_range) && $endDate == null, function ($query) use ($startDate) {
                 $startDate = Carbon::parse(trim($startDate))->startOfDay();
                 $query->whereDate('created_at', $startDate);
@@ -656,13 +656,11 @@ class HomeController extends Controller
             ->when(!empty($remark), function ($query) use ($remark) {
                 return $query->where('remarks', $remark);
             })
-            ->when(!empty($commission_type),function ($query) use ($commission_type){
+            ->when(!empty($commission_type), function ($query) use ($commission_type) {
                 return $query->where('commission_type', $commission_type);
             })
             ->paginate(15);
 
-        return view(template().'user.referral.referral_bonus',compact('referrals'));
+        return view(template() . 'user.referral.referral_bonus', compact('referrals'));
     }
-
-
 }

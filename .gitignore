@@ -4,3 +4,5 @@ vendor
 TODO.md
 Routes.Md
 node_modules
+storage/logs
+storage/debugbar
