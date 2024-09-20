@@ -157,11 +157,15 @@ class PayoutController extends Controller
         $data['currency_limit'] = $limit;
 
         return $data;
-
     }
 
     public function payoutRequest(Request $request)
     {
+        $user = Auth::user();
+
+        if ($user->total_invest == null || $user->total_invest == 0 || $user->total_invest == '') {
+            return back()->with('error', 'You have invest into project or plan, before withdrawl the amount.');
+        }
         $request->validate([
             'balance_type' => ['required', 'in:balance,profit_balance'],
         ]);
@@ -175,14 +179,13 @@ class PayoutController extends Controller
             if (!$checkAmountValidateData['status']) {
                 return back()->withInput()->with('error', $checkAmountValidateData['message']);
             }
-            $user = Auth::user();
 
-            if ($request->balance_type ==  'balance'){
-                if ($user->balance < $checkAmountValidateData['net_amount_in_base_currency']){
+            if ($request->balance_type ==  'balance') {
+                if ($user->balance < $checkAmountValidateData['net_amount_in_base_currency']) {
                     throw new  \Exception('Insufficient Balance');
                 }
-            }else{
-                if ($user->profit_balance < $checkAmountValidateData['net_amount_in_base_currency']){
+            } else {
+                if ($user->profit_balance < $checkAmountValidateData['net_amount_in_base_currency']) {
                     throw new  \Exception('Insufficient Balance');
                 }
             }
@@ -223,7 +226,6 @@ class PayoutController extends Controller
                 return view(template() . 'user.payout.gateway.' . $payoutMethod->code, compact('payout', 'payoutMethod', 'basic'));
             }
             return view(template() . 'user.payout.confirm', compact('payout', 'payoutMethod'));
-
         } elseif ($request->isMethod('post')) {
 
             $params = $payoutMethod->inputForm;
@@ -263,7 +265,7 @@ class PayoutController extends Controller
                     if ($k == $inVal->field_name) {
                         if ($inVal->type == 'file' && $request->hasFile($inKey)) {
                             try {
-                                $file = $this->fileUpload($request[$inKey], config('filelocation.payoutLog.path'),null,null,'webp',60);
+                                $file = $this->fileUpload($request[$inKey], config('filelocation.payoutLog.path'), null, null, 'webp', 60);
                                 $reqField[$inKey] = [
                                     'field_name' => $inVal->field_name,
                                     'field_value' => $file['path'],
@@ -316,12 +318,11 @@ class PayoutController extends Controller
             $payout->status = 1;
 
             $user = Auth::user();
-            $updateBalance = updateBalance($payout->user_id, $payout->net_amount_in_base_currency, 0,$payout->balance_type); //update user balance
+            $updateBalance = updateBalance($payout->user_id, $payout->net_amount_in_base_currency, 0, $payout->balance_type); //update user balance
             $this->userNotify($user, $payout); // send user notification
 
             $payout->save();
             return redirect(route('user.payout.index'))->with('success', 'Payout generated successfully');
-
         }
     }
 
@@ -439,8 +440,10 @@ class PayoutController extends Controller
             }
         }
 
-        if ($request->transfer_name == 'NGN BANK' || $request->transfer_name == 'NGN DOM' || $request->transfer_name == 'GHS BANK'
-            || $request->transfer_name == 'KES BANK' || $request->transfer_name == 'ZAR BANK' || $request->transfer_name == 'ZAR BANK') {
+        if (
+            $request->transfer_name == 'NGN BANK' || $request->transfer_name == 'NGN DOM' || $request->transfer_name == 'GHS BANK'
+            || $request->transfer_name == 'KES BANK' || $request->transfer_name == 'ZAR BANK' || $request->transfer_name == 'ZAR BANK'
+        ) {
             $rules['bank'] = 'required';
         }
 
@@ -490,8 +493,10 @@ class PayoutController extends Controller
             }
 
 
-            if ($request->transfer_name == 'NGN BANK' || $request->transfer_name == 'NGN DOM' || $request->transfer_name == 'GHS BANK'
-                || $request->transfer_name == 'KES BANK' || $request->transfer_name == 'ZAR BANK' || $request->transfer_name == 'ZAR BANK') {
+            if (
+                $request->transfer_name == 'NGN BANK' || $request->transfer_name == 'NGN DOM' || $request->transfer_name == 'GHS BANK'
+                || $request->transfer_name == 'KES BANK' || $request->transfer_name == 'ZAR BANK' || $request->transfer_name == 'ZAR BANK'
+            ) {
 
                 $reqField['account_bank'] = [
                     'field_name' => 'Account Bank',
@@ -504,8 +509,10 @@ class PayoutController extends Controller
                     'field_value' => 'MTN',
                     'type' => 'text',
                 ];
-            } elseif ($request->transfer_name == 'FRANCOPGONE' || $request->transfer_name == 'mPesa' || $request->transfer_name == 'Rwanda Momo'
-                || $request->transfer_name == 'Uganda Momo' || $request->transfer_name == 'Zambia Momo') {
+            } elseif (
+                $request->transfer_name == 'FRANCOPGONE' || $request->transfer_name == 'mPesa' || $request->transfer_name == 'Rwanda Momo'
+                || $request->transfer_name == 'Uganda Momo' || $request->transfer_name == 'Zambia Momo'
+            ) {
                 $reqField['account_bank'] = [
                     'field_name' => 'MPS',
                     'field_value' => 'MPS',
@@ -540,8 +547,6 @@ class PayoutController extends Controller
 
             $payout->information = $reqField;
             $payout->meta_field = $metaField;
-
-
         } else {
             $payout->information = null;
             $payout->meta_field = null;
@@ -551,7 +556,6 @@ class PayoutController extends Controller
         $payout->payout_currency_code = $request->currency_code;
         $payout->save();
         return redirect()->route('user.payout.index')->with('success', 'Payout generated successfully');
-
     }
 
     public function getBankList(Request $request)
@@ -614,7 +618,7 @@ class PayoutController extends Controller
         $this->adminFirebasePushNotification('PAYOUT_REQUEST_TO_ADMIN', $params, $firebaseAction);
 
         $params = [
-            'amount' => getAmount($payout->amount) ,
+            'amount' => getAmount($payout->amount),
             'currency' => $payout->payout_currency_code,
             'transaction' => $payout->trx_id,
         ];
@@ -627,5 +631,4 @@ class PayoutController extends Controller
         $this->userPushNotification($user, 'PAYOUT_REQUEST_FROM', $params, $action);
         $this->userFirebasePushNotification($user, 'PAYOUT_REQUEST_FROM', $params, $firebaseAction);
     }
-
 }
