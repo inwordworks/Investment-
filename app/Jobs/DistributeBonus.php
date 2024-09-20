@@ -49,9 +49,9 @@ class DistributeBonus implements ShouldQueue
 
             while ($userId != "" || $userId != "0" || $i < $level) {
                 $me = User::with('referral')->find($userId);
-                if ($user->total_invest == null || $user->total_invest == 0 || $user->total_invest == '') {
-                    break;
-                }
+                // if ($user->total_invest == null || $user->total_invest == 0 || $user->total_invest == '') {
+                //     break;
+                // }
                 $refer = $me->referral;
                 if (!$refer) {
                     break;
