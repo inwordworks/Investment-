@@ -25,7 +25,7 @@ class DistributeBonus implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct($user, $amount, $commissionType = '',$object = null)
+    public function __construct($user, $amount, $commissionType = '', $object = null)
     {
         $this->user = $user;
         $this->amount = $amount;
@@ -49,6 +49,9 @@ class DistributeBonus implements ShouldQueue
 
             while ($userId != "" || $userId != "0" || $i < $level) {
                 $me = User::with('referral')->find($userId);
+                if ($user->total_invest == null || $user->total_invest == 0 || $user->total_invest == '') {
+                    break;
+                }
                 $refer = $me->referral;
                 if (!$refer) {
                     break;
@@ -69,11 +72,11 @@ class DistributeBonus implements ShouldQueue
                 $refer->total_commission += $com;
                 $refer->save();
 
-                $remarks = 'level'.' ' . $i . ' '.'Referral bonus From' . ' '.$user->username;
+                $remarks = 'level' . ' ' . $i . ' ' . 'Referral bonus From' . ' ' . $user->username;
 
 
                 $object_type = get_class($object);
-                $transaction = BasicService::makeTransaction($refer, $com, 0, '+', null, $remarks,$object_type,'Profit');
+                $transaction = BasicService::makeTransaction($refer, $com, 0, '+', null, $remarks, $object_type, 'Profit');
                 $object->transactional()->save($transaction);
 
                 $trx = $transaction->trx_id;
@@ -108,9 +111,7 @@ class DistributeBonus implements ShouldQueue
                 $userId = $refer->id;
                 $i++;
             }
-
         } catch (\Exception $exception) {
-
         }
     }
 }
