@@ -223,7 +223,7 @@ class User extends Authenticatable implements CanResetPassword, UserContract
     public function getRewardAchievementLevel($id = null)
     {
         $userId = $id ? $id : $this->id;
-        $referralData = $this->referralUsers([$userId]);
+        $referralData = $this->referralUsersWithInvestment([$userId]);
         $levelConfig = Referral::where('commission_type', 'reward_system')->orderBy('level', 'asc')->get();
         // Initialize an array to store the achieved levels
         $thisLevel = 0;
@@ -240,6 +240,16 @@ class User extends Authenticatable implements CanResetPassword, UserContract
         }
         // Output the achieved levels
         return intval($thisLevel);
+    }
+    public function referralUsersWithInvestment($id, $currentLevel = 1)
+    {
+        $users = $this->getUsersWithInvestment($id);
+        if ($users['status']) {
+            $this->allusers[$currentLevel] = $users['user'];
+            $currentLevel++;
+            $this->referralUsers($users['ids'], $currentLevel);
+        }
+        return $this->allusers;
     }
     public function referralUsers($id, $currentLevel = 1)
     {
@@ -258,6 +268,22 @@ class User extends Authenticatable implements CanResetPassword, UserContract
                 $query->select('id')->from('users')->where('referral_id', $id);
             })
             ->get();
+    }
+    public function getUsersWithInvestment($id)
+    {
+        if (isset($id)) {
+            $data['user'] = User::whereIn('referral_id', $id)
+                ->where('total_invest', '!=', null)
+                ->get(['id', 'firstname', 'lastname', 'username', 'email', 'phone_code', 'phone', 'referral_id', 'created_at']);
+            if (count($data['user']) > 0) {
+                $data['status'] = true;
+                $data['ids'] = $data['user']->pluck('id');
+
+                return $data;
+            }
+        }
+        $data['status'] = false;
+        return $data;
     }
     public function getUsers($id)
     {
