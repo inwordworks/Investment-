@@ -8,6 +8,8 @@ use App\Models\InvestmentPlan;
 use App\Models\Language;
 use App\Models\ManageMenu;
 use App\Models\Project;
+use App\Models\ReferralBonus;
+use App\Observers\ReferralBonusObserver;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
@@ -36,6 +38,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        ReferralBonus::observe(ReferralBonusObserver::class);
         try {
             // Check database connection
             DB::connection()->getPdo();
@@ -238,9 +242,11 @@ class AppServiceProvider extends ServiceProvider
     // Helper method to get active projects
     protected function getActiveProjects(int $limit)
     {
-        return Project::with(['details' => function ($query) {
-            $query->select('title', 'project_id', 'language_id', 'id', 'slug');
-        }])
+        return Project::with([
+            'details' => function ($query) {
+                $query->select('title', 'project_id', 'language_id', 'id', 'slug');
+            }
+        ])
             ->where(function ($query) {
                 $query->where('expiry_date', '>', Carbon::now())
                     ->orWhere('project_duration_has_unlimited', 1);

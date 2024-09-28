@@ -77,9 +77,9 @@ class ProjectInvestmentStatus extends Command
                         $this->sendMailSms($user,'PROJECT_RETURN',$params);
 
 
-                        if (basicControl()->profit_commission && $user->referral_id){
-                            DistributeBonus::dispatch($user, $invest->return, 'profit_commission', $invest);
-                        }
+                        // if (basicControl()->profit_commission && $user->referral_id){
+                        //     DistributeBonus::dispatch($user, $invest->return, 'profit_commission', $invest);
+                        // }
 
                         if ($invest->total_return >= $invest->number_of_return && !$invest->is_life_time){
                             $invest->status = 0;

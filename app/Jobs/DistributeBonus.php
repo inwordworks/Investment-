@@ -12,6 +12,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Log;
 
 class DistributeBonus implements ShouldQueue
 {
@@ -112,6 +113,7 @@ class DistributeBonus implements ShouldQueue
                 $i++;
             }
         } catch (\Exception $exception) {
+            Log::error('DisctributeErrorLog: ', $exception);
         }
     }
 }

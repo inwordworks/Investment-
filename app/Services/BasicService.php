@@ -122,6 +122,9 @@ class BasicService
                 if (basicControl()->investment_commission && $user->referral_id) {
                     DistributeBonus::dispatch($user, $amount, 'invest', $plan);
                 }
+                // if (basicControl()->profit_commission && $user->referral_id) {
+                //     DistributeBonus::dispatch($user, $invest->profit, 'profit_commission', $invest);
+                // }
                 return true;
             } elseif ($deposit->depositable_type == Project::class) {
 
@@ -163,6 +166,9 @@ class BasicService
                     if (basicControl()->investment_commission && $user->referral_id) {
                         DistributeBonus::dispatch($user, $amount, 'invest', $project);
                     }
+                    // if (basicControl()->profit_commission && $user->referral_id) {
+                    //     DistributeBonus::dispatch($user, $invest->profit, 'profit_commission', $invest);
+                    // }
 
                     $totalUnit =  $invest->unit;
                     $perUnitPrice = $invest->per_unit_price;

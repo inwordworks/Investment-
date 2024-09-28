@@ -15,9 +15,9 @@ class Kernel extends ConsoleKernel
 
     protected $commands = [
         PayoutCurrencyUpdateCron::class,
-        PayoutCryptoCurrencyUpdateCron::class,
-        PlanInvestmentStatus::class,
-        ProjectInvestmentStatus::class,
+        // PayoutCryptoCurrencyUpdateCron::class,
+        // PlanInvestmentStatus::class,
+        // ProjectInvestmentStatus::class,
     ];
 
     /**
@@ -25,8 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('plan-investment-status')->everyFiveMinutes();
-        $schedule->command('project-investment-status')->everyFiveMinutes();
+        // $schedule->command('plan-investment-status')->everyFiveMinutes();
+        // $schedule->command('project-investment-status')->everyFiveMinutes();
         $schedule->command('model:prune')->days(1);
     }
 

@@ -388,9 +388,9 @@ class HomeController extends Controller
                     $user->save();
 
                     //distribute referral bonus for investment
-                    if (basicControl()->investment_commission && $user->referral_id) {
-                        DistributeBonus::dispatch($user, $amount, 'invest', $plan);
-                    }
+                    // if (basicControl()->investment_commission && $user->referral_id) {
+                    //     DistributeBonus::dispatch($user, $amount, 'invest', $plan);
+                    // }
 
                     return redirect()->route('success')->with('success', 'Plan has been Purchased Successfully');
                 } else {
@@ -424,9 +424,9 @@ class HomeController extends Controller
                 $user->save();
 
                 //distribute referral bonus for investment
-                if (basicControl()->investment_commission && $user->referral_id) {
-                    DistributeBonus::dispatch($user, $amount, 'invest', $plan);
-                }
+                // if (basicControl()->investment_commission && $user->referral_id) {
+                //     DistributeBonus::dispatch($user, $amount, 'invest', $plan);
+                // }
                 return redirect()->route('success')->with('success', 'Plan has been Purchased Successfully');
             } else {
                 return  redirect()->route('failed')->with('error', 'Something Went Wrong');

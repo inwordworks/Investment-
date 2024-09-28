@@ -114,7 +114,8 @@ class CommissionController extends Controller
             for ($i = 0; $i < count($request->level); $i++) {
                 if ($request->commission[$i] && $request->amount_type[$i]) {
 
-                    if ($request->image[$i]) {
+                    
+                    if ($request->hasFile('image') && $request->image[$i]) {
                         $upload = $this->fileUpload($request->image[$i], config('filelocation.rewards.path'), null, null, 'webp', 60);
                         $reward_image = $upload['path'];
                         $reward_image_driver = $upload['driver'];

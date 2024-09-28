@@ -103,7 +103,7 @@
                                                             </td>
                                                             <td data-label="@lang('Email')" class="">{{$user->email}}</td>
                                                             <td data-label="@lang('Phone Number')">
-                                                                {{$user->phone}}
+                                                                **********
                                                             </td>
                                                             <td data-label="@lang('Joined At')">
                                                                 {{dateTime($user->created_at)}}
@@ -190,7 +190,7 @@
                                 ${directReferralUser.email ? directReferralUser.email : '-'}
                             </td>
                             <td data-label="@lang('Phone Number')">
-                                 ${directReferralUser.phone??'-'}
+                            **********
                             </td>
 
                             <td data-label="Joined At">
@@ -199,6 +199,7 @@
                             </tr>`;
                         });
 
+                                 {{--${directReferralUser.phone??'-'} --}}
                         // Mark this row as having its downline loaded
                         parentRow.data('loaded', true);
 

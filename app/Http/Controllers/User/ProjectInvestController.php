@@ -104,6 +104,9 @@ class ProjectInvestController extends Controller
                 if (basicControl()->investment_commission && $user->referral_id) {
                     DistributeBonus::dispatch($user, $amount, 'invest', $project);
                 }
+                // if (basicControl()->profit_commission && $user->referral_id) {
+                //     DistributeBonus::dispatch($user, $invest->profit, 'profit_commission', $invest);
+                // }
 
                 //send notification
                 BasicService::ProjectInvestNotify($user, $project, $request->unit, $request->amount);
@@ -137,6 +140,9 @@ class ProjectInvestController extends Controller
                 if (basicControl()->investment_commission && $user->referral_id) {
                     DistributeBonus::dispatch($user, $amount, 'invest', $project);
                 }
+                // if (basicControl()->profit_commission && $user->referral_id) {
+                //     DistributeBonus::dispatch($user, $invest->profit, 'profit_commission', $invest);
+                // }
 
                 //send notification
                 BasicService::ProjectInvestNotify($user, $project, $request->unit, $request->amount);

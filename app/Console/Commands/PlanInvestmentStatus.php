@@ -87,9 +87,9 @@ class PlanInvestmentStatus extends Command
 
 
                         // Send Profit/interest on level
-                        if (basicControl()->profit_commission && $user->referral_id) {
-                            DistributeBonus::dispatch($user, $invest->profit, 'profit_commission', $invest);
-                        }
+                        // if (basicControl()->profit_commission && $user->referral_id) {
+                        //     DistributeBonus::dispatch($user, $invest->profit, 'profit_commission', $invest);
+                        // }
 
                         if ($invest->total_return >= $invest->number_of_return && !$invest->is_life_time) {
                             $invest->status = 0; // Interest Complete
