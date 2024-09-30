@@ -17,24 +17,6 @@
             </div>
         </div>
 
-        <div class="alert alert-soft-dark mb-5" role="alert">
-            <div class="d-flex align-items-center">
-                <div class="flex-shrink-0">
-                    <img class="avatar avatar-xl alert_image"
-                         src="{{ asset('assets/admin/img/oc-megaphone.svg') }}"
-                         alt="Image Description" data-hs-theme-appearance="default">
-                    <img class="avatar avatar-xl alert_image"
-                         src="{{ asset('assets/admin/img/oc-megaphone-light.svg') }}"
-                         alt="Image Description" data-hs-theme-appearance="dark">
-                </div>
-
-                <div class="flex-grow-1 ms-3">
-                    <div class="d-flex align-items-center">
-                        <p class="mb-0">@lang("You are edit project for `$language->name` version ")</p>
-                    </div>
-                </div>
-            </div>
-        </div>
         <form action="{{route('admin.project.update',[$project->id,$language->id])}}" method="post" enctype="multipart/form-data">
             @csrf
             @method('put')
@@ -449,20 +431,6 @@
                         let codeviewHtml = $(this).siblings('div.note-editor').find('.note-codable').val();
                         $(this).val(codeviewHtml);
                     }
-                }
-            });
-
-            if ($('#number_of_return_has_unlimited').is(':checked')){
-                $('#number_of_return').prop('disabled', true);
-            }else {
-                $('#number_of_return').prop('disabled', false);
-            }
-
-            $(document).on('change','#number_of_return_has_unlimited',function (){
-                if ($(this).is(':checked')) {
-                    $('#number_of_return').prop('disabled', true);
-                } else {
-                    $('#number_of_return').prop('disabled', false);
                 }
             });
 

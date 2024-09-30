@@ -55,30 +55,9 @@ class ProjectController extends Controller
             ->addColumn('project_cycle', function ($project) {
                 return $project->getAdminProjectDuration();
             })
-            // ->addColumn('return', function ($project) {
-            //     return $project->getReturn();
-            // })
-            // ->addColumn('return_period', function ($project) {
-            //     return 'Every ' . $project->returnPeriod();
-            // })
             ->addColumn('status', function ($item) {
                 return $item->getStatus();
             })
-            // ->addColumn('capital_back', function ($item) {
-            //     return $item->getCapitalBack();
-            // })
-            // ->addColumn('language', function ($item) use ($languages) {
-            //     $lang = '';
-            //     foreach ($languages as $language) {
-            //         $lang .= ' <a href="' . route('admin.project.edit', [$item->id, $language->id]) . '"
-            //                               class="btn btn-white btn-icon btn-sm flag-btn"
-            //                               >
-            //                                <i class="bi ' . $item->getLanguageEditClass($item->id, $language->id) . '"></i>
-            //                            </a>';
-            //     }
-
-            //     return $lang;
-            // })
             ->addColumn('action', function ($item) {
                 return '<div class="btn-group" role="group">
                     <a class="btn btn-white btn-sm" href="' . route('admin.project.edit', [$item->id, optional($item->details)->language_id]) . '">
@@ -98,7 +77,7 @@ class ProjectController extends Controller
                     <!-- End Button Group -->
                   </div>';
             })
-            ->rawColumns(['total_units', 'title', 'project_cycle', 'capital_back', 'status', 'language', 'action'])
+            ->rawColumns(['total_units', 'title', 'project_cycle', 'invest_amount', 'status', 'action'])
             ->make(true);
     }
 
@@ -129,65 +108,67 @@ class ProjectController extends Controller
             'location' => 'required|string',
             'project_duration' => 'required_if:project_duration_has_unlimited,0|numeric',
             'project_duration_type' => 'required_if:project_duration_has_unlimited,0|string|in:Month,Year,Day,',
-            // 'return' => 'required|integer',
-            // 'return_type' => 'required|in:Fixed,Percentage',
-            // 'return_period' => 'required|numeric',
-            // 'return_period_type' => 'required|string|in:Month,Year,Day,Hour',
-            // 'number_of_return' => ['required_if:number_of_return_has_unlimited,0', function ($attribute, $value, $fail) use ($request) {
-            //     if ($request->number_of_return_has_unlimited == 0 && !is_numeric($value)) {
-            //         $fail('Minimum invest filed must be a number');
-            //     }
-            // }],
-            'minimum_invest' => ['required_if:has_amount_fixed,0', function ($attribute, $value, $fail) use ($request) {
-                if ($request->has_amount_fixed == 0 && !is_numeric($value)) {
-                    $fail('Minimum invest filed must be a number');
+            'minimum_invest' => [
+                'required_if:has_amount_fixed,0',
+                function ($attribute, $value, $fail) use ($request) {
+                    if ($request->has_amount_fixed == 0 && !is_numeric($value)) {
+                        $fail('Minimum invest filed must be a number');
+                    }
                 }
-            }],
-            'maximum_invest' => ['required_if:has_amount_fixed,0', function ($attribute, $value, $fail) use ($request) {
-                if ($request->has_amount_fixed == 0 && !is_numeric($value)) {
-                    $fail('Maximum invest filed must be a number');
+            ],
+            'maximum_invest' => [
+                'required_if:has_amount_fixed,0',
+                function ($attribute, $value, $fail) use ($request) {
+                    if ($request->has_amount_fixed == 0 && !is_numeric($value)) {
+                        $fail('Maximum invest filed must be a number');
+                    }
                 }
-            }],
-            'invest_amount' => ['required_if:has_amount_fixed,1', function ($attribute, $value, $fail) use ($request) {
-                if ($request->has_amount_fixed == 1 && !is_numeric($value)) {
-                    $fail('Invest amount filed must be a number');
+            ],
+            'invest_amount' => [
+                'required_if:has_amount_fixed,1',
+                function ($attribute, $value, $fail) use ($request) {
+                    if ($request->has_amount_fixed == 1 && !is_numeric($value)) {
+                        $fail('Invest amount filed must be a number');
+                    }
                 }
-            }],
+            ],
             'images' => 'required | array',
             'thumbnail' => 'required|image|mimes:jpeg,png,jpg|max:5000',
             'description' => 'required | string',
             'short_description' => 'required | string',
             'status' => 'required | integer | in:1,0',
-            'capital_back' => ['required', 'integer', 'in:1,0', function ($attribute, $value, $fail) use ($request) {
-                if ($request->number_of_return_has_unlimited == 1 && $value == 1) {
-                    $fail('Capital back cannot on if return type is lifetime');
-                }
-            }],
             'has_amount_fixed' => 'required | integer |in:1,0',
             'project_duration_has_unlimited' => ['required', 'integer', 'in:1,0'],
-            'number_of_return_has_unlimited' => 'required | integer |in:1,0',
-            'start_date' => ['required', 'date', function ($attribute, $value, $fail) {
-                $todayDate = Carbon::today()->format('Y-m-d');
-                $pickupDate = Carbon::parse($value)->format('Y-m-d');
-                // if ($todayDate >$pickupDate){
-                //     $fail('The Selected date is invalid.');
-                // }
-            }],
-            'invest_last_date' => ['required', 'date', function ($attribute, $value, $fail) use ($request) {
-                try {
+            'start_date' => [
+                'required',
+                'date',
+                function ($attribute, $value, $fail) {
                     $todayDate = Carbon::today()->format('Y-m-d');
                     $pickupDate = Carbon::parse($value)->format('Y-m-d');
-                    $start_date = Carbon::parse($request->start_date)->format('Y-m-d');
-                    if ($todayDate >= $pickupDate) {
-                        $fail('The Selected date is invalid.');
-                    }
-                    if ($start_date >= $pickupDate) {
-                        $fail('The Selected date is invalid.');
-                    }
-                } catch (\Exception $e) {
-                    $fail($e->getMessage());
+                    // if ($todayDate >$pickupDate){
+                    //     $fail('The Selected date is invalid.');
+                    // }
                 }
-            }],
+            ],
+            'invest_last_date' => [
+                'required',
+                'date',
+                function ($attribute, $value, $fail) use ($request) {
+                    try {
+                        $todayDate = Carbon::today()->format('Y-m-d');
+                        $pickupDate = Carbon::parse($value)->format('Y-m-d');
+                        $start_date = Carbon::parse($request->start_date)->format('Y-m-d');
+                        if ($todayDate >= $pickupDate) {
+                            $fail('The Selected date is invalid.');
+                        }
+                        if ($start_date >= $pickupDate) {
+                            $fail('The Selected date is invalid.');
+                        }
+                    } catch (\Exception $e) {
+                        $fail($e->getMessage());
+                    }
+                }
+            ],
             'total_units' => 'required | numeric',
             'maturity' => 'required|numeric'
 
@@ -220,15 +201,6 @@ class ProjectController extends Controller
                 $project->project_duration = $data['project_duration'];
                 $project->project_duration_type = $data['project_duration_type'];
             }
-            // $project->return = $data['return'];
-            // $project->return_type = $data['return_type'];
-            // $project->return_period = $data['return_period'];
-            // $project->return_period_type = $data['return_period_type'];
-            // if ($data['number_of_return_has_unlimited'] == 0) {
-
-            //     $project->number_of_return = $data['number_of_return'];
-            // }
-
             if ($data['has_amount_fixed'] == 0 && !$data['invest_amount']) {
                 $project->minimum_invest = $data['minimum_invest'];
                 $project->maximum_invest = $data['maximum_invest'];
@@ -254,16 +226,14 @@ class ProjectController extends Controller
                 $project->expiry_date = $expireDate->format('Y-m-d');
             }
 
-            $project->capital_back = $data['capital_back'];
             $project->amount_has_fixed = $data['has_amount_fixed'];
             $project->project_duration_has_unlimited = $data['project_duration_has_unlimited'];
-            // $project->number_of_return_has_unlimited = $data['number_of_return_has_unlimited'];
             $project->images = $images ?? [];
             $project->images_driver = $imagesDriver ?? null;
             $project->thumbnail_image = $thumbnail ?? null;
             $project->thumbnail_image_driver = $thumbnailDriver ?? null;
             $project->status = $data['status'];
-            $project->maturity =  $data['maturity'];
+            $project->maturity = $data['maturity'];
             $project->save();
             $project->details()->create([
                 'language_id' => $request->language_id,
@@ -288,9 +258,11 @@ class ProjectController extends Controller
      */
     public function edit($id, Language $language)
     {
-        $project = Project::with(['details' => function ($query) use ($language) {
-            $query->where('language_id', $language->id);
-        }])->findOrFail($id);
+        $project = Project::with([
+            'details' => function ($query) use ($language) {
+                $query->where('language_id', $language->id);
+            }
+        ])->findOrFail($id);
         $projectImages = [];
         foreach ($project->images as $image) {
             $projectImages[] = getFile($project->images_driver, $image);
@@ -303,13 +275,15 @@ class ProjectController extends Controller
      */
     public function update(Request $request, $id, $language)
     {
-        $project = Project::with(['details' => function ($query) use ($language) {
-            $query->where('language_id', $language);
-        }])->findOrFail($id);
+        $project = Project::with([
+            'details' => function ($query) use ($language) {
+                $query->where('language_id', $language);
+            }
+        ])->findOrFail($id);
         $id = $project->details->id;
         $data = $request->validate([
             'title' => 'required | string',
-            'slug' =>  [
+            'slug' => [
                 'required',
                 'min:1',
                 'max:200',
@@ -320,57 +294,63 @@ class ProjectController extends Controller
             'location' => 'required | string',
             'project_duration' => 'required_if:project_duration_has_unlimited,0 | numeric',
             'project_duration_type' => 'required_if:project_duration_has_unlimited,0 | string | in:Month,Year,Day,',
-            // 'return' => 'required | numeric',
-            // 'return_type' => 'required | in:Fixed,Percentage',
-            // 'return_period' => 'required | numeric',
-            // 'return_period_type' => 'required | string |  in:Month,Year,Day,Hour',
-            // 'number_of_return' => ['required_if:number_of_return_has_unlimited,0', 'numeric'],
-            'minimum_invest' => ['required_if:has_amount_fixed,0', function ($attribute, $value, $fail) use ($request) {
-                if ($request->has_amount_fixed == 0 && !is_numeric($value)) {
-                    $fail('Minimum invest filed must be a number');
+            'minimum_invest' => [
+                'required_if:has_amount_fixed,0',
+                function ($attribute, $value, $fail) use ($request) {
+                    if ($request->has_amount_fixed == 0 && !is_numeric($value)) {
+                        $fail('Minimum invest filed must be a number');
+                    }
                 }
-            }],
-            'maximum_invest' => ['required_if:has_amount_fixed,0', function ($attribute, $value, $fail) use ($request) {
-                if ($request->has_amount_fixed == 0 && !is_numeric($value)) {
-                    $fail('Maximum invest filed must be a number');
+            ],
+            'maximum_invest' => [
+                'required_if:has_amount_fixed,0',
+                function ($attribute, $value, $fail) use ($request) {
+                    if ($request->has_amount_fixed == 0 && !is_numeric($value)) {
+                        $fail('Maximum invest filed must be a number');
+                    }
                 }
-            }],
-            'invest_amount' => ['required_if:has_amount_fixed,1', function ($attribute, $value, $fail) use ($request) {
-                if ($request->has_amount_fixed == 1 && !is_numeric($value)) {
-                    $fail('Invest amount filed must be a number');
+            ],
+            'invest_amount' => [
+                'required_if:has_amount_fixed,1',
+                function ($attribute, $value, $fail) use ($request) {
+                    if ($request->has_amount_fixed == 1 && !is_numeric($value)) {
+                        $fail('Invest amount filed must be a number');
+                    }
                 }
-            }],
+            ],
             'images' => 'nullable | array',
             'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg|max:5000',
             'description' => 'required | string',
             'short_description' => 'required | string',
             'status' => 'required | integer | in:1,0',
-            'capital_back' => ['required', 'integer', 'in:1,0', function ($attribute, $value, $fail) use ($request) {
-                if ($request->number_of_return_has_unlimited == 1 && $value == 1) {
-                    $fail('Capital back cannot on if return type is lifetime');
-                }
-            }],
             'has_amount_fixed' => 'required | integer |in:1,0',
             'project_duration_has_unlimited' => ['required', 'integer', 'in:1,0'],
-            'number_of_return_has_unlimited' => 'required | integer |in:1,0',
-            'start_date' => ['required', 'date', function ($attribute, $value, $fail) {
-                $todayDate = Carbon::today()->format('Y-m-d');
-                $pickupDate = Carbon::parse($value)->format('Y-m-d');
-                // if ($todayDate > $pickupDate) {
-                //     $fail('The Selected date is invalid.');
-                // }
-            }],
-            'invest_last_date' => ['required', 'date', function ($attribute, $value, $fail) use ($request) {
-                try {
+            'start_date' => [
+                'required',
+                'date',
+                function ($attribute, $value, $fail) {
                     $todayDate = Carbon::today()->format('Y-m-d');
                     $pickupDate = Carbon::parse($value)->format('Y-m-d');
-                    if ($todayDate >= $pickupDate) {
-                        $fail('The Selected date is invalid.');
-                    }
-                } catch (\Exception $e) {
-                    $fail($e->getMessage());
+                    // if ($todayDate > $pickupDate) {
+                    //     $fail('The Selected date is invalid.');
+                    // }
                 }
-            }],
+            ],
+            'invest_last_date' => [
+                'required',
+                'date',
+                function ($attribute, $value, $fail) use ($request) {
+                    try {
+                        $todayDate = Carbon::today()->format('Y-m-d');
+                        $pickupDate = Carbon::parse($value)->format('Y-m-d');
+                        if ($todayDate >= $pickupDate) {
+                            $fail('The Selected date is invalid.');
+                        }
+                    } catch (\Exception $e) {
+                        $fail($e->getMessage());
+                    }
+                }
+            ],
             'total_units' => 'required | numeric',
             'maturity' => 'required|numeric'
 
@@ -383,7 +363,7 @@ class ProjectController extends Controller
             $images = [];
             $imagesDriver = $project->images_driver;
             if ($request->old) {
-                foreach ($request->old as  $oldImage) {
+                foreach ($request->old as $oldImage) {
                     $images[] = $projectImages[$oldImage];
                 }
                 foreach ($projectImages as $image) {
@@ -393,7 +373,7 @@ class ProjectController extends Controller
                 }
             } else {
                 if (!$request->hasFile('images')) {
-                    return  back()->with('error', 'Images is required');
+                    return back()->with('error', 'Images is required');
                 } else {
                     foreach ($projectImages as $image) {
                         $this->fileDelete($project->images_driver, $image);
@@ -421,7 +401,7 @@ class ProjectController extends Controller
                 $project->available_units = $project->available_units;
             } else {
                 if ($project->total_units > $data['total_units']) {
-                    $update_units = $project->total_units -  $data['total_units'];
+                    $update_units = $project->total_units - $data['total_units'];
                     if ($update_units <= $project->available_units) {
                         $project->available_units = $project->available_units - $update_units;
                     } else {
@@ -438,14 +418,6 @@ class ProjectController extends Controller
                 $project->project_duration = $data['project_duration'];
                 $project->project_duration_type = $data['project_duration_type'];
             }
-            // $project->return = $data['return'];
-            // $project->return_type = $data['return_type'];
-            // $project->return_period = $data['return_period'];
-            // $project->return_period_type = $data['return_period_type'];
-            // if ($data['number_of_return_has_unlimited'] == 0) {
-            //     $project->number_of_return = $data['number_of_return'];
-            // }
-
             if ($data['has_amount_fixed'] == 0 && !$data['invest_amount']) {
                 $project->minimum_invest = $data['minimum_invest'];
                 $project->maximum_invest = $data['maximum_invest'];
@@ -454,7 +426,7 @@ class ProjectController extends Controller
                 $project->fixed_invest = $data['invest_amount'];
             }
 
-            $project->start_date =  Carbon::parse($data['start_date'])->format('Y-m-d');
+            $project->start_date = Carbon::parse($data['start_date'])->format('Y-m-d');
             $project->invest_last_date = $data['invest_last_date'];
             if ($data['project_duration_has_unlimited'] == 0) {
                 // Get today's date
@@ -470,16 +442,14 @@ class ProjectController extends Controller
                 $project->expiry_date = $expireDate->format('Y-m-d');
             }
 
-            $project->capital_back = $data['capital_back'];
             $project->amount_has_fixed = $data['has_amount_fixed'];
             $project->project_duration_has_unlimited = $data['project_duration_has_unlimited'];
-            $project->number_of_return_has_unlimited = $data['number_of_return_has_unlimited'];
-            $project->images =   $images ?? $project->images;
+            $project->images = $images ?? $project->images;
             $project->images_driver = $imagesDriver ?? $project->images_driver;
             $project->thumbnail_image = $thumbnail ?? $project->thumbnail_image;
             $project->thumbnail_image_driver = $thumbnailDriver ?? $project->thumbnail_image_driver;
             $project->status = $data['status'];
-            $project->maturity =  $data['maturity'];
+            $project->maturity = $data['maturity'];
             $project->save();
             $project->details()->updateOrCreate(['language_id' => $request->language_id], [
                 'title' => $data['title'],
@@ -546,7 +516,7 @@ class ProjectController extends Controller
             ->addColumn('investor', function ($item) {
                 return $item->investor();
             })
-            ->addColumn('project', function ($item) {
+            ->addColumn('project', function ($item): mixed {
                 return $item->getProject();
             })
             ->addColumn('unit', function ($item) {
@@ -555,22 +525,13 @@ class ProjectController extends Controller
             ->addColumn('invest_per_unit', function ($item) {
                 return currencyPosition($item->per_unit_price);
             })
-            // ->addColumn('return', function ($item) {
-            //     return currencyPosition($item->return);
-            // })
-            // ->addColumn('return_period', function ($item) {
-            //     return 'Every ' . $item->return_period . ' ' . $item->return_period_type;
-            // })
-            // ->addColumn('received_amount', function ($item) {
-            //     return $item->receivedAmount();
-            // })
             ->addColumn('last_payment', function ($item) {
                 return $item->lastPayment();
             })
             ->addColumn('next_payment', function ($item) {
                 return $item->nextPayment();
             })
-            ->rawColumns(['investor', 'project', 'unit', 'invest_per_unit', 'return', 'return_period', 'received_amount', 'last_payment', 'next_payment',])
+            ->rawColumns(['investor', 'project', 'unit', 'invest_per_unit', 'last_payment', 'next_payment',])
             ->make(true);
     }
 }

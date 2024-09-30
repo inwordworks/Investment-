@@ -36,3 +36,6 @@ Here are few points which i understant, correct me if need to:
 // remove scheduers & queues, git will also do that
 // remove all other files related to plan investment, git will do that
 // remove table, migation will do that
+
+Implement hidden captcha for login/register/contact form
+also add export to the withdrawl table in admin panel

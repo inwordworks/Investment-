@@ -17,22 +17,6 @@
         </div>
     </div>
 
-    <div class="alert alert-soft-dark mb-5" role="alert">
-        <div class="d-flex align-items-center">
-            <div class="flex-shrink-0">
-                <img class="avatar avatar-xl alert_image" src="{{ asset('assets/admin/img/oc-megaphone.svg') }}"
-                    alt="Image Description" data-hs-theme-appearance="default">
-                <img class="avatar avatar-xl alert_image" src="{{ asset('assets/admin/img/oc-megaphone-light.svg') }}"
-                    alt="Image Description" data-hs-theme-appearance="dark">
-            </div>
-
-            <div class="flex-grow-1 ms-3">
-                <div class="d-flex align-items-center">
-                    <p class="mb-0">@lang("You are creating project for `$language->name` version ")</p>
-                </div>
-            </div>
-        </div>
-    </div>
     <form action="{{ route('admin.project.store') }}" method="post" enctype="multipart/form-data">
         @csrf
         <input type="hidden" name="language_id" value="{{ $language->id }}">
@@ -488,19 +472,6 @@
             }
         });
 
-        if ($('#number_of_return_has_unlimited').is(':checked')) {
-            $('#number_of_return').prop('disabled', true);
-        } else {
-            $('#number_of_return').prop('disabled', false);
-        }
-
-        $(document).on('change', '#number_of_return_has_unlimited', function() {
-            if ($(this).is(':checked')) {
-                $('#number_of_return').prop('disabled', true);
-            } else {
-                $('#number_of_return').prop('disabled', false);
-            }
-        })
 
 
         if ($('#project_duration_is_fixed').is(':checked')) {

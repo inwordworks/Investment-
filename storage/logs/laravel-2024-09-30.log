@@ -797,3 +797,281 @@
 [2024-09-30 19:21:19] local.ERROR: Undefined variable $data  
 [2024-09-30 19:21:20] local.ERROR: Undefined variable $data  
 [2024-09-30 19:21:20] local.ERROR: Undefined variable $data  
+[2024-09-30 19:25:23] local.ERROR: Undefined variable $data  
+[2024-09-30 19:25:24] local.ERROR: Undefined variable $data  
+[2024-09-30 19:25:25] local.ERROR: Undefined variable $data  
+[2024-09-30 19:25:26] local.ERROR: Undefined variable $data  
+[2024-09-30 20:48:44] local.ERROR: Undefined variable $data  
+[2024-09-30 20:48:49] local.ERROR: Undefined variable $data  
+[2024-09-30 20:48:54] local.ERROR: Undefined variable $data  
+[2024-09-30 20:48:54] local.ERROR: Undefined variable $data  
+[2024-09-30 20:48:56] local.ERROR: Undefined variable $data  
+[2024-09-30 20:48:56] local.ERROR: Undefined variable $data  
+[2024-09-30 20:48:56] local.ERROR: Undefined variable $data  
+[2024-09-30 20:48:56] local.ERROR: Undefined variable $data  
+[2024-09-30 20:48:56] local.ERROR: Undefined variable $data  
+[2024-09-30 20:48:56] local.ERROR: Undefined variable $data  
+[2024-09-30 20:48:57] local.ERROR: Undefined variable $data  
+[2024-09-30 20:48:57] local.ERROR: Undefined variable $data  
+[2024-09-30 20:48:57] local.ERROR: Undefined variable $data  
+[2024-09-30 20:48:58] local.ERROR: Undefined variable $data  
+[2024-09-30 20:49:02] local.ERROR: Undefined variable $data  
+[2024-09-30 20:49:02] local.ERROR: Undefined variable $data  
+[2024-09-30 20:49:03] local.ERROR: Undefined variable $data  
+[2024-09-30 20:49:36] local.ERROR: Undefined variable $data  
+[2024-09-30 20:49:38] local.ERROR: Undefined variable $data  
+[2024-09-30 20:49:40] local.ERROR: Undefined variable $data  
+[2024-09-30 20:49:40] local.ERROR: Undefined variable $data  
+[2024-09-30 20:49:41] local.ERROR: Undefined variable $data  
+[2024-09-30 20:49:58] local.ERROR: Undefined variable $data  
+[2024-09-30 20:49:59] local.ERROR: Undefined variable $data  
+[2024-09-30 20:49:59] local.ERROR: Undefined variable $data  
+[2024-09-30 20:49:59] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:35] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:41] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:41] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Input/ArgvInput.php:223)
+[stacktrace]
+#0 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Input/ArgvInput.php(150): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption()
+#1 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Input/ArgvInput.php(85): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption()
+#2 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Input/ArgvInput.php(74): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken()
+#3 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Input/Input.php(56): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Command/Command.php(285): Symfony\\Component\\Console\\Input\\Input->bind()
+#5 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#6 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Application.php(1096): Illuminate\\Console\\Command->run()
+#7 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#8 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#9 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#10 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#11 {main}
+"} 
+[2024-09-30 20:50:46] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:46] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:47] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:47] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:47] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:47] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:47] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:48] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:48] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:48] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:48] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:48] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:49] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Input/ArgvInput.php:223)
+[stacktrace]
+#0 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Input/ArgvInput.php(150): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption()
+#1 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Input/ArgvInput.php(85): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption()
+#2 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Input/ArgvInput.php(74): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken()
+#3 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Input/Input.php(56): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Command/Command.php(285): Symfony\\Component\\Console\\Input\\Input->bind()
+#5 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#6 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Application.php(1096): Illuminate\\Console\\Command->run()
+#7 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#8 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#9 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#10 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#11 {main}
+"} 
+[2024-09-30 20:50:51] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:51] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:51] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:51] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:53] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:53] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:54] local.ERROR: The "--columns" option does not exist. {"exception":"[object] (Symfony\\Component\\Console\\Exception\\RuntimeException(code: 0): The \"--columns\" option does not exist. at /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Input/ArgvInput.php:223)
+[stacktrace]
+#0 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Input/ArgvInput.php(150): Symfony\\Component\\Console\\Input\\ArgvInput->addLongOption()
+#1 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Input/ArgvInput.php(85): Symfony\\Component\\Console\\Input\\ArgvInput->parseLongOption()
+#2 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Input/ArgvInput.php(74): Symfony\\Component\\Console\\Input\\ArgvInput->parseToken()
+#3 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Input/Input.php(56): Symfony\\Component\\Console\\Input\\ArgvInput->parse()
+#4 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Command/Command.php(285): Symfony\\Component\\Console\\Input\\Input->bind()
+#5 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/laravel/framework/src/Illuminate/Console/Command.php(180): Symfony\\Component\\Console\\Command\\Command->run()
+#6 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Application.php(1096): Illuminate\\Console\\Command->run()
+#7 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Application.php(324): Symfony\\Component\\Console\\Application->doRunCommand()
+#8 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/symfony/console/Application.php(175): Symfony\\Component\\Console\\Application->doRun()
+#9 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/vendor/laravel/framework/src/Illuminate/Foundation/Console/Kernel.php(201): Symfony\\Component\\Console\\Application->run()
+#10 /mnt/01D9961CD1E189D0/Office/MystartUpInfo/MystartUpLive/artisan(35): Illuminate\\Foundation\\Console\\Kernel->handle()
+#11 {main}
+"} 
+[2024-09-30 20:50:55] local.ERROR: Undefined variable $data  
+[2024-09-30 20:50:56] local.ERROR: Undefined variable $data  
+[2024-09-30 20:51:22] local.ERROR: Undefined variable $data  
+[2024-09-30 20:51:27] local.ERROR: Undefined variable $data  
+[2024-09-30 20:51:31] local.ERROR: Undefined variable $data  
+[2024-09-30 20:51:36] local.ERROR: Undefined variable $data  
+[2024-09-30 20:51:41] local.ERROR: Undefined variable $data  
+[2024-09-30 20:51:46] local.ERROR: Undefined variable $data  
+[2024-09-30 20:51:51] local.ERROR: Undefined variable $data  
+[2024-09-30 20:51:51] local.ERROR: Undefined variable $data  
+[2024-09-30 20:51:52] local.ERROR: Undefined variable $data  
+[2024-09-30 20:51:56] local.ERROR: Undefined variable $data  
+[2024-09-30 20:51:57] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:01] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:06] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:11] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:15] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:17] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:20] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:22] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:25] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:26] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:26] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:27] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:28] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:30] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:31] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:32] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:32] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:33] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:33] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:34] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:35] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:36] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:38] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:40] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:42] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:46] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:47] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:50] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:52] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:55] local.ERROR: Undefined variable $data  
+[2024-09-30 20:52:57] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:00] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:02] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:05] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:07] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:10] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:12] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:15] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:17] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:20] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:22] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:25] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:27] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:30] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:32] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:35] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:37] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:41] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:43] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:45] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:47] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:50] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:52] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:55] local.ERROR: Undefined variable $data  
+[2024-09-30 20:53:57] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:00] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:02] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:05] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:07] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:10] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:12] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:15] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:17] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:20] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:22] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:27] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:29] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:30] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:32] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:35] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:37] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:40] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:42] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:45] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:47] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:51] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:52] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:56] local.ERROR: Undefined variable $data  
+[2024-09-30 20:54:57] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:01] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:02] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:05] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:07] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:10] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:12] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:15] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:17] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:20] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:22] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:25] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:27] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:30] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:32] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:35] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:37] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:40] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:42] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:45] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:47] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:50] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:52] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:55] local.ERROR: Undefined variable $data  
+[2024-09-30 20:55:57] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:01] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:02] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:05] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:07] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:10] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:12] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:15] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:17] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:21] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:22] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:25] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:27] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:30] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:32] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:35] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:37] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:40] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:42] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:45] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:47] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:50] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:52] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:55] local.ERROR: Undefined variable $data  
+[2024-09-30 20:56:57] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:00] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:02] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:05] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:06] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:07] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:07] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:07] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:08] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:10] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:11] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:12] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:12] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:12] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:12] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:15] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:16] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:16] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:18] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:20] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:22] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:25] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:27] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:30] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:32] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:35] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:37] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:40] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:42] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:45] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:47] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:50] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:51] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:52] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:52] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:53] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:53] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:53] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:55] local.ERROR: Undefined variable $data  
+[2024-09-30 20:57:57] local.ERROR: Undefined variable $data  
+[2024-09-30 20:58:01] local.ERROR: Undefined variable $data  
+[2024-09-30 20:58:02] local.ERROR: Undefined variable $data  
+[2024-09-30 20:58:06] local.ERROR: Undefined variable $data  
+[2024-09-30 20:58:08] local.ERROR: Undefined variable $data  
+[2024-09-30 20:58:10] local.ERROR: Undefined variable $data  
