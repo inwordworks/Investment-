@@ -4,10 +4,6 @@
     <div class="header-top">
         <div class="container">
             <div class="header-top-container">
-                <div class="header-top-info">
-                    <i class="fa-regular fa-location-dot"></i>
-                    <p>{!! $top_section['single']['address'] !!}</p>
-                </div>
                 <div class="header-top-social-container">
                     <div class="header-top-social-border"></div>
                     <div class="language-box">
