@@ -17,7 +17,7 @@
                             <div class="row">
                                 <div class="col-md-12 mb-3">
                                     <h2>2FA Verification</h2>
-                                    <p class="pb-3">Check your email for verification code.</p>
+                                    <p class="pb-3">Check your authenticator app for verification code.</p>
                                     <div class="mb-2">
                                         <input class="form-control" type="text" name="code" value="{{old('code')}}" placeholder="@lang('Code')" autocomplete="off" required>
                                         @error('code')
