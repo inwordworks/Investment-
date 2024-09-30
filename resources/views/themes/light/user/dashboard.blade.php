@@ -84,10 +84,6 @@
                         </div>
                         <div class="bottom">
                             <div class="item" data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="@lang('Plan Profit')">
-                                <span class="planProfit">{{currencyPosition(auth()->guard('web')->user()->plan_profit??0)}}</span>
-                            </div>
-                            <div class="item" data-bs-toggle="tooltip" data-bs-placement="top"
                                 title="@lang('Project Profit')">
                                 <span class="ProjectProfit">{{currencyPosition(auth()->guard('web')->user()->project_profit??0)}}</span>
                             </div>
@@ -110,10 +106,6 @@
                             </div>
                         </div>
                         <div class="bottom">
-                            <div class="item" data-bs-toggle="tooltip" data-bs-placement="top"
-                                title="@lang('Plan Invest')">
-                                <span class="plan_invest">{{currencyPosition(auth()->guard('web')->user()->plan_invest??0)}}</span>
-                            </div>
                             <div class="item" data-bs-toggle="tooltip" data-bs-placement="top"
                                 title="@lang('Project Invest')">
                                 <span class="project_invest">{{currencyPosition(auth()->guard('web')->user()->project_invest??0)}}</span>
@@ -225,17 +217,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xxl-3  col-md-6 col-sm-6 ">
-                                <div class="transaction-box activity-card">
-                                    <div class="icon-box">
-                                        <i class="fa-regular fa-notes-medical"></i>
-                                    </div>
-                                    <div class="text-box">
-                                        <h5 class="mb-0">{{currencyPosition($recent_plan_invest)}}</h5>
-                                        <p class="mb-0">@lang('Plan Invest')</p>
-                                    </div>
-                                </div>
-                            </div>
                             <div class="col-xxl-3  col-md-6 col-sm-6">
                                 <div class="transaction-box activity-card">
                                     <div class="icon-box">
@@ -305,50 +286,6 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header d-flex justify-content-between border-0">
-                            <h4>@lang('Recent Plan Invest')</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="cmn-table">
-                                <div class="table-responsive">
-                                    <table class="table table-striped align-middle">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">@lang('Plan')</th>
-                                                <th scope="col">@lang('Invest')</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @forelse($recent_plan as $plan)
-                                            <tr>
-                                                <td data-label="Plan">
-                                                    <p>{{optional($plan->plan)->plan_name}}</p>
-                                                </td>
-                                                <td data-label="Invest">
-                                                    <p>{{currencyPosition($plan->invest_amount)}}</p>
-                                                </td>
-                                            </tr>
-                                            @empty
-
-                                            @endforelse
-
-                                        </tbody>
-                                    </table>
-                                </div>
-                                @if(count($recent_plan??[]) == 0)
-                                <div class="row d-flex text-center justify-content-center">
-                                    <div class="col-4">
-                                        <img src="{{ asset('assets/admin/img/oc-error.svg') }}" class="no-data-image" alt="" srcset="">
-                                        <p>@lang('No data to show')</p>
-                                    </div>
-                                </div>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between border-0">
                             <h4>@lang('Recent Project Invest')</h4>
                         </div>
                         <div class="card-body">
@@ -357,14 +294,14 @@
                                     <table class="table table-striped align-middle">
                                         <thead>
                                             <tr>
-                                                <th scope="col">@lang('Plan')</th>
+                                                <th scope="col">@lang('Project')</th>
                                                 <th scope="col">@lang('Invest')</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @forelse($recent_project as $project)
                                             <tr>
-                                                <td data-label="Plan">
+                                                <td data-label="Project">
                                                     <p>{{optional($project->project->details)->title}}</p>
                                                 </td>
                                                 <td data-label="Invest">

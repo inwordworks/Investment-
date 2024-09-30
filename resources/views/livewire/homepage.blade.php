@@ -740,7 +740,7 @@
 
     </section>
 
-    <section class="choose-us-fourteen">
+    <section class="choose-us-fourteen d-none">
 
         <div class="container">
 
@@ -926,14 +926,14 @@
 
         <div class="ban-bg">
 
-            <img src="/web_assets/assets/img/counter-bg.png" alt="design-image" class="img-fluid bg-06">
+            <img src="/web_assets/assets/img/counter-bg.png" alt="design" class="img-fluid bg-06">
 
-            <img src="/web_assets/assets/img/counter-bg-01.png" alt="eye-image" class="img-fluid bg-07">
+            <img src="/web_assets/assets/img/counter-bg-01.png" alt="eye" class="img-fluid bg-07">
 
         </div>
 
 
-        <img src="/web_assets/assets/images/live-icon.png" alt="eye-image" class="img-fluid live-icon">
+        <img src="/web_assets/assets/images/live-icon.png" alt="live-icon" class="img-fluid live-icon">
 
         <div class="container">
 

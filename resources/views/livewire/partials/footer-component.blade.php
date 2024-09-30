@@ -46,7 +46,6 @@
 
                                     <li><a href="/about-us">About Us</a></li>
 
-                                    <li><a href="/business-plan">Business Plan</a></li>
 
                                     <li><a href="/contact-us">Contact Us</a></li>
 
@@ -68,7 +67,7 @@
 
                                 <ul>
 
-                                    <li><a href="integrated-wellness">Integrated Wellness</a></li>
+                                    <li><a href="#">Integrated Wellness</a></li>
 
                                     <li><a href="#">Integrated Holiday</a></li>
 

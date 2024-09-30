@@ -16,17 +16,17 @@
         <li class="nav-item">
             <a class="nav-link collapsed {{isMenuActive(['user.project.investment'])}}" href="{{route('user.project.investment')}}">
                 <i class="fal fa-tractor"></i>
-                <span>@lang('Project Invest history')</span>
+                <span>@lang('Project transaction history')</span>
             </a>
         </li>
 
-        <li class="nav-item">
+        <li class="nav-item d-none">
             <a class="nav-link collapsed {{isMenuActive(['user.plans'])}}" href="{{route('user.plans')}}">
                 <i class="fa-brands fa-codepen"></i>
                 <span>@lang('Investment Plan')</span>
             </a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item d-none">
             <a class="nav-link collapsed {{isMenuActive(['user.plan.investment'])}}" href="{{route('user.plan.investment')}}">
                 <i class="fal fa-cube"></i>
                 <span>@lang('Plan invest history')</span>

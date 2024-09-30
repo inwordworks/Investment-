@@ -47,7 +47,7 @@
                        class="js-datatable table table-borderless table-thead-bordered table-nowrap table-align-middle card-table"
                        data-hs-datatables-options='{
                        "columnDefs": [{
-                          "targets": [0, 5],
+                          "targets": [0, 9],
                           "orderable": false
                         }],
                        "order": [],
@@ -67,7 +67,15 @@
                         <th>@lang('Invest Range')</th>
                         <th>@lang('Total Units')</th>
                         <th>@lang('Project Cycle')</th>
+                        <th>@lang('Profit')</th>
+                        <th>@lang('Return Period')</th>
                         <th>@lang('Status')</th>
+                        <th>@lang('Capital Back')</th>
+                        <th> @foreach($languages as $language)
+                                <img class="avatar avatar-xss avatar-square me-2"
+                                     src="{{ getFile($language->flag_driver, $language->flag) }}"
+                                     alt="{{ $language->name }} Flag">
+                            @endforeach</th>
                         <th>@lang('Action')</th>
                     </tr>
                     </thead>
@@ -183,7 +191,11 @@
                     {data: 'invest_amount', name: 'invest_amount'},
                     {data: 'total_units', name: 'total_units'},
                     {data: 'project_cycle', name: 'project_cycle'},
+                    {data: 'return', name: 'return'},
+                    {data: 'return_period', name: 'return_period'},
                     {data: 'status', name: 'status'},
+                    {data: 'capital_back', name: 'capital_back'},
+                    {data: 'language', name: 'language'},
                     {data: 'action', name: 'action'},
                 ],
 

@@ -254,6 +254,8 @@
     <script src="{{ asset('assets/admin/js/jquery.uploadPreview.min.js') }}"></script>
     <script src="{{ asset($themeTrue.'js/custom_share.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@23.7.3/build/js/intlTelInput.min.js"></script>
+
+
     @stack('js-lib')
     @include('plugins')
     @stack('script')

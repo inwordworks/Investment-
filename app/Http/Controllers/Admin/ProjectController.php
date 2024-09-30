@@ -55,30 +55,30 @@ class ProjectController extends Controller
             ->addColumn('project_cycle', function ($project) {
                 return $project->getAdminProjectDuration();
             })
-            ->addColumn('return', function ($project) {
-                return $project->getReturn();
-            })
-            ->addColumn('return_period', function ($project) {
-                return 'Every ' . $project->returnPeriod();
-            })
+            // ->addColumn('return', function ($project) {
+            //     return $project->getReturn();
+            // })
+            // ->addColumn('return_period', function ($project) {
+            //     return 'Every ' . $project->returnPeriod();
+            // })
             ->addColumn('status', function ($item) {
                 return $item->getStatus();
             })
-            ->addColumn('capital_back', function ($item) {
-                return $item->getCapitalBack();
-            })
-            ->addColumn('language', function ($item) use ($languages) {
-                $lang = '';
-                foreach ($languages as $language) {
-                    $lang .= ' <a href="' . route('admin.project.edit', [$item->id, $language->id]) . '"
-                                          class="btn btn-white btn-icon btn-sm flag-btn"
-                                          >
-                                           <i class="bi ' . $item->getLanguageEditClass($item->id, $language->id) . '"></i>
-                                       </a>';
-                }
+            // ->addColumn('capital_back', function ($item) {
+            //     return $item->getCapitalBack();
+            // })
+            // ->addColumn('language', function ($item) use ($languages) {
+            //     $lang = '';
+            //     foreach ($languages as $language) {
+            //         $lang .= ' <a href="' . route('admin.project.edit', [$item->id, $language->id]) . '"
+            //                               class="btn btn-white btn-icon btn-sm flag-btn"
+            //                               >
+            //                                <i class="bi ' . $item->getLanguageEditClass($item->id, $language->id) . '"></i>
+            //                            </a>';
+            //     }
 
-                return $lang;
-            })
+            //     return $lang;
+            // })
             ->addColumn('action', function ($item) {
                 return '<div class="btn-group" role="group">
                     <a class="btn btn-white btn-sm" href="' . route('admin.project.edit', [$item->id, optional($item->details)->language_id]) . '">
@@ -129,15 +129,15 @@ class ProjectController extends Controller
             'location' => 'required|string',
             'project_duration' => 'required_if:project_duration_has_unlimited,0|numeric',
             'project_duration_type' => 'required_if:project_duration_has_unlimited,0|string|in:Month,Year,Day,',
-            'return' => 'required|integer',
-            'return_type' => 'required|in:Fixed,Percentage',
-            'return_period' => 'required|numeric',
-            'return_period_type' => 'required|string|in:Month,Year,Day,Hour',
-            'number_of_return' => ['required_if:number_of_return_has_unlimited,0', function ($attribute, $value, $fail) use ($request) {
-                if ($request->number_of_return_has_unlimited == 0 && !is_numeric($value)) {
-                    $fail('Minimum invest filed must be a number');
-                }
-            }],
+            // 'return' => 'required|integer',
+            // 'return_type' => 'required|in:Fixed,Percentage',
+            // 'return_period' => 'required|numeric',
+            // 'return_period_type' => 'required|string|in:Month,Year,Day,Hour',
+            // 'number_of_return' => ['required_if:number_of_return_has_unlimited,0', function ($attribute, $value, $fail) use ($request) {
+            //     if ($request->number_of_return_has_unlimited == 0 && !is_numeric($value)) {
+            //         $fail('Minimum invest filed must be a number');
+            //     }
+            // }],
             'minimum_invest' => ['required_if:has_amount_fixed,0', function ($attribute, $value, $fail) use ($request) {
                 if ($request->has_amount_fixed == 0 && !is_numeric($value)) {
                     $fail('Minimum invest filed must be a number');
@@ -220,14 +220,14 @@ class ProjectController extends Controller
                 $project->project_duration = $data['project_duration'];
                 $project->project_duration_type = $data['project_duration_type'];
             }
-            $project->return = $data['return'];
-            $project->return_type = $data['return_type'];
-            $project->return_period = $data['return_period'];
-            $project->return_period_type = $data['return_period_type'];
-            if ($data['number_of_return_has_unlimited'] == 0) {
+            // $project->return = $data['return'];
+            // $project->return_type = $data['return_type'];
+            // $project->return_period = $data['return_period'];
+            // $project->return_period_type = $data['return_period_type'];
+            // if ($data['number_of_return_has_unlimited'] == 0) {
 
-                $project->number_of_return = $data['number_of_return'];
-            }
+            //     $project->number_of_return = $data['number_of_return'];
+            // }
 
             if ($data['has_amount_fixed'] == 0 && !$data['invest_amount']) {
                 $project->minimum_invest = $data['minimum_invest'];
@@ -257,7 +257,7 @@ class ProjectController extends Controller
             $project->capital_back = $data['capital_back'];
             $project->amount_has_fixed = $data['has_amount_fixed'];
             $project->project_duration_has_unlimited = $data['project_duration_has_unlimited'];
-            $project->number_of_return_has_unlimited = $data['number_of_return_has_unlimited'];
+            // $project->number_of_return_has_unlimited = $data['number_of_return_has_unlimited'];
             $project->images = $images ?? [];
             $project->images_driver = $imagesDriver ?? null;
             $project->thumbnail_image = $thumbnail ?? null;
@@ -320,11 +320,11 @@ class ProjectController extends Controller
             'location' => 'required | string',
             'project_duration' => 'required_if:project_duration_has_unlimited,0 | numeric',
             'project_duration_type' => 'required_if:project_duration_has_unlimited,0 | string | in:Month,Year,Day,',
-            'return' => 'required | numeric',
-            'return_type' => 'required | in:Fixed,Percentage',
-            'return_period' => 'required | numeric',
-            'return_period_type' => 'required | string |  in:Month,Year,Day,Hour',
-            'number_of_return' => ['required_if:number_of_return_has_unlimited,0', 'numeric'],
+            // 'return' => 'required | numeric',
+            // 'return_type' => 'required | in:Fixed,Percentage',
+            // 'return_period' => 'required | numeric',
+            // 'return_period_type' => 'required | string |  in:Month,Year,Day,Hour',
+            // 'number_of_return' => ['required_if:number_of_return_has_unlimited,0', 'numeric'],
             'minimum_invest' => ['required_if:has_amount_fixed,0', function ($attribute, $value, $fail) use ($request) {
                 if ($request->has_amount_fixed == 0 && !is_numeric($value)) {
                     $fail('Minimum invest filed must be a number');
@@ -438,13 +438,13 @@ class ProjectController extends Controller
                 $project->project_duration = $data['project_duration'];
                 $project->project_duration_type = $data['project_duration_type'];
             }
-            $project->return = $data['return'];
-            $project->return_type = $data['return_type'];
-            $project->return_period = $data['return_period'];
-            $project->return_period_type = $data['return_period_type'];
-            if ($data['number_of_return_has_unlimited'] == 0) {
-                $project->number_of_return = $data['number_of_return'];
-            }
+            // $project->return = $data['return'];
+            // $project->return_type = $data['return_type'];
+            // $project->return_period = $data['return_period'];
+            // $project->return_period_type = $data['return_period_type'];
+            // if ($data['number_of_return_has_unlimited'] == 0) {
+            //     $project->number_of_return = $data['number_of_return'];
+            // }
 
             if ($data['has_amount_fixed'] == 0 && !$data['invest_amount']) {
                 $project->minimum_invest = $data['minimum_invest'];
@@ -555,15 +555,15 @@ class ProjectController extends Controller
             ->addColumn('invest_per_unit', function ($item) {
                 return currencyPosition($item->per_unit_price);
             })
-            ->addColumn('return', function ($item) {
-                return currencyPosition($item->return);
-            })
-            ->addColumn('return_period', function ($item) {
-                return 'Every ' . $item->return_period . ' ' . $item->return_period_type;
-            })
-            ->addColumn('received_amount', function ($item) {
-                return $item->receivedAmount();
-            })
+            // ->addColumn('return', function ($item) {
+            //     return currencyPosition($item->return);
+            // })
+            // ->addColumn('return_period', function ($item) {
+            //     return 'Every ' . $item->return_period . ' ' . $item->return_period_type;
+            // })
+            // ->addColumn('received_amount', function ($item) {
+            //     return $item->receivedAmount();
+            // })
             ->addColumn('last_payment', function ($item) {
                 return $item->lastPayment();
             })

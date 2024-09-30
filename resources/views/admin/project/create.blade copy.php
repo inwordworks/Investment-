@@ -122,6 +122,90 @@
                                 </div>
                             </div>
 
+                            <div class="col-md-6">
+                                <label for="return" class="form-label">@lang('Return')</label>
+                                <i class="bi bi-info-circle text-body ms-1" data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    aria-label="Indicates the expected return rate for this project."
+                                    data-bs-original-title="Indicates the expected return rate for this project."></i>
+                                <div class="input-group mb-4">
+                                    <input type="number" name="return" id="return" value="{{ old('return') }}"
+                                        class="form-control @error('return') is-invalid @enderror"
+                                        placeholder="e.g : 5%" step="0.01">
+                                    <!-- Select -->
+                                    <div class="tom-select-custom">
+                                        <select class="js-select form-select" name="return_type" autocomplete="off"
+                                            data-hs-tom-select-options='{
+                                                  "hideSearch": true
+                                             }'>
+                                            <option value="Fixed" @selected(old('return_type')=='Fixed' )>
+                                                {{ basicControl()->currency_symbol }}
+                                            </option>
+                                            <option value="Percentage" @selected(old('return_type')=='Percentage' )>%</option>
+
+                                        </select>
+                                    </div>
+                                    <!-- End Select -->
+                                    @error('return')
+                                    <span class="invalid-feedback d-block">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="return_period" class="form-label">@lang('Return Period')</label>
+                                <i class="bi bi-info-circle text-body ms-1" data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    aria-label="The duration over which the returns are calculated for this project."
+                                    data-bs-original-title="The duration over which the returns are calculated for this project."></i>
+                                <div class="input-group mb-4">
+                                    <input type="number"
+                                        class="form-control @error('return_period') is-invalid @enderror"
+                                        id="return_period" value="{{ old('return_period') }}" name="return_period"
+                                        placeholder="e.g : 1 month" step="0.1">
+                                    <!-- Select -->
+                                    <div class="tom-select-custom">
+                                        <select class="js-select form-select" name="return_period_type"
+                                            autocomplete="off"
+                                            data-hs-tom-select-options='{
+                                                  "placeholder": "Select a person...",
+                                                  "hideSearch": true
+                                             }'>
+                                            <option value="Hour" @selected(old('return_period_type')=='Hour' )>@lang('Hour')
+                                            </option>
+                                            <option value="Day" @selected(old('return_period_type')=='Day' )>@lang('Day')
+                                            </option>
+                                            <option value="Month" @selected(old('return_period_type')=='Month' )>@lang('Month')
+                                            </option>
+                                            <option value="Year" @selected(old('return_period_type')=='Year' )>@lang('Year')
+                                            </option>
+
+
+                                        </select>
+                                    </div>
+                                    <!-- End Select -->
+
+                                    @error('return_period')
+                                    <span class="invalid-feedback d-block">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="number_of_return" class="form-label">@lang('Number Of Return')</label>
+                                <i class="bi bi-info-circle text-body ms-1" data-bs-toggle="tooltip"
+                                    data-bs-placement="top"
+                                    aria-label="Indicate how many times returns are expected or have occurred."
+                                    data-bs-original-title="Indicate how many times returns are expected or have occurred."></i>
+                                <div class="mb-4">
+                                    <input type="number" name="number_of_return"
+                                        value="{{ old('number_of_return') }}" id="number_of_return"
+                                        class="form-control @error('number_of_return') is-invalid @enderror"
+                                        placeholder="e.g : 12 times">
+                                    @error('number_of_return')
+                                    <span class="invalid-feedback d-block">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            </div>
 
                             <div class="col-md-6">
                                 <label for="start_date" class="form-label">@lang('Project Starting Date')</label>
@@ -141,7 +225,7 @@
                             </div>
 
                             <div class="col-md-6">
-                                <label for="start_date" class="form-label">@lang('Project last date')</label>
+                                <label for="start_date" class="form-label">@lang('Investment last date')</label>
                                 <div class="mb-4">
                                     <!-- Flatpickr -->
                                     <input type="text" class="js-flatpickr form-control flatpickr-custom"
@@ -360,7 +444,7 @@
                     <div class="col-md-12 mb-4">
                         <div class="card">
                             <div class="card-header bg-white">
-                                <h4 class="card-header-title">@lang('Project Options')</h4>
+                                <h4 class="card-header-title">@lang('Capital Back Status')</h4>
                             </div>
                             <div class="card-body">
                                 <div class="list-group-item mb-4">
@@ -379,6 +463,58 @@
                                                             @checked(old('has_amount_fixed')==1) checked>
                                                         <label class="form-check-label"
                                                             for="has_amount_fixed"></label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item mb-4">
+                                    <div class="d-flex">
+                                        <div class="flex-grow-1 ms-3">
+                                            <div class="row align-items-center">
+                                                <div class="col-sm mb-2 mb-sm-0">
+                                                    <h5 class="mb-0">@lang('Capital Back')</h5>
+                                                    <p class="fs-5 text-body mb-0">@lang('If you want to return of the original amount of money invested at the end of the investment period , then please turn on this button')</p>
+                                                </div>
+                                                <div class="col-sm-auto d-flex align-items-center">
+                                                    <div class="form-check form-switch form-switch-google">
+                                                        <input type="hidden" name="capital_back" value="0">
+                                                        <input class="form-check-input" name="capital_back"
+                                                            type="checkbox" id="capital_back" value="1"
+                                                            @checked(old('capital_back')==1)>
+                                                        <label class="form-check-label" for="capital_back"></label>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            @error('capital_back')
+                                            <span class="invalid-feedback d-block" role="alert">
+                                                {{ $message }}
+                                            </span>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-item mb-4">
+                                    <div class="d-flex">
+                                        <div class="flex-grow-1 ms-3">
+                                            <div class="row align-items-center">
+                                                <div class="col-sm mb-2 mb-sm-0">
+                                                    <h5 class="mb-0">@lang('Number of return has unlimited ?')</h5>
+                                                    <p class="fs-5 text-body mb-0">@lang('number of return has unlimited then turn on this button')</p>
+                                                </div>
+                                                <div class="col-sm-auto d-flex align-items-center">
+                                                    <div class="form-check form-switch form-switch-google">
+                                                        <input type="hidden" name="number_of_return_has_unlimited"
+                                                            value="0">
+                                                        <input class="form-check-input"
+                                                            name="number_of_return_has_unlimited" type="checkbox"
+                                                            id="number_of_return_has_unlimited" value="1"
+                                                            @checked(old('number_of_return_has_unlimited')==1)>
+                                                        <label class="form-check-label"
+                                                            for="number_of_return_has_unlimited"></label>
                                                     </div>
 
                                                 </div>

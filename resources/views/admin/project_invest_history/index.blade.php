@@ -45,7 +45,7 @@
                        class="js-datatable table table-borderless table-thead-bordered table-nowrap table-align-middle card-table"
                        data-hs-datatables-options='{
                        "columnDefs": [{
-                          "targets": [0, 8],
+                          "targets": [0, 5],
                           "orderable": false
                         }],
                        "order": [],
@@ -68,9 +68,6 @@
                                               data-bs-toggle="tooltip" data-bs-placement="top"
                                               aria-label="Per Unit"
                                               data-bs-original-title="Per Unit"></i></th>
-                        <th>@lang('Profit')</th>
-                        <th>@lang('Return Period')</th>
-                        <th>@lang('Received Amount')</th>
                         <th>@lang('Last Payment')</th>
                         <th>@lang('Upcoming Payment')</th>
                     </tr>
@@ -173,9 +170,6 @@
                     {data: 'project', name: 'project'},
                     {data: 'unit', name: 'unit'},
                     {data: 'invest_per_unit', name: 'invest_per_unit'},
-                    {data: 'return', name: 'return'},
-                    {data: 'return_period', name: 'return_period'},
-                    {data: 'received_amount', name: 'received_amount'},
                     {data: 'last_payment', name: 'last_payment'},
                     {data: 'next_payment', name: 'next_payment'},
                 ],

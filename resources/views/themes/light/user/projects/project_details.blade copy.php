@@ -1,7 +1,6 @@
 @extends($theme.'layouts.user')
 @section('title',trans('Project Details'))
 @section('content')
-
 <div class="pagetitle">
     <h3 class="mb-1">@lang('Projects Details')</h3>
     <nav>
@@ -16,7 +15,6 @@
         </ol>
     </nav>
 </div>
-
 <!-- projects Details -->
 <section class="project-details pt-3">
     <div class="container">
@@ -27,18 +25,18 @@
                         <div class="swiper-wrapper swiper_big_slider">
                             @foreach($project->getImages() as $image)
                             <div class="swiper-slide">
-                                <img src="{{$image}}" alt="""/>
+                                <img src="{{$image}}" />
                                 {!! $project->projectStatus() !!}
                             </div>
                             @endforeach
                         </div>
                     </div>
                     <div class="swiper projectSwiper swiper_small_slider">
-                        <div class="swiper-wrapper gallery">
+                        <div class="swiper-wrapper">
                             @foreach($project->getImages() as $image)
-                            <a class="swiper-slide lightboxImage" href="{{$image}}">
-                                <img src="{{$image}}" alt=""/>
-                            </a>
+                            <div class="swiper-slide">
+                                <img src="{{$image}}" />
+                            </div>
                             @endforeach
 
                         </div>
@@ -54,6 +52,24 @@
                     <div class="project-invest-body">
                         <div class="project-single-content-bottom">
                             <div class="project-single-content-wrapper">
+                                <div class="project-single-content-inner">
+                                    <div class="icon">
+                                        <i class="fal fa-hashtag"></i>
+                                    </div>
+                                    <div class="content">
+                                        <p>@lang('Number of Return')</p>
+                                        <span>{{$project->number_of_return? $project->number_of_return.' '.trans('Times') :trans('Lifetime Earning')}} </span>
+                                    </div>
+                                </div>
+                                <div class="project-single-content-inner">
+                                    <div class="icon">
+                                        <i class="fa-solid fa-chart-mixed"></i>
+                                    </div>
+                                    <div class="content">
+                                        <p>@lang('ROI')</p>
+                                        <span>{{$project->getReturn()}}</span>
+                                    </div>
+                                </div>
 
                                 <div class="project-single-content-inner">
                                     <div class="icon">
@@ -84,13 +100,31 @@
                                         <span>{{$project->investAmount()}}</span>
                                     </div>
                                 </div>
+                                <div class="project-single-content-inner">
+                                    <div class="icon">
+                                        <i class="fal fa-calendar-days"></i>
+                                    </div>
+                                    <div class="content">
+                                        <p>@lang('Return Period')</p>
+                                        <span>{{$project->returnPeriod()}}</span>
+                                    </div>
+                                </div>
+                                <div class="project-single-content-inner">
+                                    <div class="icon">
+                                        <i class="fal fa-hand-holding-dollar"></i>
+                                    </div>
+                                    <div class="content">
+                                        <p>@lang('Capital Back')</p>
+                                        <span>{{$project->capital_back?'Yes':'No'}}</span>
+                                    </div>
+                                </div>
 
                                 <div class="project-single-content-inner">
                                     <div class="icon">
                                         <i class="fal fa-clock"></i>
                                     </div>
                                     <div class="content">
-                                        <p>@lang('Project Last Date')</p>
+                                        <p>@lang('Investment Last Date')</p>
                                         <span>{{dateTime($project->invest_last_date)}}</span>
                                     </div>
                                 </div>
@@ -114,7 +148,7 @@
                         </div>
                         <div class="project-invest-button">
                             @if($project->checkInvestmentLastDate())
-                            <button type="button" class="btn-1 projectInvestButton" data-bs-toggle="modal" data-bs-target="#investModal">@lang('Buy Product') <i class="fa-sharp fa-solid fa-arrow-right"></i> <span></span></button>
+                            <button type="button" class="btn-1 projectInvestButton" data-bs-toggle="modal" data-bs-target="#investModal">@lang('Invest Now') <i class="fa-sharp fa-solid fa-arrow-right"></i> <span></span></button>
                             @else
                             <button type="button" class="btn-1">@lang('Expired') <i class="fa-sharp fa-solid fa-arrow-right"></i> <span></span></button>
                             @endif
@@ -135,6 +169,7 @@
     </div>
 </section>
 <!-- projects Details -->
+
 
 <div class="modal fade" id="investModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
@@ -195,14 +230,9 @@
         </div>
     </div>
 </div>
-
 @endsection
 
 @push('script')
-
-<link href="{{ asset('assets/admin/plugin/lightbox/simple-lightbox.min.css') }}" rel="stylesheet">
-<script src="{{ asset('assets/admin/plugin/lightbox/simple-lightbox.min.js') }}"></script>
-
 <script>
     $(document).ready(function() {
         $('.cmn-select2-modal').select2({
@@ -221,7 +251,6 @@
         <?php endif; ?>
     })
 
-    var lightbox = new SimpleLightbox('.gallery a', { /* options */ });
     var swiper = new Swiper(".projectSwiper", {
         spaceBetween: 10,
         slidesPerView: 4,

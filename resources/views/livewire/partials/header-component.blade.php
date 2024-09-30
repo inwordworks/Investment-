@@ -58,24 +58,24 @@
 
                         <ul class="submenu">
 
-                            <li><a href="<?= route('website.services') ?>">Integrated Wellness</a></li>
+                            <li><a href="#">Integrated Wellness</a></li>
 
-                            <li><a href="<?= route('website.services') ?>">Integrated Holiday</a></li>
+                            <li><a href="#">Integrated Holiday</a></li>
 
                             <li class="has-submenu"><a href="#">Infraspace Properties</a>
                                 <ul class="submenu inner-submenu">
-                                    <li><a href="<?= route('website.services') ?>">Agriculture Eco Farm Lands</a>
+                                    <li><a href="#">Agriculture Eco Farm Lands</a>
                                     </li>
-                                    <li><a href="<?= route('website.services') ?>">Affordable housing (Coming soon)</a>
+                                    <li><a href="#">Affordable housing (Coming soon)</a>
                                     </li>
                                 </ul>
                             </li>
 
-                            <li><a href="<?= route('website.services') ?>">Integrated Fashions</a></li>
+                            <li><a href="#">Integrated Fashions</a></li>
 
-                            <li><a href="<?= route('website.services') ?>">MyStartUp Foundation (CFS)</a></li>
+                            <li><a href="#">MyStartUp Foundation (CFS)</a></li>
 
-                            <li><a href="<?= route('website.services') ?>">Mystartup Technologies</a></li>
+                            <li><a href="#">Mystartup Technologies</a></li>
 
 
 
@@ -83,7 +83,6 @@
 
                     </li>
 
-                    <li class="<?= isset($_SERVER['PATH_INFO']) &&route('website.business') == url($_SERVER['PATH_INFO']) ? 'active' : '' ?>"><a href="<?= route('website.business') ?>">Business Plan</a></li>
 
                     <li class="<?= isset($_SERVER['PATH_INFO']) &&route('website.contact') == url($_SERVER['PATH_INFO']) ? 'active' : '' ?>"><a href="<?= route('website.contact') ?>">Contact Us</a></li>
 

@@ -20,6 +20,12 @@
                         <tr>
                             <th scope="col">@lang('Title')</th>
                             <th scope="col">@lang('Unit Price')</th>
+                            <th scope="col">@lang('ROI')
+                                <i class="fa-sharp fa-thin fa-circle-info ms-1"
+                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                    aria-label="Per Return"
+                                    data-bs-original-title="Per Return"></i>
+                            </th>
                             <th scope="col">@lang('Project Duration')</th>
                             <th scope="col">@lang('Action')</th>
                         </tr>
@@ -29,6 +35,7 @@
                         <tr>
                             <td data-label="@lang('Title')">{{optional($project->details)->title}}</td>
                             <td data-label="@lang('Unit Price')">{!! $project->investAmount() !!}</td>
+                            <td data-label="@lang('ROI')">{{ $project->getReturn() }}</td>
                             <td data-label="@lang('Project Duration')">{!! $project->getUserProjectDuration() !!}</td>
 
                             <td data-label="@lang('Action')">

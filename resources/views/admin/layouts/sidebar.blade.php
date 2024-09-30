@@ -56,8 +56,8 @@
                             <span class="nav-link-title">@lang("Dashboard")</span>
                         </a>
                     </div>
-                    <span class="dropdown-header mt-2">@lang('Manage Plan')</span>
-                    <div class="nav-item">
+                    <span class="dropdown-header mt-2 d-none">@lang('Manage Plan')</span>
+                    <div class="nav-item d-none">
                         <a class="nav-link {{ menuActive(['admin.investment.plan.index','admin.investment.plan.create','admin.investment.plan.edit']) }}"
                             href="{{ route('admin.investment.plan.index') }}">
                             <i class="bi bi-box-seam nav-icon"></i>
@@ -65,7 +65,7 @@
                         </a>
                     </div>
 
-                    <div class="nav-item">
+                    <div class="nav-item d-none">
                         <a class="nav-link {{ menuActive(['admin.invest.history']) }}"
                             href="{{ route('admin.invest.history') }}">
                             <i class="fal fa-clock nav-icon"></i>
