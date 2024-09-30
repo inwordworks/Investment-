@@ -9,10 +9,6 @@
                     <p>{!! $top_section['single']['address'] !!}</p>
                 </div>
                 <div class="header-top-social-container">
-                    <div class="header-top-info">
-                        <i class="fa-light fa-envelope"></i>
-                        <a href="mailto:{{$top_section['single']['email']}}">{{$top_section['single']['email']}}</a>
-                    </div>
                     <div class="header-top-social-border"></div>
                     <div class="language-box">
                         <div class="dropdown">
