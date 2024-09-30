@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="overflow-hidden pt-5" style="background-image: url(web_assets/assets/images/bg.jpg);
+<section class="overflow-hidden pt-5" style="background-image: url('/web_assets/assets/images/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;">
