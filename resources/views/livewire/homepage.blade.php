@@ -487,7 +487,7 @@
 
                                 <div class="listing-title">
 
-                                    <h3>Integrated Wellness Startup</h3>
+                                    <h3>MyStartup Integrated Wellness</h3>
 
                                 </div>
 
@@ -535,7 +535,7 @@
 
                                 <div class="listing-title">
 
-                                    <h3>Integrated Vacation Services Startup</h3>
+                                    <h3>MyStartup Integrated Vacation Services</h3>
 
                                 </div>
 
@@ -579,7 +579,7 @@
 
                                 <div class="listing-title">
 
-                                    <h3>Startup Infra-space Development</h3>
+                                    <h3>MyStartup Infra-space Development</h3>
 
                                 </div>
 
