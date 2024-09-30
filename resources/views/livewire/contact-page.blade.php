@@ -60,8 +60,7 @@
 
 									<h4>Address</h4>
 
-									<p>Flat 305, Phase iv, Block 5 & 6, Venture 2, Kukatpally, Hyderabad, Rangareddi,
-										Telangana, India, 500072.</p>
+									<p>1-68/4, Plot no: - 80 & 81, 2nd Floor, Jaihind Enclave, Arunodaya Colony, Madhapur Hyderabad Rangareddi Telangana - 500081</p>
 
 								</div>
 
@@ -83,7 +82,7 @@
 
 									<h4>Phone Number</h4>
 
-									<p>+91 9676121199</p>
+									<p>+91 7702755572</p>
 
 								</div>
 
