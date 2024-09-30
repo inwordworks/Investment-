@@ -21,10 +21,11 @@
 
                                         <h1>Welcome to <span>MyStartUp</span></h1>
 
-                                        <p>The Word of Mystartup has its roots in India meaning Wealth, Richness,
-                                            Affluence comes with choice or advantage in Life. MyStartUp as Brand
-                                            Started with passion and purpose to provide a better opportunities for
-                                            empowering life in all aspects, and enhance the value of life.</p>
+                                        <p>MSC Solutions (My Startup Company) refers to your own entrepreneurial
+                                            venture, which you're building from the ground up, often characterized by:<br />
+
+                                            My Startup often focus on solving real-world problems or meeting specific
+                                            needs, leveraging technology, and disrupting traditional industries.</p>
 
                                         <a href="/register" class="btn">Enroll Now</a>
 

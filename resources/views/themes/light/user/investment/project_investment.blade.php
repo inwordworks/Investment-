@@ -27,8 +27,8 @@
                                                               data-bs-toggle="tooltip" data-bs-placement="top"
                                                               aria-label="Per Unit"
                                                               data-bs-original-title="Per Unit"></i></th></th>
-                            <th scope="col">@lang('Received Amount')</th>
                             <th scope="col">@lang('Upcoming Payment')</th>
+                            <th scope="col">@lang('Date')</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -40,8 +40,8 @@
                                     <span class="badge bg-secondary rounded-pill  badge-unit">{{$value->unit}}</span>
                                 </td>
                                 <td data-label="@lang('Price')">{{currencyPosition($value->per_unit_price)}}</td>
-                                <td data-label="@lang('Received Amount')">{!! $value->receivedAmount() !!}</td>
                                 <td data-label="@lang('Upcoming Payment')">{!! $value->userNextPayment() !!}</td>
+                                <td data-label="@lang('Date')">{{ date('d M, Y', strtotime($value->created_at)) }}</td>
                             </tr>
                         @endforeach
                         </tbody>
