@@ -8,29 +8,17 @@
                     <div class="header-top-social-border"></div>
                     <div class="language-box">
                         <div class="dropdown">
-                            <button class="dropdown-toggle " type="button" data-bs-toggle="dropdown" aria-expanded="true">
+                            <button class="dropdown-toggle " type="button" data-bs-toggle="dropdown"
+                                aria-expanded="true">
                                 <div class="d-flex align-items-center gap-1">
                                     @if(session('language'))
-                                        <img src="{{getFile(session('language')->flag_driver,session('language')->flag)}}" alt="">
-                                    {{session('language')->name}}
-                                    @else
-                                        <img src="{{getFile($languages->first()->flag_driver,$languages->first()->flag)}}" alt="">
-                                        {{$languages->first()->name}}
+                                        <img src="{{getFile(session('language')->flag_driver, session('language')->flag)}}"
+                                            alt="">
+                                        {{session('language')->name}}
                                     @endif
 
                                 </div>
                             </button>
-                            <ul class="dropdown-menu" data-bs-popper="static">
-                                @foreach($languages as $language)
-                                    <li>
-                                        <a href="{{route('language',$language->short_name)}}">
-                                            <button class="dropdown-item" type="button"><img src="{{getFile($language->flag_driver,$language->flag)}}" alt="">
-                                                {{$language->name}}
-                                            </button>
-                                        </a>
-                                    </li>
-                                @endforeach
-                            </ul>
                         </div>
                     </div>
                 </div>
@@ -48,7 +36,9 @@
 
                 <div class="left-column">
                     <div class="logo-box">
-                        <div class="logo"><a href="{{route('page')}}"><img src="{{getFile(basicControl()->logo_driver,basicControl()->logo)}}" alt="logo"></a></div>
+                        <div class="logo"><a href="{{route('page')}}"><img
+                                    src="{{getFile(basicControl()->logo_driver, basicControl()->logo)}}" alt="logo"></a>
+                        </div>
                     </div>
                 </div>
 
@@ -94,11 +84,14 @@
                 <div class="inner-container d-flex align-items-center justify-content-between">
                     <div class="left-column d-flex align-items-center">
                         <div class="logo-box">
-                            <div class="logo"><a href="{{route('page')}}"><img src="{{getFile(basicControl()->logo_driver,basicControl()->logo)}}" alt="logo"></a></div>
+                            <div class="logo"><a href="{{route('page')}}"><img
+                                        src="{{getFile(basicControl()->logo_driver, basicControl()->logo)}}"
+                                        alt="logo"></a></div>
                         </div>
                     </div>
                     <div class="nav-outer">
-                        <div class="mobile-nav-toggler"><img src="{{asset($themeTrue.'images/icons/icon-bar-two.png')}}" alt="icon"></div>
+                        <div class="mobile-nav-toggler"><img src="{{asset($themeTrue . 'images/icons/icon-bar-two.png')}}"
+                                alt="icon"></div>
                         <nav class="main-menu navbar-expand-md navbar-light">
                         </nav>
                     </div>
@@ -131,22 +124,23 @@
         <div class="close-btn"><span class="fal fa-times"></span></div>
 
         <nav class="menu-box">
-            <div class="nav-logo"><a href="{{route('page')}}"><img src="{{getFile(basicControl()->logo_driver,basicControl()->logo)}}" alt="logo"></a></div>
+            <div class="nav-logo"><a href="{{route('page')}}"><img
+                        src="{{getFile(basicControl()->logo_driver, basicControl()->logo)}}" alt="logo"></a></div>
             <div class="menu-outer"></div>
-           <div class="d-flex justify-content-between m-3">
-               <div class="button-1">
-                   @if(auth()->guard('web')->user())
-                       <a href="{{route('user.dashboard')}}" class="btn-1">@lang('Dashboard') <span></span></a>
-                   @else
-                       <a href="{{route('login')}}" class="btn-1 me-2">@lang('Log In') <span></span></a>
-                   @endif
-               </div>
-               @if(!auth()->guard('web')->user())
-                   <div class="button-2">
-                       <a href="{{route('register')}}" class="btn-1">@lang('Sign Up') <span></span></a>
-                   </div>
-               @endif
-           </div>
+            <div class="d-flex justify-content-between m-3">
+                <div class="button-1">
+                    @if(auth()->guard('web')->user())
+                        <a href="{{route('user.dashboard')}}" class="btn-1">@lang('Dashboard') <span></span></a>
+                    @else
+                        <a href="{{route('login')}}" class="btn-1 me-2">@lang('Log In') <span></span></a>
+                    @endif
+                </div>
+                @if(!auth()->guard('web')->user())
+                    <div class="button-2">
+                        <a href="{{route('register')}}" class="btn-1">@lang('Sign Up') <span></span></a>
+                    </div>
+                @endif
+            </div>
 
         </nav>
     </div>
