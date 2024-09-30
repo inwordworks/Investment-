@@ -11,23 +11,6 @@
                         <div class="footer-logo">
                             <a href="{{route('page')}}"><img src="{{getFile(basicControl()->logo_driver,basicControl()->logo)}}" alt="logo"></a>
                         </div>
-                        <div class="footer-location">
-                            <div class="location">
-                                <div class="icon"><i class="fa-light fa-location-dot"></i></div>
-                                <p>{!! $footer_section['single']['address']??'' !!}</p>
-                            </div>
-                            <div class="hot-line">
-                                <div class="icon"><i class="fa-light fa-phone"></i></div>
-                                <p>@lang('Call Us'): <a href="tel:{{$footer_section['single']['media']->phone_number??''}}">{{$footer_section['single']['media']->phone_number??''}}</a></p>
-                            </div>
-                        </div>
-                        <div class="footer-media">
-                            <ul>
-                                @foreach(collect($footer_section['multiple'])->toArray() as $item)
-                                    <li><a href="{{$item['media']->link}}"><i class="{{$item['media']->icon}}"></i></a></li>
-                                @endforeach
-                            </ul>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -60,21 +43,6 @@
                 </div>
             </div>
 
-            <div class="col-xl-3 col-lg-4 col-md-6">
-                <div class="link-widget-1 form-widget wow fadeInUp" data-wow-delay="700ms" data-wow-duration="1500ms">
-                    <h6>@lang($footer_section['single']['subscribe_heading']??'')</h6>
-                    <div class="footer-form">
-                        <p>@lang($footer_section['single']['subscribe_text']??'')</p>
-                        <div class="footer-newsletter-form">
-                            <form action="{{route('subscribe')}}" method="post">
-                                @csrf
-                                <input type="email" name="email" placeholder="@lang('Email')" required>
-                                <button type="submit">@lang('Subscribe')</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
     <div class="container">
