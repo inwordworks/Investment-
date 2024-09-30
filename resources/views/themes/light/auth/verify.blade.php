@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="background-radial-gradient overflow-hidden pt-5">
+<section class="overflow-hidden pt-5" style="background-image: url(web_assets/assets/images/bg.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;">
 
     <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
         <div class="row gx-lg-5 align-items-center mb-5">
@@ -16,8 +19,6 @@
                 </p>
             </div>
             <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
-                <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
-                <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
                 <div class="card bg-glass">
                     <div class="card-body px-4 py-5 px-md-5">
                         <form method="post" action="{{ route('login') }}">
