@@ -1,34 +1,45 @@
-@extends($theme.'layouts.app')
-@section('title',$page_title)
+@extends('components.layouts.app')
 
 @section('content')
-    <section  class="password-reset-page">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-5 col-md-6 order-2 order-md-1">
-                    <div class="reset-form">
-                        <form class="login-form" action="{{route('user.twoFA-Verify')}}"  method="post">
+
+<section class="background-radial-gradient overflow-hidden pt-5">
+
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="row gx-lg-5 align-items-center">
+            <div class="col-lg-6 mx-auto mb-5 mb-lg-0 position-relative">
+                <div id="radius-shape-1" class="position-absolute rounded-circle shadow-5-strong"></div>
+                <div id="radius-shape-2" class="position-absolute shadow-5-strong"></div>
+                <div class="card bg-glass">
+                    <div class="card-body px-4 py-5 px-md-5">
+                    <form class="login-form" action="{{route('user.twoFA-Verify')}}"  method="post">
                             @csrf
-                            <div class="section-header">
-                                <h4>@lang($page_title)</h4>
-                            </div>
-                            <div class="signin">
-
-                                <div class="form-group mb-30">
-                                    <input class="form-control @error('code') is-invalid @enderror" type="text" name="code" value="{{old('code')}}" placeholder="@lang('Code')" autocomplete="off" required>
+                            <div class="row">
+                                <div class="col-md-12 mb-3">
+                                    <h2>2FA Verification</h2>
+                                    <p class="pb-3">Check your email for verification code.</p>
+                                    <div class="mb-2">
+                                        <input class="form-control" type="text" name="code" value="{{old('code')}}" placeholder="@lang('Code')" autocomplete="off" required>
+                                        @error('code')
+                                        <span class="invalid-feedback d-block" role="alert">{{ $message }}<strong></strong>
+                                        </span>
+                                        @enderror
+                                    </div>
                                 </div>
-                                @error('code')<span class="text-danger d-block mt-2">{{ $message }}</span>@enderror
 
-                                <div class="btn-area">
-                                    <button type="submit" class="btn-1 d-flex justify-content-center align-items-center text-center mt-30 w-100">@lang('Submit') <span></span></button>
-                                </div>
                             </div>
+
+                            <button type="submit" name="submit" value="submit"
+                                class="btn btn-primary btn-block mb-4 login_btn w-100">
+                                Submit
+                            </button>
+
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
+</section>
 
 @endsection
