@@ -26,7 +26,7 @@
                                             Started with passion and purpose to provide a better opportunities for
                                             empowering life in all aspects, and enhance the value of life.</p>
 
-                                        <a href="join-now.html" class="btn">Enroll Now</a>
+                                        <a href="/register" class="btn">Enroll Now</a>
 
                                     </div>
 
@@ -53,14 +53,14 @@
 
                                     <div class="banner-content">
 
-                                        <h1>Integrated Wellness</h1>
+                                        <h1>Integrated Wellness Startup</h1>
 
                                         <p> Improving health and well-being through our therapeutic products. Our
                                             comprehensive approach and research focus on products that deliver
                                             strong clinical performance.
                                         </p>
 
-                                        <a href="integrated-wellness.html" class="btn">Read More</a>
+                                        <a href="#" class="btn">Read More</a>
 
                                     </div>
 
@@ -200,17 +200,27 @@
                             <!-- <h4>MyStartUp Living Life Excellence brings you into the future of integrated living. -->
                             </h4>
                             <p>
-                                You may step into the integrated lifestyle of the future with MyStartUp lifestyle Life Excellence.
-                                With MyStartUp, you can experience integrated living in the future. Join us on a journey where innovation and wellness collide with our goods, which are supported by extensive research.
+                                You may step into the integrated lifestyle of the future with MyStartUp lifestyle Life
+                                Excellence.
+                                With MyStartUp, you can experience integrated living in the future. Join us on a journey
+                                where innovation and wellness collide with our goods, which are supported by extensive
+                                research.
                             </p>
                             <p>
-                                Our goal is to help you achieve holistic wellness and improve your quality of life. You can take advantage of our holiday services that are customised to meet your unique requirements. We effectively handle cutting-edge assets and eco-farmlands to increase your money.
+                                Our goal is to help you achieve holistic wellness and improve your quality of life. You
+                                can take advantage of our holiday services that are customised to meet your unique
+                                requirements. We effectively handle cutting-edge assets and eco-farmlands to increase
+                                your money.
                             </p>
                             <p>
-                                Our team of professionals makes sure you get the maximum amount of rest, renewal, and pleasure together with unmatched access to distinctive locations, immaculate homes, and the newest styles in fashion. Investigate our infraspace properties and become fully engaged with our state-of-the-art endeavours.
+                                Our team of professionals makes sure you get the maximum amount of rest, renewal, and
+                                pleasure together with unmatched access to distinctive locations, immaculate homes, and
+                                the newest styles in fashion. Investigate our infraspace properties and become fully
+                                engaged with our state-of-the-art endeavours.
                             </p>
                             <p>
-                                How many of you would like to move from the 95% to the 5% and begin a Recognise what the Rich has to say if you don't want to make compromises in life.
+                                How many of you would like to move from the 95% to the 5% and begin a Recognise what the
+                                Rich has to say if you don't want to make compromises in life.
                             </p>
 
 
@@ -422,8 +432,7 @@
 
                         <div class="listing-img">
 
-                            <a href="integrated-wellness.html"><img src="/web_assets/assets/img/wellness.jpg"
-                                    class="img-fluid" alt="wellness"></a>
+                            <img src="/web_assets/assets/img/technologies.jpg" class="img-fluid" alt="technologies">
 
                         </div>
 
@@ -433,7 +442,52 @@
 
                                 <div class="listing-title">
 
-                                    <h3><a href="integrated-wellness.html">Integrated Wellness</a></h3>
+                                    <h3>Mystartup Technologies</h3>
+
+                                </div>
+
+                                <div class="listing-profile-details">
+
+                                    <div class="listing-user">
+
+                                        <div class="listing-user-details">
+
+                                            <span>MyStartUp Technology Products are physical and digital items
+                                                created to fulfill specific technological needs and provide
+                                                innovative solutions.</span>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-sm-12 col-lg-4 mb-4">
+
+                    <div class="listing-card h-100">
+
+                        <div class="listing-img">
+
+                            <img src="/web_assets/assets/services/integrated-wellness-startup.jpg" class="img-fluid"
+                                alt="Integrated Wellness Startup">
+
+                        </div>
+
+                        <div class="listing-content">
+
+                            <div class="listing-details">
+
+                                <div class="listing-title">
+
+                                    <h3>Integrated Wellness Startup</h3>
 
                                 </div>
 
@@ -453,11 +507,6 @@
 
                                     </div>
 
-                                    <div class="listing-btn d-none">
-
-                                        <a href="integrated-wellness.html" class="btn consult-btn">Read More</a>
-
-                                    </div>
 
                                 </div>
 
@@ -475,8 +524,8 @@
 
                         <div class="listing-img">
 
-                            <a href="integrated-holiday.html"><img src="/web_assets/assets/img/holidays.jpg"
-                                    class="img-fluid" alt="holidays"></a>
+                            <img src="/web_assets/assets/services/integrated-vacation-services-startup.jpg"
+                                class="img-fluid" alt="Integrated Vacation Services Startup">
 
                         </div>
 
@@ -486,7 +535,7 @@
 
                                 <div class="listing-title">
 
-                                    <h3><a href="integrated-holiday.html">Integrated Vacation Services</a></h3>
+                                    <h3>Integrated Vacation Services Startup</h3>
 
                                 </div>
 
@@ -503,12 +552,6 @@
 
                                     </div>
 
-                                    <div class="listing-btn d-none">
-
-                                        <a href="integrated-holiday.html" class="btn consult-btn">Read More</a>
-
-                                    </div>
-
                                 </div>
 
                             </div>
@@ -525,9 +568,8 @@
 
                         <div class="listing-img">
 
-                            <a href="agriculture-eco-farm-lands.html"><img
-                                    src="/web_assets/assets/img/real-estate.jpg" class="img-fluid"
-                                    alt="real-estate"></a>
+                            <img src="/web_assets/assets/services/startup-infra-space-development.jpg" class="img-fluid"
+                                alt="real-estate">
 
                         </div>
 
@@ -537,7 +579,7 @@
 
                                 <div class="listing-title">
 
-                                    <h3><a href="agriculture-eco-farm-lands.html">Infra-space Development</a></h3>
+                                    <h3>Startup Infra-space Development</h3>
 
                                 </div>
 
@@ -554,13 +596,6 @@
 
                                     </div>
 
-                                    <div class="listing-btn d-none">
-
-                                        <a href="agriculture-eco-farm-lands.html" class="btn consult-btn">Read
-                                            More</a>
-
-                                    </div>
-
                                 </div>
 
                             </div>
@@ -576,9 +611,8 @@
                     <div class="listing-card h-100">
 
                         <div class="listing-img">
-
-                            <a href="integrated-fashion.html"><img src="/web_assets/assets/img/fashions.jpg"
-                                    class="img-fluid" alt="fashions"></a>
+                            <img src="/web_assets/assets/services/mystartup-integrated-fashions.jpg" class="img-fluid"
+                                alt="fashions">
 
                         </div>
 
@@ -588,7 +622,7 @@
 
                                 <div class="listing-title">
 
-                                    <h3><a href="integrated-fashion.html">Integrated Fashions</a></h3>
+                                    <h3>MyStartUp Integrated Fashions</h3>
 
                                 </div>
 
@@ -607,12 +641,6 @@
 
                                     </div>
 
-                                    <div class="listing-btn d-none">
-
-                                        <a href="integrated-fashion.html" class="btn consult-btn">Read More</a>
-
-                                    </div>
-
                                 </div>
 
                             </div>
@@ -630,8 +658,7 @@
 
                         <div class="listing-img">
 
-                            <a href="fortue-life-foundation.html"><img src="/web_assets/assets/img/hospitality.jpg"
-                                    class="img-fluid" alt="hospitality"></a>
+                            <img src="/web_assets/assets/img/hospitality.jpg" class="img-fluid" alt="hospitality">
 
                         </div>
 
@@ -641,7 +668,7 @@
 
                                 <div class="listing-title">
 
-                                    <h3><a href="fortue-life-foundation.html">MyStartUp Foundation (CFS)</a></h3>
+                                    <h3>MyStartUp Foundation (CFS)</h3>
 
                                 </div>
 
@@ -660,12 +687,6 @@
 
                                     </div>
 
-                                    <div class="listing-btn d-none">
-
-                                        <a href="fortue-life-foundation.html" class="btn consult-btn">Read More</a>
-
-                                    </div>
-
                                 </div>
 
                             </div>
@@ -675,64 +696,6 @@
                     </div>
 
                 </div>
-
-
-
-
-                <div class="col-md-6 col-sm-12 col-lg-4 mb-4">
-
-                    <div class="listing-card h-100">
-
-                        <div class="listing-img">
-
-                            <a href="fortue-life-technologies.html"><img
-                                    src="/web_assets/assets/img/technologies.jpg" class="img-fluid"
-                                    alt="technologies"></a>
-
-                        </div>
-
-                        <div class="listing-content">
-
-                            <div class="listing-details">
-
-                                <div class="listing-title">
-
-                                    <h3><a href="fortue-life-technologies.html">Mystartup Technologies</a></h3>
-
-                                </div>
-
-                                <div class="listing-profile-details">
-
-                                    <div class="listing-user">
-
-                                        <div class="listing-user-details">
-
-                                            <span>MyStartUp Technology Products are physical and digital items
-                                                created to fulfill specific technological needs and provide
-                                                innovative solutions.</span>
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="listing-btn d-none">
-
-                                        <a href="fortue-life-technologies.html" class="btn consult-btn">Read
-                                            More</a>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
 
             </div>
 

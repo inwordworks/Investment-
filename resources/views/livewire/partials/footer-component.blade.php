@@ -13,7 +13,7 @@
                         <div class="footer-logo">
 
                             <a href="/">
-                                <img src="{{getFile(basicControl()->logo_driver,basicControl()->logo)}}" alt="logo"
+                                <img src="{{getFile(basicControl()->logo_driver, basicControl()->logo)}}" alt="logo"
                                     style="height:45px"></a>
 
                         </div>
@@ -95,22 +95,14 @@
 
                                     <div class="footer-address">
 
-                                        <p><i class="feather-map-pin"></i> Flat 305, Phase iv, Block 5 & 6,
-                                            Venture 2, Kukatpally, Hyderabad, Rangareddi, Telangana, India,
-                                            500072.</p>
+                                        <p><i class="feather-map-pin"></i>
+                                            1-68/4, Plot no: - 80 & 81, 2nd
+                                            Floor, Jaihind Enclave, Arunodaya Colony, Madhapur Hyderabad Rangareddi
+                                            Telangana - 500081
+                                        </p>
 
                                     </div>
 
-                                    <!--									<div class="footer-address">
-
-                            <p><i class="feather-phone-call"></i>SUPPORT CONTACT : +91 9676121199</p>
-
-                        </div>-->
-                                    <div class="footer-address">
-
-                                        <p><i class="feather-phone-call"></i>CUSTOMER CARE : +91 9676141199</p>
-
-                                    </div>
                                     <div class="footer-address">
 
                                         <p><i class="feather-phone-call"></i>DISPATCH SUPPORT : +91 7702755571
@@ -119,8 +111,12 @@
                                     </div>
                                     <div class="footer-address">
 
-                                        <p><i class="feather-phone-call"></i>DISTRIBUTOR SUPPORT : +91
-                                            7702755572</p>
+                                        <p><i class="feather-phone-call"></i>CUSTOMER CARE : +91 7702755572</p>
+
+                                    </div>
+                                    <div class="footer-address">
+
+                                        <p><i class="feather-phone-call"></i>DISTRIBUTOR SUPPORT : +91 7702755574</p>
 
                                     </div>
 

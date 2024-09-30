@@ -90,7 +90,52 @@
             </div>
         </div>
     </section>
-
+    <section class="counter-section">
+        <div class="ban-bg">
+            <img src="/web_assets/assets/img/counter-bg.png" alt="design-image" class="img-fluid bg-06">
+            <img src="/web_assets/assets/img/counter-bg-01.png" alt="eye-image" class="img-fluid bg-07">
+        </div>
+        <img src="/web_assets/assets/images/live-icon.png" alt="eye-image" class="img-fluid live-icon">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-3 col-sm-6 ">
+                    <div class="count-box">
+                        <span class="count-icon">
+                            <img src="/web_assets/assets/img/happy-customer.png" alt="Happy Customer"
+                                style="height: 50px;">
+                        </span>
+                        <div class="count-info">
+                            <h3><span class="count-digit">985</span>+</h3>
+                            <p>Happy Customer</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="count-box">
+                        <span class="count-icon">
+                            <img src="/web_assets/assets/img/experience.png" alt="Experience" style="height: 50px;">
+                        </span>
+                        <div class="count-info">
+                            <h3><span class="count-digit">27</span>+</h3>
+                            <p>Year of Experience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6">
+                    <div class="count-box">
+                        <span class="count-icon">
+                            <img src="/web_assets/assets/img/satisfaction.png" alt="satisfaction"
+                                style="height: 50px;">
+                        </span>
+                        <div class="count-info">
+                            <h3><span class="count-digit">100</span>%</h3>
+                            <p>Satisfaction</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="why-choose-section pt-50" data-aos="fade-up">
         <div class="container">
             <div class="row">

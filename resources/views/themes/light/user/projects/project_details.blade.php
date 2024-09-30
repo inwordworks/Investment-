@@ -140,17 +140,12 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">@lang('Invest Now')</h1>
+                <h1 class="modal-title fs-5" id="exampleModalLabel">@lang('Buy product')</h1>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{route('user.projectInvest')}}" method="post">
                 @csrf
                 <div class="modal-body project-modal">
-                    <p class="text-center mt-2 mb-1"> @lang('Maturity') : {{$project->number_of_return?$project->number_of_return.' '.trans('Times'):'Lifetime Earning'}}</p>
-                    <p class="text-center mb-1"> @lang('ROI :') {{$project->getReturn()}}</p>
-                    <p class="text-center mb-2"> @lang('Return Period') : {{$project->returnPeriod()}}</p>
-                    <p class="text-center mb-2">@lang('Capital Back') : {{$project->capital_back?'Yes':'No'}}</p>
-
                     <div class="row g-3">
                         <div class="col-12">
                             <select class="cmn-select2-modal" data-select2-id="select2-data-1-sjyd" aria-hidden="true" required name="balance_type">
