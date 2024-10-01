@@ -38,4 +38,5 @@ Here are few points which i understant, correct me if need to:
 // remove table, migation will do that
 
 Implement hidden captcha for login/register/contact form
+referral logo needed to be changed
 also add export to the withdrawl table in admin panel

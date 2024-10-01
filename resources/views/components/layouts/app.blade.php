@@ -38,7 +38,7 @@
 
     <meta property="og:description" content="MyStartUp">
 
-    <meta property="og:image" content="/web_assets/assets/img/logo-thumbnail.jpg">
+    <meta property="og:image" content="{{ getFile(basicControl()->logo_driver, basicControl()->logo) }}">
 
     <meta name="twitter:card" content="summary_large_image">
 
@@ -50,7 +50,7 @@
 
     <meta name="twitter:description" content="MyStartUp">
 
-    <meta name="twitter:image" content="/web_assets/assets/img/logo-thumbnail.jpg">
+    <meta name="twitter:image" content="{{ getFile(basicControl()->logo_driver, basicControl()->logo) }}">
 
     <link rel="stylesheet" href="/web_assets/assets/css/bootstrap.min.css">
 
