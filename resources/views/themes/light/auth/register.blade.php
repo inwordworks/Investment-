@@ -149,6 +149,38 @@
 
                             </div>
 
+                            @if($basicControl->manual_recaptcha === 1 && $basicControl->reCaptcha_status_registrationuser === 1)
+                                <!-- <span>Manual captcha</span> -->
+                                <div class="sign-in-form-group">
+                                    <label for="captcha">@lang('Captcha')</label>
+                                    <input type="text" name="captcha" id="captcha" class="sign-in-input"
+                                        placeholder="@lang('Enter Captcha')">
+                                    @error('captcha')
+                                        <span class="invalid-feedback d-block" role="alert"> {{ $message }} </span>
+                                    @enderror
+                                </div>
+
+                                <div class="mt-4">
+                                    <div class="input-group captcha-group input-group-merge manualRecaptchaImage"
+                                        data-hs-validation-validate-class>
+                                        <img src="{{route('captcha') . '?rand=' . rand()}}" id='captcha_image'>
+                                        <a class="input-group-append input-group-text manualRecaptchaIcon"
+                                            href='javascript: refreshCaptcha();'>
+                                            <i class="fa-solid fa-rotate-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            @endif
+
+                            @if(basicControl()->google_user_registration_recaptcha_status && basicControl()->google_recaptcha)
+                                <div class="row mt-4 mb-4">
+                                    <div class="g-recaptcha @error('g-recaptcha-response') is-invalid @enderror"
+                                        data-sitekey="{{ env('GOOGLE_RECAPTCHA_SITE_KEY') }}"></div>
+                                    @error('g-recaptcha-response')
+                                        <span class="invalid-feedback d-block">{{ $message }}</span>
+                                    @enderror
+                                </div>
+                            @endif
                             <div class="form-check d-flex mb-4 w-100">
                                 <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33"
                                     checked />
@@ -156,8 +188,8 @@
                                     Accept Terms & Conditions
                                 </label>
                             </div>
-                            <button type="submit" name="submit" value="submit"
-                                class="btn btn-primary btn-block mb-4 login_btn w-100" style="margin: 0 auto;">
+                            <button type="submit" name="submit" value="submit" style="margin: 0 auto;"
+                                class="btn btn-primary btn-block mb-4 login_btn w-100">
                                 @lang('Create Account')
                             </button>
                             <div class="account-signup w-100">
@@ -173,3 +205,29 @@
 </section>
 <!-- Register -->
 @endsection
+
+
+@push('js-lib')
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+@endpush
+
+@push('style')
+    <style>
+        .main-footer-padding {
+            padding-top: 60px;
+        }
+    </style>
+@endpush
+
+@push('script')
+    <script>
+        'use strict';
+        function refreshCaptcha() {
+            let img = document.images['captcha_image'];
+            img.src = img.src.substring(
+                0, img.src.lastIndexOf("?")
+            ) + "?rand=" + Math.random() * 1000;
+        }
+
+    </script>
+@endpush

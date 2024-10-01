@@ -18,7 +18,8 @@ if (!function_exists('template')) {
     function template($asset = false)
     {
         $activeTheme = basicControl()->theme ?? 'light';
-        if ($asset) return 'assets/themes/' . $activeTheme . '/';
+        if ($asset)
+            return 'assets/themes/' . $activeTheme . '/';
         return 'themes.' . $activeTheme . '.';
     }
 }
@@ -119,13 +120,10 @@ if (!function_exists('basicControl')) {
         }
         try {
             DB::connection()->getPdo();
-            // $email_description = $configure->email_description;
-            // $email_description = str_replace("[[current_year]]", date('Y'), $email_description);
-            // $configure->email_description = $email_description;
             $configure = Cache::get('ConfigureSetting');
             if (!$configure) {
                 $configure = BasicControl::firstOrCreate();
-                Cache::put('ConfigureSetting', $configure);
+                Cache::put('ConfigureSetting', $configure, 3600);
             }
 
             return $configure;
@@ -133,10 +131,6 @@ if (!function_exists('basicControl')) {
             // throw $th->getMessage();
             die($th->getMessage());
             // die("Unable to establish a connection to the database. Please check your connection settings and try again later ...");
-        }
-
-        try {
-        } catch (\Exception $e) {
         }
     }
 }
@@ -163,7 +157,7 @@ if (!function_exists('controlPanelRoutes')) {
         $listRoutes->push(config('generalsettings.push-notification'));
         $listRoutes->push(config('generalsettings.email'));
         $listRoutes->push(config('generalsettings.sms'));
-        $list =  $listRoutes->collapse()->map(function ($item) {
+        $list = $listRoutes->collapse()->map(function ($item) {
             return $item['route'];
         })->values()->push('admin.settings')->unique();
         return $list;
@@ -695,7 +689,7 @@ if (!function_exists('convertRate')) {
         if ($rate) {
             $convertRate = $rate->$currencyCode;
         }
-        return (float)$convertRate;
+        return (float) $convertRate;
     }
 }
 if (!function_exists('stringToRouteName')) {
@@ -786,7 +780,8 @@ if (!function_exists('timeAgo')) {
 if (!function_exists('code')) {
     function code($length)
     {
-        if ($length == 0) return 0;
+        if ($length == 0)
+            return 0;
         $min = pow(10, $length - 1);
         $max = 0;
         while ($length > 0 && $length--) {
@@ -1030,7 +1025,7 @@ function styleSentence($sentence, $position)
         }
         return $modifiedSen;
     }
-    return  '';
+    return '';
 }
 
 function styleSentence2($sentence, $position)
@@ -1047,7 +1042,7 @@ function styleSentence2($sentence, $position)
         }
         return $modifiedSen;
     }
-    return  '';
+    return '';
 }
 
 function convertToReadableFormat($number)
@@ -1094,7 +1089,7 @@ if (!function_exists('removeValue')) {
 
 function checkUserKyc($id)
 {
-    $userKycs =  UserKyc::where('user_id', Auth::user()->id)->get();
+    $userKycs = UserKyc::where('user_id', Auth::user()->id)->get();
 
     foreach ($userKycs as $item) {
         if ($item->kyc_id == $id) {
@@ -1123,16 +1118,16 @@ function checkKycForm($validateForm)
             $rejected = ['rejected' => $userKyc->kyc_type];
         }
     }
-    $returnForm =  null;
+    $returnForm = null;
     if ($is_pending) {
-        $returnForm =  $is_pending;
+        $returnForm = $is_pending;
     } elseif ($rejected) {
-        $returnForm =  $rejected;
+        $returnForm = $rejected;
     }
     return $returnForm;
 }
 
-if (! function_exists('put_permanent_env')) {
+if (!function_exists('put_permanent_env')) {
     function put_permanent_env($key, $value)
     {
         $path = app()->environmentFilePath();

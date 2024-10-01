@@ -23,7 +23,7 @@
             <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
                 <div class="card bg-glass">
                     <div class="card-body px-4 py-5 px-md-5">
-                        <form action="{{ route('login') }}" method="post">
+                        <form action="{{ route('login') }}" method="post" id="login-form"">
                             @csrf
                             <div class="row">
                                 <div class="col-md-12 mb-3">
@@ -82,10 +82,13 @@
 
                             @if(basicControl()->google_user_login_recaptcha_status && basicControl()->google_recaptcha)
                             <!-- <span>Google re-captcha</span> -->
-                                <div class="row mt-4 mb-4">
-                                    <div class="g-recaptcha @error('g-recaptcha-response') is-invalid @enderror" data-sitekey="{{ env('GOOGLE_RECAPTCHA_SITE_KEY') }}"></div>
+                                <div class="row mt-4">
+                                    <div class="g-recaptcha @error('g-recaptcha-response') is-invalid @enderror"
+                                            data-sitekey="{{ env('GOOGLE_RECAPTCHA_SITE_KEY') }}"></div>
                                     @error('g-recaptcha-response')
-                                    <span class="invalid-feedback d-block">{{ $message }}</span>
+                                    <span class="invalid-feedback d-block text-danger" role="alert">
+                                        {{ $message }}
+                                    </span>
                                     @enderror
                                 </div>
                             @endif
@@ -96,8 +99,16 @@
                                     Remember Me
                                 </label>
                             </div>
-                            <button type="submit" name="submit" value="submit"
-                                class="btn btn-primary btn-block mb-4 login_btn">
+                            <button
+                             type="button"
+                             name="submit" value="submit"
+                                class="btn btn-primary btn-block mb-4 login_btn g-recaptcha"
+                            @if(basicControl()->google_user_login_recaptcha_status && basicControl()->google_recaptcha)
+                                data-sitekey="{{ env('GOOGLE_RECAPTCHA_SITE_KEY') }}"
+                                    data-callback='onSubmit'
+                                    data-action='submit'
+                            @endif
+                                >
                                 Login <i class="fas fa-sign-in-alt"></i>
                             </button>
 
@@ -132,6 +143,9 @@
 @push('script')
     <script>
         'use strict';
+        function onSubmit(token) {
+            document.getElementById("login-form").submit();
+        }
         function refreshCaptcha(){
             let img = document.images['captcha_image'];
             img.src = img.src.substring(

@@ -79,6 +79,7 @@
 
     <link rel="stylesheet" href="/web_assets/assets/css/sweet-alert.css">
 
+    @stack('style')
     <style>
         @media screen and (max-width: 990px) {
             .banner-section {
@@ -231,6 +232,10 @@
 
     <script src="/web_assets/assets/js/script.js"></script>
 
+
+    @stack('js-lib')
+    @include('plugins')
+    @stack('script')
 
     <script src="{{ asset('assets/global/js/notiflix-aio-3.2.6.min.js') }}"></script>
     <script>
