@@ -32,11 +32,7 @@
 
 								<p>The term “MyStartUp of Companies" ‘us’ or ‘we’ refers to the owner of the
 									website
-									whose registered office is 305, & 702, Block No 5,6, &7 Lig Venture-2,
-									KPHB-Phase-IV,
-									Hyderabad-500072. Our company’s Private Limited registration number is PTC -127416
-									at
-									Hyderabad. The term ‘you’ refers to the user or viewer of our website. </p>
+									whose registered office is: 1-68/4, Plot no: - 80 & 81, 2nd Floor, Jaihind Enclave, Arunodaya Colony, Madhapur Hyderabad Rangareddi Telangana - 500081. The term ‘you’ refers to the user or viewer of our website. </p>
 							</div>
 							<ul class="terms-text terms-list">
 								<p>The use of this website is subject to the following terms of use:</p>

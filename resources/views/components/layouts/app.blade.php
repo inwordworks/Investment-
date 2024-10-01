@@ -234,7 +234,6 @@
 
 
     @stack('js-lib')
-    @include('plugins')
     @stack('script')
 
     <script src="{{ asset('assets/global/js/notiflix-aio-3.2.6.min.js') }}"></script>
