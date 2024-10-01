@@ -5,7 +5,7 @@
 }
 
 .gradientBg {
-    background-image: linear-gradient(to right, #1DF0A4, #0e76b1)
+    background-image: linear-gradient(to right, #1DF0A4, #0e76b1) !important;
 }
 
 .upload-wrap,

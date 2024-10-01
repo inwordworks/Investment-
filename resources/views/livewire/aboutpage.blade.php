@@ -1,7 +1,7 @@
 <div>
 
     <div class="breadcrumb-bar-two"
-        style="background: url('/web_assets/assets/img/breadcrumb.jpg') no-repeat; background-size: cover;">
+        style="background: url('/web_assets/assets/img/breadcrumb.jpg') no-repeat center; background-size: cover;">
         <div class="container">
             <div class="row align-items-center inner-banner">
                 <div class="col-12 text-center">
@@ -36,7 +36,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="about-inner-img">
-                                    <div class="about-box">
+                                    <div class="about-box gradientBg">
                                         <h4>Years of Experience – Economical Solutions</h4>
                                     </div>
                                     <div class="about-img">
@@ -98,7 +98,7 @@
                     <div class="card why-choose-card w-100">
                         <div class="card-body">
                             <div class="why-choose-icon">
-                                <span><i class="fal fa-binoculars fa-2x"></i></span>
+                                <span class="gradientBg"><i class="fal fa-binoculars fa-2x"></i></span>
                             </div>
                             <div class="why-choose-content">
                                 <h4>Our Vision </h4>
@@ -119,7 +119,7 @@
                     <div class="card why-choose-card w-100">
                         <div class="card-body">
                             <div class="why-choose-icon">
-                                <span><i class="fal fa-bullseye-arrow fa-2x"></i></span>
+                                <span class="gradientBg"><i class="fal fa-bullseye-arrow fa-2x"></i></span>
                             </div>
                             <div class="why-choose-content">
                                 <h4>Our Mission</h4>
@@ -143,7 +143,7 @@
                     <div class="card why-choose-card w-100">
                         <div class="card-body">
                             <div class="why-choose-icon">
-                                <span><i class="fal fa-hand-holding-seedling fa-2x"></i></span>
+                                <span class="gradientBg"><i class="fal fa-hand-holding-seedling fa-2x"></i></span>
                             </div>
                             <div class="why-choose-content">
                                 <h4>Core Values</h4>

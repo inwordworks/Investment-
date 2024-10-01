@@ -23,7 +23,7 @@
 							<div class="terms-text">
 								<h4>Section 1 – Introduction</h4>
 								<h5>The Rules of Conduct (“Rules” or “ROC”) define and establish:</h5>
-								<p>Certain principles to be followed in the development and maintenance of My MyStartUp
+								<p>Certain principles to be followed in the development and maintenance of MyStartUp
 									Group
 									Business.
 									We The rights, duties, and responsibilities of each Distributor/Independent Business
@@ -65,7 +65,7 @@
 							<ul class="terms-text terms-list">
 								<h4>Section 2 – Definitions</h4>
 								<h5>MyStartUp : MyStartUp shall mean MyStartUp.</h5>
-								<li><strong>My MyStartUp Business: </strong>A business, as identified by MyStartUp
+								<li><strong>MyStartUp Business: </strong>A business, as identified by MyStartUp
 									Distributor Authorization
 									number and the MyStartUp Application for Appointment as an Authorized Distributor
 									of MyStartUp
@@ -1099,7 +1099,7 @@
 									full
 									compliance with the Rules of Conduct and all other provisions of the Distributor
 									Contract, a
-									Distributor may use the MyStartUp name (but not the MY MyStartUp
+									Distributor may use the MyStartUp name (but not the MyStartUp
 									GROUP trademark, logo or any other trademarks, trade names, or service marks
 									belonging to
 									or licensed to MyStartUp), on his imprinted checks and business cards provided that

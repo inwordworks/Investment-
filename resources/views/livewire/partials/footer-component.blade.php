@@ -210,7 +210,7 @@
 
                         <div class="copyright-text text-center mb-3">
 
-                            <p class="mb-0"> © Copyright company. All right reserved.</p>
+                            <p class="mb-0"> © Copyright @ MyStartup Solutions. All right reserved.</p>
 
                         </div>
 
