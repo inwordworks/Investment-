@@ -22,7 +22,8 @@
                                         <h1>Welcome to <span>MyStartUp</span></h1>
 
                                         <p>MSC Solutions (My Startup Company) refers to your own entrepreneurial
-                                            venture, which you're building from the ground up, often characterized by:<br />
+                                            venture, which you're building from the ground up, often characterized
+                                            by:<br />
 
                                             My Startup often focus on solving real-world problems or meeting specific
                                             needs, leveraging technology, and disrupting traditional industries.</p>
@@ -433,7 +434,8 @@
 
                         <div class="listing-img">
 
-                            <img src="/web_assets/assets/img/technologies.jpg" class="img-fluid" alt="technologies">
+                            <img src="/web_assets/assets/services/mystartup-technologies.jpg" class="img-fluid"
+                                alt="technologies">
 
                         </div>
 
@@ -659,7 +661,8 @@
 
                         <div class="listing-img">
 
-                            <img src="/web_assets/assets/img/hospitality.jpg" class="img-fluid" alt="hospitality">
+                        <img src="/web_assets/assets/services/mystartup-foundation.jpg" class="img-fluid"
+                                alt="mystartup-foundation">
 
                         </div>
 
