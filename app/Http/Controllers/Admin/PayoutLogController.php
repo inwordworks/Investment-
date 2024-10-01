@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Exports\WithdrawExport;
 use App\Http\Controllers\Controller;
 use App\Models\Payout;
 use App\Models\PayoutMethod;
@@ -11,6 +12,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Yajra\DataTables\Facades\DataTables;
+use Maatwebsite\Excel\Facades\Excel;
 
 class PayoutLogController extends Controller
 {
@@ -34,6 +36,21 @@ class PayoutLogController extends Controller
 
         $data['methods'] = PayoutMethod::where('is_active', 1)->orderBy('id', 'asc')->get();
         return view('admin.payout.logs', $data, compact('payoutRecord'));
+    }
+
+    public function exportPending()
+    {
+        $payouts = Payout::with(['user:id,username,firstname,lastname', 'userkyc'])
+            ->whereHas('user')
+            ->whereHas('userkyc')
+            ->whereIn('status', [0, 1])
+            ->orderBy('id', 'desc')
+            ->get();
+        if ($payouts && count($payouts) > 0) {
+            $fileName = 'Withdraw-requests-' . time() . '.xlsx';
+            return Excel::download(new WithdrawExport($payouts), $fileName);
+        }
+        return back()->with('error', 'No pending withdraw requests found');
     }
 
     public function search(Request $request)
@@ -123,14 +140,14 @@ class PayoutLogController extends Controller
             })
             ->addColumn('amount', function ($item) {
                 $statusClass = $item->getStatusClass();
-                return "<h6 class='mb-0 $statusClass '>" . fractionNumber(getAmount($item->net_amount)). ' ' . $item->payout_currency_code . "</h6>";
+                return "<h6 class='mb-0 $statusClass '>" . fractionNumber(getAmount($item->net_amount)) . ' ' . $item->payout_currency_code . "</h6>";
 
             })
             ->addColumn('charge', function ($item) {
-                return "<span class='text-danger'>".getAmount($item->charge) . ' ' . $item->payout_currency_code."</span>";
+                return "<span class='text-danger'>" . getAmount($item->charge) . ' ' . $item->payout_currency_code . "</span>";
             })
             ->addColumn('net amount', function ($item) {
-                return "<h6>".getAmount($item->amount).' '.$item->payout_currency_code."</h6>";
+                return "<h6>" . getAmount($item->amount) . ' ' . $item->payout_currency_code . "</h6>";
             })
             ->addColumn('status', function ($item) {
                 if ($item->status == 0) {
@@ -192,7 +209,7 @@ class PayoutLogController extends Controller
                 data-sendername='" . optional($item->user)->firstname . ' ' . optional($item->user)->lastname . "'
                 data-transactionid='$item->trx_id'
                 data-feedback='$item->feedback'
-                data-amount=' " . getAmount($item->amount).' '.$item->payout_currency_code . "'
+                data-amount=' " . getAmount($item->amount) . ' ' . $item->payout_currency_code . "'
                 data-method='" . optional($item->method)->name . "'
                 data-gatewayimage='" . getFile(optional($item->method)->driver, optional($item->method)->logo) . "'
                 data-datepaid='" . dateTime($item->created_at, 'd M Y') . "'
@@ -292,7 +309,7 @@ class PayoutLogController extends Controller
         }
 
         /* Add money from Sender Wallet */
-        $addBalance = updateBalance($payout->user_id, $payout->net_amount_in_base_currency, 1,$payout->balance_type);
+        $addBalance = updateBalance($payout->user_id, $payout->net_amount_in_base_currency, 1, $payout->balance_type);
 
         $payout->feedback = $feedback;
         $payout->status = 3;

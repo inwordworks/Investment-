@@ -119,6 +119,8 @@
 
                 <div class="d-grid d-sm-flex justify-content-md-end align-items-sm-center gap-2">
 
+                    <a type="button" class="btn btn-primary btn-sm" href="{{ route('admin.payout.export.pending') }}">Download Pending</a>
+
                     <div class="dropdown">
                         <button type="button" class="btn btn-white btn-sm w-100"
                                 id="dropdownMenuClickable" data-bs-auto-close="false"
@@ -349,7 +351,7 @@
             HSCore.components.HSDatatables.init($('#datatable'), {
                 processing: true,
                 serverSide: true,
-                ordering: false, 
+                ordering: false,
                 ajax: {
                     url: "{{ route("admin.payout.search") }}",
                 },

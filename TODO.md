@@ -6,11 +6,7 @@ PHP Deprecated: Optional parameter $trx declared before required parameter $amou
 // cloudlays
 // path: cd applications/tydvbhbqcv/public_html
 // command_to_run: php artisan optimize:clear; php artisan clear-compiled; php artisan cache:clear; php artisan config:clear; php artisan route:cache; php artisan config:cache; php artisan optimize; php artisan storage:link
-// command_to_run: php artisan optimize:clear; php artisan clear-compiled; php artisan cache:clear; php artisan config:clear; php artisan storage:link
-php artisan cache:clear
-php artisan config:cache
-php artisan route:cache
-php artisan optimize
+// command_to_run: php artisan optimize:clear; php artisan clear-compiled; php artisan cache:clear; php artisan route:cache; php artisan config:cache; php artisan config:clear; php artisan storage:link
 
 Reward system
 1st level -> refer atleast 6 persons -> level1 achiever -> direct referral only
@@ -37,6 +33,6 @@ Here are few points which i understant, correct me if need to:
 // remove all other files related to plan investment, git will do that
 // remove table, migation will do that
 
-Implement hidden captcha for login/register/contact form
+Implement hidden captcha for login/register
 referral logo needed to be changed
 also add export to the withdrawl table in admin panel

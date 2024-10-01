@@ -370,6 +370,7 @@ Route::group(['prefix' => basicControl()->admin_prefix, 'as' => 'admin.'], funct
         /* ====== Payout Log =====*/
         Route::get('withdraw/log', [PayoutLogController::class, 'index'])->name('payout.log');
         Route::get('withdraw/search', [PayoutLogController::class, 'search'])->name('payout.search');
+        Route::get('withdraw/export-pending', [PayoutLogController::class, 'exportPending'])->name('payout.export.pending');
         Route::get('withdraw/pending', [PayoutLogController::class, 'pending'])->name('payout.pending');
         Route::put('withdraw/action/{id}', [PayoutLogController::class, 'action'])->name('payout.action');
 

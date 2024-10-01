@@ -26,6 +26,10 @@ class Payout extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+    public function userkyc()
+    {
+        return $this->belongsTo(UserKyc::class, 'user_id', 'user_id')->where('status', '1');
+    }
 
     public function method()
     {
