@@ -304,4 +304,12 @@ class User extends Authenticatable implements CanResetPassword, UserContract
     {
         return $this->belongsTo(User::class, 'referral_id');
     }
+    public function referrals()
+    {
+        return $this->hasMany(User::class, 'referral_id', 'id');
+    }
+    public function investments()
+    {
+        return $this->hasMany(ProjectInvestment::class);
+    }
 }

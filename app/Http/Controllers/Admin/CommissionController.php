@@ -66,18 +66,85 @@ class CommissionController extends Controller
             ->make(true);
     }
 
+    public function referralLevels()
+    {
+        return view('admin.commission.rewards');
+    }
+    public function getReferralLevels(Request $request)
+    {
+        $users = User::with(['referrals', 'investments'])->get();
+
+        // Get query parameters for filtering and sorting
+        $search = $request->input('search.value');
+        $orderColumn = $request->input('order.0.column');
+        $orderDir = $request->input('order.0.dir');
+
+        // Apply filtering based on search term
+        if (!empty($search)) {
+            $users = $users->where(function ($query) use ($search) {
+                $query->where('name', 'like', '%' . $search . '%')
+                      ->orWhere('email', 'like', '%' . $search . '%')
+                      ->orWhere('phone', 'like', '%' . $search . '%');
+            });
+        }
+
+        // Apply sorting based on order column and direction
+        if (!empty($orderColumn)) {
+            $sortableColumns = ['name', 'email', 'phone', 'last_login', 'achieved_level', 'total_referral_count'];
+            $orderColumn = $sortableColumns[$orderColumn];
+            $users = $users->orderBy($orderColumn, $orderDir);
+        }
+
+        foreach ($users as $user) {
+            // Use a cached version of referral users with investment data if available
+            if (!isset($referralCache[$user->id])) {
+                $referralCache[$user->id] = $user->referralUsersWithInvestment([$user->id]);
+            }
+            $achievedLevel = $user->getRewardAchievementLevel();
+            if ($achievedLevel > 0) {
+                $totalReferralCount = 0;
+                $referralData = $referralCache[$user->id];
+                // Calculate total referral count for the current user
+                foreach ($referralData as $level => $referrals) {
+                    $totalReferralCount += count($referrals);
+                }
+                // Add only the users who achieved levels
+                $achievedUsers[] = (object) [
+                    'user_id' => $user->id,
+                    'getUser' => $user->getUser(),
+                    'email' => $user->email,
+                    'phone' => $user->phone,
+                    'last_login' => $user->last_login,
+                    'achieved_level' => $achievedLevel,
+                    'total_referral_count' => $totalReferralCount,
+                ];
+            }
+        }
+
+        return DataTables::of($achievedUsers)
+            ->addColumn('user', function ($item) {
+                return $item->getUser;
+            })
+            ->addColumn('email', function ($item) {
+                return '<span class="d-block h5 mb-0">' . $item->email . '</span>
+                            <span class="d-block fs-5">' . $item->phone . '</span>';
+            })
+            ->addColumn('achieved_level', function ($item) {
+                return 'Level: '.$item->achieved_level;
+            })
+            ->addColumn('total_referral_count', function ($item) {
+                return $item->total_referral_count.' Referrals';
+            })
+            ->addColumn('last_login', function ($item) {
+                return diffForHumans($item->last_login);
+            })
+            ->rawColumns(['user', 'email', 'achieved_level', 'total_referral_count', 'last_login'])
+            ->make(true);
+    }
+
 
     public function referral()
     {
-        // $user = User::find(11);
-        // // $data = $user->referralUsers([11]);
-        // // $levelConfig = Referral::where('commission_type', 'reward_system')->orderBy('level', 'asc')->get();
-        // $data = $user->getRewardAchievement();
-
-        // return response()->json([
-        //     // 'levelConfig'=>$levelConfig,
-        //     'data'=>$data
-        // ]);
         $data['referrals'] = Referral::get();
         return view('admin.commission.referral', $data);
     }
@@ -114,7 +181,7 @@ class CommissionController extends Controller
             for ($i = 0; $i < count($request->level); $i++) {
                 if ($request->commission[$i] && $request->amount_type[$i]) {
 
-                    
+
                     if ($request->hasFile('image') && $request->image[$i]) {
                         $upload = $this->fileUpload($request->image[$i], config('filelocation.rewards.path'), null, null, 'webp', 60);
                         $reward_image = $upload['path'];

@@ -415,6 +415,8 @@ Route::group(['prefix' => basicControl()->admin_prefix, 'as' => 'admin.'], funct
         Route::post('/referral/commission-type/status', [CommissionController::class, 'commissionStatus'])->name('commission.status');
         Route::get('/commissions', [CommissionController::class, 'index'])->name('commissions');
         Route::get('get/commission/list', [CommissionController::class, 'getCommissionList'])->name('get.commission.list');
+        Route::get('/referral/levels', [CommissionController::class, 'referralLevels'])->name('referral.levels');
+        Route::get('get/referral/levels', [CommissionController::class, 'getReferralLevels'])->name('get.referral.levels');
 
 
         /* ====== Navbar Style =====*/
