@@ -122,7 +122,7 @@ class CommissionController extends Controller
             }
         }
 
-        $achievedUsers = (object)$achievedUsers;
+        // $achievedUsers = (object)$achievedUsers;
 
         return DataTables::of($achievedUsers)
             ->addColumn('user', function ($item) {
