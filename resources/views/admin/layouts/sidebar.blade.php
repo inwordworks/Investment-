@@ -91,6 +91,13 @@
                             <span class="nav-link-title">@lang('Referral')</span>
                         </a>
                     </div>
+                    <div class="nav-item">
+                        <a class="nav-link {{ menuActive(['admin.referral.levels']) }}"
+                            href="{{ route('admin.referral.levels') }}" data-placement="left">
+                            <i class="fa-duotone fa-user-gear nav-icon"></i>
+                            <span class="nav-link-title">@lang('Rewards')</span>
+                        </a>
+                    </div>
 
                     <span class="dropdown-header mt-3">@lang('Transactions')</span>
                     <small class="bi-three-dots nav-subtitle-replacer"></small>
