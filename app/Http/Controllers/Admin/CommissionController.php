@@ -72,6 +72,7 @@ class CommissionController extends Controller
     }
     public function getReferralLevels(Request $request)
     {
+        $achievedUsers = [];
         $users = User::with(['referrals', 'investments'])->get();
 
         // Get query parameters for filtering and sorting
@@ -120,6 +121,8 @@ class CommissionController extends Controller
                 ];
             }
         }
+
+        $achievedUsers = (object)$achievedUsers;
 
         return DataTables::of($achievedUsers)
             ->addColumn('user', function ($item) {
