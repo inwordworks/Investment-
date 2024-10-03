@@ -283,7 +283,7 @@
                             @forelse($referrals->where('commission_type','reward_system') as $item)
                             <tr>
                                 <td class="text-center overflow-hidden" style="width:50px;height:50px;">
-                                    <img src="{{ getFile($item->reward_image_driver, $item->reward_image) }}" alt="Level-{{ $item->level }} reward" class="object-fit-cover w-100 h-100" />
+                                    <img src="{{ getFile($item->reward_image_driver, $item->reward_image) }}" alt="Level-{{ $item->level }} reward" class="object-fit-contain w-100 h-100" />
                                 </td>
                                 <td class="text-center">@lang('LEVEL')# {{ $item->level }}</td>
                                 <td class="text-center">{{ intval($item->commission) }} Referrals</td>
